@@ -155,39 +155,33 @@
     <link href="http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/"/>
     <id>http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/</id>
     <published>2015-04-18T15:46:45.000Z</published>
-    <updated>2015-04-18T15:49:40.155Z</updated>
+    <updated>2015-04-18T16:07:37.970Z</updated>
     <content type="html"><![CDATA[<p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
-<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name "my"</span><br><span class="line">$ git config --global user.email "my@email.address"</span><br><span class="line"><span class="comment">&lt;!--more--&gt;</span></span><br><span class="line"># 生成SSH密钥过程：</span><br><span class="line">1.  查看是否已经有了ssh密钥：</span><br></pre></td></tr></table></figure>
-<pre><code>cd ~/.ssh
-<span class="comment"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">    如果没有密钥则不会有此文件夹，有则备份删除</span></span><br><span class="line"><span class="bullet">2.  </span>生成密钥：</span><br></pre></td></tr></table></figure></span>
-
-$ ssh-keygen -t rsa -C “my@email.address”
-#会有三个提示： 指定存放位置 密钥 确认密钥
-#均按回车键就可以跳过，并以默认保存啦
-#结果是：
-Your identification has been saved in /home/tekkub/.ssh/id_rsa.
-Your public key has been saved in /home/tekkub/.ssh/id_rsa.pub.
-The key fingerprint is:
-………………
-<span class="comment"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    最后得到了两个文件：id_rsa 和 id_rsa<span class="class">.pub</span></span><br><span class="line"><span class="number">3</span>.  添加专用密钥到 ssh：</span><br></pre></td></tr></table></figure></span>
-
-#[ssh-add命令详解](http://tiandechi.com/2015/04/14/ssh-add-command/)
-$ ssh-add ~/.ssh/id_rsa
-<span class="comment"><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">4.  </span>在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥。</span><br><span class="line"><span class="code">    打开github ，登陆账号，然后在 设置-SSH keys 中添加“id_rsa.pub” 的全部内容。</span></span><br><span class="line"><span class="bullet">5.  </span>测试：</span><br></pre></td></tr></table></figure></span>
-
-$ ssh git@github.com
-The authenticity of host ‘github.com (207.97.227.239)’ can’t be established.
-RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added ‘github.com,207.97.227.239′ (RSA) to the list of known hosts.
-ERROR: Hi tekkub! You’ve successfully authenticated, but GitHub does not provide shell access
-Connection to github.com closed.
-```
-</code></pre><h1 id="愉快的使用_github_吧！">愉快的使用 github 吧！</h1><p><a href="http://blog.csdn.net/hustpzb/article/details/8230454/" target="_blank" rel="external">Git SSH Key 生成步骤</a></p>
+<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="生成SSH密钥过程：">生成SSH密钥过程：</h1><ol>
+<li><p>查看是否已经有了ssh密钥：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
+<p>如果没有密钥则不会有此文件夹，有则备份删除</p>
+</li>
+<li><p>生成密钥：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C “my<span class="annotation">@email</span>.address”</span><br><span class="line">#会有三个提示： 指定存放位置 密钥 确认密钥</span><br><span class="line">#均按回车键就可以跳过，并以默认保存啦</span><br><span class="line">#结果是：</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> <span class="regexp">/home/</span>tekkub<span class="regexp">/.ssh/</span>id_rsa.</span><br><span class="line">Your <span class="keyword">public</span> key has been saved <span class="keyword">in</span> <span class="regexp">/home/</span>tekkub<span class="regexp">/.ssh/</span>id_rsa.pub.</span><br><span class="line">The key fingerprint <span class="string">is:</span></span><br><span class="line">………………</span><br></pre></td></tr></table></figure>
+<p>最后得到了两个文件：id_rsa 和 id_rsa.pub</p>
+</li>
+<li><p>添加专用密钥到 ssh：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#[ssh-add命令详解](http://tiandechi.com/2015/04/14/ssh-add-command/)</span></span><br><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥。<br>打开github ，登陆账号，然后在 设置-SSH keys 中添加“id_rsa.pub” 的全部内容。</p>
+</li>
+<li>测试：<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ssh git<span class="annotation">@github</span>.com</span><br><span class="line">The authenticity of host ‘github.com (<span class="number">207.97</span>.227.239)’ can’t be established.</span><br><span class="line">RSA key fingerprint is <span class="number">16</span>:<span class="number">27</span>:<span class="string">ac:</span><span class="string">a5:</span><span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span><span class="string">d:</span><span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span><span class="string">b:</span><span class="number">56</span>:<span class="number">4</span><span class="string">d:</span><span class="string">eb:</span><span class="string">df:</span><span class="string">a6:</span><span class="number">48.</span></span><br><span class="line">Are you sure you want to <span class="keyword">continue</span> connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added ‘github.com,<span class="number">207.97</span>.227.239′ (RSA) to the list of known hosts.</span><br><span class="line"><span class="string">ERROR:</span> Hi tekkub! You’ve successfully authenticated, but GitHub does not provide shell access</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="愉快的使用_github_吧！">愉快的使用 github 吧！</h1><p><a href="http://blog.csdn.net/hustpzb/article/details/8230454/" target="_blank" rel="external">Git SSH Key 生成步骤</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
-<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlig]]>
+<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>]]>
+    
     </summary>
     
       <category term="GIt" scheme="http://tiandechi.com/tags/GIt/"/>
