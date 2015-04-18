@@ -1,0 +1,617 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>vim set configure | 天德池</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="钢仔">
+    
+
+    
+    <meta name="description" content="本单元可说是 Vim 的微调功能，可依您个人的喜好做有限度的调整。由于 Vim 做了相当多的扩充，文内主要是述叙 Vim 的设定，但 elvis 没有的也会标明。但并不打算一网打尽，只说明重要、常用的部份，其它的可以用1:h option-list
+查阅。在系统上，会有个1vimrc_example.vim
+檔，可以依据这个档案来设定一些常要用到的内容。
+该在何处设定呢？Vim 的设定檔可在在线做">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim set configure">
+<meta property="og:url" content="http://tiandechi.com/2015/04/18/vim-set-configure/index.html">
+<meta property="og:site_name" content="天德池">
+<meta property="og:description" content="本单元可说是 Vim 的微调功能，可依您个人的喜好做有限度的调整。由于 Vim 做了相当多的扩充，文内主要是述叙 Vim 的设定，但 elvis 没有的也会标明。但并不打算一网打尽，只说明重要、常用的部份，其它的可以用1:h option-list
+查阅。在系统上，会有个1vimrc_example.vim
+檔，可以依据这个档案来设定一些常要用到的内容。
+该在何处设定呢？Vim 的设定檔可在在线做">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim set configure">
+<meta name="twitter:description" content="本单元可说是 Vim 的微调功能，可依您个人的喜好做有限度的调整。由于 Vim 做了相当多的扩充，文内主要是述叙 Vim 的设定，但 elvis 没有的也会标明。但并不打算一网打尽，只说明重要、常用的部份，其它的可以用1:h option-list
+查阅。在系统上，会有个1vimrc_example.vim
+檔，可以依据这个档案来设定一些常要用到的内容。
+该在何处设定呢？Vim 的设定檔可在在线做">
+<meta name="twitter:creator" content="@TiandeTD">
+
+    
+    <link rel="alternative" href="/atom.xml" title="天德池" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="天德池" title="天德池"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="天德池">天德池</a></h1>
+				<h2 class="blog-motto">这里不是洗澡的地方</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tiandechi.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/18/vim-set-configure/" title="vim set configure" itemprop="url">vim set configure</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T12:53:00.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#该在何处设定呢？"><span class="toc-number">1.</span> <span class="toc-text">该在何处设定呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim_的设定檔"><span class="toc-number">1.1.</span> <span class="toc-text">Vim 的设定檔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#elvis_的设定檔"><span class="toc-number">1.2.</span> <span class="toc-text">elvis 的设定檔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nvi-m17n_的设定檔"><span class="toc-number">1.3.</span> <span class="toc-text">nvi-m17n 的设定檔</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何得知目前的设定"><span class="toc-number">2.</span> <span class="toc-text">如何得知目前的设定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#各种_set_功能说明"><span class="toc-number">3.</span> <span class="toc-text">各种 set 功能说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#autoindent[ai]"><span class="toc-number">3.1.</span> <span class="toc-text">autoindent[ai]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#autowrite[aw]"><span class="toc-number">3.2.</span> <span class="toc-text">autowrite[aw]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#background[bg]_（Vim_才有）"><span class="toc-number">3.3.</span> <span class="toc-text">background[bg] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#backup[bk]"><span class="toc-number">3.4.</span> <span class="toc-text">backup[bk]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#writebackup[wb]_（Vim_才有）"><span class="toc-number">3.5.</span> <span class="toc-text">writebackup[wb] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#backupdir[bdir]_（Vim_才有）"><span class="toc-number">3.6.</span> <span class="toc-text">backupdir[bdir] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#binary[bin]_（Vim_才有）"><span class="toc-number">3.7.</span> <span class="toc-text">binary[bin] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#browsedir[bsdir]_（Vim_才有）"><span class="toc-number">3.8.</span> <span class="toc-text">browsedir[bsdir] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cindent[cin]_（Vim_才有）"><span class="toc-number">3.9.</span> <span class="toc-text">cindent[cin] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cmdheight[ch]_（Vim_才有）"><span class="toc-number">3.10.</span> <span class="toc-text">cmdheight[ch] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compatible[cp]_（Vim_才有）"><span class="toc-number">3.11.</span> <span class="toc-text">compatible[cp] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#confirm[cf]_（Vim_才有）"><span class="toc-number">3.12.</span> <span class="toc-text">confirm[cf] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#directory[dir]"><span class="toc-number">3.13.</span> <span class="toc-text">directory[dir]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fileformat[ff]_（Vim_才有）"><span class="toc-number">3.14.</span> <span class="toc-text">fileformat[ff] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fileformats[ffs]_（Vim_才有）"><span class="toc-number">3.15.</span> <span class="toc-text">fileformats[ffs] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ignorecase[ic]"><span class="toc-number">3.16.</span> <span class="toc-text">ignorecase[ic]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#incsearch[is]_（Vim_才有）"><span class="toc-number">3.17.</span> <span class="toc-text">incsearch[is] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hlsearch[hls]_（Vim_才有）"><span class="toc-number">3.18.</span> <span class="toc-text">hlsearch[hls] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#textwidth[tw]"><span class="toc-number">3.19.</span> <span class="toc-text">textwidth[tw]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wrapmargin[wm]"><span class="toc-number">3.20.</span> <span class="toc-text">wrapmargin[wm]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wrap"><span class="toc-number">3.21.</span> <span class="toc-text">wrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wrapscan[ws]"><span class="toc-number">3.22.</span> <span class="toc-text">wrapscan[ws]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paste_（Vim_才有）"><span class="toc-number">3.23.</span> <span class="toc-text">paste （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ruler[ru]_（Vim_才有）"><span class="toc-number">3.24.</span> <span class="toc-text">ruler[ru] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#statusline[stl]_（Vim_才有）"><span class="toc-number">3.25.</span> <span class="toc-text">statusline[stl] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shiftwidth[sw]"><span class="toc-number">3.26.</span> <span class="toc-text">shiftwidth[sw]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于expandtab"><span class="toc-number">3.26.1.</span> <span class="toc-text">关于expandtab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tabstop[ts]"><span class="toc-number">3.27.</span> <span class="toc-text">tabstop[ts]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#showcmd[sc]"><span class="toc-number">3.28.</span> <span class="toc-text">showcmd[sc]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#showmode[smd]"><span class="toc-number">3.29.</span> <span class="toc-text">showmode[smd]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#visualbell[vb]_（Vim_才有）"><span class="toc-number">3.30.</span> <span class="toc-text">visualbell[vb] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#number[nu]"><span class="toc-number">3.31.</span> <span class="toc-text">number[nu]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list"><span class="toc-number">3.32.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swapfile[swf]_（Vim_才有）"><span class="toc-number">3.33.</span> <span class="toc-text">swapfile[swf] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fileencoding[fe]_（Vim_才有）"><span class="toc-number">3.34.</span> <span class="toc-text">fileencoding[fe] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history[hi]"><span class="toc-number">3.35.</span> <span class="toc-text">history[hi]</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于_softtabstop[sts]"><span class="toc-number">4.</span> <span class="toc-text">关于 softtabstop[sts]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim_的_modeline"><span class="toc-number">5.</span> <span class="toc-text">Vim 的 modeline</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于折行"><span class="toc-number">6.</span> <span class="toc-text">关于折行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#我的设定檔"><span class="toc-number">7.</span> <span class="toc-text">我的设定檔</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#-vimrc_范例"><span class="toc-number">7.1.</span> <span class="toc-text">.vimrc 范例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-gvimrc_范例"><span class="toc-number">7.2.</span> <span class="toc-text">.gvimrc 范例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-vim_目录范例"><span class="toc-number">7.3.</span> <span class="toc-text">.vim 目录范例</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>本单元可说是 Vim 的微调功能，可依您个人的喜好做有限度的调整。由于 Vim 做了相当多的扩充，文内主要是述叙 Vim 的设定，但 elvis 没有的也会标明。但并不打算一网打尽，只说明重要、常用的部份，其它的可以用<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:h <span class="built_in">option</span>-<span class="built_in">list</span></span><br></pre></td></tr></table></figure></p>
+<p>查阅。<br>在系统上，会有个<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vimrc_example.<span class="keyword">vim</span></span><br></pre></td></tr></table></figure></p>
+<p>檔，可以依据这个档案来设定一些常要用到的内容。</p>
+<h1 id="该在何处设定呢？">该在何处设定呢？</h1><h2 id="Vim_的设定檔">Vim 的设定檔</h2><p>可在在线做设定，例如<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> ai </span><br><span class="line"><span class="preprocessor">#或 </span></span><br><span class="line">:<span class="keyword">set</span> noai</span><br></pre></td></tr></table></figure></p>
+<p>ai 是 autoindent 的缩写，这样就可以马上改变缩格的设定，但离开 vim 后就又恢复原状。要永久设定就得设在设定檔中。 vim 的设定檔在：</p>
+<pre><code>~/<span class="class">.exrc</span>
+~/<span class="class">.vimrc</span>
+~/<span class="class">.gvimrc</span>    <span class="id">#GUI</span> 版本
+<span class="variable">$VIM</span>/vimrc   #系统默认值，最好不去修改
+<span class="variable">$VIM</span>/gvimrc  <span class="id">#GUI</span> 版本
+<span class="variable">$VIM</span>\_vimrc  <span class="id">#Windows</span> 版本
+<span class="variable">$VIM</span>\_gvimrc
+</code></pre><p>您要把 GUI 的设定设在 home/.vimrc也是可以的，但分开来可能对以后要修改时会比较找得到地方改。<br>那 vim 在哪里呢？/usr/share/vim 或 /usr/local/share/vim 这是编译时就决定的，但可在 home/.bashprofie 或 home/.bashrc 中另设。Windows 版本的 $VIM 则在 C:\Vim 这个目录中，亦可设在 autoexec.bat 中。<br><a id="more"></a></p>
+<h2 id="elvis_的设定檔">elvis 的设定檔</h2><pre><code>~/<span class="class">.exrc</span>
+~/.elvislib/elvis<span class="class">.rc</span>
+C:\Program Files\elvis\elvis<span class="class">.rc</span> Windows 版本
+</code></pre><p>如果您的系统上同时有 Vim 及 elvis，则使用 HOME/.exrc要小心，以免互相影响了设定。好处是可以把共同的设定设在 home/.exrc 里。<br><strong>提醒您一下！设在设定檔中时 set 前当然是不必冒号的。</strong></p>
+<h2 id="nvi-m17n_的设定檔">nvi-m17n 的设定檔</h2><pre><code>~/<span class="class">.exrc</span>
+~/.nexrc
+</code></pre><h1 id="如何得知目前的设定">如何得知目前的设定</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:set</span> 或 <span class="symbol">:se</span> <span class="comment">#会显示所有经过修改的部份，就是和默认值不一样的部份。</span></span><br><span class="line"><span class="symbol">:set</span> all <span class="comment">#显示目前所有设定值内容。</span></span><br><span class="line"><span class="symbol">:scriptnames</span> <span class="comment">#显示各种设定文件的所在路径及其文件名。</span></span><br><span class="line"><span class="symbol">:set</span> option? <span class="comment">#显示 option 这设定的目前值。</span></span><br><span class="line"><span class="symbol">:option</span> <span class="comment">#直接在线设定，有些设定需加 = 后加上设定值内容。</span></span><br><span class="line"><span class="symbol">:set</span> nooption 取消该设定。</span><br><span class="line"><span class="comment">#:set 后面是可以多重设定的。例如</span></span><br><span class="line"><span class="symbol">:set</span> autoindent noconfirm autowrite，这样三种设定就会同时重设。</span><br></pre></td></tr></table></figure>
+<p>您当然可以改设定檔来改变设定值。在 Vim 也可以使用<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">:option</span></span><br></pre></td></tr></table></figure></p>
+<p>来直接在线设定，会列出目前的设定，在 set 这个字上按 Enter 即可改变设定，或就直接修改其值亦可，改完后按<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">:q</span></span><br></pre></td></tr></table></figure></p>
+<p>就可以了。在简短说明处按Enter 则会叫出该部份的说明檔给您参考，您说方不方便？改好后<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:mkexrc</span>    <span class="comment">#则会写入 ~/.exrc 檔</span></span><br><span class="line"><span class="symbol">:mkvimrc</span>   <span class="comment">#则会写入 ~/.vimrc 檔</span></span><br></pre></td></tr></table></figure></p>
+<p>当然您得先搞清楚您目前所在目录在什么地方，如果您是在家目录启动的那就不用担心了，否则找不到您的新.vimrc 可不要写信来骂我。:-)<br>elvis 可就没这么方便了，得自行修改 home/.exrc 或 home/.elvislib/elvis.rc。</p>
+<h1 id="各种_set_功能说明">各种 set 功能说明</h1><p>方括号内的是缩写，由于 Vim 新增的指令、设定项实在是相当多，建议一开始使用完整的写法，等熟悉后再来使用缩写会比较好。</p>
+<h2 id="autoindent[ai]">autoindent[ai]</h2><p>自动缩排，也就是说如果本行是从第五个字符开始写的，您按 Enter 后游标就会停在次行第五个字符处。预设是不打开的。</p>
+<h2 id="autowrite[aw]">autowrite[aw]</h2><p>档案一有更动就会自动存盘。预设不打开。</p>
+<h2 id="background[bg]_（Vim_才有）">background[bg] （Vim 才有）</h2><p>可设成 dark 或 light，这是两种不同的 highlight 颜色设定，系统预设的内容是在一个 synload.vim 檔中，详见 VIMRUNTIME/syntax/synload.vim。不过您要更动颜色的设定，最好是设在HOME/.vimrc 或 HOME/.gvimrc中，原始檔预设檔尽量不要去动她。ㄟㄟㄟ，你从没提过VIMRUNTIME 好不好！其实这是最近版本的 Vim 为了不至安装新版本时把旧版本的一些设定或 macro 檔干掉，所以 VIMRUNTIME就是VIM/vimxx，xx 就是版本号码啦！例如您使用的是 Vim 6.1 版，那么就是 VIM/vim61，往后安装6.2版时，会把runtimefiles装在VIM/vim62，这样就不会把旧的 runtime files 给盖掉。</p>
+<h2 id="backup[bk]">backup[bk]</h2><p>是否要 backup file。预设不打开。</p>
+<h2 id="writebackup[wb]_（Vim_才有）">writebackup[wb] （Vim 才有）</h2><p>在写入档案前先备份一份，和 backup 的作用不尽相同，请 :h backup-table。预设是打开的，所以您如果不要 backup，那要关掉的是这个项目，而不是 backup。但请先检查一下您编译时是不是有编译进去，请 :ver。</p>
+<h2 id="backupdir[bdir]_（Vim_才有）">backupdir[bdir] （Vim 才有）</h2><p>设定存放 backup file 的目录。预设在所编辑的档案之所在目录。</p>
+<h2 id="binary[bin]_（Vim_才有）">binary[bin] （Vim 才有）</h2><p>设在编辑二进制文件状态，这是防止存二进制文件时把 EOL 也写进二进制文件，那就会悔不当初，如果是图檔将会无法再观看，如果是可执行档就无法执行了！因此预设是 off。elvis 会自动判断是否为二进制文件，而且会分成左右两半，左半部会以 16 进位的方式显示，右半部则是以 ASCII 的方式来显示。</p>
+<h2 id="browsedir[bsdir]_（Vim_才有）">browsedir[bsdir] （Vim 才有）</h2><p>浏览档案的目录，GUI 版本始有。预设是上一次浏览的目录。就是 GUI 版本菜单上的 [File] 234 [Open] 会打开的目录。</p>
+<h2 id="cindent[cin]_（Vim_才有）">cindent[cin] （Vim 才有）</h2><p>写 C 时很好用，indent 比一般敏感，专为 C 程序代码而设。预设 off。编辑 C/C++ code 时会自动打开。</p>
+<h2 id="cmdheight[ch]_（Vim_才有）">cmdheight[ch] （Vim 才有）</h2><p>状态列的行数，预设一行，建议设成两行。</p>
+<h2 id="compatible[cp]_（Vim_才有）">compatible[cp] （Vim 才有）</h2><p>设为和原始 vi 兼容的状态，vim 的扩充功能会被抑制。预设 off。</p>
+<h2 id="confirm[cf]_（Vim_才有）">confirm[cf] （Vim 才有）</h2><p>各种确认动作。预设 off。</p>
+<h2 id="directory[dir]">directory[dir]</h2><p>swap 文件存放的目录。前面单元已有说明。</p>
+<h2 id="fileformat[ff]_（Vim_才有）">fileformat[ff] （Vim 才有）</h2><p>这是写入档案时置放 EOL(end of line) 的形式</p>
+<pre><code>dos 是以 <span class="number">0x0D0A</span> 来断行。
+unix 是以 <span class="number">0x0A</span> 来断行。
+mac 是以 <span class="number">0x0D</span> 来断行。
+</code></pre><p>预设以各系统平台而定，在 Linux 当然是 unix 形式。</p>
+<h2 id="fileformats[ffs]_（Vim_才有）">fileformats[ffs] （Vim 才有）</h2><p>可指定多个，会依加载的档案形式来调整 ff。<br>例如<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set <span class="variable">ffs=</span>unix,dos <span class="variable">ff=</span>unix</span><br></pre></td></tr></table></figure></p>
+<p>则预设为 unix 格式，但如读入的是 dos 格式的档案，会自动调整为 dos 格式，这样存盘时就会以 dos 格式存盘（状态列会显示）。。此时如要改成 unix 格式，可 :set ff=unix 然后存盘就会转成 unix 格式，反之亦然。<br>如果不这样设，也就是您不管 ff 或 ffs 都设成 unix，那读入 dos 格式的档案时在每行尾会出现 ^M 这个字符（就是 0x0D 啦！）这时纵使<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> ff=unix</span><br></pre></td></tr></table></figure></p>
+<p>也来不及了！只好<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:%s/^M//g</span></span><br></pre></td></tr></table></figure></p>
+<p>来消去这个 ^M。<br>ㄟ，还记得怎么替换吗？就是把 ^M 换成没有啦！而且 ^M 怎么打出来的还记得吧！翻一翻前面的单元吧！<br>Hey，你怎么知道是 0x0D 呀！好吧！告诉您一个密秘，您把游标移到 ^M 那个位置，然后按 ga 在状态列就会显示 10，16，8 进位的值。其它的字符也是可以如此显示。a 就是 ascii 的意思。但这是 Vim 的扩充功能，elvis 没有。elvis 纵使加载 dos 格式的档案，也是会自动把 ^M 隐藏起来。</p>
+<h2 id="ignorecase[ic]">ignorecase[ic]</h2><p>寻找时不分大小写，这对中文会造成困扰。预设 off。</p>
+<h2 id="incsearch[is]_（Vim_才有）">incsearch[is] （Vim 才有）</h2><p>加强式寻找功能，在键入 patern 时会立即反应移动至目前键入之 patern 上。预设 off。</p>
+<h2 id="hlsearch[hls]_（Vim_才有）">hlsearch[hls] （Vim 才有）</h2><p>寻找时，符合字符串会反白表示。预设 off。如果您是使用 vim 的预设的vimrc 檔的话，可设在 F8 键来切换。</p>
+<h2 id="textwidth[tw]">textwidth[tw]</h2><p>是一种 word wrap 的功能，从左起算之固定每行的最大字符宽度。超过此宽度就会自动折行，这可是真的折行，也就是说在折行处会插入 EOL。预设是 0，也就是没有 word wrap 的功能。</p>
+<h2 id="wrapmargin[wm]">wrapmargin[wm]</h2><p>和 textwidth 作用相同，只是是从右窗口边向左算起要几个字符起折行。<br>预设是 0。</p>
+<h2 id="wrap">wrap</h2><p>这也是折行功能，可是只是屏幕效果的折行，实际上并没有插入 EOL。</p>
+<h2 id="wrapscan[ws]">wrapscan[ws]</h2><p>这和折行没有关系，是指寻找时，找至檔尾时，是否要从檔首继续找。预设是要。</p>
+<h2 id="paste_（Vim_才有）">paste （Vim 才有）</h2><p>这是防止在做剪贴时位置会不正确，前面单元已有说明。</p>
+<h2 id="ruler[ru]_（Vim_才有）">ruler[ru] （Vim 才有）</h2><p>会在状态列显示游标所在处之行列状态，预设不打开，但建议打开。最右边之代号的意义如下：</p>
+<pre><code><span class="keyword">Top</span> 档案第一行在屏幕可见范围。
+Bot 档案最后一行在屏幕可见范围。
+<span class="keyword">All</span> 档案首尾皆在一个屏幕范围内。
+如非以上三种情形，则会显示相对百分比位置。
+</code></pre><h2 id="statusline[stl]_（Vim_才有）">statusline[stl] （Vim 才有）</h2><p>状态列显示的格式，使用预设就可以了，如果您想骚包一下的话，那就请您<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pseudo">:h</span> <span class="tag">stl</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="shiftwidth[sw]">shiftwidth[sw]</h2><p>指由 &gt; 移动整行内容时，一次移动的字符宽度，一般是使用 Tab 的值，但可由这个设定来改变。<br>这个是用于程序中自动缩进所使用的空白长度指示的。一般来说为了保持程序的美观，和tabstop、softtabstop的参数最好一致。同时它也是符号移位长度的制定者。</p>
+<h3 id="关于expandtab"><a href="http://blog.csdn.net/ludonghai715/article/details/5657712" target="_blank" rel="external">关于expandtab</a></h3><p>举个例子，在多人一起开发项目时，为了使代码风格尽量保持一致，一般不允许在代码使用TAB符，而以4个空格代之。我们可以编辑一个文件，包含下面的内容：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> expandtab</span><br></pre></td></tr></table></figure></p>
+<p>然后把下面的命令加入到.vimrc中：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">autocmd</span> FileType <span class="keyword">c</span>,cpp <span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span> | <span class="keyword">set</span> expandtab</span><br></pre></td></tr></table></figure></p>
+<p>就可以只在编辑c和cpp文件时实行这种设置了</p>
+<h2 id="tabstop[ts]">tabstop[ts]</h2><p>一个 Tab 键宽度。预设是 8 个字符宽度。最好不要随便改，以免您写的东西由其它编辑器来阅读时造成困扰，为解决这个问题，Vim 另有种 softtabstop 及 modeline 的机制，在以下各节会详细说明。</p>
+<h2 id="showcmd[sc]">showcmd[sc]</h2><p>在状态列显示目前所执行的指令，未完成的指令片段亦会显示出来。</p>
+<h2 id="showmode[smd]">showmode[smd]</h2><p>在状态列显示目前的模式，例如是 Insert mode 或是 Visual mode。当然平常的 normal mode(commond mode)是不显示的。在载入档案的同时，会在这个地方显示文件名称及其总行数、总字符数。</p>
+<h2 id="visualbell[vb]_（Vim_才有）">visualbell[vb] （Vim 才有）</h2><p>以屏幕闪动代替 beep 声。</p>
+<h2 id="number[nu]">number[nu]</h2><p>显示行号。注意，冒号命令也有<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">:nu</span></span><br></pre></td></tr></table></figure></p>
+<p>这是显示光标所在行的行号，您嫌多打一个字的话：<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure></p>
+<p>也行。不过如果 ruler 打开的话，在状态列本就会显示门前游标所在处的行列值。</p>
+<h2 id="list">list</h2><p>这也可以算是一种模式，list mode。就是 Tab 的地方会以 ^I 显示，而行尾之 EOL 会显示成 $。可以让您清楚的知道 Tab 在哪里，折行是不是真的。</p>
+<h2 id="swapfile[swf]_（Vim_才有）">swapfile[swf] （Vim 才有）</h2><p>是否需 swap 至磁盘。如果设为 noswf 的话，那将不会有 swapfile 产生，通通会加载在内存中。预设是要 swapfile。</p>
+<h2 id="fileencoding[fe]_（Vim_才有）">fileencoding[fe] （Vim 才有）</h2><p>首先，先鼓掌一下，啪啪啪……，因为有支持 Taiwan，也支持 XIM，也就是说可以使用 xcin-2.5x 来作输入，当然您用 xcin-2.3x 配合 XA 也是可以啦！但前提是您要把 multi_byte 编译进去，这在一开始就讲过了。预设是使用 ansi。<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> guifont </span><br><span class="line"><span class="preprocessor">#及 </span></span><br><span class="line"><span class="keyword">set</span> guifontset</span><br></pre></td></tr></table></figure></p>
+<p>已在一开始讲过，在此就不重复了。</p>
+<h2 id="history[hi]">history[hi]</h2><p>记录冒号命令的历史纪录文件，就是可以用上下方向键叫出来的那锅。预设是 20 笔。</p>
+<h1 id="关于_softtabstop[sts]">关于 softtabstop[sts]</h1><p>几乎所有的 OS 及软件都设定 Tab 就是 8 个字符长，这已经是个公认值，您硬要去改变它的话恐怕带来许多不便，但实际上关于程序风格，许多人又认为 8 个字符太长了，几个巢状循环下来就需折行，反而不方便。因此 Vim 体贴您，内建了 softtabstop 的功能，就是由 Vim 来代您制造出一个假的 Tab，实际上是空格符组成的 Tab。<br>举个例子来说明比较清楚。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> softtabstop=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+<p>这样会由 4 个空格符取代一个 Tab，您按 Tab 键 vim 就跳 4 格，需注意的是，如果您按了三次 Tab键，那就是一个实际的 Tab 加上四个空格符，可不是 12 个空格符喔！是混合 Tab 及 Space 的。<br>问题来了！那我要按真正的 8 字符的 Tab 时怎么办？简单，还记得怎么按特殊字符吗？Ctrl+v Tab 或Ctrl+v I 就可以了，那就是如假包换的 8 字符长之 Tab。当然，您按两次 Tab 不就得了！:-)<br>另一个更大的问题也来了！在 Un*x 系统的有些设定文件，例如 Makefile, sendmail 的设定檔，他们会认真正的 Tab，因此如果您有程序开发或系统管理的需要的话，最好是不要随意更动 Tab 值，也不要使用 softtabstop，可以使用 Vim 独特的 modeline 来控制，请继续研读下一节。</p>
+<h1 id="Vim_的_modeline">Vim 的 modeline</h1><p>这个是什么哇？简单的说，Vim 有能力去解读所编辑档案内的 Vim 控制参数，而这些控制参数是写在档案的批注行里头的，例如 sh script 的批注行是以 # 来开头的，那 Vim 的控制参数就可以写在这些批注里头，Vim 在开这个档的同时，也会去控制自己的一些行为，当然，包括了上一节所说的 Tab 的长短，而 shell 本身则会忽略这些批注。<br>例如，现在把一个 sh script 檔里头，在档案最后一行，设了个：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># vim: ts=2</span></span><br></pre></td></tr></table></figure></p>
+<p>这样一来，按个 Tab，实际上显示出来会只有两个空格，别担心仍然是正港 Tab ，不相信的话，可用另一种编辑器打开就知道了。这个好用吧！详细请进入 vim 后 :h modeline。<br>当然，这个功能很方便，但并不是全然没有限制的，以下有些限制要注意:</p>
+<ol>
+<li>控制 modeline 本身的设定，不能写在档案里头，vim 会来不及读他。<br>例如：在 sh script 档案中设定<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># vim: set modelines=0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这是行不通的。</p>
+<ol>
+<li>这些设定必须要在档案的开头五行，或结尾五行内设定，否则 vim 会忽略。</li>
+<li>批注符号后要至少一个空白(sapce 或 Tab 皆可)隔开。例如：<br>=&gt; C 程序代码 /* 和 vim 间至少要有个空白<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vim:ts=2 =&gt; C++</span></span><br><span class="line"><span class="preprocessor"># vim:ts=2 =&gt; sh script, perl, python, tcl</span></span><br><span class="line"><span class="string">" vim:ts=2 =&gt; vim script</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="关于折行">关于折行</h1><p>前面已说过 set wrap 就可以造成屏幕折行，可是却会把一个英文单字折成两半，实在很不雅观。好了，Vim再体贴您一次:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:set <span class="function"><span class="title">linebreak</span><span class="params">(lbr)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>就会避免这种问题发生，会在空白或标点符号的地方来折行，但也仍属屏幕折行，并不会插入 EOL。<br>在一般的文书排版处理，甚至是写程序代码，设定系统的设定文件，这些时机，可能自动折行并不很适合(指会插入 EOL 的)，很容易把写好的内容，因为一个不小心就都弄乱了，因为程序一般是一行一行在读的，把一整行分成两半，所读的结果就不一样了，除非加入程序代码的折行标志，例如一般的倒斜线 \ 或 TeX/LaTeX 的百分号 %。而在排版软件如 TeX/LaTeX，插入 EOL 的折行，会造成中文字间多出个空白，这在 HTML 格式的档案亦同，因此，在做折行的决定时，也请考虑一下其它的『副作用』。</p>
+<h1 id="我的设定檔">我的设定檔</h1><p>以下是我个人的设定檔，仅供参考用：</p>
+<h2 id="-vimrc_范例">.vimrc 范例</h2><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">" ~/.vimrc <span class="keyword">by</span> Edward <span class="keyword">G</span>.J. Lee</span><br><span class="line">" 这个记号就是 vim 的批注，通常情形 vim 会忽略。</span><br><span class="line">" This code is Public Domain</span><br><span class="line">"</span><br><span class="line"><span class="keyword">set</span> backspace=indent,eol,start</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> autoindent " always <span class="keyword">set</span> autoindenting <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> history=50 " <span class="keyword">keep</span> 50 lines of command <span class="keyword">line</span> history</span><br><span class="line"><span class="keyword">set</span> ruler " show the cursor position all the time</span><br><span class="line"><span class="keyword">set</span> showcmd " <span class="keyword">display</span> incomplete commands</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">enc</span>=big5 " 档案编码设成 big5</span><br><span class="line"></span><br><span class="line">"使用 :<span class="keyword">update</span> 代替 :w，以便在有修改时才会存盘，注意，这和 vi 不兼容。</span><br><span class="line">map &lt;F2&gt; :up&lt;CR&gt;</span><br><span class="line">map &lt;F3&gt; :up&lt;CR&gt;:q&lt;CR&gt; " 存档后离开</span><br><span class="line">map &lt;F4&gt; :q!&lt;CR&gt; " 不存档离开</span><br><span class="line">map &lt;F5&gt; :bp&lt;CR&gt; " 前一个 buffer 档案</span><br><span class="line">map &lt;F6&gt; :bn&lt;CR&gt; " 下一个 buffer 档案</span><br><span class="line">" 单键 &lt;F7&gt; 控制 <span class="keyword">syntax</span> <span class="keyword">on</span>/off。倒斜线是 Vim script 的折行标志</span><br><span class="line">" 按一次 &lt;F7&gt; 是 <span class="keyword">on</span> 的话，再按一次则是 off，再按一次又是 <span class="keyword">on</span>。</span><br><span class="line">" 原因是有时候颜色太多会妨碍阅读。</span><br><span class="line">map &lt;F7&gt; :<span class="keyword">if</span> exists(<span class="string">"syntax_on"</span>) &lt;BAR&gt;</span><br><span class="line">\ <span class="keyword">syntax</span> off &lt;BAR&gt;&lt;CR&gt;</span><br><span class="line">\ <span class="keyword">else</span> &lt;BAR&gt;</span><br><span class="line">\ <span class="keyword">syntax</span> enable &lt;BAR&gt;</span><br><span class="line">\ endif &lt;CR&gt;</span><br><span class="line">" 按 F8 会在 searching highlight 及非 highlight 间切换</span><br><span class="line">map &lt;F8&gt; :<span class="keyword">set</span> hls!&lt;BAR&gt;<span class="keyword">set</span> hls?&lt;CR&gt;</span><br><span class="line">" Toggle <span class="keyword">on</span>/off paste mode</span><br><span class="line">map &lt;F9&gt; :<span class="keyword">set</span> paste!&lt;BAr&gt;<span class="keyword">set</span> paste?&lt;CR&gt;</span><br><span class="line"><span class="keyword">set</span> pastetoggle=&lt;F9&gt;</span><br><span class="line"></span><br><span class="line">map &lt;F10&gt; &lt;ESC&gt;:<span class="keyword">read</span> !date&lt;CR&gt; " 插入日期</span><br><span class="line">map &lt;F11&gt; :%!xxd&lt;CR&gt; " 呼叫 xxd 做 16 进位显示</span><br><span class="line">map &lt;F12&gt; :%!xxd -r&lt;CR&gt; " 回复正常显示</span><br><span class="line"></span><br><span class="line">"Default backspace like <span class="literal">normal</span></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">bs</span>=2</span><br><span class="line"></span><br><span class="line">"<span class="keyword">Display</span> a status-bar.</span><br><span class="line">"<span class="keyword">set</span> laststatus=2</span><br><span class="line"></span><br><span class="line">"Show matching parenthese.</span><br><span class="line"><span class="keyword">set</span> showmatch</span><br><span class="line"></span><br><span class="line">" 以下是颜色设定，详细请 :<span class="keyword">h</span> hi</span><br><span class="line">hi Comment term=bold ctermfg=darkcyan</span><br><span class="line">hi Constant term=underline ctermfg=Red</span><br><span class="line">hi Special term=bold ctermfg=Magenta</span><br><span class="line">hi Identifier term=underline ctermfg=cyan</span><br><span class="line">hi Statement term=bold ctermfg=Brown</span><br><span class="line">hi PreProc term=bold ctermfg=DarkYellow</span><br><span class="line">hi <span class="keyword">Type</span> term=bold ctermfg=DarkGreen</span><br><span class="line">hi Ignore ctermfg=white</span><br><span class="line">hi <span class="keyword">Error</span> term=reverse ctermbg=Red ctermfg=White</span><br><span class="line">hi Todo term=standout ctermbg=Yellow ctermfg=Red</span><br><span class="line">hi <span class="keyword">Search</span> term=standout ctermbg=Yellow ctermfg=Black</span><br><span class="line">hi ErrorMsg term=reverse ctermbg=Red ctermfg=White</span><br><span class="line">hi StatusLine ctermfg=darkblue ctermbg=gray</span><br><span class="line">hi StatusLineNC ctermfg=brown ctermbg=darkblue</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> viminfo='20,\<span class="string">"50 "</span> <span class="keyword">read</span>/write a .viminfo <span class="keyword">file</span>, don't store <span class="keyword">more</span></span><br><span class="line">" than 50 lines of registers</span><br><span class="line"></span><br><span class="line">" 方便中文重排设定</span><br><span class="line"><span class="keyword">set</span> formatoptions=mtcql</span><br><span class="line"> </span><br><span class="line">" 设定 modeline</span><br><span class="line">" vim: ts=2:</span><br></pre></td></tr></table></figure>
+<h2 id="-gvimrc_范例">.gvimrc 范例</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">" ~/.gvimrc by Edward G.J. Lee</span><br><span class="line"></span><span class="string">" This code is Public Domain</span><br><span class="line"></span><span class="string">"</span><br><span class="line"></span><span class="keyword">set</span> mousehide <span class="string">" 当输入文字时隐藏 mouse</span><br><span class="line"></span><span class="built_in">map</span> &lt;S-Insert&gt; &lt;MiddleMouse&gt;</span><br><span class="line">map! &lt;S-Insert&gt; &lt;MiddleMouse&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">" Only do this for Vim version 5.0 and later.</span><br><span class="line"></span><span class="keyword">if</span> <span class="keyword">version</span> &gt;= <span class="number">500</span></span><br><span class="line"><span class="keyword">let</span> c_comment_strings=<span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> !exists(<span class="string">"syntax_on"</span>)</span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">hi</span> Comment guifg=DarkBlue</span><br><span class="line"><span class="keyword">hi</span> Constant <span class="keyword">gui</span>=bold guifg=Magenta guibg=#fffff5f2eed8</span><br><span class="line"><span class="keyword">hi</span> Special guifg=Blue guibg=#fffff5f2eed8</span><br><span class="line"><span class="keyword">hi</span> Identifier <span class="keyword">gui</span>=bold guifg=DarkCyan</span><br><span class="line"><span class="keyword">hi</span> Statement <span class="keyword">gui</span>=bold guifg=brown</span><br><span class="line"><span class="keyword">hi</span> PreProc <span class="keyword">gui</span>=bold guifg=black</span><br><span class="line"><span class="keyword">hi</span> Type guifg=darkgreen</span><br><span class="line"><span class="keyword">hi</span> Ignore guifg=bg</span><br><span class="line"><span class="keyword">hi</span> Error guibg=Red <span class="keyword">gui</span>=bold guifg=White</span><br><span class="line"><span class="keyword">hi</span> Todo guifg=Blue guibg=Yellow</span><br><span class="line"><span class="keyword">hi</span> ErrorMsg guibg=Red <span class="keyword">gui</span>=bold guifg=White</span><br><span class="line"><span class="keyword">hi</span> Normal guibg=#fffff5f2eed8</span><br><span class="line"><span class="keyword">hi</span> ModeMsg guifg=DarkBlue guibg=yellow</span><br><span class="line"><span class="keyword">hi</span> StatusLine <span class="keyword">gui</span>=bold guifg=lightgray guibg=DarkBlue</span><br><span class="line"><span class="keyword">hi</span> StatusLineNC <span class="keyword">gui</span>=bold guifg=lightgray guibg=brown</span><br><span class="line"><span class="keyword">hi</span> Cursor guibg=green guifg=NONE</span><br><span class="line"><span class="keyword">hi</span> lCursor guibg=Cyan guifg=NONE</span><br><span class="line"></span><br><span class="line"><span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line"><span class="string">" 让 ex(:) mode 时可以输入中文(gvim)</span><br><span class="line"></span><span class="keyword">set</span> imcmdline</span><br><span class="line"><span class="string">" 让 xcin 在 insert mode 不自动出现(gvim)</span><br><span class="line"></span><span class="keyword">set</span> imdisable</span><br></pre></td></tr></table></figure>
+<h2 id="-vim_目录范例">.vim 目录范例</h2><p>其实，一些设定文件除了家目录下的 .vimrc 及 .gvimrc 外，可以置放于家目录下的一个子目录 .vim，其目录结构可以仿 $VIMRUNTIME 这个系统上的结构。例如，我的 .vim 结构如下:<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">edt1023:~$ tree .vim</span><br><span class="line">.vim</span><br><span class="line">|<span class="comment">-- filetype.vim</span></span><br><span class="line">|<span class="comment">-- plugin</span></span><br><span class="line">| |<span class="comment">-- format.vim</span></span><br><span class="line">| `<span class="comment">-- tex.vim</span></span><br><span class="line">|<span class="comment">-- syntax</span></span><br><span class="line">| |<span class="comment">-- lily.vim</span></span><br><span class="line">| `<span class="comment">-- svg.vim</span></span><br><span class="line">`<span class="comment">-- view</span></span><br><span class="line">`<span class="comment">-- ~=+bg5.txt=</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span> <span class="built_in">directories</span>, <span class="number">6</span> <span class="built_in">files</span></span><br></pre></td></tr></table></figure></p>
+<p>其中，filetype.vim 会在系统的 filetype.vim 加载后盖过去，也就是家目录的会先优使用。format.vim 及tex.vim 是进入 vim 马上会加载的 Vim script，主要用于中文重排及 TeX/LaTeX 排版系统编辑时的方便指令、按键。lily.vim 则是 GNU LilyPond 这个乐谱排版系统档案的语法颜色定义文件，svg.vim 则是 SVG 向量图文件的语法颜色定文件加强版。那 view 那个子目录下的又是什么呢？这是下 :mkview 指令时所存的一些状态檔，在 :loadview 要参考到，请参考第 11 章，第 11.1.3 小节，页 ，这个檔是个隐藏檔。</p>
+<p>via.<a href="http://blog.sina.com.cn/s/blog_7ae240850100x7ov.html" target="_blank" rel="external">vim set 功能设定</a><br><a href="http://www.linuxidc.com/Linux/2012-08/69439.html" target="_blank" rel="external">大家来学 VIM (PDF)</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/set/">set</a><a href="/tags/vim/">vim</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiandechi.com/2015/04/18/vim-set-configure/" data-title="vim set configure | 天德池" data-tsina="1854771045" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/18/tar-manual/" title="tar manual">
+  <strong>上一篇：</strong><br/>
+  <span>
+  tar manual</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/30/cp命令用法/"  title="cp命令用法">
+ <strong>下一篇：</strong><br/> 
+ <span>cp命令用法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/04/18/vim-set-configure/" data-title="vim set configure" data-url="http://tiandechi.com/2015/04/18/vim-set-configure/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#该在何处设定呢？"><span class="toc-number">1.</span> <span class="toc-text">该在何处设定呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim_的设定檔"><span class="toc-number">1.1.</span> <span class="toc-text">Vim 的设定檔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#elvis_的设定檔"><span class="toc-number">1.2.</span> <span class="toc-text">elvis 的设定檔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nvi-m17n_的设定檔"><span class="toc-number">1.3.</span> <span class="toc-text">nvi-m17n 的设定檔</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何得知目前的设定"><span class="toc-number">2.</span> <span class="toc-text">如何得知目前的设定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#各种_set_功能说明"><span class="toc-number">3.</span> <span class="toc-text">各种 set 功能说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#autoindent[ai]"><span class="toc-number">3.1.</span> <span class="toc-text">autoindent[ai]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#autowrite[aw]"><span class="toc-number">3.2.</span> <span class="toc-text">autowrite[aw]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#background[bg]_（Vim_才有）"><span class="toc-number">3.3.</span> <span class="toc-text">background[bg] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#backup[bk]"><span class="toc-number">3.4.</span> <span class="toc-text">backup[bk]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#writebackup[wb]_（Vim_才有）"><span class="toc-number">3.5.</span> <span class="toc-text">writebackup[wb] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#backupdir[bdir]_（Vim_才有）"><span class="toc-number">3.6.</span> <span class="toc-text">backupdir[bdir] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#binary[bin]_（Vim_才有）"><span class="toc-number">3.7.</span> <span class="toc-text">binary[bin] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#browsedir[bsdir]_（Vim_才有）"><span class="toc-number">3.8.</span> <span class="toc-text">browsedir[bsdir] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cindent[cin]_（Vim_才有）"><span class="toc-number">3.9.</span> <span class="toc-text">cindent[cin] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cmdheight[ch]_（Vim_才有）"><span class="toc-number">3.10.</span> <span class="toc-text">cmdheight[ch] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compatible[cp]_（Vim_才有）"><span class="toc-number">3.11.</span> <span class="toc-text">compatible[cp] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#confirm[cf]_（Vim_才有）"><span class="toc-number">3.12.</span> <span class="toc-text">confirm[cf] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#directory[dir]"><span class="toc-number">3.13.</span> <span class="toc-text">directory[dir]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fileformat[ff]_（Vim_才有）"><span class="toc-number">3.14.</span> <span class="toc-text">fileformat[ff] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fileformats[ffs]_（Vim_才有）"><span class="toc-number">3.15.</span> <span class="toc-text">fileformats[ffs] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ignorecase[ic]"><span class="toc-number">3.16.</span> <span class="toc-text">ignorecase[ic]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#incsearch[is]_（Vim_才有）"><span class="toc-number">3.17.</span> <span class="toc-text">incsearch[is] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hlsearch[hls]_（Vim_才有）"><span class="toc-number">3.18.</span> <span class="toc-text">hlsearch[hls] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#textwidth[tw]"><span class="toc-number">3.19.</span> <span class="toc-text">textwidth[tw]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wrapmargin[wm]"><span class="toc-number">3.20.</span> <span class="toc-text">wrapmargin[wm]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wrap"><span class="toc-number">3.21.</span> <span class="toc-text">wrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wrapscan[ws]"><span class="toc-number">3.22.</span> <span class="toc-text">wrapscan[ws]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#paste_（Vim_才有）"><span class="toc-number">3.23.</span> <span class="toc-text">paste （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ruler[ru]_（Vim_才有）"><span class="toc-number">3.24.</span> <span class="toc-text">ruler[ru] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#statusline[stl]_（Vim_才有）"><span class="toc-number">3.25.</span> <span class="toc-text">statusline[stl] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shiftwidth[sw]"><span class="toc-number">3.26.</span> <span class="toc-text">shiftwidth[sw]</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于expandtab"><span class="toc-number">3.26.1.</span> <span class="toc-text">关于expandtab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tabstop[ts]"><span class="toc-number">3.27.</span> <span class="toc-text">tabstop[ts]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#showcmd[sc]"><span class="toc-number">3.28.</span> <span class="toc-text">showcmd[sc]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#showmode[smd]"><span class="toc-number">3.29.</span> <span class="toc-text">showmode[smd]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#visualbell[vb]_（Vim_才有）"><span class="toc-number">3.30.</span> <span class="toc-text">visualbell[vb] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#number[nu]"><span class="toc-number">3.31.</span> <span class="toc-text">number[nu]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list"><span class="toc-number">3.32.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swapfile[swf]_（Vim_才有）"><span class="toc-number">3.33.</span> <span class="toc-text">swapfile[swf] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fileencoding[fe]_（Vim_才有）"><span class="toc-number">3.34.</span> <span class="toc-text">fileencoding[fe] （Vim 才有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history[hi]"><span class="toc-number">3.35.</span> <span class="toc-text">history[hi]</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于_softtabstop[sts]"><span class="toc-number">4.</span> <span class="toc-text">关于 softtabstop[sts]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vim_的_modeline"><span class="toc-number">5.</span> <span class="toc-text">Vim 的 modeline</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于折行"><span class="toc-number">6.</span> <span class="toc-text">关于折行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#我的设定檔"><span class="toc-number">7.</span> <span class="toc-text">我的设定檔</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#-vimrc_范例"><span class="toc-number">7.1.</span> <span class="toc-text">.vimrc 范例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-gvimrc_范例"><span class="toc-number">7.2.</span> <span class="toc-text">.gvimrc 范例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-vim_目录范例"><span class="toc-number">7.3.</span> <span class="toc-text">.vim 目录范例</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/32位/" style="font-size: 12.5px;">32位</a><a href="/tags/64位/" style="font-size: 12.5px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 12.5px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/GIt/" style="font-size: 10px;">GIt</a><a href="/tags/Git/" style="font-size: 12.5px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SSH/" style="font-size: 15px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/Vim/" style="font-size: 10px;">Vim</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/commands/" style="font-size: 12.5px;">commands</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 12.5px;">usb stick</a><a href="/tags/vim/" style="font-size: 17.5px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
+    </div>
+  </div>
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Browser/" title="Browser">Browser<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>29</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/OS/" title="OS">OS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Windows/" title="Windows">Windows<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/语言/" title="语言">语言<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1854771045&verifier=375b89d6&dpc=1"></iframe>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://v2ex.com" target="_blank" title="环境优雅的程序员社区">V2EX</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 志愿愈大，希望愈高，可以致力之处就愈少，可以自解之处也愈多。 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1854771045" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Tiande" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/TiandeTD" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/58150105" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="https://www.zhihu.com/people/dun-tian-de" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:dtdnqsb@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="钢仔">钢仔</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Tiande"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

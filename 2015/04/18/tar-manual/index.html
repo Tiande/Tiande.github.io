@@ -1,0 +1,531 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>tar manual | 天德池</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="钢仔">
+    
+
+    
+    <meta name="description" content="命令名tar - tar 档案文件管理程序的 GNU 版本。
+总览123456789101112tar [ - ] A --catenate --concatenate | c --create | d --diff --compare | r --append | t --list | u --update | x -extract --get [ --atime-preserve ] [ -b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tar manual">
+<meta property="og:url" content="http://tiandechi.com/2015/04/18/tar-manual/index.html">
+<meta property="og:site_name" content="天德池">
+<meta property="og:description" content="命令名tar - tar 档案文件管理程序的 GNU 版本。
+总览123456789101112tar [ - ] A --catenate --concatenate | c --create | d --diff --compare | r --append | t --list | u --update | x -extract --get [ --atime-preserve ] [ -b">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tar manual">
+<meta name="twitter:description" content="命令名tar - tar 档案文件管理程序的 GNU 版本。
+总览123456789101112tar [ - ] A --catenate --concatenate | c --create | d --diff --compare | r --append | t --list | u --update | x -extract --get [ --atime-preserve ] [ -b">
+<meta name="twitter:creator" content="@TiandeTD">
+
+    
+    <link rel="alternative" href="/atom.xml" title="天德池" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="天德池" title="天德池"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="天德池">天德池</a></h1>
+				<h2 class="blog-motto">这里不是洗澡的地方</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tiandechi.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/18/tar-manual/" title="tar manual" itemprop="url">tar manual</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T13:12:08.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#命令名"><span class="toc-number">1.</span> <span class="toc-text">命令名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总览"><span class="toc-number">2.</span> <span class="toc-text">总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#描述"><span class="toc-number">3.</span> <span class="toc-text">描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应用举例："><span class="toc-number">4.</span> <span class="toc-text">应用举例：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数说明"><span class="toc-number">5.</span> <span class="toc-text">参数说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他参数"><span class="toc-number">6.</span> <span class="toc-text">其他参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NAME"><span class="toc-number">7.</span> <span class="toc-text">NAME</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SYNOPSIS"><span class="toc-number">8.</span> <span class="toc-text">SYNOPSIS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DESCRIPTION"><span class="toc-number">9.</span> <span class="toc-text">DESCRIPTION</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="命令名">命令名</h1><p>tar - tar 档案文件管理程序的 GNU 版本。</p>
+<h1 id="总览">总览</h1><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">tar</span> <span class="title">[</span> <span class="literal">-</span> <span class="title">]</span> <span class="comment">A</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">catenate</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">concatenate</span> <span class="comment">|</span> <span class="comment">c</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">create</span> <span class="comment">|</span> <span class="comment">d</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">diff</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">compare</span> <span class="comment">|</span> <span class="comment">r</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">append</span> <span class="comment">|</span> <span class="comment">t</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span> <span class="comment">|</span> <span class="comment">u</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">update</span> <span class="comment">|</span> <span class="comment">x</span> <span class="literal">-</span><span class="comment">extract</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">get</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">atime</span><span class="literal">-</span><span class="comment">preserve</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">b</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">block</span><span class="literal">-</span><span class="comment">size</span> <span class="comment">N</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">B</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">read</span><span class="literal">-</span><span class="comment">full</span><span class="literal">-</span><span class="comment">blocks</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">C</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">directory</span> <span class="comment">DIR</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">checkpoint</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">f</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">file</span> <span class="title">[</span><span class="comment">HOSTNAME:</span><span class="title">]</span><span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">force</span><span class="literal">-</span><span class="comment">local</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">F</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">info</span><span class="literal">-</span><span class="comment">script</span> <span class="comment">F</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">new</span><span class="literal">-</span><span class="comment">volume</span><span class="literal">-</span><span class="comment">script</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">G</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">incremental</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">g</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">listed</span><span class="literal">-</span><span class="comment">incremental</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">h</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">dereference</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">i</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ignore</span><span class="literal">-</span><span class="comment">zeros</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">I</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">bzip</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ignore</span><span class="literal">-</span><span class="comment">failed</span><span class="literal">-</span><span class="comment">read</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">k</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keep</span><span class="literal">-</span><span class="comment">old</span><span class="literal">-</span><span class="comment">files</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">K</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">starting</span><span class="literal">-</span><span class="comment">file</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">l</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">one</span><span class="literal">-</span><span class="comment">file</span><span class="literal">-</span><span class="comment">system</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">L</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">tape</span><span class="literal">-</span><span class="comment">length</span> <span class="comment">N</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">m</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">modification</span><span class="literal">-</span><span class="comment">time</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">M</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">multi</span><span class="literal">-</span><span class="comment">volume</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">N</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">after</span><span class="literal">-</span><span class="comment">date</span> <span class="comment">DATE</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">newer</span> <span class="comment">DATE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">o</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">old</span><span class="literal">-</span><span class="comment">archive</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">portability</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">O</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">to</span><span class="literal">-</span><span class="comment">stdout</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">p</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">permissions</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span><span class="literal">-</span><span class="comment">permissions</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">P</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">absolute</span><span class="literal">-</span><span class="comment">paths</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">R</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">record</span><span class="literal">-</span><span class="comment">number</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">remove</span><span class="literal">-</span><span class="comment">files</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">s</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">order</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span><span class="literal">-</span><span class="comment">order</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">owner</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">S</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">sparse</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">T</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">files</span><span class="literal">-</span><span class="comment">from</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">null</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">totals</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">v</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">verbose</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">V</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">label</span> <span class="comment">NAME</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">version</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">w</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">interactive</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">confirmation</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">W</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">verify</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">exclude</span> <span class="comment">FILE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">X</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">exclude</span><span class="literal">-</span><span class="comment">from</span> <span class="comment">FILE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">Z</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">compress</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">uncompress</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">z</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">gzip</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ungzip</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">use</span><span class="literal">-</span><span class="comment">compress</span><span class="literal">-</span><span class="comment">program</span> <span class="comment">PROG</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">block</span><span class="literal">-</span><span class="comment">compress</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="title">[</span><span class="comment">0</span><span class="literal">-</span><span class="comment">7</span><span class="title">]</span><span class="title">[</span><span class="comment">lmh</span><span class="title">]</span> <span class="title">]</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">filename1</span> <span class="title">[</span> <span class="comment">filename2</span><span class="string">,</span> <span class="string">.</span><span class="string">.</span><span class="string">.</span> <span class="comment">filenameN</span> <span class="title">]</span></span><br><span class="line"><span class="comment">directory1</span> <span class="title">[</span> <span class="comment">directory2</span><span class="string">,</span> <span class="string">.</span><span class="string">.</span><span class="string">.</span><span class="comment">directoryN</span> <span class="title">]</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="描述">描述</h1><p>tar 程序用于储存或展开 tar 存档文件。存档文件可放在磁盘中 ，也可以存为普通文件。 tar是需要参数的，可选的参数是A、c、d、r、t、u、x，您在使用tar时必须首先为 tar 指定至少一个参数；然后，您必须指定要处理的文件或目录。如果指定一个目录则该目录下的所有子目录都将被加入存档。</p>
+<h1 id="应用举例：">应用举例：</h1><ol>
+<li><p>展开<br>展开abc.tar.gz 使用命令</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf abc<span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure>
+<p>展开 abc.tar 使用命令</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">tar</span> xvf abc.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将当前目录下的 man 目录及其子目录存成存档 man.tar</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar <span class="keyword">cf</span> <span class="keyword">man</span>.tar ./<span class="keyword">man</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="参数说明">参数说明</h1><p>运行tar时必须要有下列参数中的至少一个才可运行<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"><span class="constant">A</span>, --catenate, --concatenate</span><br><span class="line"></span>将一存档与已有的存档合并</span><br><span class="line">-<span class="ruby">c, --create</span><br><span class="line"></span>建立新的存档</span><br><span class="line">-<span class="ruby">d, --diff, --compare</span><br><span class="line"></span>比较存档与当前文件的不同之处</span><br><span class="line">-<span class="ruby">-delete</span><br><span class="line"></span>从存档中删除</span><br><span class="line">-<span class="ruby">r, --append</span><br><span class="line"></span>附加到存档结尾</span><br><span class="line">-<span class="ruby">t, --list</span><br><span class="line"></span>列出存档中文件的目录</span><br><span class="line">-<span class="ruby">u, --update</span><br><span class="line"></span>仅将较新的文件附加到存档中</span><br><span class="line">-<span class="ruby">x, --extract, --get</span><br><span class="line"></span>从存档展开文件</span><br></pre></td></tr></table></figure></p>
+<h1 id="其他参数">其他参数</h1><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">-atime-preserve</span><br><span class="line"></span>不改变转储文件的存取时间</span><br><span class="line">-<span class="ruby">b, --block-size <span class="constant">N</span></span><br><span class="line"></span>指定块大小为 Nx512 字节（缺省时 N=20)</span><br><span class="line">-<span class="ruby"><span class="constant">B</span>, --read-full-blocks</span><br><span class="line"></span>读取时重组块（？？？！！！）</span><br><span class="line">-<span class="ruby"><span class="constant">C</span>, --directory <span class="constant">DIR</span></span><br><span class="line"></span>转到指定的目录</span><br><span class="line">-<span class="ruby">-checkpoint</span><br><span class="line"></span>读取存档时显示目录名</span><br><span class="line">-<span class="ruby">f, --file [<span class="constant">HOSTNAME</span><span class="symbol">:</span>]<span class="constant">F</span></span><br><span class="line"></span>指定存档或设备 (缺省为 /dev/rmt0)</span><br><span class="line">-<span class="ruby">-force-local</span><br><span class="line"></span>强制使用本地存档，即使存在克隆</span><br><span class="line">-<span class="ruby"><span class="constant">F</span>, --info-script <span class="constant">F</span> --new-volume-script <span class="constant">F</span></span><br><span class="line"></span>在每个磁盘结尾使用脚本 F （隐含 -M）</span><br><span class="line">-<span class="ruby"><span class="constant">G</span>, --incremental</span><br><span class="line"></span>建立老 GNU 格式的备份</span><br><span class="line">-<span class="ruby">g, --listed-incremental <span class="constant">F</span></span><br><span class="line"></span>建立新 GNU 格式的备份</span><br><span class="line">-<span class="ruby">h, --dereference</span><br><span class="line"></span>不转储动态链接，转储动态链接指向的文件。</span><br><span class="line">-<span class="ruby">i, --ignore-zeros</span><br><span class="line"></span>忽略存档中的 0 字节块（通常意味着文件结束）</span><br><span class="line">-<span class="ruby">-ignore-failed-read</span><br><span class="line"></span>在不可读文件中作 0 标记后再退出？？？</span><br><span class="line">-<span class="ruby">k, --keep-old-files</span><br><span class="line"></span>保存现有文件；从存档中展开时不进行覆盖</span><br><span class="line">-<span class="ruby"><span class="constant">K</span>, --starting-file <span class="constant">F</span></span><br><span class="line"></span>从存档文件 F 开始</span><br><span class="line">-<span class="ruby">l, --one-file-system</span><br><span class="line"></span>在本地文件系统中创建存档</span><br><span class="line">-<span class="ruby"><span class="constant">L</span>, --tape-length <span class="constant">N</span></span><br><span class="line"></span>在写入 N*1024 个字节后暂停，等待更换磁盘</span><br><span class="line">-<span class="ruby">m, --modification-time</span><br><span class="line"></span>当从一个档案中恢复文件时，不使用新的时间标签</span><br><span class="line">-<span class="ruby"><span class="constant">M</span>, --multi-volume</span><br><span class="line"></span>建立多卷存档,以便在几个磁盘中存放</span><br><span class="line">-<span class="ruby"><span class="constant">N</span>, --after-date <span class="constant">DATE</span>, --newer <span class="constant">DATE</span></span><br><span class="line"></span>仅存储时间较新的文件</span><br><span class="line">-<span class="ruby">o, --old-archive, --portability</span><br><span class="line"></span>以 V7 格式存档，不用 ANSI 格式</span><br><span class="line">-<span class="ruby"><span class="constant">O</span>, --to-stdout</span><br><span class="line"></span>将文件展开到标准输出</span><br><span class="line">-<span class="ruby">p, --same-permissions, --preserve-permissions</span><br><span class="line"></span>展开所有保护信息</span><br><span class="line">-<span class="ruby"><span class="constant">P</span>, --absolute-paths</span><br><span class="line"></span>不要从文件名中去除 '/'</span><br><span class="line">-<span class="ruby">-preserve</span><br><span class="line"></span>like -p -s</span><br><span class="line">与 -p -s 相似</span><br><span class="line">-<span class="ruby"><span class="constant">R</span>, --record-number</span><br><span class="line"></span>显示信息时同时显示存档中的记录数</span><br><span class="line">-<span class="ruby">-remove-files</span><br><span class="line"></span>建立存档后删除源文件</span><br><span class="line">-<span class="ruby">s, --same-order, --preserve-order</span><br><span class="line"></span>？？？</span><br><span class="line">-<span class="ruby">-same-owner</span><br><span class="line"></span>展开以后使所有文件属于同一所有者</span><br><span class="line">-<span class="ruby"><span class="constant">S</span>, --sparse</span><br><span class="line"></span>高效处理</span><br><span class="line">-<span class="ruby"><span class="constant">T</span>, --files-from <span class="constant">F</span></span><br><span class="line"></span>从文件中得到要展开或要创建的文件名</span><br><span class="line">-<span class="ruby">-null</span><br><span class="line"></span>读取空结束的文件名，使 -C 失效</span><br><span class="line">-<span class="ruby">-totals</span><br><span class="line"></span>显示用 --create 参数写入的总字节数</span><br><span class="line">-<span class="ruby">v, --verbose</span><br><span class="line"></span>详细显示处理的文件</span><br><span class="line">-<span class="ruby"><span class="constant">V</span>, --label <span class="constant">NAME</span></span><br><span class="line"></span>为存档指定卷标</span><br><span class="line">-<span class="ruby">-version</span><br><span class="line"></span>显示 tar 程序的版本号</span><br><span class="line">-<span class="ruby">w, --interactive, --confirmation</span><br><span class="line"></span>每个操作都要求确认</span><br><span class="line">-<span class="ruby"><span class="constant">W</span>, --verify</span><br><span class="line"></span>写入存档后进行校验</span><br><span class="line">-<span class="ruby">-exclude <span class="constant">FILE</span></span><br><span class="line"></span>不把指定文件包含在内</span><br><span class="line">-<span class="ruby"><span class="constant">X</span>, --exclude-from <span class="constant">FILE</span></span><br><span class="line"></span>从指定文件中读入不想包含的文件的列表</span><br><span class="line">-<span class="ruby">y, --bzip2, --bunzip2</span><br><span class="line"></span>用 bzip2 对存档压缩或解压</span><br><span class="line">-<span class="ruby"><span class="constant">Z</span>, --compress, --uncompress</span><br><span class="line"></span>用 compress 对存档压缩或解压</span><br><span class="line">-<span class="ruby">z, --gzip, --ungzip</span><br><span class="line"></span>用 gzip 对存档压缩或解压</span><br><span class="line">-<span class="ruby">-use-compress-program <span class="constant">PROG</span></span><br><span class="line"></span>用 PROG 对存档压缩或解压 ( PROG 需能接受 -d 参数）</span><br><span class="line">-<span class="ruby">-block-compress</span><br><span class="line"></span>为便于磁盘存储，按块记录存档</span><br><span class="line">-<span class="ruby">[<span class="number">0</span>-<span class="number">7</span>][lmh]</span><br><span class="line"></span>指定驱动器和密度[高中低]</span><br></pre></td></tr></table></figure>
+<h1 id="NAME">NAME</h1><p>tar - The GNU version of the tar archiving utility</p>
+<h1 id="SYNOPSIS">SYNOPSIS</h1><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">tar</span> <span class="title">[</span> <span class="literal">-</span> <span class="title">]</span> <span class="comment">A</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">catenate</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">concatenate</span> <span class="comment">|</span> <span class="comment">c</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">create</span> <span class="comment">|</span> <span class="comment">d</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">diff</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">compare</span> <span class="comment">|</span> <span class="comment">r</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">append</span> <span class="comment">|</span> <span class="comment">t</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span> <span class="comment">|</span> <span class="comment">u</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">update</span> <span class="comment">|</span> <span class="comment">x</span> <span class="literal">-</span><span class="comment">extract</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">get</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">atime</span><span class="literal">-</span><span class="comment">preserve</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">b</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">block</span><span class="literal">-</span><span class="comment">size</span> <span class="comment">N</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">B</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">read</span><span class="literal">-</span><span class="comment">full</span><span class="literal">-</span><span class="comment">blocks</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">C</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">directory</span> <span class="comment">DIR</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">checkpoint</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">f</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">file</span> <span class="title">[</span><span class="comment">HOSTNAME:</span><span class="title">]</span><span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">force</span><span class="literal">-</span><span class="comment">local</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">F</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">info</span><span class="literal">-</span><span class="comment">script</span> <span class="comment">F</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">new</span><span class="literal">-</span><span class="comment">volume</span><span class="literal">-</span><span class="comment">script</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">G</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">incremental</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">g</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">listed</span><span class="literal">-</span><span class="comment">incremental</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">h</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">dereference</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">i</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ignore</span><span class="literal">-</span><span class="comment">zeros</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">j</span><span class="string">,</span> <span class="literal">-</span><span class="comment">I</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">bzip</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ignore</span><span class="literal">-</span><span class="comment">failed</span><span class="literal">-</span><span class="comment">read</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">k</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keep</span><span class="literal">-</span><span class="comment">old</span><span class="literal">-</span><span class="comment">files</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">K</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">starting</span><span class="literal">-</span><span class="comment">file</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">l</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">one</span><span class="literal">-</span><span class="comment">file</span><span class="literal">-</span><span class="comment">system</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">L</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">tape</span><span class="literal">-</span><span class="comment">length</span> <span class="comment">N</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">m</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">modification</span><span class="literal">-</span><span class="comment">time</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">M</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">multi</span><span class="literal">-</span><span class="comment">volume</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">N</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">after</span><span class="literal">-</span><span class="comment">date</span> <span class="comment">DATE</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">newer</span> <span class="comment">DATE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">o</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">old</span><span class="literal">-</span><span class="comment">archive</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">portability</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">O</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">to</span><span class="literal">-</span><span class="comment">stdout</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">p</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">permissions</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span><span class="literal">-</span><span class="comment">permissions</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">P</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">absolute</span><span class="literal">-</span><span class="comment">paths</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">R</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">record</span><span class="literal">-</span><span class="comment">number</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">remove</span><span class="literal">-</span><span class="comment">files</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">s</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">order</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span><span class="literal">-</span><span class="comment">order</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">owner</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">S</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">sparse</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">T</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">files</span><span class="literal">-</span><span class="comment">from=F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">null</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">totals</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">v</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">verbose</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">V</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">label</span> <span class="comment">NAME</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">version</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">w</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">interactive</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">confirmation</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">W</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">verify</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">exclude</span> <span class="comment">FILE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">X</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">exclude</span><span class="literal">-</span><span class="comment">from</span> <span class="comment">FILE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">Z</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">compress</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">uncompress</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">z</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">gzip</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ungzip</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">use</span><span class="literal">-</span><span class="comment">compress</span><span class="literal">-</span><span class="comment">program</span> <span class="comment">PROG</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">block</span><span class="literal">-</span><span class="comment">compress</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="title">[</span><span class="comment">0</span><span class="literal">-</span><span class="comment">7</span><span class="title">]</span><span class="title">[</span><span class="comment">lmh</span><span class="title">]</span> <span class="title">]</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">filename1</span> <span class="title">[</span> <span class="comment">filename2</span><span class="string">,</span> <span class="string">.</span><span class="string">.</span><span class="string">.</span> <span class="comment">filenameN</span> <span class="title">]</span></span><br><span class="line"><span class="comment">directory1</span> <span class="title">[</span> <span class="comment">directory2</span><span class="string">,</span> <span class="string">.</span><span class="string">.</span><span class="string">.</span><span class="comment">directoryN</span> <span class="title">]</span></span><br></pre></td></tr></table></figure>
+<h1 id="DESCRIPTION">DESCRIPTION</h1><pre><code>This manual page documents <span class="keyword">the</span> GNU <span class="property">version</span> <span class="keyword">of</span> tar , an archiving program designed <span class="keyword">to</span> store <span class="keyword">and</span> extract files <span class="keyword">from</span> an archive <span class="type">file</span> known <span class="keyword">as</span> a tarfile. A tarfile may be made <span class="function_start"><span class="keyword">on</span></span> a tape drive, however, <span class="keyword">it</span> <span class="keyword">is</span> also common <span class="keyword">to</span> <span class="command">write</span> a tarfile <span class="keyword">to</span> a normal <span class="type">file</span>. The <span class="keyword">first</span> argument <span class="keyword">to</span> tar must be one <span class="keyword">of</span> <span class="keyword">the</span> options: Acdrtux, followed <span class="keyword">by</span> any optional functions. The final arguments <span class="keyword">to</span> tar are <span class="keyword">the</span> names <span class="keyword">of</span> <span class="keyword">the</span> files <span class="keyword">or</span> directories which should be archived. The use <span class="keyword">of</span> a directory <span class="property">name</span> always implies <span class="keyword">that</span> <span class="keyword">the</span> subdirectories <span class="keyword">below</span> should be included <span class="keyword">in</span> <span class="keyword">the</span> archive.
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tar/">tar</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiandechi.com/2015/04/18/tar-manual/" data-title="tar manual | 天德池" data-tsina="1854771045" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/18/force-unmount-usb-stick/" title="force unmount usb stick">
+  <strong>上一篇：</strong><br/>
+  <span>
+  force unmount usb stick</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/04/18/vim-set-configure/"  title="vim set configure">
+ <strong>下一篇：</strong><br/> 
+ <span>vim set configure
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/04/18/tar-manual/" data-title="tar manual" data-url="http://tiandechi.com/2015/04/18/tar-manual/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#命令名"><span class="toc-number">1.</span> <span class="toc-text">命令名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总览"><span class="toc-number">2.</span> <span class="toc-text">总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#描述"><span class="toc-number">3.</span> <span class="toc-text">描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应用举例："><span class="toc-number">4.</span> <span class="toc-text">应用举例：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数说明"><span class="toc-number">5.</span> <span class="toc-text">参数说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他参数"><span class="toc-number">6.</span> <span class="toc-text">其他参数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NAME"><span class="toc-number">7.</span> <span class="toc-text">NAME</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SYNOPSIS"><span class="toc-number">8.</span> <span class="toc-text">SYNOPSIS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DESCRIPTION"><span class="toc-number">9.</span> <span class="toc-text">DESCRIPTION</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/32位/" style="font-size: 12.5px;">32位</a><a href="/tags/64位/" style="font-size: 12.5px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 12.5px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/GIt/" style="font-size: 10px;">GIt</a><a href="/tags/Git/" style="font-size: 12.5px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SSH/" style="font-size: 15px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/Vim/" style="font-size: 10px;">Vim</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/commands/" style="font-size: 12.5px;">commands</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 12.5px;">usb stick</a><a href="/tags/vim/" style="font-size: 17.5px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
+    </div>
+  </div>
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Browser/" title="Browser">Browser<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>29</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/OS/" title="OS">OS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Windows/" title="Windows">Windows<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/语言/" title="语言">语言<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1854771045&verifier=375b89d6&dpc=1"></iframe>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://v2ex.com" target="_blank" title="环境优雅的程序员社区">V2EX</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 志愿愈大，希望愈高，可以致力之处就愈少，可以自解之处也愈多。 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1854771045" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Tiande" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/TiandeTD" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/58150105" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="https://www.zhihu.com/people/dun-tian-de" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:dtdnqsb@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="钢仔">钢仔</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Tiande"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
