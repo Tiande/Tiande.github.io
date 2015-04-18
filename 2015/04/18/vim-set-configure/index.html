@@ -195,11 +195,10 @@ Bot 档案最后一行在屏幕可见范围。
 <h1 id="Vim_的_modeline">Vim 的 modeline</h1><p>这个是什么哇？简单的说，Vim 有能力去解读所编辑档案内的 Vim 控制参数，而这些控制参数是写在档案的批注行里头的，例如 sh script 的批注行是以 # 来开头的，那 Vim 的控制参数就可以写在这些批注里头，Vim 在开这个档的同时，也会去控制自己的一些行为，当然，包括了上一节所说的 Tab 的长短，而 shell 本身则会忽略这些批注。<br>例如，现在把一个 sh script 檔里头，在档案最后一行，设了个：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># vim: ts=2</span></span><br></pre></td></tr></table></figure></p>
 <p>这样一来，按个 Tab，实际上显示出来会只有两个空格，别担心仍然是正港 Tab ，不相信的话，可用另一种编辑器打开就知道了。这个好用吧！详细请进入 vim 后 :h modeline。<br>当然，这个功能很方便，但并不是全然没有限制的，以下有些限制要注意:</p>
 <ol>
-<li>控制 modeline 本身的设定，不能写在档案里头，vim 会来不及读他。<br>例如：在 sh script 档案中设定<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># vim: set modelines=0</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<li><p>控制 modeline 本身的设定，不能写在档案里头，vim 会来不及读他。<br>例如：在 sh script 档案中设定</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># vim: set modelines=0</span></span><br></pre></td></tr></table></figure>
 <p>这是行不通的。</p>
-<ol>
+</li>
 <li>这些设定必须要在档案的开头五行，或结尾五行内设定，否则 vim 会忽略。</li>
 <li>批注符号后要至少一个空白(sapce 或 Tab 皆可)隔开。例如：<br>=&gt; C 程序代码 /* 和 vim 间至少要有个空白<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vim:ts=2 =&gt; C++</span></span><br><span class="line"><span class="preprocessor"># vim:ts=2 =&gt; sh script, perl, python, tcl</span></span><br><span class="line"><span class="string">" vim:ts=2 =&gt; vim script</span></span><br></pre></td></tr></table></figure>
 </li>
