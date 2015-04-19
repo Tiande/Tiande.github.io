@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://tiandechi.com/2015/03/18/Debian-VMware%E6%8F%90%E7%A4%BA%E6%89%BE%E4%B8%8D%E5%88%B0Kernel-headers/</loc>
-    <lastmod>2015-04-18T19:35:40.000Z</lastmod>
+    <loc>http://tiandechi.com/2015/04/18/aptitude-concise-manual/</loc>
+    <lastmod>2015-04-19T03:43:31.680Z</lastmod>
   </url>
   
   <url>
-    <loc>http://tiandechi.com/2015/03/27/%E8%AE%BE%E7%BD%AEvim%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA%E5%92%8C%E8%87%AA%E5%8A%A8%E7%BC%A9%E8%BF%9B/</loc>
+    <loc>http://tiandechi.com/2015/03/18/Debian-VMware%E6%8F%90%E7%A4%BA%E6%89%BE%E4%B8%8D%E5%88%B0Kernel-headers/</loc>
     <lastmod>2015-04-18T19:35:40.000Z</lastmod>
   </url>
   
@@ -82,17 +82,22 @@
   </url>
   
   <url>
+    <loc>http://tiandechi.com/2015/03/27/%E8%AE%BE%E7%BD%AEvim%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA%E5%92%8C%E8%87%AA%E5%8A%A8%E7%BC%A9%E8%BF%9B/</loc>
+    <lastmod>2015-04-18T19:35:40.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://tiandechi.com/2015/03/30/Linux%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2015-04-18T19:35:40.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://tiandechi.com/2015/03/28/Linux%E6%96%87%E4%BB%B6%E5%90%8D%E4%B9%B1%E7%A0%81%E7%9A%84%E8%BD%AC%E6%8D%A2/</loc>
+    <loc>http://tiandechi.com/2015/03/19/Windows%E5%8F%96%E5%BE%97%E7%AE%A1%E7%90%86%E5%91%98%E6%89%80%E6%9C%89%E6%9D%83/</loc>
     <lastmod>2015-04-18T19:35:40.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://tiandechi.com/2015/03/19/Windows%E5%8F%96%E5%BE%97%E7%AE%A1%E7%90%86%E5%91%98%E6%89%80%E6%9C%89%E6%9D%83/</loc>
+    <loc>http://tiandechi.com/2015/03/28/Linux%E6%96%87%E4%BB%B6%E5%90%8D%E4%B9%B1%E7%A0%81%E7%9A%84%E8%BD%AC%E6%8D%A2/</loc>
     <lastmod>2015-04-18T19:35:40.000Z</lastmod>
   </url>
   
@@ -119,11 +124,6 @@
   <url>
     <loc>http://tiandechi.com/2015/04/18/about-Chrome/</loc>
     <lastmod>2015-04-18T16:00:11.550Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://tiandechi.com/2015/04/18/aptitude-concise-manual/</loc>
-    <lastmod>2015-04-18T15:57:12.590Z</lastmod>
   </url>
   
   <url>
