@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-04-18T16:00:11.550Z</updated>
+  <updated>2015-04-19T08:35:45.460Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -13,6 +13,330 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[VSFTP server configure]]></title>
+    <link href="http://tiandechi.com/2015/04/19/VSFTP-server-configure/"/>
+    <id>http://tiandechi.com/2015/04/19/VSFTP-server-configure/</id>
+    <published>2015-04-19T08:19:25.000Z</published>
+    <updated>2015-04-19T08:35:45.460Z</updated>
+    <content type="html"><![CDATA[<h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
+<li>wu-ftp</li>
+<li>proftp=profession ftp</li>
+<li>vsftp=very security ftp</li>
+</ol>
+<p>配置文件：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/vsftpd/vsftpd<span class="class">.conf</span>   <span class="comment">//主配置文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="访问方式">访问方式</h1><ol>
+<li>匿名登录</li>
+<li>帐号登录</li>
+</ol>
+<a id="more"></a>
+<h1 id="启动FTP服务器：">启动FTP服务器：</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#service vsftpd restart</span><br></pre></td></tr></table></figure>
+<h1 id="配置vsftp服务器">配置vsftp服务器</h1><ol>
+<li><p>vsftpd.conf各项参数说明：</p>
+<pre><code><span class="comment">#vi /etc/vsftpd/vsftpd.conf</span>
+
+<span class="variable">&lt;1&gt;</span>第7行： 控制匿名登录
+
+            anonymous_enable=YES 改成NO
+
+<span class="variable">&lt;2&gt;</span>第10行：允许本地帐号登录
+
+<span class="variable">&lt;3&gt;</span>第13行：控制可写权限
+
+<span class="variable">&lt;4&gt;</span>第17行：控制本地文件的权限掩码
+
+<span class="variable">&lt;5&gt;</span>第22行：控制是否允许匿名上传(与26行同时开启或关闭)
+
+<span class="variable">&lt;6&gt;</span>第26行：控制是否允许匿名写及创建目录的权限
+
+<span class="variable">&lt;7&gt;</span>第33行：控制上传或下载的日志记录
+
+<span class="variable">&lt;8&gt;</span>第46行：控制日志的保存路径
+
+<span class="variable">&lt;9&gt;</span>第52行：设置指令超时的时间，默认为600秒
+
+<span class="variable">&lt;10&gt;</span>第55行：设置数据连接的超时时间，默认为120秒
+
+<span class="variable">&lt;11&gt;</span>第91行：控制登录FTP的用户是否被限制在家目录下;(必须与93行同时开启或关闭)
+
+            chroot_list_enable=YES
+
+<span class="variable">&lt;12&gt;</span>第93行：登录FTP后被限制在家目录下的用户列表文件
+
+            chroot_list_file=/etc/vsftpd.chroot_list
+
+            在/etc目录下新建一个vsftpd.chroot_list文件，内容加入要限制用户的用户名
+
+            没加入限制用户可以访问其目录
+
+<span class="variable">&lt;13&gt;</span>第99行：控制登录FTP后是否允许ls命令
+
+<span class="variable">&lt;14&gt;</span>第102行:启用/etc/vsftpd.user_list文件
+</code></pre></li>
+<li><p>配置匿名登录</p>
+<pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
+
+第<span class="number">7</span>行，设置为： (默认值)
+
+anonymous_enable=YES
+
+启动vsftpd服务器：
+
+<span class="id">#service</span> vsftpd restart
+
+<span class="id">#service</span> iptables stop
+
+匿名登录的默认目录：
+
+/var/ftp/pub
+
+打开匿名上传和写权限：
+
+<span class="id">#vi</span> /etc/vsftpd/vsftp<span class="class">.conf</span>
+
+激活第<span class="number">22</span>行
+
+激活第<span class="number">26</span>行
+
+打开默认共享目录的权限
+
+<span class="id">#chmod</span> <span class="number">777</span> /var/ftp/pub
+
+备注：匿名可以上传下载，但不能删除；
+</code></pre></li>
+<li><p>本地帐号登录</p>
+<pre><code>&lt;<span class="number">1</span>&gt;禁用匿名登入
+
+修改配置文件
+
+<span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
+
+禁用所有匿名控制行,如：
+
+   禁用第<span class="number">7</span>行，第<span class="number">22</span>行，第<span class="number">26</span>行；
+
+&lt;<span class="number">2</span>&gt;开放那些用户可以登入和那些用户拒绝登入
+
+<span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
+
+    在<span class="number">102</span>行后，插入如下：
+
+    userlist_deny=NO
+
+       (备注：设置/etc/vsftpd.user_list文件中的用户可登录FTP)
+
+    保存退出
+
+   如果是#userlist_deny=NO 注释掉，则默认全部用户可以登入FTP,当要限某用户不能登入：
+
+    把用户名加入这个文件当中/etc/vsftpd.ftpusers，则这个用户名拒绝登入FTP
+
+     创建用户并加入到相应的控制文件中
+
+      <span class="id">#useradd</span> us1
+
+<span class="id">#useradd</span> us2
+
+      <span class="id">#passwd</span> us1
+
+      <span class="id">#passwd</span> us2
+
+     允许登录到FTP的用户：
+
+      <span class="id">#echo</span> us1&gt;&gt;/etc/vsftpd<span class="class">.user_list</span>
+
+      <span class="id">#echo</span> us2&gt;&gt;/etc/vsftpd<span class="class">.user_list</span>   
+</code></pre></li>
+</ol>
+<h1 id="启动FTP服务器：-1">启动FTP服务器：</h1><pre><code><span class="id">#service</span> vsftpd restart
+
+备注：帐号登录FTP，默认是登录在家目录下；
+
+禁止登录到FTP的用户：
+
+<span class="id">#echo</span> us3&gt;&gt;/etc/vsftpd.ftpusers
+</code></pre><h1 id="将登录后的用户限制在本地家目录下：">将登录后的用户限制在本地家目录下：</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
+
+激活第<span class="number">91</span>行及第<span class="number">93</span>行
+
+   chroot_list_enable=YES
+
+   chroot_list_file=/etc/vsftpd<span class="class">.chroot_list</span>
+
+
+新建受限用户的列表文件并加入受限用户名
+
+<span class="id">#vi</span> /etc/vsftpd<span class="class">.chroot_list</span>
+
+  us2
+
+保存退出
+
+<span class="id">#service</span> vsftpd restart
+</code></pre><h1 id="限制匿名上传的速度：">限制匿名上传的速度：</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
+
+:$
+
+anon_max_rate=<span class="number">5000</span> <span class="comment">//默认以字节为单位 5000表示5K速度</span>
+</code></pre><h1 id="限制本地帐号的上传速度：">限制本地帐号的上传速度：</h1><pre><code>local_max_rate=<span class="number">5000</span> <span class="comment">//以(字节/秒)为单位</span>
+</code></pre><h1 id="针对不同的使用者限制不同的速度(这个速度优先限制所有用户的速度）:">针对不同的使用者限制不同的速度(这个速度优先限制所有用户的速度）:</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>   增加下面一行
+
+user_config_dir=/etc/vsftpd/userconf
+
+<span class="id">#mkdir</span> /etc/vsftpd/userconf   创建一个目录
+
+<span class="id">#vi</span> /etc/vsftpd/userconf/user1   （user1是要限制速度的用户名)
+
+local_max_rate=<span class="number">25000</span>
+</code></pre><h1 id="定制欢迎信息：">定制欢迎信息：</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
+
+激活<span class="number">80</span>行
+
+ftpd_banner=Welcome to Huayu FTP service.
+</code></pre><h1 id="限制服务器连接数和同IP连接数">限制服务器连接数和同IP连接数</h1><ol>
+<li>max_clients<br>可使用这个参数定义最大的总联机数。超过这个数目将会拒绝联机，0 表示不限。默认值为0。</li>
+<li>max_per_ip<br>使用这个参数定义每个ip address 所可以联机的数目。超过这个数目将会拒绝联机，0 表示不限。默认值为0</li>
+</ol>
+<h1 id="虚拟FTP用户设置">虚拟FTP用户设置</h1><ol>
+<li><p>建立虚拟用户口令库文件</p>
+<pre><code><span class="id">#vi</span> /etc/vsftpd/logins<span class="class">.txt</span>
+
+vuser1
+
+<span class="number">123</span>
+
+vuser2
+
+<span class="number">321</span>
+
+:wq
+
+口令库文件中奇数行设置用户名，偶数行设置口令
+</code></pre></li>
+<li>生成vsftpd的认证文件<pre><code><span class="id">#db_load</span> -T -t hash -f /etc/vsftpd/logins<span class="class">.txt</span> /etc/vsftpd/vsftpd_login<span class="class">.db</span> ##生成认证文件
+</code></pre></li>
+<li>设置认证文件只对root用户可读可写<pre><code><span class="preprocessor"># chmod 600 /etc/vsftpd/vsftpd_login.db</span>
+</code></pre></li>
+<li>建立虚拟用户所需的PAM配置文件，手工建立vsftpd.vu文件<pre><code># cat <span class="regexp">/etc/</span>pam.d/vsftpd.vu
+auth required <span class="regexp">/lib/</span>security<span class="regexp">/pam_userdb.so db=/</span>etc<span class="regexp">/vsftpd/</span>vsftpd_login
+account required <span class="regexp">/lib/</span>security<span class="regexp">/pam_userdb.so db=/</span>etc<span class="regexp">/vsftpd/</span>vsftpd_login
+</code></pre></li>
+<li>建立所有FTP虚拟用户帐号使用的系统用户帐号，并设置该帐号宿主目录的权限<pre><code><span class="preprocessor"># useradd -d /home -s /sbin/nologin /ftpsite virtual</span>
+<span class="preprocessor"># chmod 700 /home/ftpsite</span>
+</code></pre></li>
+<li><p>设置vsftpd.conf配置文件</p>
+<pre><code><span class="comment">#vi /etc/vsftpd/vsftpd.conf</span>
+
+在配置文件中添加虚拟用户的配置内容
+
+<span class="constant">guest_enable</span>=YES
+
+<span class="constant">guest_username</span>=virtual
+
+<span class="constant">pam_service_name</span>=vsftpd.vu（要和刚才建的PAM文件对应）
+
+<span class="constant">user_config_dir</span>=/etc/vsftpd/user_config_dir （指定每个虚拟用户账号配置目录，）
+<span class="constant">local_root</span>=/www （这行没有，虚拟用户登入到/ftpsite）
+</code></pre></li>
+<li><p>配置虚拟用户名的设置</p>
+<pre><code><span class="comment">#mkdir -p /etc/vsftpd/user_config_dir （主配置文件对应）</span>
+<span class="comment">#mkdir -p /www/vuser1    （创建虚拟用主目录）</span>
+<span class="comment">#chmod -R 777 /www/vuser1 （设定权限）</span>
+
+<span class="comment">#touch /etc/vsftpd/user_config_dir/vuser1 (为vuser1权限配置文件)</span>
+<span class="comment">#echo "anon_world_readable_only=NO</span>
+write_<span class="built_in">enable</span>=YES
+anon_upload_<span class="built_in">enable</span>=YES
+anon_other_write_<span class="built_in">enable</span>=YES
+<span class="built_in">local</span>_root=/www/feixiang
+anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" &gt;/etc/vsftpd/user_config_dir/vuser1</span>
+</code></pre></li>
+<li><p>重新启动vsftpd服务程序</p>
+<pre><code><span class="preprocessor"># service vsftpd restart</span>
+
+现在就应该可以用虚拟帐号登陆了.
+</code></pre></li>
+</ol>
+<p><a href="http://www.cnblogs.com/JemBai/archive/2009/02/05/1384413.html" target="_blank" rel="external">Linux VSFTP服务器详细配置</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
+<li>wu-ftp</li>
+<li>proftp=profession ftp</li>
+<li>vsftp=very security ftp</li>
+</ol>
+<p>配置文件：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/vsftpd/vsftpd<span class="class">.conf</span>   <span class="comment">//主配置文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="访问方式">访问方式</h1><ol>
+<li>匿名登录</li>
+<li>帐号登录</li>
+</ol>]]>
+    
+    </summary>
+    
+      <category term="VSFTP" scheme="http://tiandechi.com/tags/VSFTP/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[OpenSSH management:ssh-agent & keychain]]></title>
+    <link href="http://tiandechi.com/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/"/>
+    <id>http://tiandechi.com/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/</id>
+    <published>2015-04-19T08:12:38.000Z</published>
+    <updated>2015-04-19T09:27:54.505Z</updated>
+    <content type="html"><![CDATA[<h1 id="介绍_ssh-agent">介绍 ssh-agent</h1><p>ssh-agent 是专为既令人愉快又安全的处理 RSA 和 DSA 密钥而设计的特殊程序，它包括在OpenSSH分发内(请参阅 本系列文章的第 1 部分以得到关于 RSA 和 DSA 认证的介绍)。不同于 ssh ， ssh-agent 是个长时间持续运行的守护进程(daemon)，设计它的唯一目的就是对解密的专用密钥进行高速缓存。</p>
+<p>ssh 包含的内建支持允许它同 ssh-agent 通信，允许 ssh 不必每次新连接时都提示您要密码才能获取解密的专用密钥。对于 ssh-agent ，您只要使用 ssh-add 把专用密钥添加到 ssh-agent 的高速缓存中。这是个一次性过程;用过 ssh-add 之后， ssh 将从 ssh-agent 获取您的专用密钥，而不会提示要密码短语来烦您了。</p>
+<h1 id="使用_ssh-agent">使用 ssh-agent</h1><a id="more"></a>
+<p>让我们看一下整个 ssh-agent 密钥高速缓存系统的工作过程。 ssh-agent 启动时，在脱离 shell(外壳程序)并继续在后台运行之前它会输出一些重要的环境变量。以下是 ssh-agent 开始时生成的输出的一些示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">% ssh-agent</span><br><span class="line"></span><br><span class="line">SSH_AUTH_SOCK=/tmp/ssh-XX4LkMJS/agent.<span class="number">26916</span>; <span class="built_in">export</span> SSH_AUTH_SOCK;</span><br><span class="line"></span><br><span class="line">SSH_AGENT_PID=<span class="number">26917</span>; <span class="built_in">export</span> SSH_AGENT_PID;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Agent pid <span class="number">26917</span>;</span><br></pre></td></tr></table></figure></p>
+<p>正如您所看到的，事实上 ssh-agent 的输出是一系列 bash 命令;如果这些命令被执行，则将设置两个环境变量：SSH_AUTH_SOCK 和 SSH_AGENT_PID。内含的 export 命令使这些环境变量对之后运行的任何附加命令都可用。唔， 如果 shell 真对这些行进行计算，这一切才会发生，但是此时它们只是被打印到标准输出(stdout)而已。要使之确定，我们可以象下面这样调用 ssh-agent ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">`ssh-agent`</span></span><br></pre></td></tr></table></figure></p>
+<p>这个命令先让 bash 运行 ssh-agent 后对 ssh-agent 的输出进行计算。shell 以这种调用方式(使用反引号，而不是普通的单引号)设置并导出 SSH_AGENT_PID 及 SSH_AUTH_SOCK 变量，使这些变量对于您在登录会话期间启动的所有新进程都可用。</p>
+<p>启动 ssh-agent 的最佳方式就是把上面这行添加到您的 ~/.bash_profile 中;这样，在您的登录 shell 中启动的所有程序都将看到环境变量，而且能够定位 ssh-agent ，并在需要的时候向其查询密钥。尤其重要的环境变量是 SSH_AUTH_SOCK;SSH_AUTH_SOCK 包含有 ssh 和 scp 可以用来同 ssh-agent 建立对话的 UNIX 域套接字的路径。</p>
+<h1 id="使用_ssh-add">使用 ssh-add</h1><p>但是 ssh-agent 启动时高速缓存当然是空的，里面不会有解密的专用密钥。在我们真能使用 ssh-agent 之前，首先还需要使用 ssh-add 命令把我们的专用密钥添加到 ssh-agent 的高速缓存中。下面的示例中，我使用 ssh-add 把我的 ~/.ssh/identity 专用 RSA 密钥添加到 ssh-agent 的高速缓存中：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># ssh-add ~<span class="regexp">/.ssh/i</span>dentity</span><br><span class="line"></span><br><span class="line">Need passphrase <span class="keyword">for</span> <span class="regexp">/home/</span>drobbins<span class="regexp">/.ssh/i</span>dentity</span><br><span class="line"></span><br><span class="line">Enter passphrase <span class="keyword">for</span> <span class="regexp">/home/</span>drobbins<span class="regexp">/.ssh/i</span>dentity</span><br><span class="line"></span><br><span class="line">(enter passphrase)</span><br></pre></td></tr></table></figure></p>
+<p>正如您所看到的， ssh-add 要我的密码短语来对专用密钥进行解密并存储在 ssh-agent 的高速缓存中以备使用。一旦您已经用 ssh-add 把专用密钥(或多个密钥)添加到 ssh-agent 的高速缓存中， 并在当前的 shell 中(如果您在 ~/.bash_profile 中启动 ssh-agent ，情况应当是这样)定义 SSH_AUTH_SOCK，那么您可以使用 scp 和 ssh 同远程系统建立连接而不必提供密码短语。</p>
+<h1 id="ssh-agent_的不足之处">ssh-agent 的不足之处</h1><p>ssh-agent 确实棒，但是其缺省配置还是会留给我们一些小小的不便。让我们来看一下这些不足吧。</p>
+<p>首先，~/.bash_profile 中的 eval <code>ssh-agent</code> 使每次登录会话都会启动一个新的 ssh-agent 副本;这不仅仅是有一丁点儿浪费，而且还意味着您得使用 ssh-add 向每个新的 ssh-agent 副本添加专用密钥。如果您只想打开系统上的一个终端或控制台，这没什么大不了的，但是我们中大多数人打开相当多的终端，每次新打开控制台都需要键入密码短语。从技术角度讲，既然一个 ssh-agent 进程的确应当足够了，要是我们还需这样做，这毫无道理。</p>
+<p>有关 ssh-agent 的缺省设置的另外一个问题是它同 cron 作业不兼容。由于 cron 作业是 cron 进程启动的，这些作业无法从它们的环境中继承 SSH_AUTH_SOCK 变量，因而也无从知道 ssh-agent 进程正在运行以及如何同它联系。事实证明这个问题也是可以修补的。</p>
+<h1 id="开始用到_keychain">开始用到 keychain</h1><p>为了解决这些问题，我编写了一个有用的 ssh-agent 前端，它基于 bash，叫做 keychain 。 keychain 的特别之处在于它允许 每个系统使用一个 ssh-agent 进程，而非每次登录会话。这意味着您只需对每个专用密钥执行一次 ssh-add ，就一次。正如我们稍后将要看到的一样， keychain 甚至有助于优化 ssh-add ，而这只要它试图向那些正在运行的 ssh-agent 添加其高速缓存中没有的专用密钥。</p>
+<p>以下对 keychain 如何工作从头到尾浏览一遍。从 ~/.bash_profile 中启动时， keychain 将首先查看 ssh-agent 是否已经在运行了。如果没有，它就启动 ssh-agent 并把重要的 SSH_AUTH_SOCK 和 SSH_AGENT_PID 变量记录在 ~/.ssh-agent 文件中，一方面为了安全而保存，另一方面也是为了以后的使用。这是启动 keychain 的最佳途径;同使用平淡无奇的老式 ssh-agent 一样，我们在 ~/.bash_profile 内部执行必要的配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#example ~/.bash_profile file</span></span><br><span class="line"></span><br><span class="line">/usr/bin/keychain ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"><span class="comment">#redirect ~/.ssh-agent output to /dev/null to zap the annoying</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#"Agent PID" message</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.ssh-agent &gt; /dev/null</span><br></pre></td></tr></table></figure></p>
+<p>正如您所看到的，对于 keychain 我们用 source 命令读入并执行 ~/.ssh-agent 文件，而不是象我们直接使用 ssh-agent 时所做的对输出进行计算。但是，结果是一样的：定义了非常重要的 SSH_AUTH_SOCK，而且正运行 ssh-agent 以备使用。同时，因为 SSH_AUTH_SOCK 被记录在 ~/.ssh-agent 里，只要用 source 命令读入并执行 ~/.ssh-agent 文件，就可以轻易的把我们的 shell 脚本及 cron 作业同 ssh-agent 连接起来。 keychain 本身也利用了这个文件;您应该记住 keychain 启动时，它会查看现有的 ssh-agent 是否正在运行。如果是，则它使用 ~/.ssh-agent 文件来获得适当的 SSH_AUTH_SOCK 设置，这样就使 keychain 能使用现有的代理程序而不必新启动一个。只有在 ~/.ssh-agent 文件无效(指向一个不存在的 ssh-agent )或 ~/.ssh-agent 文件本身不存在时， keychain 才会启动新的 ssh-agent 进程。</p>
+<h1 id="安装_keychain">安装 keychain</h1><p>安装 keychain 很容易。首先，直接到 keychain 工程主页下载可用的 keychain 源压缩文档的最新版本。然后，安装如下：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># tar xzvf keychain-1.0.tar.gz</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># cd keychain-1.0</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># install -m0755 keychain /usr/bin</span></span><br></pre></td></tr></table></figure></p>
+<p>既然 keychain 在 /usr/bin/ 目录下，就请把它添加到您的 ~/.bash_profile 中，并把您的专用密钥路径作为参数。下面是一个既标准又好的启用 keychain 的 ~/.bash_profile：</p>
+<p>启用 keychain 的 ~/.bash_profile 示例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#on this next line, we start keychain and point it to the private keys that</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#we'd like it to cache</span></span><br><span class="line"></span><br><span class="line">/usr/bin/keychain ~/.ssh/id_rsa ~/.ssh/id_dsa</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.ssh-agent &gt; /dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment">#sourcing ~/.bashrc is a good thing</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h1 id="Keychain_生效">Keychain 生效</h1><p>您一为每次登录时调用 keychain 配置好了 ~/.bash_profile，就请先退出再登录回来。在您再次登录时， keychain 将启动 ssh-agent ，并记录下 ~/.ssh-agent 中的代理程序环境变量设置，然后提示您输入在 ~/.bash_profile 中的 keychain 命令行指定的所有专用密钥的密码短语：</p>
+<p>Keychain 首次启动</p>
+<p><em>图片丢失</em></p>
+<p>您一输入密码短语，您的专用密钥就会被高速缓存，同时 keychain 将退出。接着，用 source 命令读入并执行 ~/.ssh-agent，初始化您的登录会话以便同 ssh-agent 一起使用。现在，如果您退出，然后再登录回来，将发现 keychain 会找到现有的 ssh-agent 进程;在您退出时，它并没有终止。此外， keychain 将验证您指定的专用密钥是否已经在 ssh-agent 的高速缓存中了。如果没有，那么将会提示您输入正确的密码短语，但如果一切进展顺利，则现有 ssh-agent 仍包含有您以前添加的专用密钥;这意味着不会提示您输入密码：</p>
+<p>Keychain 找到现有的 ssh-agent</p>
+<p><em>图片丢失</em></p>
+<p>祝贺您!您刚才已经登录了，应该能够用 ssh 和 scp 连到远程系统;您不必一登录就使用 ssh-add ，而且 ssh 和 scp 也不会提示您输入密码短语。事实上，只要初始的 ssh-agent 进程一直在运行，您就能不提供密码登录并建立 ssh 连接。 ssh-agent 进程持续运行直到机器重新启动也是很有可能的;由于您最可能在 Linux 系统上这样设置，所以也许一连几个月您都不必输入密码短语!欢迎来到安全的、使用 RSA 和 DSA 认证无密码连接的世界。</p>
+<p>继续创建几个新的登录会话，您会发现每次 keychain 都会准确无误的“钩住”到同一 ssh-agent 进程。不要忘记您也可以使 cron 作业和脚本“钩住”正在运行的 ssh-agent 进程。要在 shell 脚本和 cron 作业中使用 ssh 或 scp 命令，只要确保先用 source 命令读入并执行 ~/.ssh-agent：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.ssh-agent</span><br></pre></td></tr></table></figure></p>
+<p>然后，随后所有的 ssh 或 scp 命令就能够找到当前正在运行的 ssh-agent ，并且象您在 shell 中一样能建立安全的无密码连接。</p>
+<p>＃ Keychain 选项</p>
+<p>您启动并运行 keychain 后，一定要键入 keychain --help 以熟悉 keychain 所有的命令行选项。我们要特别看一下这个选项： -clear 选项。</p>
+<p>还记得我在第 1 部分里阐释了使用不加密专用密钥是一种危险的做法，因为这种做法允许其它人盗用您的专用密钥不提供密码就可以从所有系统登录到您的远程帐户。唔，尽管 keychain 不易遭到这种滥用(只要您使用加密的专用密钥就行)，但仍存在有可能可以利用的弱点，同 keychain 使得“钩住”长时间持续运行的 ssh-agent 进程如此容易这一事实直接相关。我想，如果闯入者以某种方式能想出我的密码或密码短语，还能登录进入我的本地系统，会发生什么事情呢?如果出于某种原因他们能以我的用户名登录，那么 keychain 就会立刻授权他们访问我的解密的专用密钥，使他们可以轻而易举的访问我的其它帐户。</p>
+<p>现在，在继续下面的内容之前，让我们先客观的表述一下安全威胁。如果由于某种原因一些恶意的用户能以我的身份登录， keychain 确实会允许他们访问我的远程帐户。但，尽管如此，这位闯入者要偷到我的加密的专用密钥非常困难，因为它们仍旧在磁盘上保持着加密状态。而且，得到我的专用密钥访问权要求用户真的以我的身份 登录，不单单是阅读我的目录中的文件而已。因此，滥用 ssh-agent 是比只偷到一个不加密的专用密钥困难得多的一项任务，后者只需要闯入者通过某种手段获得我在 ~/.ssh 里的文件的访问权，而不管是否是以我的身份登录。不过，如果闯入者能够成功的以我的身份登录，通过使用我的加密专用密钥他们造成相当多的额外损害。所以，如果您刚好在您不频繁登录或没有对安全缺口进行密切监视的一台服务器上使用 keychain ，那么请您考虑使用 --clear 选项以提供附加的安全层。</p>
+<p>--clear 选项允许您让 keychain 假定把每次以您的帐户的新登录都当作是可能的安全缺口，直到能证明并非如此。当您启动 keychain 时使用了 --clear 选项时，您登录的时候 keychain 会立即刷新 ssh-agent 的高速缓存里的所有专用密钥，此后才执行它的常规职责。这样，如果您是一位闯入者，则 keychain 会提示您输入密码短语而不会让您访问现有的高速缓存中的密钥集合。但是，虽然这样增强了安全性，却使情况有点更不方便，尤其好象完全是 ssh-agent 在运行，而 keychain 并没有运行。此处，情况常常是这样，一个人可以选择或者安全性更高，或更方便，但不能两者兼得。</p>
+<p>尽管如此，使用带有 --clear 的 keychain 仍然比只用 ssh-agent 要好;请记住，当您使用 keychain --clear 时，您的 cron 作业和脚本仍然能建立无密码连接;这是因为专用密钥是在 登录时刷新，而不是在 退出时。由于从系统退出不会构成潜在的安全缺口，因而没有理由要 keychain 来刷新 ssh-agent 的密钥作为响应。因此，对于不频繁访问又需要偶而执行安全拷贝任务的服务器而言，比如，备份服务器、防火墙及路由器， --clear 选项是一个理想的选择。</p>
+<p><a href="http://sec.chinabyte.com/459/8607459.shtml" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="介绍_ssh-agent">介绍 ssh-agent</h1><p>ssh-agent 是专为既令人愉快又安全的处理 RSA 和 DSA 密钥而设计的特殊程序，它包括在OpenSSH分发内(请参阅 本系列文章的第 1 部分以得到关于 RSA 和 DSA 认证的介绍)。不同于 ssh ， ssh-agent 是个长时间持续运行的守护进程(daemon)，设计它的唯一目的就是对解密的专用密钥进行高速缓存。</p>
+<p>ssh 包含的内建支持允许它同 ssh-agent 通信，允许 ssh 不必每次新连接时都提示您要密码才能获取解密的专用密钥。对于 ssh-agent ，您只要使用 ssh-add 把专用密钥添加到 ssh-agent 的高速缓存中。这是个一次性过程;用过 ssh-add 之后， ssh 将从 ssh-agent 获取您的专用密钥，而不会提示要密码短语来烦您了。</p>
+<h1 id="使用_ssh-agent">使用 ssh-agent</h1>]]>
+    
+    </summary>
+    
+      <category term="SSH" scheme="http://tiandechi.com/tags/SSH/"/>
+    
+      <category term="keychain" scheme="http://tiandechi.com/tags/keychain/"/>
+    
+      <category term="ssh-agent" scheme="http://tiandechi.com/tags/ssh-agent/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[about Chrome]]></title>
@@ -619,155 +943,6 @@ Bot 档案最后一行在屏幕可见范围。
     </summary>
     
       <category term="commands" scheme="http://tiandechi.com/tags/commands/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[CNNIC证书的清除方法]]></title>
-    <link href="http://tiandechi.com/2015/03/28/CNNIC%E8%AF%81%E4%B9%A6%E7%9A%84%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95/"/>
-    <id>http://tiandechi.com/2015/03/28/CNNIC证书的清除方法/</id>
-    <published>2015-03-28T06:32:19.000Z</published>
-    <updated>2015-04-18T12:45:03.715Z</updated>
-    <content type="html"><![CDATA[<p>最近1-2周，关于 CNNIC 的 CA 证书问题，网上搞得沸沸扬扬。但是，即使是一些 IT 行业的技术人员，也搞不太明白该问题的严重性（至于不懂技术的傻瓜用户，就更甭提了）。主要在于 CA 证书是一个相对专业的东东，大伙儿平时接触不多。那电脑中有了CNNIC的证书，会出现啥事呢？</p>
-<h1 id="“中间人攻击”的风险">“中间人攻击”的风险</h1><p>中间人攻击的风险，是最危险的，也是最经常被提及。</p>
-<p>CA证书对于https协议的重要性（可以防止攻击者伪造虚假网站）不用多说。既然CNNIC已经成为合法的CA，那它就能堂而皇之地制作并发布CA证书。然后，再配合进行DNS的域名污染。那就可以轻松搞定任何网站的HTTPS加密传输。</p>
-<a id="more"></a>
-<h1 id="ActiveX控件的风险">ActiveX控件的风险</h1><p>另外一个大伙儿不太关注的风险，是关于ActiveX控件的问题。前几年，很多恶意软件（包括流氓软件、木马）都是通过IE控件的技术，安装到大伙儿的电脑上。后来微软加强了多ActiveX控件的验证：在IE的默认设置下，对于没有数字签名的ActiveX控件，是拒绝安装滴；而对于有数字签名的控件，则会给出提示。</p>
-<p>因此，CNNIC可以很轻松地给自己的ActiveX控件制作数字证书。然后把控件放到网上。某些粗心的电脑用户看到IE跳出的安装控件提示，多半没细看，直接就点了“确定”按钮。</p>
-<h1 id="如何清理门户？">如何清理门户？</h1><p>其实网上关于如何去掉证书的操作指南，多如牛毛，所以就简单说一下。</p>
-<p>有些浏览器（IE、Chrome、Safari）使用的是操作系统的证书体系。这种情况下，你需要把CNNIC证书从操作系统的证书体系中去掉。还有些浏览器（比如Firefox、Opera）是自己带了一套证书体系。你只要在其配置界面，把不要的证书去除即可。下面分不同的浏览器，不同的操作系统，分别介绍。</p>
-<h2 id="清理Windows的证书（适用IE、Chrome、Safari）">清理Windows的证书（适用IE、Chrome、Safari）</h2><p>对于使用Windows下的IE或Chrome或Safari浏览器，则需要执行如下步骤：</p>
-<ol>
-<li>运行Windows的证书管理器（到命令行执行certmgr.msc）。</li>
-<li>选中“受信任的根证书颁发机构”=&gt;“证书”。</li>
-<li>查看右边的证书列表。如果里面已经有CNNIC的证书，直接跳到第7步。</li>
-<li>先翻墙到“<a href="http://www.williamlong.info/archives/4125.html" target="_blank" rel="external">这个页面</a>”下载现成的CNNIC证书（要解压缩出来）。</li>
-<li>鼠标在“受信任的根证书颁发机构”=&gt;“证书”上点右键。在右键菜单中点“所有任务”=&gt;“导入”。</li>
-<li>出现一个导入向导，根据先导一步步的提示，把上述CNNIC证书导入到证书列表中。</li>
-<li>选中CNNIC证书，点右键。在右键菜单中点“属性”。</li>
-<li>在跳出的属性对话框中，选中“停用这个证书的所有目的”，然后确定。</li>
-<li>最后，为了保险起见，再把这三个证书，导入到“不信任的证书”中（方法和上述类似）。</li>
-</ol>
-<p>注：上述操作仅对当前用户生效。如果你的Windows系统中有多个常用的用户帐号，要对每一个用户进行上述设置。</p>
-<h2 id="清理苹果Mac_OS的证书（适用Safari、Chrome）">清理苹果Mac OS的证书（适用Safari、Chrome）</h2><p>对于使用Mac OS下的Safari或Chrome浏览器，则需要执行如下步骤：请到“实用工具”=&gt;“钥匙串访问”=&gt;“系统根证书”=&gt;“证书”，找到CNNIC的证书并双击，改为“永不信任”。</p>
-<h2 id="清理Linux的证书（适用Chrome、Safari）">清理Linux的证书（适用Chrome、Safari）</h2><p>对于Debian和Ubuntu系统，以管理员权限进行如下操作：</p>
-<p>方法1：运行命令：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-reconfigure <span class="keyword">ca</span>-certificates</span><br></pre></td></tr></table></figure></p>
-<p>会出现一个图形界面，把CNNIC证书不选，并确认。</p>
-<p>方法2：编辑 /etc/ca-certificates.conf 文件，把CNNIC证书对应的行删除或注释掉。然后用命令<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span>-<span class="keyword">ca</span>-certificates</span><br></pre></td></tr></table></figure></p>
-<p>使之生效。</p>
-<p>注：对于其它Linux发行版本，操作类似。</p>
-<h2 id="清理Firefox的证书">清理Firefox的证书</h2><p>不论是在哪个操作系统下，只要你用的是Firefox浏览器（它的证书体系独立于操作系统的），则需要执行如下步骤：</p>
-<ol>
-<li>从菜单“工具”=&gt;“选项” ，打开选项对话框</li>
-<li>切换到“高级”部分，选中“加密”标签页，点“查看证书”按钮。</li>
-<li>在证书对话框中，切换到“证书机构”。</li>
-<li>里面的证书列表是按字母排序的。把CNNIC打头的都删除。<br>注：如果某个证书是Firefox自带的，则删除之后，下次再打开该对话框，此证书还在。不过不要紧，它的所有“信任设置”，都已经被清空了。</li>
-</ol>
-<h2 id="清理Opera的证书">清理Opera的证书</h2><p>不论是在哪个操作系统下，只要你用的是Opera浏览器（它的证书体系独立于操作系统的），则需要执行如下步骤：</p>
-<ol>
-<li>从菜单“工具”=&gt;“首选项” ，打开首选项对话框</li>
-<li>切换到“高级”标签页，在左边选择“安全性”这项。</li>
-<li>点“管理证书”按钮，出来一个证书的对话框。切换到“证书颁发机构”标签页。</li>
-<li>找到CNNIC的证书并选中，点“查看”按钮，在证书属性对话框中，把“允许连接到使用此证书的网站”的打勾去掉</li>
-</ol>
-<p>注：这是基于Opera 10.10进行操作。新版本的界面可能略有差异。</p>
-<h1 id="如何确认门户已经清理干净？">如何确认门户已经清理干净？</h1><p>为了保险起见，在完成上述的清除工作之后，你需要用浏览器访问一下老流氓的一个网站，地址是 <a href="https://www.cnnic.cn" target="_blank" rel="external">https://www.cnnic.cn</a> 记得用 HTTPS 协议哦。</p>
-<p>如果你的浏览器报告该网站的证书有问题，那恭喜你，你的门户清理干净了 ：-）</p>
-<p>如果该网站的页面顺利打开，那你就要重新检查一下，看上述操作是否出了差错。</p>
-<h1 id="可能的副作用">可能的副作用</h1><p>有些国内网站已经开始使用CNNIC的证书，目前已经知道的有163邮箱（真鄙视网易）。但是甭担心。去除证书后，浏览器在访问上述网站时，会给出一个证书的安全警告。你只需添加一个安全例外即可。</p>
-<p>作者：<a href="http://program-think.blogspot.com/2010/02/remove-cnnic-cert.html" target="_blank" rel="external">编程随想</a>。 （注释：因国内网络环境问题的影响，原文的部分内容经过了删减。）</p>
-<p><a href="http://www.williamlong.info/archives/4125.html" target="_blank" rel="external">via.月光博客</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[清楚CNNIC证书]]>
-    
-    </summary>
-    
-      <category term="CNNIC" scheme="http://tiandechi.com/tags/CNNIC/"/>
-    
-      <category term="证书" scheme="http://tiandechi.com/tags/%E8%AF%81%E4%B9%A6/"/>
-    
-      <category term="OS" scheme="http://tiandechi.com/categories/OS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[fileformat]]></title>
-    <link href="http://tiandechi.com/2015/03/28/fileformat/"/>
-    <id>http://tiandechi.com/2015/03/28/fileformat/</id>
-    <published>2015-03-27T17:11:06.000Z</published>
-    <updated>2015-04-18T19:35:40.000Z</updated>
-    <content type="html"><![CDATA[<p>今天逛vimwiki，发现一篇好文章，讲vim的fileformat。如果程序员的开发环境是unix和dos并存，那么你绝对会碰到这个问题。比如，让你心烦的行尾的^M，而且这些^M会导致一些脚本不能正常执行。</p>
-<p>文章很长，我来个摘要。<a href="http://vim.wikia.com/wiki/VimTip1585" target="_blank" rel="external">原文</a></p>
-<p>所谓fileformat就讲的是个行结束符的问题。行结束符在显示的时候是不显示的。由于历史原因，dos，unix，mac采用了不同的行结束符。（何时天下大统？）据说这些行结束符和古董打字机还有关系。这让我想起了一个关于火箭和马屁股的故事。</p>
-<pre><code>unix LF only (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="operator">an</span> LF <span class="keyword">character</span>). 
-dos <span class="constant">CRLF</span> (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="constant">two</span> <span class="keyword">characters</span>, <span class="constant">CR</span> <span class="keyword">then</span> LF). 
-mac <span class="constant">CR</span> only (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="operator">a</span> <span class="constant">CR</span> <span class="keyword">character</span>).
-</code></pre><a id="more"></a>
-<p>我庆幸还没有同时在三个环境中写程序。可以使用:set ff 查看当前文件fileformat，使用:set ffs查看vim设置。<br>dos格式读取unix格式文件没有问题。unix读取dos格式文件，会出现^M。它会使某些脚本执行出错，会让你看起来不爽。vim本身是会自动判断文件格式的。</p>
-<pre><code><span class="variable">ffs=</span>unix,dos Unix based systems 
-<span class="variable">ffs=</span>dos,unix Windows <span class="constant">and</span> DOS systems 
-<span class="variable">ffs=</span>mac,unix,dos Mac OS <span class="number">9</span> systems
-</code></pre><p>但是除了平台之外，vim本身还有个偏好</p>
-<pre><code>If all lines in the file <span class="operator"><span class="keyword">end</span> <span class="keyword">with</span> CRLF, the dos file <span class="keyword">format</span> will be applied, meaning that <span class="keyword">each</span> CRLF <span class="keyword">is</span> removed <span class="keyword">when</span> reading the <span class="keyword">lines</span> <span class="keyword">into</span> a buffer, <span class="keyword">and</span> the buffer <span class="string">'ff'</span> <span class="keyword">option</span> will be dos. 
-<span class="keyword">If</span> one <span class="keyword">or</span> more <span class="keyword">lines</span> <span class="keyword">end</span> <span class="keyword">with</span> LF <span class="keyword">only</span>, the unix file <span class="keyword">format</span> will be applied, meaning that <span class="keyword">each</span> LF <span class="keyword">is</span> removed (but <span class="keyword">each</span> CR will be present <span class="keyword">in</span> the buffer, <span class="keyword">and</span> will display <span class="keyword">as</span> ^M), <span class="keyword">and</span> the buffer <span class="string">'ff'</span> <span class="keyword">option</span> will be unix. </span>
-</code></pre><p>平时vim浏览文件时，如果CR和CRLF同时存在，你会看到很多^M。可以用如下方法将格式统一，</p>
-<pre><code>Convert from dos/unix to unix
-To convert the current file from any mixture of CRLF/LF-only line endings, so all lines <span class="operator"><span class="keyword">end</span> <span class="keyword">with</span> LF <span class="keyword">only</span>:
-:<span class="keyword">update</span> Save <span class="keyword">any</span> changes. 
-:e ++ff=dos Edit file again, <span class="keyword">using</span> dos file <span class="keyword">format</span> (<span class="string">'fileformats'</span> <span class="keyword">is</span> ignored).[A <span class="number">1</span>] 
-:setlocal ff=unix This buffer will <span class="keyword">use</span> LF-<span class="keyword">only</span> line endings <span class="keyword">when</span> written.[A <span class="number">2</span>] 
-:w <span class="keyword">Write</span> buffer <span class="keyword">using</span> unix (LF-<span class="keyword">only</span>) line endings.
-
-<span class="keyword">In</span> the above, replacing :<span class="keyword">set</span> ff=unix <span class="keyword">with</span> :<span class="keyword">set</span> ff=mac would <span class="keyword">write</span> the file <span class="keyword">with</span> mac (CR-<span class="keyword">only</span>) line endings. <span class="keyword">Or</span>, <span class="keyword">if</span> it was a mac file <span class="keyword">to</span> <span class="keyword">start</span> <span class="keyword">with</span>, you would <span class="keyword">use</span> :e ++ff=mac <span class="keyword">to</span> <span class="keyword">read</span> the file correctly, so you could <span class="keyword">convert</span> the line endings <span class="keyword">to</span> unix <span class="keyword">or</span> dos.
-<span class="keyword">Convert</span> <span class="keyword">from</span> dos/unix <span class="keyword">to</span> dos
-<span class="keyword">To</span> <span class="keyword">convert</span> the <span class="keyword">current</span> file <span class="keyword">from</span> <span class="keyword">any</span> mixture <span class="keyword">of</span> CRLF/LF-<span class="keyword">only</span> line endings, so <span class="keyword">all</span> <span class="keyword">lines</span> <span class="keyword">end</span> <span class="keyword">with</span> CRLF <span class="keyword">only</span>:
-:<span class="keyword">update</span> Save <span class="keyword">any</span> changes. 
-:e ++ff=dos Edit file again, <span class="keyword">using</span> dos file <span class="keyword">format</span> (<span class="string">'fileformats'</span> <span class="keyword">is</span> ignored).[A <span class="number">1</span>] 
-:w <span class="keyword">Write</span> buffer <span class="keyword">using</span> dos (CRLF) line endings.
-
-
-Notes A
-^ a b The :e command reads the <span class="keyword">current</span> file again, <span class="keyword">using</span> the ++ff=dos <span class="keyword">option</span> so the <span class="keyword">read</span> will omit <span class="keyword">all</span> CRLF <span class="keyword">and</span> LF-<span class="keyword">only</span> line terminators (dos file <span class="keyword">format</span>). <span class="keyword">Each</span> ^M <span class="keyword">at</span> the <span class="keyword">end</span> <span class="keyword">of</span> a line should disappear. <span class="keyword">Some</span> older versions <span class="keyword">of</span> Vim <span class="keyword">do</span> <span class="keyword">not</span> perform this step correctly <span class="keyword">and</span> the ^M endings <span class="keyword">are</span> <span class="keyword">not</span> removed;</span> upgrade Vim to fix.:<span class="operator"><span class="keyword">help</span> :e 
-^ <span class="keyword">Use</span> :setlocal (<span class="keyword">or</span> :setl) <span class="keyword">to</span> avoid changing the <span class="keyword">global</span> <span class="keyword">default</span>. </span>
-</code></pre><p>当然，有的时候，还是没有彻底把^M干掉。终极要义是用正则表达式将他们替换掉。</p>
-<pre><code>First ensure you have <span class="built_in">read</span> <span class="operator">the</span> <span class="built_in">file</span> <span class="operator">with</span> <span class="operator">the</span> appropriate <span class="built_in">file</span> <span class="built_in">format</span>. For example, use :e ++ff=dos <span class="built_in">to</span> remove all <span class="constant">CRLF</span> <span class="operator">and</span> LF-only <span class="built_in">line</span> terminators, <span class="operator">or</span> use :e ++ff=mac <span class="keyword">if</span> <span class="operator">the</span> <span class="built_in">file</span> uses <span class="constant">CR</span> <span class="keyword">as</span> <span class="operator">a</span> <span class="built_in">line</span> terminator,.
-After reading <span class="operator">with</span> <span class="operator">the</span> correct <span class="built_in">file</span> <span class="built_in">format</span>, <span class="operator">the</span> buffer may still contain unwanted <span class="constant">CR</span> <span class="keyword">characters</span>. You can search <span class="keyword">for</span> these <span class="operator">with</span> /\r (slash starts <span class="operator">a</span> search; <span class="constant">backslash</span> r represents <span class="constant">CR</span> when searching; press Enter <span class="built_in">to</span> search).
-To <span class="built_in">delete</span> ^M <span class="keyword">at</span> <span class="built_in">line</span> endings, <span class="operator">and</span> <span class="built_in">replace</span> <span class="keyword">it</span> <span class="operator">with</span> <span class="operator">a</span> <span class="constant">space</span> everywhere <span class="keyword">else</span> (<span class="operator">the</span> c flag will prompt <span class="built_in">to</span> confirm that you want <span class="keyword">each</span> replacement, <span class="operator">and</span> <span class="operator">the</span> e flag prevents <span class="operator">an</span> error message <span class="keyword">if</span> <span class="operator">the</span> <span class="keyword">string</span> is <span class="operator">not</span> found):
-:%s/\r\+<span class="comment">$//e</span>
-:%s/\r/ /gce
-To <span class="built_in">process</span>, say, all *.txt <span class="built_in">files</span> <span class="operator">in</span> <span class="operator">the</span> current <span class="built_in">directory</span>:
-vim *.txt
-:<span class="built_in">set</span> hidden
-:bufdo %s/\r\+<span class="comment">$//e</span>
-:bufdo %s/\r/ /ge
-:xa
-To <span class="built_in">delete</span> every ^M, regardless <span class="operator">of</span> where they occur <span class="operator">in</span> <span class="operator">a</span> <span class="built_in">line</span> (this is <span class="operator">not</span> <span class="operator">a</span> good idea <span class="keyword">if</span> <span class="constant">two</span> <span class="keyword">lines</span> were separated only <span class="keyword">by</span> <span class="operator">a</span> <span class="constant">CR</span> because <span class="operator">the</span> <span class="command"><span class="keyword">command</span> <span class="title">joins</span> <span class="title">the</span> <span class="title">lines</span> <span class="title">together</span>):</span>
-:%s/\<span class="comment">r//g</span>
-To <span class="built_in">replace</span> every <span class="constant">CR</span> <span class="operator">with</span> LF (when searching, \r matches <span class="constant">CR</span>, but when replacing, \r inserts LF; this is <span class="operator">not</span> <span class="operator">a</span> good idea <span class="keyword">if</span> LF occurs <span class="keyword">at</span> <span class="operator">the</span> <span class="function"><span class="keyword">end</span> <span class="title">of</span> <span class="title">a</span> <span class="title">line</span>, <span class="title">because</span> <span class="title">an</span> <span class="title">extra</span> <span class="title">blank</span> <span class="title">line</span> <span class="title">will</span> <span class="title">be</span> <span class="title">created</span>):</span>
-:%s/\r/\r/g
-</code></pre><p>后半部分是处理mac文件的，很少有人会感同身受，大家自己看看吧。</p>
-<pre><code>If <span class="operator">a</span> <span class="built_in">file</span> uses <span class="constant">CR</span> <span class="built_in">line</span> terminators, <span class="keyword">it</span> should be <span class="built_in">read</span> <span class="keyword">as</span> mac (<span class="keyword">using</span> :e ++ff=mac). After doing that, you may see unwanted ^J (LF) <span class="keyword">characters</span>. In <span class="operator">a</span> mac buffer, all <span class="constant">CR</span> <span class="keyword">characters</span> will have been removed because <span class="constant">CR</span> is <span class="operator">the</span> <span class="built_in">line</span> terminator, <span class="operator">and</span> searching <span class="keyword">for</span> \r will find unwanted LF <span class="keyword">characters</span>. Use these commands <span class="built_in">to</span> remove ^J <span class="built_in">from</span> <span class="operator">the</span> <span class="built_in">start</span> <span class="operator">of</span> all <span class="keyword">lines</span>, <span class="operator">and</span> <span class="built_in">to</span> <span class="built_in">replace</span> all other ^J <span class="operator">with</span> <span class="operator">a</span> <span class="built_in">line</span> break:
-%s/^\<span class="comment">r//e</span>
-%s/\r/\r/ge
-
-<span class="constant">CR</span> is carriage <span class="constant">return</span> (<span class="constant">return</span> cursor <span class="built_in">to</span> left margin), which is Ctrl-M <span class="operator">or</span> ^M <span class="operator">or</span> hex <span class="number">0</span>D.
-LF is <span class="constant">linefeed</span> (move cursor down), which is Ctrl-J <span class="operator">or</span> ^J <span class="operator">or</span> hex <span class="number">0</span>A. Sometimes, LF is written <span class="keyword">as</span> NL (newline).
-Mac OS <span class="built_in">version</span> <span class="number">9</span> <span class="operator">and</span> earlier use mac <span class="built_in">line</span> endings, <span class="keyword">while</span> Mac OS X <span class="operator">and</span> later use unix <span class="built_in">line</span> endings.
-</code></pre><p><a href="http://blog.chinaunix.net/uid-25311424-id-346529.html" target="_blank" rel="external">via.fileformat</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[文件格式]]>
-    
-    </summary>
-    
-      <category term="dos" scheme="http://tiandechi.com/tags/dos/"/>
-    
-      <category term="fileformat" scheme="http://tiandechi.com/tags/fileformat/"/>
-    
-      <category term="unix" scheme="http://tiandechi.com/tags/unix/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     

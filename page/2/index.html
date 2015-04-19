@@ -86,6 +86,133 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/18/how-to-send-file-by-SSH/" title="how to send file by SSH" itemprop="url">how to send file by SSH</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T15:36:33.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>scp 命令是 SSH 中最方便有用的命令了，试想，在两台服务器之间直接传送文件，仅仅用 scp 一个命令就完全解决了。 你可以在一台服务器上 以 root 身份运行 #scp servername:/home/ftp/pub/file1 . 这样就把另一台服务器上的文件 /home/ftp/pub/file1 直接传到本机器的当前目录下，当然你也可以用 #scp /tmp/file2 servername:/boot 把本机上的文件 /tmp/file2 送到另一台机器的 /boot 目录下。而且整个传送过程仍然是用 SSH 加密的。<br>scp 就是 secure copy, 是用来进行远程文件拷贝的 . 数据传输使用 ssh1, 并且和 ssh1 使用相同的认证方式 , 提供相同的安全保证 . 与 rcp 不同的是 ,scp 会要求你输入密码如果需要的话 .<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/18/how-to-send-file-by-SSH/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/SSH/">SSH</a><a href="/tags/scp/">scp</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/18/how-to-send-file-by-SSH/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/how-to-send-file-by-SSH/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/18/how-to-format-usb-stick-in-Linux/" title="how to format usb stick in Linux" itemprop="url">how to format usb stick in Linux</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T15:32:32.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="http://os.51cto.com/art/201307/402212.htm" target="_blank" rel="external">在 Linux 系统如何正确的对U盘进行格式化？</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Format/">Format</a><a href="/tags/usb-stick/">usb stick</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/18/how-to-format-usb-stick-in-Linux/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/how-to-format-usb-stick-in-Linux/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/18/Debian-Package-Management/" title="Debian Package Management" itemprop="url">Debian Package Management</a>
   </h1>
   <p class="article-author">By
@@ -599,145 +726,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/28/CNNIC证书的清除方法/" title="CNNIC证书的清除方法" itemprop="url">CNNIC证书的清除方法</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-28T06:32:19.000Z" itemprop="datePublished"> 发表于 2015-03-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>最近1-2周，关于 CNNIC 的 CA 证书问题，网上搞得沸沸扬扬。但是，即使是一些 IT 行业的技术人员，也搞不太明白该问题的严重性（至于不懂技术的傻瓜用户，就更甭提了）。主要在于 CA 证书是一个相对专业的东东，大伙儿平时接触不多。那电脑中有了CNNIC的证书，会出现啥事呢？</p>
-<h1 id="“中间人攻击”的风险">“中间人攻击”的风险</h1><p>中间人攻击的风险，是最危险的，也是最经常被提及。</p>
-<p>CA证书对于https协议的重要性（可以防止攻击者伪造虚假网站）不用多说。既然CNNIC已经成为合法的CA，那它就能堂而皇之地制作并发布CA证书。然后，再配合进行DNS的域名污染。那就可以轻松搞定任何网站的HTTPS加密传输。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/03/28/CNNIC证书的清除方法/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/OS/">OS</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/CNNIC/">CNNIC</a><a href="/tags/证书/">证书</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/03/28/CNNIC证书的清除方法/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/28/CNNIC证书的清除方法/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/28/fileformat/" title="fileformat" itemprop="url">fileformat</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-27T17:11:06.000Z" itemprop="datePublished"> 发表于 2015-03-28</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>今天逛vimwiki，发现一篇好文章，讲vim的fileformat。如果程序员的开发环境是unix和dos并存，那么你绝对会碰到这个问题。比如，让你心烦的行尾的^M，而且这些^M会导致一些脚本不能正常执行。</p>
-<p>文章很长，我来个摘要。<a href="http://vim.wikia.com/wiki/VimTip1585">原文</a></p>
-<p>所谓fileformat就讲的是个行结束符的问题。行结束符在显示的时候是不显示的。由于历史原因，dos，unix，mac采用了不同的行结束符。（何时天下大统？）据说这些行结束符和古董打字机还有关系。这让我想起了一个关于火箭和马屁股的故事。</p>
-<pre><code>unix LF only (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="operator">an</span> LF <span class="keyword">character</span>). 
-dos <span class="constant">CRLF</span> (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="constant">two</span> <span class="keyword">characters</span>, <span class="constant">CR</span> <span class="keyword">then</span> LF). 
-mac <span class="constant">CR</span> only (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="operator">a</span> <span class="constant">CR</span> <span class="keyword">character</span>).
-</code></pre>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/03/28/fileformat/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/dos/">dos</a><a href="/tags/fileformat/">fileformat</a><a href="/tags/unix/">unix</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/03/28/fileformat/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/28/fileformat/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
@@ -761,7 +752,7 @@ mac <span class="constant">CR</span> only (<span class="keyword">each</span> <sp
 			
 		
 			
-				<li><a href="/tags/SSH/" title="SSH">SSH<sup>3</sup></a></li>
+				<li><a href="/tags/SSH/" title="SSH">SSH<sup>4</sup></a></li>
 			
 		
 			
@@ -846,7 +837,7 @@ mac <span class="constant">CR</span> only (<span class="keyword">each</span> <sp
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>29</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>31</sup></a></li>
 		  
 		
 		  

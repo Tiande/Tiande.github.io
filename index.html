@@ -86,6 +86,145 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/19/VSFTP-server-configure/" title="VSFTP server configure" itemprop="url">VSFTP server configure</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-19T08:19:25.000Z" itemprop="datePublished"> 发表于 2015-04-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
+<li>wu-ftp</li>
+<li>proftp=profession ftp</li>
+<li>vsftp=very security ftp</li>
+</ol>
+<p>配置文件：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/vsftpd/vsftpd<span class="class">.conf</span>   <span class="comment">//主配置文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="访问方式">访问方式</h1><ol>
+<li>匿名登录</li>
+<li>帐号登录</li>
+</ol>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/19/VSFTP-server-configure/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/VSFTP/">VSFTP</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/19/VSFTP-server-configure/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/19/VSFTP-server-configure/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/" title="OpenSSH management:ssh-agent &amp; keychain" itemprop="url">OpenSSH management:ssh-agent &amp; keychain</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-19T08:12:38.000Z" itemprop="datePublished"> 发表于 2015-04-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="介绍_ssh-agent">介绍 ssh-agent</h1><p>ssh-agent 是专为既令人愉快又安全的处理 RSA 和 DSA 密钥而设计的特殊程序，它包括在OpenSSH分发内(请参阅 本系列文章的第 1 部分以得到关于 RSA 和 DSA 认证的介绍)。不同于 ssh ， ssh-agent 是个长时间持续运行的守护进程(daemon)，设计它的唯一目的就是对解密的专用密钥进行高速缓存。</p>
+<p>ssh 包含的内建支持允许它同 ssh-agent 通信，允许 ssh 不必每次新连接时都提示您要密码才能获取解密的专用密钥。对于 ssh-agent ，您只要使用 ssh-add 把专用密钥添加到 ssh-agent 的高速缓存中。这是个一次性过程;用过 ssh-add 之后， ssh 将从 ssh-agent 获取您的专用密钥，而不会提示要密码短语来烦您了。</p>
+<h1 id="使用_ssh-agent">使用 ssh-agent</h1>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/SSH/">SSH</a><a href="/tags/keychain/">keychain</a><a href="/tags/ssh-agent/">ssh-agent</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/19/OpenSSH-management-ssh-agent-and-keychain/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/18/about-Chrome/" title="about Chrome" itemprop="url">about Chrome</a>
   </h1>
   <p class="article-author">By
@@ -597,136 +736,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/how-to-send-file-by-SSH/" title="how to send file by SSH" itemprop="url">how to send file by SSH</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:36:33.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>scp 命令是 SSH 中最方便有用的命令了，试想，在两台服务器之间直接传送文件，仅仅用 scp 一个命令就完全解决了。 你可以在一台服务器上 以 root 身份运行 #scp servername:/home/ftp/pub/file1 . 这样就把另一台服务器上的文件 /home/ftp/pub/file1 直接传到本机器的当前目录下，当然你也可以用 #scp /tmp/file2 servername:/boot 把本机上的文件 /tmp/file2 送到另一台机器的 /boot 目录下。而且整个传送过程仍然是用 SSH 加密的。<br>scp 就是 secure copy, 是用来进行远程文件拷贝的 . 数据传输使用 ssh1, 并且和 ssh1 使用相同的认证方式 , 提供相同的安全保证 . 与 rcp 不同的是 ,scp 会要求你输入密码如果需要的话 .<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/how-to-send-file-by-SSH/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/SSH/">SSH</a><a href="/tags/scp/">scp</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/how-to-send-file-by-SSH/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/how-to-send-file-by-SSH/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/how-to-format-usb-stick-in-Linux/" title="how to format usb stick in Linux" itemprop="url">how to format usb stick in Linux</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:32:32.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="http://os.51cto.com/art/201307/402212.htm" target="_blank" rel="external">在 Linux 系统如何正确的对U盘进行格式化？</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Format/">Format</a><a href="/tags/usb-stick/">usb stick</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/how-to-format-usb-stick-in-Linux/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/how-to-format-usb-stick-in-Linux/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -750,7 +762,7 @@
 			
 		
 			
-				<li><a href="/tags/SSH/" title="SSH">SSH<sup>3</sup></a></li>
+				<li><a href="/tags/SSH/" title="SSH">SSH<sup>4</sup></a></li>
 			
 		
 			
@@ -835,7 +847,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>29</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>31</sup></a></li>
 		  
 		
 		  
