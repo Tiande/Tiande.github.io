@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-04-21T11:03:03.815Z</updated>
+  <updated>2015-04-21T13:00:54.535Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -15,12 +15,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[The-advantages-of-Linux-compile-source-code-for-installing-package]]></title>
+    <title><![CDATA[The advantages of Linux compile source code for installing package]]></title>
     <link href="http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/"/>
     <id>http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/</id>
     <published>2015-04-21T11:01:33.000Z</published>
-    <updated>2015-04-21T11:03:03.815Z</updated>
-    <content type="html"><![CDATA[<p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br><a id="more"></a><br>为什么程序还没有安装你就想到卸载？难道你不知道这个程序是用来做什么的？你应该改变到处找程序来试用的作法，而应该先了解一下到底那些程序有同样的功能，听听别人的意见，看看它们各有什么长处和短处，然后挑一个最适合你的程序来用。<br>从源码编译安装程序，不但比你装rpm更适合自己的机器设置，而且它们一般会装到/usr/local目录，这样你以后如果换硬盘重装系统，也可以把以前/usr/local下的程序原封不动拷贝过去用。我的/usr/local下有2G之多的程序，你想要是我有一台新机器要重新安装，然后配置，得花费多少时间？实际上我曾经通过网络把它们传到一台新机器上，然后就出去吃晚饭，回来时我就得到了另一台一摸一样的Linux机器。<br>确实要卸载makeinstall的程序怎么办呢？答案是直接删掉。别以为直接删掉程序会留下垃圾，引起“系统不稳定”。(btw:这是谁教你的啊？呵呵。)makeinstall无非就是把可执行程序放在/usr/local/bin,把某些函数库放在/usr/local/lib，把数据文件放在 /usr/local/share下一个它自己的目录，你把这些东西都删掉就行了，不会留下垃圾，即使真的留下一点文件没有删掉也占不了多少空间，更不可能引起系统不稳定。UNIX就是这么简单<br>但是有几个程序不建议从源码安装，它们是Mozilla,OpenOffice,...它们编译时会占用你几个G的空间和好几个小时的时间，这种花费我觉得是不值得的，因为你不能从编译得到更多好处，不如直接安装编译好的版本。</p>
+    <updated>2015-04-21T13:00:54.535Z</updated>
+    <content type="html"><![CDATA[<p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br><a id="more"></a><br>为什么程序还没有安装你就想到卸载？难道你不知道这个程序是用来做什么的？你应该改变到处找程序来试用的作法，而应该先了解一下到底那些程序有同样的功能，听听别人的意见，看看它们各有什么长处和短处，然后挑一个最适合你的程序来用。</p>
+<p>从源码编译安装程序，不但比你装rpm更适合自己的机器设置，而且它们一般会装到/usr/local目录，这样你以后如果换硬盘重装系统，也可以把以前/usr/local下的程序原封不动拷贝过去用。我的/usr/local下有2G之多的程序，你想要是我有一台新机器要重新安装，然后配置，得花费多少时间？实际上我曾经通过网络把它们传到一台新机器上，然后就出去吃晚饭，回来时我就得到了另一台一摸一样的Linux机器。</p>
+<p>确实要卸载makeinstall的程序怎么办呢？答案是直接删掉。别以为直接删掉程序会留下垃圾，引起“系统不稳定”。(btw:这是谁教你的啊？呵呵。)makeinstall无非就是把可执行程序放在/usr/local/bin,把某些函数库放在/usr/local/lib，把数据文件放在 /usr/local/share下一个它自己的目录，你把这些东西都删掉就行了，不会留下垃圾，即使真的留下一点文件没有删掉也占不了多少空间，更不可能引起系统不稳定。UNIX就是这么简单</p>
+<p>但是有几个程序不建议从源码安装，它们是Mozilla,OpenOffice,...它们编译时会占用你几个G的空间和好几个小时的时间，这种花费我觉得是不值得的，因为你不能从编译得到更多好处，不如直接安装编译好的版本。</p>
 <p><a href="http://blog.163.com/qiantu1986@126/blog/static/3592266920114172382031/" target="_blank" rel="external">来源</a></p>
 ]]></content>
     <summary type="html">
@@ -37,11 +40,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[the-physical-structure-and-IO-process-of-the-disk]]></title>
+    <title><![CDATA[the physical structure and IO process of the disk]]></title>
     <link href="http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/"/>
     <id>http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/</id>
     <published>2015-04-21T10:58:12.000Z</published>
-    <updated>2015-04-21T11:00:44.330Z</updated>
+    <updated>2015-04-21T12:59:56.640Z</updated>
     <content type="html"><![CDATA[<p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
 <pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
 磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
