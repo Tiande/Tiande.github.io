@@ -4,22 +4,37 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Debian无法用root用户登录桌面 | 天德池</title>
+    <title>the-physical-structure-and-IO-process-of-the-disk | 天德池</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="钢仔">
     
 
     
-    <meta name="description" content="Debian默认不允许使用root用户登录桌面">
+    <meta name="description" content="对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。
+磁盘面：磁盘是由一叠磁盘面组成，见下左图。
+磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
+磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
+柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
+扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Debian无法用root用户登录桌面">
-<meta property="og:url" content="http://tiandechi.com/2015/03/18/Debian无法用root用户登录桌面/index.html">
+<meta property="og:title" content="the-physical-structure-and-IO-process-of-the-disk">
+<meta property="og:url" content="http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/index.html">
 <meta property="og:site_name" content="天德池">
-<meta property="og:description" content="Debian默认不允许使用root用户登录桌面">
+<meta property="og:description" content="对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。
+磁盘面：磁盘是由一叠磁盘面组成，见下左图。
+磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
+磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
+柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
+扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Debian无法用root用户登录桌面">
-<meta name="twitter:description" content="Debian默认不允许使用root用户登录桌面">
+<meta name="twitter:title" content="the-physical-structure-and-IO-process-of-the-disk">
+<meta name="twitter:description" content="对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。
+磁盘面：磁盘是由一叠磁盘面组成，见下左图。
+磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
+磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
+柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
+扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又">
 <meta name="twitter:creator" content="@TiandeTD">
 
     
@@ -84,14 +99,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/03/18/Debian无法用root用户登录桌面/" title="Debian无法用root用户登录桌面" itemprop="url">Debian无法用root用户登录桌面</a>
+      <a href="/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/" title="the-physical-structure-and-IO-process-of-the-disk" itemprop="url">the-physical-structure-and-IO-process-of-the-disk</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
 		
   <p class="article-time">
-    <time datetime="2015-03-18T14:44:55.000Z" itemprop="datePublished"> 发表于 2015-03-18</time>
+    <time datetime="2015-04-21T10:58:12.000Z" itemprop="datePublished"> 发表于 2015-04-21</time>
     
   </p>
 </header>
@@ -104,31 +119,36 @@
 		
 		</div>
 		
-		<p>安装过Debian后,尝试用root用户登录Gnome桌面，失败。<br>原来是因为Debian默认不能使用root账户登录桌面环境，需要修改配置。<br><strong>#在拥有管理员权限的环境下操作</strong></p>
+		<p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
+<pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
+磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
+磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
+柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
+扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又把每个磁道划分出了多个扇区，见下图
+![<span class="link_label">HDD physical structure</span>](<span class="link_url">http://ww4.sinaimg.cn/mw690/6e8d8f65gw1erbso6izmoj20ib08cq4d.jpg</span>)
+</code></pre><a id="more"></a>
+<p>Linux上可以通过fdisk命令，来查看当前系统使用的磁盘的这些物理信息。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="annotation">@dbserver</span> ~]# fdisk -l</span><br><span class="line">Disk <span class="regexp">/dev/</span><span class="string">sda:</span> <span class="number">1199.6</span> GB, <span class="number">1199638052864</span> bytes</span><br><span class="line"><span class="number">255</span> heads, <span class="number">63</span> sectors/track, <span class="number">145847</span> cylinders</span><br><span class="line">Units = cylinders of <span class="number">16065</span> * <span class="number">512</span> = <span class="number">8225280</span> bytes</span><br><span class="line">Sector size (logical<span class="regexp">/physical): 512 bytes /</span> <span class="number">512</span> bytes</span><br><span class="line">I<span class="regexp">/O size (minimum/</span>optimal): <span class="number">512</span> bytes / <span class="number">512</span> bytes</span><br><span class="line">Disk <span class="string">identifier:</span> <span class="number">0x54ab02ca</span></span><br><span class="line">Device Boot      Start        End      Blocks  Id  System</span><br><span class="line"><span class="regexp">/dev/</span>sda1              <span class="number">1</span>          <span class="number">5</span>      <span class="number">40131</span>  de  Dell Utility</span><br><span class="line">Partition <span class="number">1</span> does not end on cylinder boundary.</span><br><span class="line"><span class="regexp">/dev/</span>sda2  *          <span class="number">6</span>        <span class="number">267</span>    <span class="number">2097152</span>    c  W95 FAT32 (LBA)</span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
+<p>可以看出我的磁盘有255个heads，也就是说共有255个盘面。145847 个cylinders，也就是说每个盘面上都有145847 个磁道， 63sectors/track说的是每个磁道上共有63个扇区。命令结果也给出了Sector size的值是512bytes。那我们动笔算一下该磁盘的大小。<br>255盘面  <em> 145847 柱面 </em> 63扇区 * 每个扇区512bytes =1199632412160 byte=1117.25GB<br>结果是1117.25GB,和磁盘的总大小相符。<br>在如上图可以发现一个错误（标红），是即/dev/sda1的start位置从第 1 扇区个删除开始，如果将第0至62个扇区,即第一磁道（cylinders）单独留给磁盘MBR并从第64个扇区，即第二个磁道（cylinders）开始分区，将会对文件系统的性能会带来很大的提升。</p>
+<p>接下来让我们在了解一下磁盘IO时的过程。</p>
 <ol>
-<li><p>修改 /etc/gdm3/deamon.conf 配置文件，在[security]字段后追加字段为:</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[security]</span></span><br><span class="line"><span class="setting">AllowRoot = <span class="value">ture</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改 /etc/pam.d/gdm3，注释下面这行(行首加 # 即可):</p>
-<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth required pam_succeed_is.so <span class="keyword">user</span> != <span class="literal">root</span> quiet_success</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启系统，root帐号即可登录 ;)</p>
-</li>
+<li>首先是磁头径向移动来寻找数据所在的磁道。这部分时间叫寻道时间。</li>
+<li>找到目标磁道后通过盘面旋转，将目标扇区移动到磁头的正下方。</li>
+<li>向目标扇区读取或者写入数据。到此为止，一次磁盘IO完成。</li>
 </ol>
+<p>故：单次磁盘IO时间 = 寻道时间 + 旋转延迟 + 存取时间。<br>对于旋转延时，现在主流服务器上经常使用的是1W转/分钟的磁盘，每旋转一周所需的时间为60*1000/10000=6ms，故其旋转延迟为（0-6ms）。对于存取时间，一般耗时较短，为零点几ms。对于寻道时间，现代磁盘大概在3-15ms，其中寻道时间大小主要受磁头当前所在位置和目标磁道所在位置相对距离的影响。</p>
+<pre><code>操作系统通过按磁道对应的柱面划分分区，来降低磁盘IO所花费的的寻道时间 ，进而提高磁盘的读写性能。
+</code></pre><hr>
+<p>实际上，上面这段话还是存在问题的，分区对性能的提高几乎为0，我在 V2EX 有讨论： <a href="http://www.v2ex.com/t/184874" target="_blank" rel="external">分区能提高硬盘的读写性能？</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-04/116419.htm" target="_blank" rel="external">来源</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Debian/">Debian</a><a href="/tags/root/">root</a><a href="/tags/登录/">登录</a>
+  <span></span> <a href="/tags/Disk/">Disk</a>
   </div>
 
 </div>
@@ -137,7 +157,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tiandechi.com/2015/03/18/Debian无法用root用户登录桌面/" data-title="Debian无法用root用户登录桌面 | 天德池" data-tsina="1854771045" class="share clearfix">
+	  <div data-url="http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/" data-title="the-physical-structure-and-IO-process-of-the-disk | 天德池" data-tsina="1854771045" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -151,19 +171,27 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/03/18/Debian装机后，VPN无法配置/" title="Debian装机后，VPN无法配置">
+ <a href="/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/" title="The-advantages-of-Linux-compile-source-code-for-installing-package">
   <strong>上一篇：</strong><br/>
   <span>
-  Debian装机后，VPN无法配置</span>
+  The-advantages-of-Linux-compile-source-code-for-installing-package</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/04/19/VSFTP-server-configure/"  title="VSFTP server configure">
+ <strong>下一篇：</strong><br/> 
+ <span>VSFTP server configure
+</span>
+</a>
+</div>
 
 </nav>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/03/18/Debian无法用root用户登录桌面/" data-title="Debian无法用root用户登录桌面" data-url="http://tiandechi.com/2015/03/18/Debian无法用root用户登录桌面/"></div>
+	<div class="ds-thread" data-thread-key="2015/04/21/the-physical-structure-and-IO-process-of-the-disk/" data-title="the-physical-structure-and-IO-process-of-the-disk" data-url="http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/"></div>
 </section>
 
 

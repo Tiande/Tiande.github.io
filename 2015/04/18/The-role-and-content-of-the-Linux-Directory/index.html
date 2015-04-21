@@ -121,6 +121,9 @@
 <h1 id="/root">/root</h1><p>超级用户root的主目录（在Linux系统中，斜杠字符“/”是整个系统的根目录，而非超级用户的主目录。）</p>
 <h1 id="/sbin">/sbin</h1><p>目录/sbin、/usr/sbin和/usr/local/sbin存放了该目录启动系统时需执行的程序，如管理工具、应用软件和通用的根用户权限命令等内容。如包含getty、init、update</p>
 <p><a href="http://www.linuxidc.com/Linux/2015-04/116032.htm" target="_blank" rel="external">来源</a></p>
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%"><br><tbody><tr align="center" bgcolor="#182448"><td width="80"><font color="#FFFFFF">目录</font></td><td><font color="#FFFFFF">应放置文件内容</font></td></tr><br><tr><td>/bin</td><td><br>    系统有很多放置执行文件的目录，但/bin比较特殊。因为<span class="text_import2">/bin放置的是在单人维护模式下还能够被操作的指令。</span><br>    在/bin底下的指令可以被root与一般账号所使用，主要有：cat, chmod, chown, date, mv, mkdir, cp, bash等等常用的指令。</td></tr><br><tr><td>/boot</td><td><br>    这个目录主要在放置开机会使用到的文件，包括Linux核心文件以及开机选单与开机所需配置文件等等。<br>    <span class="text_import2">Linux kernel常用的档名为：vmlinuz</span>，如果使用的是grub这个开机管理程序，<br>    则还会存在/boot/grub/这个目录喔！</td></tr><br><tr><td>/dev</td><td><br>    在Linux系统上，任何装置与接口设备都是以文件的型态存在于这个目录当中的。<br>    你只要透过存取这个目录底下的某个文件，就等于存取某个装置啰～<br>    比要重要的文件有<span class="text_import2">/dev/null, /dev/zero, /dev/tty</span>, /dev/lp<em>, /dev/hd</em>, /dev/sd<em>等等</em></td></tr><br><tr><td>/etc</td><td><br>    系统主要的配置文件几乎都放置在这个目录内，例如人员的账号密码文件、<br>    各种服务的启始档等等。一般来说，这个目录下的各文件属性是可以让一般使用者查阅的，<br>    但是只有root有权力修改。<span class="text_import2">FHS建议不要放置可执行文件(binary)在这个目录中</span>喔。比较重要的文件有：<br>    <span class="text_import2">/etc/inittab, /etc/init.d/, /etc/modprobe.conf,<br>    /etc/X11/, /etc/fstab, /etc/sysconfig/</span> 等等。另外，其下重要的目录有：<br>    <ul><li><span class="text_import2">/etc/init.d/</span>：所有服务的预设启动 script<br>        都是放在这里的，例如要启动或者关闭 iptables 的话：『 /etc/init.d/iptables start』、『/etc/init.d/iptables<br>        stop』</li><br>    <li><span class="text_import2">/etc/xinetd.d/</span>：这就是所谓的super daemon管理的各项服务的配置文件目录。</li><br>    <li><span class="text_import2">/etc/X11/</span>：与 X Window 有关的各种配置文件都在这里，尤其是<br>        xorg.conf 这个 X Server 的配置文件。</li></ul></td></tr><br><tr><td>/home</td><td><br>    这是系统默认的用户家目录(home directory)。在你新增一个一般使用者账号时，<br>    默认的用户家目录都会规范到这里来。比较重要的是，家目录有两种代号喔：<br><br>    <span class="text_import2">~</span>：代表目前这个用户的家目录，而 <br><br>    <span class="text_import2">~dmtsai</span> ：则代表 dmtsai 的家目录！</td></tr><br><tr><td>/lib</td><td><br>    系统的函式库非常的多，而<span class="text_import2">/lib放置的则是在开机时会用到的函式库，<br>    以及在/bin或/sbin底下的指令会呼叫的函式库而已</span>。<br>    什么是函式库呢？妳可以将他想成是『外挂』，某些指令必须要有这些『外挂』才能够顺利完成程序的执行之意。<br>    尤其重要的是<span class="text_import2">/lib/modules/</span>这个目录，<br>    因为该目录会放置核心相关的模块(驱动程序)喔！</td></tr><br><tr><td>/media</td><td><br>    media是『媒体』的英文，顾名思义，这个<span class="text_import2">/media底下放置的就是可移除的装置啦！</span><br>    包括软盘、光盘、DVD等等装置都暂时挂载于此。常见的档名有：/media/floppy, /media/cdrom等等。</td></tr><br><tr><td>/mnt</td><td><br>    如果妳想要暂时挂载某些额外的装置，一般建议妳可以放置到这个目录中。<br>    在古早时候，这个目录的用途与/media相同啦！只是有了/media之后，这个目录就用来暂时挂载用了。</td></tr><br><tr><td>/opt</td><td><br>    这个是<span class="text_import2">给第三方协力软件放置的目录</span>。什么是第三方协力软件啊？<br>    举例来说，KDE这个桌面管理系统是一个独立的计划，不过他可以安装到Linux系统中，因此KDE的软件就建议放置到此目录下了。<br>    另外，如果妳想要自行安装额外的软件(非原本的distribution提供的)，那么也能够将你的软件安装到这里来。<br>    不过，以前的Linux系统中，我们还是习惯放置在/usr/local目录下呢！</td></tr><br><tr><td>/root</td><td><br>    系统管理员(root)的家目录。之所以放在这里，是因为如果进入单人维护模式而仅挂载根目录时，<br>    该目录就能够拥有root的家目录，所以我们会希望root的家目录与根目录放置在同一个分割槽中。</td></tr><br><tr><td>/sbin</td><td><br>    Linux有非常多指令是用来设定系统环境的，这些指令只有root才能够利用来『设定』系统，其他用户最多只能用来『查询』而已。<br>    <span class="text_import2">放在/sbin底下的为开机过程中所需要的，里面包括了开机、修复、还原系统所需要的指令。</span><br>    至于某些服务器软件程序，一般则放置到/usr/sbin/当中。至于本机自行安装的软件所产生的系统执行文件(system binary)，<br>    则放置到/usr/local/sbin/当中了。常见的指令包括：fdisk, fsck, ifconfig, init, mkfs等等。</td></tr><br><tr><td>/srv</td><td><br>    srv可以视为『service』的缩写，是一些网络服务启动之后，这些服务所需要取用的数据目录。<br>    常见的服务例如WWW, FTP等等。举例来说，WWW服务器需要的网页数据就可以放置在/srv/www/里面。</td></tr><br><tr><td>/tmp</td><td><br>    这是让一般使用者或者是正在执行的程序暂时放置文件的地方。<br>    这个目录是任何人都能够存取的，所以你需要定期的清理一下。当然，重要数据不可放置在此目录啊！<br>    因为FHS甚至建议在开机时，应该要将/tmp下的数据都删除唷！</td></tr><br><tr><td>/lost+found</td><td><br>    这个目录是使用标准的ext2/ext3文件系统格式才会产生的一个目录，目的在于当文件系统发生错误时，<br>    将一些遗失的片段放置到这个目录下。这个目录通常会在分割槽的最顶层存在，<br>    例如你加装一颗硬盘于/disk中，那在这个系统下就会自动产生一个这样的目录『/disk/lost+found』</td></tr><br><tr><td>/proc</td><td><br>    这个目录本身是一个『虚拟文件系统(virtual filesystem)』喔！他放置的数据都是在内存当中，<br>    例如系统核心、行程信息(process)、周边装置的状态及网络状态等等。因为这个目录下的数据都是在内存当中，<br>    所以本身不占任何硬盘空间啊！比较重要的文件例如：<span class="text_import2">/proc/cpuinfo,<br>    /proc/dma, /proc/interrupts, /proc/ioports, /proc/net/</span> 等等。</td></tr><br><tr><td>/sys</td><td><br>    这个目录其实跟/proc非常类似，也是一个虚拟的文件系统，主要也是记录与核心相关的信息。<br>    包括目前已加载的核心模块与核心侦测到的硬件装置信息等等。这个目录同样不占硬盘容量喔！</td></tr><br></tbody><br></table>
+
+<p><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0210filepermission_3.php" target="_blank" rel="external">来源</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -237,6 +240,10 @@
 			
 		
 			
+				<li><a href="/tags/tar/" title="tar">tar<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/auto-indent/" title="auto indent">auto indent<sup>1</sup></a></li>
 			
 		
@@ -276,10 +283,6 @@
 				<li><a href="/tags/CNNIC/" title="CNNIC">CNNIC<sup>1</sup></a></li>
 			
 		
-			
-				<li><a href="/tags/Kernel/" title="Kernel">Kernel<sup>1</sup></a></li>
-			
-		
 		</ul>
 </div>
 
@@ -294,7 +297,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>31</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>32</sup></a></li>
 		  
 		
 		  

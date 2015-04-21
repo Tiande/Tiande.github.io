@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-04-19T08:35:45.460Z</updated>
+  <updated>2015-04-21T11:03:03.815Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -15,18 +15,87 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[The-advantages-of-Linux-compile-source-code-for-installing-package]]></title>
+    <link href="http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/"/>
+    <id>http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/</id>
+    <published>2015-04-21T11:01:33.000Z</published>
+    <updated>2015-04-21T11:03:03.815Z</updated>
+    <content type="html"><![CDATA[<p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br><a id="more"></a><br>为什么程序还没有安装你就想到卸载？难道你不知道这个程序是用来做什么的？你应该改变到处找程序来试用的作法，而应该先了解一下到底那些程序有同样的功能，听听别人的意见，看看它们各有什么长处和短处，然后挑一个最适合你的程序来用。<br>从源码编译安装程序，不但比你装rpm更适合自己的机器设置，而且它们一般会装到/usr/local目录，这样你以后如果换硬盘重装系统，也可以把以前/usr/local下的程序原封不动拷贝过去用。我的/usr/local下有2G之多的程序，你想要是我有一台新机器要重新安装，然后配置，得花费多少时间？实际上我曾经通过网络把它们传到一台新机器上，然后就出去吃晚饭，回来时我就得到了另一台一摸一样的Linux机器。<br>确实要卸载makeinstall的程序怎么办呢？答案是直接删掉。别以为直接删掉程序会留下垃圾，引起“系统不稳定”。(btw:这是谁教你的啊？呵呵。)makeinstall无非就是把可执行程序放在/usr/local/bin,把某些函数库放在/usr/local/lib，把数据文件放在 /usr/local/share下一个它自己的目录，你把这些东西都删掉就行了，不会留下垃圾，即使真的留下一点文件没有删掉也占不了多少空间，更不可能引起系统不稳定。UNIX就是这么简单<br>但是有几个程序不建议从源码安装，它们是Mozilla,OpenOffice,...它们编译时会占用你几个G的空间和好几个小时的时间，这种花费我觉得是不值得的，因为你不能从编译得到更多好处，不如直接安装编译好的版本。</p>
+<p><a href="http://blog.163.com/qiantu1986@126/blog/static/3592266920114172382031/" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br>]]>
+    
+    </summary>
+    
+      <category term="advantage" scheme="http://tiandechi.com/tags/advantage/"/>
+    
+      <category term="compile" scheme="http://tiandechi.com/tags/compile/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[the-physical-structure-and-IO-process-of-the-disk]]></title>
+    <link href="http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/"/>
+    <id>http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/</id>
+    <published>2015-04-21T10:58:12.000Z</published>
+    <updated>2015-04-21T11:00:44.330Z</updated>
+    <content type="html"><![CDATA[<p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
+<pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
+磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
+磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
+柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
+扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又把每个磁道划分出了多个扇区，见下图
+![<span class="link_label">HDD physical structure</span>](<span class="link_url">http://ww4.sinaimg.cn/mw690/6e8d8f65gw1erbso6izmoj20ib08cq4d.jpg</span>)
+</code></pre><a id="more"></a>
+<p>Linux上可以通过fdisk命令，来查看当前系统使用的磁盘的这些物理信息。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="annotation">@dbserver</span> ~]# fdisk -l</span><br><span class="line">Disk <span class="regexp">/dev/</span><span class="string">sda:</span> <span class="number">1199.6</span> GB, <span class="number">1199638052864</span> bytes</span><br><span class="line"><span class="number">255</span> heads, <span class="number">63</span> sectors/track, <span class="number">145847</span> cylinders</span><br><span class="line">Units = cylinders of <span class="number">16065</span> * <span class="number">512</span> = <span class="number">8225280</span> bytes</span><br><span class="line">Sector size (logical<span class="regexp">/physical): 512 bytes /</span> <span class="number">512</span> bytes</span><br><span class="line">I<span class="regexp">/O size (minimum/</span>optimal): <span class="number">512</span> bytes / <span class="number">512</span> bytes</span><br><span class="line">Disk <span class="string">identifier:</span> <span class="number">0x54ab02ca</span></span><br><span class="line">Device Boot      Start        End      Blocks  Id  System</span><br><span class="line"><span class="regexp">/dev/</span>sda1              <span class="number">1</span>          <span class="number">5</span>      <span class="number">40131</span>  de  Dell Utility</span><br><span class="line">Partition <span class="number">1</span> does not end on cylinder boundary.</span><br><span class="line"><span class="regexp">/dev/</span>sda2  *          <span class="number">6</span>        <span class="number">267</span>    <span class="number">2097152</span>    c  W95 FAT32 (LBA)</span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
+<p>可以看出我的磁盘有255个heads，也就是说共有255个盘面。145847 个cylinders，也就是说每个盘面上都有145847 个磁道， 63sectors/track说的是每个磁道上共有63个扇区。命令结果也给出了Sector size的值是512bytes。那我们动笔算一下该磁盘的大小。<br>255盘面  <em> 145847 柱面 </em> 63扇区 * 每个扇区512bytes =1199632412160 byte=1117.25GB<br>结果是1117.25GB,和磁盘的总大小相符。<br>在如上图可以发现一个错误（标红），是即/dev/sda1的start位置从第 1 扇区个删除开始，如果将第0至62个扇区,即第一磁道（cylinders）单独留给磁盘MBR并从第64个扇区，即第二个磁道（cylinders）开始分区，将会对文件系统的性能会带来很大的提升。</p>
+<p>接下来让我们在了解一下磁盘IO时的过程。</p>
+<ol>
+<li>首先是磁头径向移动来寻找数据所在的磁道。这部分时间叫寻道时间。</li>
+<li>找到目标磁道后通过盘面旋转，将目标扇区移动到磁头的正下方。</li>
+<li>向目标扇区读取或者写入数据。到此为止，一次磁盘IO完成。</li>
+</ol>
+<p>故：单次磁盘IO时间 = 寻道时间 + 旋转延迟 + 存取时间。<br>对于旋转延时，现在主流服务器上经常使用的是1W转/分钟的磁盘，每旋转一周所需的时间为60*1000/10000=6ms，故其旋转延迟为（0-6ms）。对于存取时间，一般耗时较短，为零点几ms。对于寻道时间，现代磁盘大概在3-15ms，其中寻道时间大小主要受磁头当前所在位置和目标磁道所在位置相对距离的影响。</p>
+<pre><code>操作系统通过按磁道对应的柱面划分分区，来降低磁盘IO所花费的的寻道时间 ，进而提高磁盘的读写性能。
+</code></pre><hr>
+<p>实际上，上面这段话还是存在问题的，分区对性能的提高几乎为0，我在 V2EX 有讨论： <a href="http://www.v2ex.com/t/184874" target="_blank" rel="external">分区能提高硬盘的读写性能？</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-04/116419.htm" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
+<pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
+磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
+磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
+柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
+扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又把每个磁道划分出了多个扇区，见下图
+![<span class="link_label">HDD physical structure</span>](<span class="link_url">http://ww4.sinaimg.cn/mw690/6e8d8f65gw1erbso6izmoj20ib08cq4d.jpg</span>)
+</code></pre>]]>
+    
+    </summary>
+    
+      <category term="Disk" scheme="http://tiandechi.com/tags/Disk/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[VSFTP server configure]]></title>
     <link href="http://tiandechi.com/2015/04/19/VSFTP-server-configure/"/>
     <id>http://tiandechi.com/2015/04/19/VSFTP-server-configure/</id>
     <published>2015-04-19T08:19:25.000Z</published>
-    <updated>2015-04-19T08:35:45.460Z</updated>
+    <updated>2015-04-19T09:55:03.170Z</updated>
     <content type="html"><![CDATA[<h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
 <li>wu-ftp</li>
 <li>proftp=profession ftp</li>
 <li>vsftp=very security ftp</li>
 </ol>
-<p>配置文件：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/vsftpd/vsftpd<span class="class">.conf</span>   <span class="comment">//主配置文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="访问方式">访问方式</h1><ol>
+<p>配置文件：<br>    /etc/vsftpd/vsftpd.conf   //主配置文件</p>
+<pre><code>/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span>
+
+/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span>
+</code></pre><h1 id="访问方式">访问方式</h1><ol>
 <li>匿名登录</li>
 <li>帐号登录</li>
 </ol>
@@ -266,8 +335,11 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
 <li>proftp=profession ftp</li>
 <li>vsftp=very security ftp</li>
 </ol>
-<p>配置文件：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/vsftpd/vsftpd<span class="class">.conf</span>   <span class="comment">//主配置文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span></span><br><span class="line"></span><br><span class="line">/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="访问方式">访问方式</h1><ol>
+<p>配置文件：<br>    /etc/vsftpd/vsftpd.conf   //主配置文件</p>
+<pre><code>/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span>
+
+/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span>
+</code></pre><h1 id="访问方式">访问方式</h1><ol>
 <li>匿名登录</li>
 <li>帐号登录</li>
 </ol>]]>
@@ -407,7 +479,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/The-role-and-content-of-the-Linux-Directory/"/>
     <id>http://tiandechi.com/2015/04/18/The-role-and-content-of-the-Linux-Directory/</id>
     <published>2015-04-18T15:52:12.000Z</published>
-    <updated>2015-04-18T15:55:33.980Z</updated>
+    <updated>2015-04-21T10:37:19.985Z</updated>
     <content type="html"><![CDATA[<h1 id="根目录“/”">根目录“/”</h1><p>根目录位于目录结构的最顶层，用斜线（/）表示，类似于Windows操作系统的“C:\“，包含Fedora操作系统中所有的目录和文件。</p>
 <h1 id="/bin">/bin</h1><p>/bin<br>目录又称为二进制目录，包含了那些供系统管理员和普通用户使用的重要linux命令的二进制映像。该目录存放的内容包括各种可执行文件，还有某些可执行文件的符号连接。常用的命令有：cp、dmesg、kill、login、rm、ping、chomd、bash、cat、echo、ls、 mail、vi等。</p>
 <h1 id="/boot">/boot</h1><p>/boot<br>目录存放系统核心文件以及启动时必须读取的文件，包括Linux内核的二进制映像。</p>
@@ -422,6 +494,9 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
 <h1 id="/root">/root</h1><p>超级用户root的主目录（在Linux系统中，斜杠字符“/”是整个系统的根目录，而非超级用户的主目录。）</p>
 <h1 id="/sbin">/sbin</h1><p>目录/sbin、/usr/sbin和/usr/local/sbin存放了该目录启动系统时需执行的程序，如管理工具、应用软件和通用的根用户权限命令等内容。如包含getty、init、update</p>
 <p><a href="http://www.linuxidc.com/Linux/2015-04/116032.htm" target="_blank" rel="external">来源</a></p>
+<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%"><br><tbody><tr align="center" bgcolor="#182448"><td width="80"><font color="#FFFFFF">目录</font></td><td><font color="#FFFFFF">应放置文件内容</font></td></tr><br><tr><td>/bin</td><td><br>    系统有很多放置执行文件的目录，但/bin比较特殊。因为<span class="text_import2">/bin放置的是在单人维护模式下还能够被操作的指令。</span><br>    在/bin底下的指令可以被root与一般账号所使用，主要有：cat, chmod, chown, date, mv, mkdir, cp, bash等等常用的指令。</td></tr><br><tr><td>/boot</td><td><br>    这个目录主要在放置开机会使用到的文件，包括Linux核心文件以及开机选单与开机所需配置文件等等。<br>    <span class="text_import2">Linux kernel常用的档名为：vmlinuz</span>，如果使用的是grub这个开机管理程序，<br>    则还会存在/boot/grub/这个目录喔！</td></tr><br><tr><td>/dev</td><td><br>    在Linux系统上，任何装置与接口设备都是以文件的型态存在于这个目录当中的。<br>    你只要透过存取这个目录底下的某个文件，就等于存取某个装置啰～<br>    比要重要的文件有<span class="text_import2">/dev/null, /dev/zero, /dev/tty</span>, /dev/lp<em>, /dev/hd</em>, /dev/sd<em>等等</em></td></tr><br><tr><td>/etc</td><td><br>    系统主要的配置文件几乎都放置在这个目录内，例如人员的账号密码文件、<br>    各种服务的启始档等等。一般来说，这个目录下的各文件属性是可以让一般使用者查阅的，<br>    但是只有root有权力修改。<span class="text_import2">FHS建议不要放置可执行文件(binary)在这个目录中</span>喔。比较重要的文件有：<br>    <span class="text_import2">/etc/inittab, /etc/init.d/, /etc/modprobe.conf,<br>    /etc/X11/, /etc/fstab, /etc/sysconfig/</span> 等等。另外，其下重要的目录有：<br>    <ul><li><span class="text_import2">/etc/init.d/</span>：所有服务的预设启动 script<br>        都是放在这里的，例如要启动或者关闭 iptables 的话：『 /etc/init.d/iptables start』、『/etc/init.d/iptables<br>        stop』</li><br>    <li><span class="text_import2">/etc/xinetd.d/</span>：这就是所谓的super daemon管理的各项服务的配置文件目录。</li><br>    <li><span class="text_import2">/etc/X11/</span>：与 X Window 有关的各种配置文件都在这里，尤其是<br>        xorg.conf 这个 X Server 的配置文件。</li></ul></td></tr><br><tr><td>/home</td><td><br>    这是系统默认的用户家目录(home directory)。在你新增一个一般使用者账号时，<br>    默认的用户家目录都会规范到这里来。比较重要的是，家目录有两种代号喔：<br><br>    <span class="text_import2">~</span>：代表目前这个用户的家目录，而 <br><br>    <span class="text_import2">~dmtsai</span> ：则代表 dmtsai 的家目录！</td></tr><br><tr><td>/lib</td><td><br>    系统的函式库非常的多，而<span class="text_import2">/lib放置的则是在开机时会用到的函式库，<br>    以及在/bin或/sbin底下的指令会呼叫的函式库而已</span>。<br>    什么是函式库呢？妳可以将他想成是『外挂』，某些指令必须要有这些『外挂』才能够顺利完成程序的执行之意。<br>    尤其重要的是<span class="text_import2">/lib/modules/</span>这个目录，<br>    因为该目录会放置核心相关的模块(驱动程序)喔！</td></tr><br><tr><td>/media</td><td><br>    media是『媒体』的英文，顾名思义，这个<span class="text_import2">/media底下放置的就是可移除的装置啦！</span><br>    包括软盘、光盘、DVD等等装置都暂时挂载于此。常见的档名有：/media/floppy, /media/cdrom等等。</td></tr><br><tr><td>/mnt</td><td><br>    如果妳想要暂时挂载某些额外的装置，一般建议妳可以放置到这个目录中。<br>    在古早时候，这个目录的用途与/media相同啦！只是有了/media之后，这个目录就用来暂时挂载用了。</td></tr><br><tr><td>/opt</td><td><br>    这个是<span class="text_import2">给第三方协力软件放置的目录</span>。什么是第三方协力软件啊？<br>    举例来说，KDE这个桌面管理系统是一个独立的计划，不过他可以安装到Linux系统中，因此KDE的软件就建议放置到此目录下了。<br>    另外，如果妳想要自行安装额外的软件(非原本的distribution提供的)，那么也能够将你的软件安装到这里来。<br>    不过，以前的Linux系统中，我们还是习惯放置在/usr/local目录下呢！</td></tr><br><tr><td>/root</td><td><br>    系统管理员(root)的家目录。之所以放在这里，是因为如果进入单人维护模式而仅挂载根目录时，<br>    该目录就能够拥有root的家目录，所以我们会希望root的家目录与根目录放置在同一个分割槽中。</td></tr><br><tr><td>/sbin</td><td><br>    Linux有非常多指令是用来设定系统环境的，这些指令只有root才能够利用来『设定』系统，其他用户最多只能用来『查询』而已。<br>    <span class="text_import2">放在/sbin底下的为开机过程中所需要的，里面包括了开机、修复、还原系统所需要的指令。</span><br>    至于某些服务器软件程序，一般则放置到/usr/sbin/当中。至于本机自行安装的软件所产生的系统执行文件(system binary)，<br>    则放置到/usr/local/sbin/当中了。常见的指令包括：fdisk, fsck, ifconfig, init, mkfs等等。</td></tr><br><tr><td>/srv</td><td><br>    srv可以视为『service』的缩写，是一些网络服务启动之后，这些服务所需要取用的数据目录。<br>    常见的服务例如WWW, FTP等等。举例来说，WWW服务器需要的网页数据就可以放置在/srv/www/里面。</td></tr><br><tr><td>/tmp</td><td><br>    这是让一般使用者或者是正在执行的程序暂时放置文件的地方。<br>    这个目录是任何人都能够存取的，所以你需要定期的清理一下。当然，重要数据不可放置在此目录啊！<br>    因为FHS甚至建议在开机时，应该要将/tmp下的数据都删除唷！</td></tr><br><tr><td>/lost+found</td><td><br>    这个目录是使用标准的ext2/ext3文件系统格式才会产生的一个目录，目的在于当文件系统发生错误时，<br>    将一些遗失的片段放置到这个目录下。这个目录通常会在分割槽的最顶层存在，<br>    例如你加装一颗硬盘于/disk中，那在这个系统下就会自动产生一个这样的目录『/disk/lost+found』</td></tr><br><tr><td>/proc</td><td><br>    这个目录本身是一个『虚拟文件系统(virtual filesystem)』喔！他放置的数据都是在内存当中，<br>    例如系统核心、行程信息(process)、周边装置的状态及网络状态等等。因为这个目录下的数据都是在内存当中，<br>    所以本身不占任何硬盘空间啊！比较重要的文件例如：<span class="text_import2">/proc/cpuinfo,<br>    /proc/dma, /proc/interrupts, /proc/ioports, /proc/net/</span> 等等。</td></tr><br><tr><td>/sys</td><td><br>    这个目录其实跟/proc非常类似，也是一个虚拟的文件系统，主要也是记录与核心相关的信息。<br>    包括目前已加载的核心模块与核心侦测到的硬件装置信息等等。这个目录同样不占硬盘容量喔！</td></tr><br></tbody><br></table>
+
+<p><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0210filepermission_3.php" target="_blank" rel="external">来源</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="根目录“/”">根目录“/”</h1><p>根目录位于目录结构的最顶层，用斜线（/）表示，类似于Windows操作系统的“C:\“，包含Fedora操作系统中所有的目录和文件。</p>
@@ -894,57 +969,6 @@ Bot 档案最后一行在屏幕可见范围。
 <p>选项与参数:<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">v     <span class="symbol">:</span>显示更多的 <span class="constant">PCI</span> 接口装置的详细信息</span><br><span class="line"></span>-<span class="ruby">vv <span class="symbol">:</span>比 -v 还要更详细的信息</span><br><span class="line"></span>-<span class="ruby">n     <span class="symbol">:</span>直接观察 <span class="constant">PCI</span> 的 <span class="constant">ID</span> 而不是厂商名称</span></span><br></pre></td></tr></table></figure></p>]]>
     
     </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Linux学习杂记]]></title>
-    <link href="http://tiandechi.com/2015/03/30/Linux%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0/"/>
-    <id>http://tiandechi.com/2015/03/30/Linux学习杂记/</id>
-    <published>2015-03-30T13:32:49.000Z</published>
-    <updated>2015-04-18T19:35:40.000Z</updated>
-    <content type="html"><![CDATA[<p>就是写学习中乱记的，不知道该怎么分类的东西。<br><a id="more"></a><br>VGA(Video Graphics Array) 显卡<br>只读内存(Read Only Memory, ROM)<br> BIOS(Basic Input Output System)<br>静态随机访问内存(Static Random Access Memory, SRAM)<br>动态随机访问内存(Dynamic Random Access Memory, SRAM)<br>乙太网络(Ethernet)</p>
-<p>GNU 的全名为何？他主要由那个基金会支持？<br>GNU 是 GNU is Not Unix 的简写，是个无穷循环！ 另外，这个计划是由自由软件基金会 (Free Software Foundation, FSF) 所支持的！ 两者都是由 Stallman 先生所发起的！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[Linux]]>
-    
-    </summary>
-    
-      <category term="练习" scheme="http://tiandechi.com/tags/%E7%BB%83%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[chmod命令详解]]></title>
-    <link href="http://tiandechi.com/2015/03/30/chmod%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://tiandechi.com/2015/03/30/chmod命令详解/</id>
-    <published>2015-03-30T13:24:34.000Z</published>
-    <updated>2015-04-18T19:35:40.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="chmod-改变一个或多个文件的存取模式(mode)">chmod----改变一个或多个文件的存取模式(mode)</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [<span class="keyword">options</span>] <span class="built_in">mode</span> <span class="keyword">files</span></span><br></pre></td></tr></table></figure>
-<p>只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以是数字形式或以who opcode permission形式表示。who是可选的，默认是a(所有用户)。只能选择一个opcode(操作码)。可指定多个mode，以逗号分开。</p>
-<a id="more"></a>
-<h2 id="Options：">Options：</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-c，<span class="comment">--changes</span></span><br></pre></td></tr></table></figure>
-<p>只输出被改变文件的信息</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">-</span><span class="comment">f，</span><span class="literal">-</span><span class="literal">-</span><span class="comment">silent，</span><span class="literal">-</span><span class="literal">-</span><span class="comment">quiet</span></span><br></pre></td></tr></table></figure>
-<p>当chmod不能改变文件模式时，不通知文件的用户</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">-help</span><br><span class="line"></span>输出帮助信息。</span><br></pre></td></tr></table></figure>
-<p>-R，--recursive<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可递归遍历子目录，把修改应到目录下所有文件和子目录</span><br></pre></td></tr></table></figure></p>
-<p>--reference=filename<br><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参照<span class="keyword">filename</span>的权限来设置权限</span><br></pre></td></tr></table></figure></p>
-<p>-v，--verbose<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">无论修改是否成功，输出每个文件的信息</span><br></pre></td></tr></table></figure></p>
-<p>--version<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">输出版本信息。</span><br><span class="line"></span><br><span class="line">## <span class="variable">Who</span>:</span><br><span class="line"></span><br><span class="line">u</span><br><span class="line">用户</span><br><span class="line"></span><br><span class="line">g</span><br><span class="line">组</span><br><span class="line"></span><br><span class="line">o</span><br><span class="line">其它</span><br><span class="line"></span><br><span class="line">a</span><br><span class="line">所有用户(默认)</span><br><span class="line"></span><br><span class="line">## <span class="variable">Opcode</span>:</span><br><span class="line"></span><br><span class="line">+</span><br><span class="line">增加权限</span><br><span class="line"></span><br><span class="line"><span class="pp">-</span><br><span class="line">删除权限</span><br><span class="line"></span><br><span class="line">=</span><br><span class="line">重新分配权限</span><br><span class="line"></span><br><span class="line">## Permission</span><br><span class="line"></span><br><span class="line">r</span><br><span class="line">读</span><br><span class="line"></span><br><span class="line">w</span><br><span class="line">写</span><br><span class="line"></span><br><span class="line">x</span><br><span class="line">执行</span><br><span class="line"></span><br><span class="line">s</span><br><span class="line">设置用户<span class="params">(或组)</span>的ID号</span><br><span class="line"></span><br><span class="line">t</span><br><span class="line">设置粘着位<span class="params">(sticky bit)</span>，防止文件或目录被非属主删除</span><br><span class="line"></span><br><span class="line">u</span><br><span class="line">用户的当前权限</span><br><span class="line"></span><br><span class="line">g</span><br><span class="line">组的当前权限</span><br><span class="line"></span><br><span class="line">o</span><br><span class="line">其他用户的当前权限</span><br><span class="line"></span><br><span class="line">作为选择，我们多数用三位八进制数字的形式来表示权限，第一位指定属主的权限，第二位指定组权限，第三位指定其他用户的权限，每位通过4<span class="params">(读)</span>、2<span class="params">(写)</span>、1<span class="params">(执行)</span>三种数值的和来确定权限。如6<span class="params">(<span class="number">4</span>+<span class="number">2</span>)</span>代表有读写权，7<span class="params">(<span class="number">4</span>+<span class="number">2</span>+<span class="number">1</span>)</span>有读、写和执行的权限。</span><br><span class="line"></span><br><span class="line">还可设置第四位，它位于三位权限序列的前面，第四位数字取值是4，2，1，代表意思如下：</span><br><span class="line"></span><br><span class="line">4，执行时设置用户ID，用于授权给基于文件属主的进程，而不是给创建此进程的用户。</span><br><span class="line"></span><br><span class="line">2，执行时设置用户组ID，用于授权给基于文件所在组的进程，而不是基于创建此进程的用户。</span><br><span class="line"></span><br><span class="line">1，设置粘着位。</span><br><span class="line"></span><br><span class="line">实例：</span></span><br></pre></td></tr></table></figure></p>
-<p>$ chmod u+x file                　　　   给file的属主增加执行权限<br>$ chmod 751 file                　　　   给file的属主分配读、写、执行(7)的权限，给file的所在组分配读、执行(5)的权限，给其他用户分配执行(1)的权限<br>$ chmod u=rwx,g=rx,o=x file      上例的另一种形式<br>$ chmod =r file                 　　　　为所有用户分配读权限<br>$ chmod 444 file              　　　　 同上例<br>$ chmod a-wx,a+r   file   　　 　   同上例<br>$ chmod -R u+r directory       　   递归地给directory目录下所有文件和子目录的属主分配读的权限<br>$ chmod 4755                          　　设置用ID，给属主分配读、写和执行权限，给组和其他用户分配读、执行的权限。<br>```</p>
-<p><a href="http://www.cnblogs.com/younes/archive/2009/11/20/1607174.html" target="_blank" rel="external">via.︶ㄣ第二名</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="chmod-改变一个或多个文件的存取模式(mode)">chmod----改变一个或多个文件的存取模式(mode)</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [<span class="keyword">options</span>] <span class="built_in">mode</span> <span class="keyword">files</span></span><br></pre></td></tr></table></figure>
-<p>只能文件属主或特权用户才能使用该功能来改变文件存取模式。mode可以是数字形式或以who opcode permission形式表示。who是可选的，默认是a(所有用户)。只能选择一个opcode(操作码)。可指定多个mode，以逗号分开。</p>]]>
-    
-    </summary>
-    
-      <category term="commands" scheme="http://tiandechi.com/tags/commands/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     
   </entry>
   
