@@ -1,0 +1,626 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>how to enter single user mode and crack root password in Linux | 天德池</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="钢仔">
+    
+
+    
+    <meta name="description" content="linux下如何进入单人维护模式先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：123root (hd0,0)kernel /vmlinuz-2.6.18-128.el5 ro root=LABEL=/ rhgb quietinitrd /initrd-2.6.18-128.el5.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="how to enter single user mode and crack root password in Linux">
+<meta property="og:url" content="http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/index.html">
+<meta property="og:site_name" content="天德池">
+<meta property="og:description" content="linux下如何进入单人维护模式先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：123root (hd0,0)kernel /vmlinuz-2.6.18-128.el5 ro root=LABEL=/ rhgb quietinitrd /initrd-2.6.18-128.el5.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="how to enter single user mode and crack root password in Linux">
+<meta name="twitter:description" content="linux下如何进入单人维护模式先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：123root (hd0,0)kernel /vmlinuz-2.6.18-128.el5 ro root=LABEL=/ rhgb quietinitrd /initrd-2.6.18-128.el5.">
+<meta name="twitter:creator" content="@TiandeTD">
+
+    
+    <link rel="alternative" href="/atom.xml" title="天德池" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="天德池" title="天德池"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="天德池">天德池</a></h1>
+				<h2 class="blog-motto">这里不是洗澡的地方</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tiandechi.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/" title="how to enter single user mode and crack root password in Linux" itemprop="url">how to enter single user mode and crack root password in Linux</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-29T11:37:52.000Z" itemprop="datePublished"> 发表于 2015-04-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux下如何进入单人维护模式"><span class="toc-number">1.</span> <span class="toc-text">linux下如何进入单人维护模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#各个Linux版本的本地root密码破解方法"><span class="toc-number">2.</span> <span class="toc-text">各个Linux版本的本地root密码破解方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RedHat/CentOS/Fedora_系统密码破解"><span class="toc-number">2.1.</span> <span class="toc-text">RedHat/CentOS/Fedora 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debian_linux_系统密码破解"><span class="toc-number">2.2.</span> <span class="toc-text">Debian linux 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Freebsd_系统密码破解"><span class="toc-number">2.3.</span> <span class="toc-text">Freebsd 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solaris_系统密码破解"><span class="toc-number">2.4.</span> <span class="toc-text">Solaris 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NetBsd_系统密码破解"><span class="toc-number">2.5.</span> <span class="toc-text">NetBsd 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SUSE_系统密码破解"><span class="toc-number">2.6.</span> <span class="toc-text">SUSE 系统密码破解</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="linux下如何进入单人维护模式">linux下如何进入单人维护模式</h1><p>先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span> ro root=LABEL=/ rhgb quiet</span><br><span class="line">initrd /initrd-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span><span class="class">.img</span></span><br></pre></td></tr></table></figure></p>
+<p>此时，请将游标移动到kernel那一行，再按一次『 e 』进入kernel该行的编辑画面中， 然后在出现的画面<br>当中，最后方输入 “single” ：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span>.el5 ro <span class="variable">root=</span><span class="variable">LABEL=</span>/ rhgb quiet single</span><br></pre></td></tr></table></figure></p>
+<p>再按下『 Enter 』確定之後，按下 b 就可以开机進入单人维护模式了！<br>在这个模式底下，你会在tty1的地方不需要输入密码即可取得终端机的控制权(而且是使用root的身份喔！)。</p>
+<h1 id="各个Linux版本的本地root密码破解方法">各个Linux版本的本地root密码破解方法</h1><a id="more"></a>
+<p>这段时间老碰到有人问及各个linux版本的本地root密码破解方法，我这里自己以及在网络上搜集了些资料，希望对看到了这文章而又恰好用得到的技术人员有点帮助：</p>
+<h2 id="RedHat/CentOS/Fedora_系统密码破解">RedHat/CentOS/Fedora 系统密码破解</h2><ol>
+<li>在grub选项菜单按E进入编辑模式</li>
+<li>编辑kernel 那行最后加上S (或者Single）</li>
+<li>按B，启动到single-user mode</li>
+<li>进入后执行下列命令<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># mount -t proc proc /proc</span></span><br><span class="line"><span class="preprocessor"># mount -o remount,rw /</span></span><br><span class="line"><span class="preprocessor">#passwd</span></span><br><span class="line"><span class="preprocessor">#sync</span></span><br><span class="line"><span class="preprocessor">#reboot</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>【1】开机画面按e进入<br>【2】进入以下的画面后，选择如下所示的选项，再次按下e按钮； 1 S Single都可以<br>【3】返回到当前页后，按下b按钮起动linux；<br>【4】用passwd命令修改root用户密码；<br>【5】利用shutdown -r now命令重启linux，密码修改完毕。</p>
+<h2 id="Debian_linux_系统密码破解">Debian linux 系统密码破解</h2><ol>
+<li>在grub选项菜单&#39;Debian GNU/Linux,...(recovery mode)&#39;，按e进入编辑模式</li>
+<li>编辑kernel那行最后面的 ro single 改成 rw single init=/bin/bash，按b执行重启</li>
+<li>进入后执行下列命令<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@(<span class="attribute">none</span>)<span class="id">#mount</span> -<span class="tag">a</span></span><br><span class="line">root@(<span class="attribute">none</span>)<span class="id">#passwd</span> root</span><br><span class="line">root@(<span class="attribute">none</span>)#reboot</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Freebsd_系统密码破解">Freebsd 系统密码破解</h2><ol>
+<li>开机进入引导菜单</li>
+<li>选择每项(按4)进入单用户模式</li>
+<li>进入之后输入一列命令<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@<span class="id">#mount</span> -<span class="tag">a</span></span><br><span class="line">root@<span class="id">#fsck</span> -y</span><br><span class="line">root@#<span class="function"><span class="title">passwd</span><span class="params">(修改密码命令)</span></span></span><br><span class="line">root@#<span class="function"><span class="title">root</span><span class="params">(要破解密码的用户名)</span></span></span><br><span class="line">Enter new unix password:</span><br><span class="line">root@<span class="id">#init</span> <span class="number">6</span> (重启)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Solaris_系统密码破解">Solaris 系统密码破解</h2><ol>
+<li>在grub选项菜中选择solaris failasfe 项</li>
+<li>系统提示Do you wish to have it mounted read-write on /a ?[y,n,?] 选择y</li>
+<li>就进入单用户模式</li>
+<li>输入下列命令:<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line">root@<span class="title">#init 6</span> <span class="comment">(重启)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="NetBsd_系统密码破解">NetBsd 系统密码破解</h2><ol>
+<li><p>开机：当出现提示符号并开始倒数五秒时， 键入以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; boot <span class="operator">-s</span> (进入单用户模式命令)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在以下的提示符号中</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter pathname <span class="operator">of</span> <span class="built_in">shell</span> <span class="operator">or</span> <span class="constant">RETURN</span> <span class="keyword">for</span> sh:</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>按下 Enter。</p>
+<ol>
+<li><p>键入以下指令：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># mount -a</span></span><br><span class="line"><span class="preprocessor"># fsck -y</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 passwd 更改 root 的密码。</p>
+</li>
+<li>使用 exit 指令进入多人模式。<h2 id="SUSE_系统密码破解">SUSE 系统密码破解</h2></li>
+<li>重新启动机器，在出现grub引导界面后，在启动linux的选项里加上init=/bin/bash，通过给内核传递init=/bin/bash参数使得OS在运行login程序之前运行bash，出现命令行。</li>
+<li>稍等片刻出现(none)#:命令行。</li>
+<li>这时输入mount -n / -o remount,rw 表示将根文件系统重新mount为可读写，有了读写权限后就可以通过passwd命令修改密码了。</li>
+<li>这时输入passwd命令就可以重置密码了</li>
+<li>修改完成后记得用mount -n / -o remount,ro将根文件系统置为原来的状态。</li>
+</ol>
+<p><a href="http://blog.csdn.net/vagrant2005/article/details/6561637" target="_blank" rel="external">来源</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/" data-title="how to enter single user mode and crack root password in Linux | 天德池" data-tsina="1854771045" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/04/29/some-Linux-tests/"  title="some Linux tests">
+ <strong>下一篇：</strong><br/> 
+ <span>some Linux tests
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/" data-title="how to enter single user mode and crack root password in Linux" data-url="http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#linux下如何进入单人维护模式"><span class="toc-number">1.</span> <span class="toc-text">linux下如何进入单人维护模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#各个Linux版本的本地root密码破解方法"><span class="toc-number">2.</span> <span class="toc-text">各个Linux版本的本地root密码破解方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RedHat/CentOS/Fedora_系统密码破解"><span class="toc-number">2.1.</span> <span class="toc-text">RedHat/CentOS/Fedora 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debian_linux_系统密码破解"><span class="toc-number">2.2.</span> <span class="toc-text">Debian linux 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Freebsd_系统密码破解"><span class="toc-number">2.3.</span> <span class="toc-text">Freebsd 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solaris_系统密码破解"><span class="toc-number">2.4.</span> <span class="toc-text">Solaris 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NetBsd_系统密码破解"><span class="toc-number">2.5.</span> <span class="toc-text">NetBsd 系统密码破解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SUSE_系统密码破解"><span class="toc-number">2.6.</span> <span class="toc-text">SUSE 系统密码破解</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Debian/" title="Debian">Debian<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSH/" title="SSH">SSH<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/usb-stick/" title="usb stick">usb stick<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/commands/" title="commands">commands<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/64位/" title="64位">64位<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/32位/" title="32位">32位<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tar/" title="tar">tar<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/auto-indent/" title="auto indent">auto indent<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tests/" title="tests">tests<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/scp/" title="scp">scp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Format/" title="Format">Format<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/配色/" title="配色">配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mount/" title="mount">mount<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/unix/" title="unix">unix<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dos/" title="dos">dos<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/fileformat/" title="fileformat">fileformat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cp/" title="cp">cp<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Browser/" title="Browser">Browser<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/OS/" title="OS">OS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Windows/" title="Windows">Windows<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/语言/" title="语言">语言<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1854771045&verifier=375b89d6&dpc=1"></iframe>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://v2ex.com" target="_blank" title="环境优雅的程序员社区">V2EX</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 志愿愈大，希望愈高，可以致力之处就愈少，可以自解之处也愈多。 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1854771045" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Tiande" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/TiandeTD" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/58150105" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="https://www.zhihu.com/people/dun-tian-de" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:dtdnqsb@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="钢仔">钢仔</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Tiande"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

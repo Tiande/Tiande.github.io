@@ -86,6 +86,131 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/" title="how to enter single user mode and crack root password in Linux" itemprop="url">how to enter single user mode and crack root password in Linux</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-29T11:37:52.000Z" itemprop="datePublished"> 发表于 2015-04-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="linux下如何进入单人维护模式">linux下如何进入单人维护模式</h1><p>先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span> ro root=LABEL=/ rhgb quiet</span><br><span class="line">initrd /initrd-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span><span class="class">.img</span></span><br></pre></td></tr></table></figure></p>
+<p>此时，请将游标移动到kernel那一行，再按一次『 e 』进入kernel该行的编辑画面中， 然后在出现的画面<br>当中，最后方输入 “single” ：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span>.el5 ro <span class="variable">root=</span><span class="variable">LABEL=</span>/ rhgb quiet single</span><br></pre></td></tr></table></figure></p>
+<p>再按下『 Enter 』確定之後，按下 b 就可以开机進入单人维护模式了！<br>在这个模式底下，你会在tty1的地方不需要输入密码即可取得终端机的控制权(而且是使用root的身份喔！)。</p>
+<h1 id="各个Linux版本的本地root密码破解方法">各个Linux版本的本地root密码破解方法</h1>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/29/some-Linux-tests/" title="some Linux tests" itemprop="url">some Linux tests</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-29T11:35:33.000Z" itemprop="datePublished"> 发表于 2015-04-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="上部">上部</h1><ol>
+<li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。<br>使用密钥加密登录，客户端生成公钥和私钥，客户端保存私钥，公钥复制到远程linux主机，登录时使用密钥加密登录；</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/29/some-Linux-tests/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tests/">tests</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/29/some-Linux-tests/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/29/some-Linux-tests/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/" title="The advantages of Linux compile source code for installing package" itemprop="url">The advantages of Linux compile source code for installing package</a>
   </h1>
   <p class="article-author">By
@@ -614,132 +739,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/ssh-add-command/" title="ssh add command" itemprop="url">ssh add command</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:49:56.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="功能作用">功能作用</h1><p>把专用密钥添加到 ssh-agent 的高速缓存中</p>
-<h1 id="位置">位置</h1><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ssh-<span class="keyword">add</span></span><br></pre></td></tr></table></figure>
-<h1 id="格式用法">格式用法</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="built_in">add</span> [-cDdLlXx] [-t life] [<span class="built_in">file</span> ...]</span><br><span class="line">ssh-<span class="built_in">add</span> -s pkcs11</span><br><span class="line">ssh-<span class="built_in">add</span> -e pkcs11</span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/ssh-add-command/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/SSH/">SSH</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/ssh-add-command/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/ssh-add-command/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/Git-SSH-key-Generate/" title="Git SSH key Generate" itemprop="url">Git SSH key Generate</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:46:45.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
-<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/Git-SSH-key-Generate/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/GIt/">GIt</a><a href="/tags/SSH/">SSH</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/Git-SSH-key-Generate/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/Git-SSH-key-Generate/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -802,6 +801,10 @@
 			
 		
 			
+				<li><a href="/tags/tests/" title="tests">tests<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/scp/" title="scp">scp<sup>1</sup></a></li>
 			
 		
@@ -833,10 +836,6 @@
 				<li><a href="/tags/cp/" title="cp">cp<sup>1</sup></a></li>
 			
 		
-			
-				<li><a href="/tags/CNNIC/" title="CNNIC">CNNIC<sup>1</sup></a></li>
-			
-		
 		</ul>
 </div>
 
@@ -851,7 +850,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>32</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>33</sup></a></li>
 		  
 		
 		  

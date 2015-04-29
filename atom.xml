@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-04-21T13:00:54.535Z</updated>
+  <updated>2015-04-29T11:38:43.300Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -13,6 +13,177 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[how to enter single user mode and crack root password in Linux]]></title>
+    <link href="http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/"/>
+    <id>http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/</id>
+    <published>2015-04-29T11:37:52.000Z</published>
+    <updated>2015-04-29T11:38:43.300Z</updated>
+    <content type="html"><![CDATA[<h1 id="linux下如何进入单人维护模式">linux下如何进入单人维护模式</h1><p>先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span> ro root=LABEL=/ rhgb quiet</span><br><span class="line">initrd /initrd-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span><span class="class">.img</span></span><br></pre></td></tr></table></figure></p>
+<p>此时，请将游标移动到kernel那一行，再按一次『 e 』进入kernel该行的编辑画面中， 然后在出现的画面<br>当中，最后方输入 “single” ：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span>.el5 ro <span class="variable">root=</span><span class="variable">LABEL=</span>/ rhgb quiet single</span><br></pre></td></tr></table></figure></p>
+<p>再按下『 Enter 』確定之後，按下 b 就可以开机進入单人维护模式了！<br>在这个模式底下，你会在tty1的地方不需要输入密码即可取得终端机的控制权(而且是使用root的身份喔！)。</p>
+<h1 id="各个Linux版本的本地root密码破解方法">各个Linux版本的本地root密码破解方法</h1><a id="more"></a>
+<p>这段时间老碰到有人问及各个linux版本的本地root密码破解方法，我这里自己以及在网络上搜集了些资料，希望对看到了这文章而又恰好用得到的技术人员有点帮助：</p>
+<h2 id="RedHat/CentOS/Fedora_系统密码破解">RedHat/CentOS/Fedora 系统密码破解</h2><ol>
+<li>在grub选项菜单按E进入编辑模式</li>
+<li>编辑kernel 那行最后加上S (或者Single）</li>
+<li>按B，启动到single-user mode</li>
+<li>进入后执行下列命令<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># mount -t proc proc /proc</span></span><br><span class="line"><span class="preprocessor"># mount -o remount,rw /</span></span><br><span class="line"><span class="preprocessor">#passwd</span></span><br><span class="line"><span class="preprocessor">#sync</span></span><br><span class="line"><span class="preprocessor">#reboot</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>【1】开机画面按e进入<br>【2】进入以下的画面后，选择如下所示的选项，再次按下e按钮； 1 S Single都可以<br>【3】返回到当前页后，按下b按钮起动linux；<br>【4】用passwd命令修改root用户密码；<br>【5】利用shutdown -r now命令重启linux，密码修改完毕。</p>
+<h2 id="Debian_linux_系统密码破解">Debian linux 系统密码破解</h2><ol>
+<li>在grub选项菜单&#39;Debian GNU/Linux,...(recovery mode)&#39;，按e进入编辑模式</li>
+<li>编辑kernel那行最后面的 ro single 改成 rw single init=/bin/bash，按b执行重启</li>
+<li>进入后执行下列命令<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@(<span class="attribute">none</span>)<span class="id">#mount</span> -<span class="tag">a</span></span><br><span class="line">root@(<span class="attribute">none</span>)<span class="id">#passwd</span> root</span><br><span class="line">root@(<span class="attribute">none</span>)#reboot</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Freebsd_系统密码破解">Freebsd 系统密码破解</h2><ol>
+<li>开机进入引导菜单</li>
+<li>选择每项(按4)进入单用户模式</li>
+<li>进入之后输入一列命令<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@<span class="id">#mount</span> -<span class="tag">a</span></span><br><span class="line">root@<span class="id">#fsck</span> -y</span><br><span class="line">root@#<span class="function"><span class="title">passwd</span><span class="params">(修改密码命令)</span></span></span><br><span class="line">root@#<span class="function"><span class="title">root</span><span class="params">(要破解密码的用户名)</span></span></span><br><span class="line">Enter new unix password:</span><br><span class="line">root@<span class="id">#init</span> <span class="number">6</span> (重启)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Solaris_系统密码破解">Solaris 系统密码破解</h2><ol>
+<li>在grub选项菜中选择solaris failasfe 项</li>
+<li>系统提示Do you wish to have it mounted read-write on /a ?[y,n,?] 选择y</li>
+<li>就进入单用户模式</li>
+<li>输入下列命令:<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line">root@<span class="title">#init 6</span> <span class="comment">(重启)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="NetBsd_系统密码破解">NetBsd 系统密码破解</h2><ol>
+<li><p>开机：当出现提示符号并开始倒数五秒时， 键入以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; boot <span class="operator">-s</span> (进入单用户模式命令)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在以下的提示符号中</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter pathname <span class="operator">of</span> <span class="built_in">shell</span> <span class="operator">or</span> <span class="constant">RETURN</span> <span class="keyword">for</span> sh:</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>按下 Enter。</p>
+<ol>
+<li><p>键入以下指令：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># mount -a</span></span><br><span class="line"><span class="preprocessor"># fsck -y</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 passwd 更改 root 的密码。</p>
+</li>
+<li>使用 exit 指令进入多人模式。<h2 id="SUSE_系统密码破解">SUSE 系统密码破解</h2></li>
+<li>重新启动机器，在出现grub引导界面后，在启动linux的选项里加上init=/bin/bash，通过给内核传递init=/bin/bash参数使得OS在运行login程序之前运行bash，出现命令行。</li>
+<li>稍等片刻出现(none)#:命令行。</li>
+<li>这时输入mount -n / -o remount,rw 表示将根文件系统重新mount为可读写，有了读写权限后就可以通过passwd命令修改密码了。</li>
+<li>这时输入passwd命令就可以重置密码了</li>
+<li>修改完成后记得用mount -n / -o remount,ro将根文件系统置为原来的状态。</li>
+</ol>
+<p><a href="http://blog.csdn.net/vagrant2005/article/details/6561637" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="linux下如何进入单人维护模式">linux下如何进入单人维护模式</h1><p>先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span> ro root=LABEL=/ rhgb quiet</span><br><span class="line">initrd /initrd-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span><span class="class">.img</span></span><br></pre></td></tr></table></figure></p>
+<p>此时，请将游标移动到kernel那一行，再按一次『 e 』进入kernel该行的编辑画面中， 然后在出现的画面<br>当中，最后方输入 “single” ：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span>.el5 ro <span class="variable">root=</span><span class="variable">LABEL=</span>/ rhgb quiet single</span><br></pre></td></tr></table></figure></p>
+<p>再按下『 Enter 』確定之後，按下 b 就可以开机進入单人维护模式了！<br>在这个模式底下，你会在tty1的地方不需要输入密码即可取得终端机的控制权(而且是使用root的身份喔！)。</p>
+<h1 id="各个Linux版本的本地root密码破解方法">各个Linux版本的本地root密码破解方法</h1>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[some Linux tests]]></title>
+    <link href="http://tiandechi.com/2015/04/29/some-Linux-tests/"/>
+    <id>http://tiandechi.com/2015/04/29/some-Linux-tests/</id>
+    <published>2015-04-29T11:35:33.000Z</published>
+    <updated>2015-04-29T11:38:49.520Z</updated>
+    <content type="html"><![CDATA[<h1 id="上部">上部</h1><ol>
+<li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。<br>使用密钥加密登录，客户端生成公钥和私钥，客户端保存私钥，公钥复制到远程linux主机，登录时使用密钥加密登录；</p>
+<a id="more"></a>
+<p>在linux主机执行下面的操作：</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir /<span class="literal">root</span>/.ssh</span><br><span class="line">chmod  <span class="number">700</span> /<span class="literal">root</span>/.ssh</span><br><span class="line">vi /<span class="literal">root</span>/.ssh/authorized_keys    粘贴复制的公钥，保存退出；</span><br><span class="line">chmod <span class="number">600</span> /<span class="literal">root</span>/.ssh/authorized_keys</span><br><span class="line">vi /etc/<span class="built_in">selinux</span>/config    编辑<span class="built_in">selinux</span>防火墙配置</span><br><span class="line">更改 <span class="constant">S</span>ELINUX=disabled    永久关闭<span class="built_in">selinux</span>；</span><br><span class="line">iptables -<span class="constant">F</span>    清空防火墙规则；</span><br><span class="line">/etc/init.d/iptables save    保存防火墙设置；</span><br><span class="line">客户端使用密钥登录；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何给grub加密码（明文、密文)，密文加密又分成哪几种？<br>明文加密 vi /etc/grub.conf<br>hiddenmenu下增加一行<br>password=123456<br>保存退出，重启系统进入菜单选择，按p输入密码才可以编辑；<br>密文加密分md5加密和sha加密<br>md5加密命令为：grub-md5-crypt<br>输入密码，生成一串加密后的密码，复制密码<br>vi  /etc/grub.conf<br>password --md5 粘贴密码<br>保存退出，重启系统进入菜单，按p输入密码；<br>sha加密命令：grub-crypt --sha-256<br>输入密码，生成一串密码，复制密码<br>编辑/etc/grub.conf<br>password --encrypted 粘贴密码，<br>保存退出，重启进入系统，按p输入密码；</p>
+</li>
+<li>如何用yum安装/删除一个软件包？如何查看某个软件包是否已经安装<br>安装：yum install -y tree<br>删除：yum remove -y tree<br>查看：rpm -qa | grep “包名” 或    rpm -q 包名</li>
+<li><p>如何查看系统版本？（3个方法）</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> /etc/CentOS-release</span><br><span class="line"><span class="keyword">cat</span> /etc/issue</span><br><span class="line">rpm -<span class="keyword">qa</span> | <span class="keyword">grep</span> release</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find 找出 当前目录下的 目录和普通文件？ 找出当前目录下10天没有改变，大小大于4K的普通文件或目录</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find ./ -<span class="keyword">type</span> <span class="keyword">d</span>  -o -<span class="keyword">type</span> <span class="literal">f</span></span><br><span class="line">find ./ -<span class="keyword">type</span> <span class="keyword">d</span> -o -<span class="keyword">type</span> f -size +4k ! -mtime -10</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在当前目录下创建一个名字为1的目录 的命令？  创建级联目录 ./2/3/的命令？ 一条命令创建级联目录 ./1/2/3和./1/2/4?</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ./<span class="number">1</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./<span class="number">2</span>/<span class="number">3</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./<span class="number">1</span>/<span class="number">2</span>/&#123;<span class="number">3</span>,<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cp一个目录中的文件需要什么权限，mv呢？touch呢？rm呢？<br>cp需要有目录的x权限，mv需要wx权限，touch需要wx权限，rm需要有wx权限；</p>
+</li>
+<li>用cat如何向文件里重定向字符串<br>第一种方法：<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[user1<span class="variable">@localhost</span> tmp]<span class="variable">$ </span>cat <span class="prompt">&gt;&gt;</span><span class="number">1</span>.txt</span><br><span class="line"><span class="number">000000000000</span></span><br><span class="line"><span class="number">111111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line">最后按ctrl + d</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>第二种方法：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt;<span class="number">1</span>.txt&lt;</span><br><span class="line">&gt; <span class="number">000000000000</span></span><br><span class="line">&gt; qqqqqqqqqqqqq</span><br><span class="line">&gt;<span class="function"><span class="title">EOF</span><span class="params">(这个结束)</span></span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>建立一个公共目录/opt/public,要求每个用户都可以创建文件和目录，但只能自己本人和root可以删除；<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="regexp">/opt/</span><span class="keyword">public</span></span><br><span class="line">chmod <span class="number">1777</span> <span class="regexp">/opt/</span><span class="keyword">public</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="下部">下部</h1><ol>
+<li><p>如何查看当前用户的家目录是什么?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$HOME</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果设置 umask 为 001 , 那么用户默认创建的目录和文件的权限是什么样子的？<br>创建的目录为766，文件为666</p>
+</li>
+<li><p>出于安全考虑，如何实现让别人ping不通你的在线的服务器。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">1</span> &gt; /<span class="keyword">proc</span>/sys/net/ipv4/icmp_echo_ignore_all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>怎样防止他人在服务器前通过按下 ctrl+alt+del 强行重启系统（提示，仔细看/etc/inittab）</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/init/control-alt-<span class="keyword">delete</span>.conf</span><br><span class="line"><span class="keyword">exec</span> /sbin/<span class="keyword">shutdown</span> -r now <span class="string">"Control-Alt-Delete pressed"</span>    这一项<span class="comment">#号注释掉，保存退出；</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当在对服务器进行大负荷操作的时候，你不希望现在有普通用户登录上来，你该怎么做？不能剪网线。<br>touch /etc/nologin<br>创建一个nologin文件，此文件为特殊文件，创建之后所有普通用户不能登录；系统维护结束后删除此文件，用户可以恢复登录；只限于shell登录用户，本身shell为/sbin/nologin 的用户本身就无法登录shell，不受影响；</p>
+</li>
+<li>你新建了一批用户，出于安全考虑，要求这些用户在第一次登录的时候 就必须要更改密码，怎么实现？<br>修改/etc/shadow 第三列，新建用户的值更改为0.</li>
+<li><p>如何把一个目录下的所有文件(不含目录)权限改为644？</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./ -<span class="built_in">type</span> f | xargs chmod <span class="number">644</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请实现下面这个需求：只允许使用普通账户登陆，而普通账户登录后，可以不输入密码就能sudo切换到root账户，root是不允许远程登录的。</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sudoers</span><br><span class="line">添加一行<span class="keyword">user</span>    <span class="constant">A</span>LL=(<span class="literal">root</span>)    <span class="constant">N</span>OPASSWD: /bin/su</span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"><span class="constant">Permit</span>RootLogin 设置为no，禁止<span class="literal">root</span>远程登录；</span><br><span class="line"><span class="keyword">service</span> sshd <span class="literal">restart</span>    重启sshd服务生效；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何使文件只能写不能删除？ 如何使文件不能被删除、重命名、设定链接接、写入、新增数据？<br>chattr +a    只能写不能删除<br>chattr +i    不能删除，重命名，写入新增数据；</p>
+</li>
+<li>用ls 查看目录或者文件时，第二列的数值表示什么意思？如果一个目录的这列的值为3，那么这个3是如何得到的？<br>第二列数值表示有几个文件使用相同的inode；<br>如果一个目录的这列为3，我们可以通过使用 ls -al dir/ |grep &#39;^d&#39;|wc -l 这条命令得到；<br><a href="http://www.linuxidc.com/Linux/2015-04/116337.htm" target="_blank" rel="external">来源</a><h1 id="面试题">面试题</h1></li>
+<li>如何查看当前的Linux服务器的运行级别？<br>答: ‘who -r’ 和 ‘runlevel’ 命令可以用来查看当前的Linux服务器的运行级别。</li>
+<li>如何查看Linux的默认网关？<br>答: 用 “route -n” 和 “netstat -nr” 命令，我们可以查看默认网关。除了默认的网关信息，这两个命令还可以显示当前的路由表。</li>
+<li>如何在Linux上重建初始化内存盘镜像文件？<br>答: 在CentOS 5.X / RHEL 5.X中，可以用mkinitrd命令来创建初始化内存盘文件，举例如下：<h1 id="mkinitrd_-f_-v_/boot/initrd-$(uname_-r)-img_$(uname_-r)">mkinitrd -f -v /boot/initrd-$(uname -r).img $(uname -r)</h1>如果你想要给特定的内核版本创建初始化内存盘，你就用所需的内核名替换掉 ‘uname -r’ 。<br>在CentOS 6.X / RHEL 6.X中，则用dracut命令来创建初始化内存盘文件，举例如下：<h1 id="dracut_-f">dracut -f</h1>以上命令能给当前的系统版本创建初始化内存盘，给特定的内核版本重建初始化内存盘文件则使用以下命令：<h1 id="dracut_-f_initramfs-2-x-xx-xx-el6-x86_64-img_2-x-xx-xx-el6-x86_64">dracut -f initramfs-2.x.xx-xx.el6.x86_64.img 2.x.xx-xx.el6.x86_64</h1></li>
+<li>cpio命令是什么？<br>答: cpio就是复制入和复制出的意思。cpio可以向一个归档文件（或单个文件）复制文件、列表，还可以从中提取文件。</li>
+<li>patch命令是什么？如何使用？<br>答: 顾名思义，patch命令就是用来将修改（或补丁）写进文本文件里。patch命令通常是接收diff的输出并把文件的旧版本转换为新版本。举个例子，Linux内核源代码由百万行代码文件构成，所以无论何时，任何代码贡献者贡献出代码，只需发送改动的部分而不是整个源代码，然后接收者用patch命令将改动写进原始的源代码里。<br>创建一个diff文件给patch使用，<h1 id="diff_-Naur_old_file_new_file_&gt;_diff_file">diff -Naur old_file new_file &gt; diff_file</h1>旧文件和新文件要么都是单个的文件要么都是包含文件的目录，-r参数支持目录树递归。<br>一旦diff文件创建好，我们就能在旧的文件上打上补丁，把它变成新文件：<h1 id="patch_&lt;_diff_file">patch &lt; diff_file</h1></li>
+<li>aspell有什么用 ?<br>答: 顾名思义，aspell就是Linux操作系统上的一款交互式拼写检查器。aspell命令继任了更早的一个名为ispell的程序，并且作为一款免费替代品 ，最重要的是它非常好用。当aspell程序主要被其它一些需要拼写检查能力的程序所使用的时候，在命令行中作为一个独立运行的工具的它也能十分有效。</li>
+<li>如何从命令行查看域SPF记录？<br>答: 我们可以用dig命令来查看域SPF记录。举例如下<br>linuxtechi@localhost:~$ dig -t TXT google.com</li>
+<li>如何识别Linux系统中指定文件(/etc/fstab)的关联包？<br>答:<h1 id="rpm_-qf_/etc/fstab">rpm -qf /etc/fstab</h1>以上命令能列出提供“/etc/fstab”这个文件的包。</li>
+<li>哪条命令用来查看bond0的状态？<br>答:<br>cat /proc/net/bonding/bond0</li>
+<li>Linux系统中的/proc文件系统有什么用？<br>答: /proc文件系统是一个基于内存的文件系统，其维护着关于当前正在运行的内核状态信息，其中包括CPU、内存、分区划分、I/O地址、直接内存访问通道和正在运行的进程。这个文件系统所代表的并不是各种实际存储信息的文件，它们指向的是内存里的信息。/proc文件系统是由系统自动维护的。</li>
+<li>如何在/usr目录下找出大小超过10MB的文件？<br>答:<h1 id="find_/usr_-size_+10M">find /usr -size +10M</h1></li>
+<li>如何在/home目录下找出120天之前被修改过的文件？<br>答:<h1 id="find_/home_-mtime_+120">find /home -mtime +120</h1></li>
+<li>如何在/var目录下找出90天之内未被访问过的文件？<br>答:<h1 id="find_/var_!_-atime_-90">find /var ! -atime -90</h1></li>
+<li>在整个目录树下查找文件“core”，如发现则无需提示直接删除它们。<br>答:<h1 id="find_/_-name_core_-exec_rm_{}_\;">find / -name core -exec rm {} \;</h1></li>
+<li>strings命令有什么作用？<br>答: strings命令用来提取和显示非文本文件中的文本字符串。（LCTT 译注：当用来分析你系统上莫名其妙出现的二进制程序时，可以从中找到可疑的文件访问，对于追查入侵有用处）</li>
+<li>tee 过滤器有什么作用 ?<br>答: tee 过滤器用来向多个目标发送输出内容。如果用于管道的话，它可以将输出复制一份到一个文件，并复制另外一份到屏幕上（或一些其它程序）。<br>linuxtechi@localhost:~$ ll /etc | nl | tee /tmp/ll.out<br>在以上例子中，从ll输出可以捕获到 /tmp/ll.out 文件中，并且同样在屏幕上显示了出来。</li>
+<li>export PS1 = ”$LOGNAME@hostname:\$PWD: 这条命令是在做什么？<br>答: 这条export命令会更改登录提示符来显示用户名、本机名和当前工作目录。</li>
+<li>ll | awk ‘{print $3,”owns”,$9}’ 这条命令是在做什么？<br>答: 这条ll命令会显示这些文件的文件名和它们的拥有者。</li>
+<li>:Linux中的at命令有什么用？<br>答: at命令用来安排一个程序在未来的做一次一次性执行。所有提交的任务都被放在 /var/spool/at 目录下并且到了执行时间的时候通过atd守护进程来执行。</li>
+<li>linux中lspci命令的作用是什么？<br>答: lspci命令用来显示你的系统上PCI总线和附加设备的信息。指定-v，-vv或-vvv来获取越来越详细的输出，加上-r参数的话，命令的输出则会更具有易读性。</li>
+</ol>
+<p><a href="http://www.linuxidc.com/Linux/2015-02/112637.htm" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="上部">上部</h1><ol>
+<li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。<br>使用密钥加密登录，客户端生成公钥和私钥，客户端保存私钥，公钥复制到远程linux主机，登录时使用密钥加密登录；</p>]]>
+    
+    </summary>
+    
+      <category term="tests" scheme="http://tiandechi.com/tags/tests/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[The advantages of Linux compile source code for installing package]]></title>
@@ -925,53 +1096,6 @@ Bot 档案最后一行在屏幕可见范围。
       <category term="vim" scheme="http://tiandechi.com/tags/vim/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[cp命令用法]]></title>
-    <link href="http://tiandechi.com/2015/03/30/cp%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/"/>
-    <id>http://tiandechi.com/2015/03/30/cp命令用法/</id>
-    <published>2015-03-30T13:59:19.000Z</published>
-    <updated>2015-04-18T12:45:23.805Z</updated>
-    <content type="html"><![CDATA[<p>最近一直在玩linux，现在真是爱不释手啊，呵呵。今天来普及下CP(拷贝)命令。<br>可以使用cp --help来查看命令的使用帮助。<br>语法： cp [选项] 源文件或目录 目标文件或目录；<br>说明：该命令把指定的源文件复制到目标文件或把多个源文件复制到目标目录中。<br><a id="more"></a><br>各选项含义如下：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> a 该选项通常在拷贝目录时使用。尽可能将档案状态、权限等资料都照原状予以复制。</span><br><span class="line"></span>-<span class="ruby"> d 拷贝时保留链接。</span><br><span class="line"></span>-<span class="ruby"> f 若目的地已经有相同档名的档案存在，则在复制前先予以删除再行复制而不提示。</span><br><span class="line"></span>-<span class="ruby"> i 和f选项相反，在覆盖目标文件之前将给出提示要求用户确认。回答y时目标文件将被覆盖，是交互式拷贝。</span><br><span class="line"></span>-<span class="ruby"> p 此时cp除复制源文件的内容外，还将把其修改时间和访问权限也复制到新文件中。</span><br><span class="line"></span>-<span class="ruby"> r 若给出的源文件是一目录文件，此时cp将递归复制该目录下所有的子目录和文件至目的地。此时目标文件必须为一个目录名。</span><br><span class="line"></span>-<span class="ruby"> l 不作拷贝，只是链接文件。</span></span><br></pre></td></tr></table></figure></p>
-<p>为防止用户在不经意的情况下用cp命令破坏另一个文件，如用户指定的目标文件名已存在，用cp命令拷贝文件后，这个文件就会被新源文件覆盖。建议用户在使用cp命令拷贝文件时，最好使用i选项。</p>
-<p>示例：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cp - <span class="tag">i</span> test1<span class="class">.c</span> /usr/cpp/test2<span class="class">.c</span></span><br><span class="line">#该命令将文件test1.c拷贝到/usr/cpp 这个目录下，并改名为 test2.c。</span><br><span class="line"> </span><br><span class="line">#如果不希望重新命名，可以使用下面的命令：</span><br><span class="line">$ cp test1<span class="class">.c</span> /usr/cpp/</span><br><span class="line"> </span><br><span class="line">#将所有的log日志文件拷贝至 bak 子目录中 :</span><br><span class="line">$ cp  *<span class="class">.log</span> bak</span><br></pre></td></tr></table></figure></p>
-<p><a href="http://www.oseye.net/user/kevin/blog/12" target="_blank" rel="external">via.黑桃K</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>最近一直在玩linux，现在真是爱不释手啊，呵呵。今天来普及下CP(拷贝)命令。<br>可以使用cp --help来查看命令的使用帮助。<br>语法： cp [选项] 源文件或目录 目标文件或目录；<br>说明：该命令把指定的源文件复制到目标文件或把多个源文件复制到目标目录中。<br>]]>
-    
-    </summary>
-    
-      <category term="commands" scheme="http://tiandechi.com/tags/commands/"/>
-    
-      <category term="cp" scheme="http://tiandechi.com/tags/cp/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[lspci查看硬件设备]]></title>
-    <link href="http://tiandechi.com/2015/03/30/lspci%E6%9F%A5%E7%9C%8B%E7%A1%AC%E4%BB%B6%E8%AE%BE%E5%A4%87/"/>
-    <id>http://tiandechi.com/2015/03/30/lspci查看硬件设备/</id>
-    <published>2015-03-30T13:39:20.000Z</published>
-    <updated>2015-04-18T19:35:40.000Z</updated>
-    <content type="html"><![CDATA[<p>lspci 找到的是目前主机上面的硬件配备<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@www</span> ~]<span class="comment"># lspci [-vvn]</span></span><br></pre></td></tr></table></figure></p>
-<p>选项与参数:<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">v     <span class="symbol">:</span>显示更多的 <span class="constant">PCI</span> 接口装置的详细信息</span><br><span class="line"></span>-<span class="ruby">vv <span class="symbol">:</span>比 -v 还要更详细的信息</span><br><span class="line"></span>-<span class="ruby">n     <span class="symbol">:</span>直接观察 <span class="constant">PCI</span> 的 <span class="constant">ID</span> 而不是厂商名称</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>查阅您系统内的 PCI 装置:<br><figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@www ~]# lspci</span><br><span class="line">#不必加上任何选项，就能够显示出目前的硬件配备为何</span><br><span class="line"><span class="constant">Host bridge:                        &lt;</span>==主板芯片</span><br><span class="line"><span class="constant">VGA compatible controller    &lt;</span>==显卡</span><br><span class="line"><span class="constant">Audio device                            &lt;</span>==音频设备</span><br><span class="line"><span class="constant">PCI bridge                                &lt;</span>==接口插槽</span><br><span class="line"><span class="constant">USB Controller                        &lt;</span>==USB控制器</span><br><span class="line"><span class="constant">ISA bridge                                </span><br><span class="line">IDE interface                            </span><br><span class="line">SMBus                                       </span><br><span class="line">Ethernet controller                &lt;</span>==网卡</span><br><span class="line"></span><br><span class="line"><span class="number">04</span>:<span class="number">00.0</span> Ethernet controller: Realtek Semiconductor Co., Ltd.</span><br></pre></td></tr></table></figure></p>
-<p>查看一般详细信息:<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@www</span> ~]<span class="comment"># lspci -v</span></span><br></pre></td></tr></table></figure></p>
-<p>查看网卡详细信息:<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@www</span> ~]<span class="comment"># lspci -s 04:00.0 -vv</span></span><br></pre></td></tr></table></figure></p>
-<p>-s :后面接的是每个设备的总线、插槽与相关函数功能</p>
-<p><a href="http://blog.csdn.net/joker0910/article/details/7755268" target="_blank" rel="external">via.joker0910的专栏</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>lspci 找到的是目前主机上面的硬件配备<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@www</span> ~]<span class="comment"># lspci [-vvn]</span></span><br></pre></td></tr></table></figure></p>
-<p>选项与参数:<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">v     <span class="symbol">:</span>显示更多的 <span class="constant">PCI</span> 接口装置的详细信息</span><br><span class="line"></span>-<span class="ruby">vv <span class="symbol">:</span>比 -v 还要更详细的信息</span><br><span class="line"></span>-<span class="ruby">n     <span class="symbol">:</span>直接观察 <span class="constant">PCI</span> 的 <span class="constant">ID</span> 而不是厂商名称</span></span><br></pre></td></tr></table></figure></p>]]>
-    
-    </summary>
     
   </entry>
   

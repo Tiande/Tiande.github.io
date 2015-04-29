@@ -1,0 +1,678 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>some Linux tests | 天德池</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="钢仔">
+    
+
+    
+    <meta name="description" content="上部
+如何更改linux主机名？编辑配置文件 /etc/sysconfig/network更改HOSTSNAME，保存退出后重启生效；
+123[root@yonglinux ~]# cat /etc/sysconfig/networkNETWORKING=yesHOSTNAME=yonglinux.com
+
+登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。使用密钥加密登录，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="some Linux tests">
+<meta property="og:url" content="http://tiandechi.com/2015/04/29/some-Linux-tests/index.html">
+<meta property="og:site_name" content="天德池">
+<meta property="og:description" content="上部
+如何更改linux主机名？编辑配置文件 /etc/sysconfig/network更改HOSTSNAME，保存退出后重启生效；
+123[root@yonglinux ~]# cat /etc/sysconfig/networkNETWORKING=yesHOSTNAME=yonglinux.com
+
+登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。使用密钥加密登录，">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="some Linux tests">
+<meta name="twitter:description" content="上部
+如何更改linux主机名？编辑配置文件 /etc/sysconfig/network更改HOSTSNAME，保存退出后重启生效；
+123[root@yonglinux ~]# cat /etc/sysconfig/networkNETWORKING=yesHOSTNAME=yonglinux.com
+
+登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。使用密钥加密登录，">
+<meta name="twitter:creator" content="@TiandeTD">
+
+    
+    <link rel="alternative" href="/atom.xml" title="天德池" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="天德池" title="天德池"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="天德池">天德池</a></h1>
+				<h2 class="blog-motto">这里不是洗澡的地方</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tiandechi.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/29/some-Linux-tests/" title="some Linux tests" itemprop="url">some Linux tests</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-29T11:35:33.000Z" itemprop="datePublished"> 发表于 2015-04-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#上部"><span class="toc-number">1.</span> <span class="toc-text">上部</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下部"><span class="toc-number">2.</span> <span class="toc-text">下部</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试题"><span class="toc-number">3.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkinitrd_-f_-v_/boot/initrd-$(uname_-r)-img_$(uname_-r)"><span class="toc-number">4.</span> <span class="toc-text">mkinitrd -f -v /boot/initrd-$(uname -r).img $(uname -r)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dracut_-f"><span class="toc-number">5.</span> <span class="toc-text">dracut -f</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dracut_-f_initramfs-2-x-xx-xx-el6-x86_64-img_2-x-xx-xx-el6-x86_64"><span class="toc-number">6.</span> <span class="toc-text">dracut -f initramfs-2.x.xx-xx.el6.x86_64.img 2.x.xx-xx.el6.x86_64</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#diff_-Naur_old_file_new_file_>_diff_file"><span class="toc-number">7.</span> <span class="toc-text">diff -Naur old_file new_file > diff_file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#patch_<_diff_file"><span class="toc-number">8.</span> <span class="toc-text">patch < diff_file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rpm_-qf_/etc/fstab"><span class="toc-number">9.</span> <span class="toc-text">rpm -qf /etc/fstab</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/usr_-size_+10M"><span class="toc-number">10.</span> <span class="toc-text">find /usr -size +10M</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/home_-mtime_+120"><span class="toc-number">11.</span> <span class="toc-text">find /home -mtime +120</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/var_!_-atime_-90"><span class="toc-number">12.</span> <span class="toc-text">find /var ! -atime -90</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/_-name_core_-exec_rm_{}_\;"><span class="toc-number">13.</span> <span class="toc-text">find / -name core -exec rm {} \;</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="上部">上部</h1><ol>
+<li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。<br>使用密钥加密登录，客户端生成公钥和私钥，客户端保存私钥，公钥复制到远程linux主机，登录时使用密钥加密登录；</p>
+<a id="more"></a>
+<p>在linux主机执行下面的操作：</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir /<span class="literal">root</span>/.ssh</span><br><span class="line">chmod  <span class="number">700</span> /<span class="literal">root</span>/.ssh</span><br><span class="line">vi /<span class="literal">root</span>/.ssh/authorized_keys    粘贴复制的公钥，保存退出；</span><br><span class="line">chmod <span class="number">600</span> /<span class="literal">root</span>/.ssh/authorized_keys</span><br><span class="line">vi /etc/<span class="built_in">selinux</span>/config    编辑<span class="built_in">selinux</span>防火墙配置</span><br><span class="line">更改 <span class="constant">S</span>ELINUX=disabled    永久关闭<span class="built_in">selinux</span>；</span><br><span class="line">iptables -<span class="constant">F</span>    清空防火墙规则；</span><br><span class="line">/etc/init.d/iptables save    保存防火墙设置；</span><br><span class="line">客户端使用密钥登录；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何给grub加密码（明文、密文)，密文加密又分成哪几种？<br>明文加密 vi /etc/grub.conf<br>hiddenmenu下增加一行<br>password=123456<br>保存退出，重启系统进入菜单选择，按p输入密码才可以编辑；<br>密文加密分md5加密和sha加密<br>md5加密命令为：grub-md5-crypt<br>输入密码，生成一串加密后的密码，复制密码<br>vi  /etc/grub.conf<br>password --md5 粘贴密码<br>保存退出，重启系统进入菜单，按p输入密码；<br>sha加密命令：grub-crypt --sha-256<br>输入密码，生成一串密码，复制密码<br>编辑/etc/grub.conf<br>password --encrypted 粘贴密码，<br>保存退出，重启进入系统，按p输入密码；</p>
+</li>
+<li>如何用yum安装/删除一个软件包？如何查看某个软件包是否已经安装<br>安装：yum install -y tree<br>删除：yum remove -y tree<br>查看：rpm -qa | grep “包名” 或    rpm -q 包名</li>
+<li><p>如何查看系统版本？（3个方法）</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> /etc/CentOS-release</span><br><span class="line"><span class="keyword">cat</span> /etc/issue</span><br><span class="line">rpm -<span class="keyword">qa</span> | <span class="keyword">grep</span> release</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find 找出 当前目录下的 目录和普通文件？ 找出当前目录下10天没有改变，大小大于4K的普通文件或目录</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find ./ -<span class="keyword">type</span> <span class="keyword">d</span>  -o -<span class="keyword">type</span> <span class="literal">f</span></span><br><span class="line">find ./ -<span class="keyword">type</span> <span class="keyword">d</span> -o -<span class="keyword">type</span> f -size +4k ! -mtime -10</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在当前目录下创建一个名字为1的目录 的命令？  创建级联目录 ./2/3/的命令？ 一条命令创建级联目录 ./1/2/3和./1/2/4?</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ./<span class="number">1</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./<span class="number">2</span>/<span class="number">3</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./<span class="number">1</span>/<span class="number">2</span>/&#123;<span class="number">3</span>,<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cp一个目录中的文件需要什么权限，mv呢？touch呢？rm呢？<br>cp需要有目录的x权限，mv需要wx权限，touch需要wx权限，rm需要有wx权限；</p>
+</li>
+<li>用cat如何向文件里重定向字符串<br>第一种方法：<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[user1<span class="variable">@localhost</span> tmp]<span class="variable">$ </span>cat <span class="prompt">&gt;&gt;</span><span class="number">1</span>.txt</span><br><span class="line"><span class="number">000000000000</span></span><br><span class="line"><span class="number">111111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line">最后按ctrl + d</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>第二种方法：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt;<span class="number">1</span>.txt&lt;</span><br><span class="line">&gt; <span class="number">000000000000</span></span><br><span class="line">&gt; qqqqqqqqqqqqq</span><br><span class="line">&gt;<span class="function"><span class="title">EOF</span><span class="params">(这个结束)</span></span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>建立一个公共目录/opt/public,要求每个用户都可以创建文件和目录，但只能自己本人和root可以删除；<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="regexp">/opt/</span><span class="keyword">public</span></span><br><span class="line">chmod <span class="number">1777</span> <span class="regexp">/opt/</span><span class="keyword">public</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="下部">下部</h1><ol>
+<li><p>如何查看当前用户的家目录是什么?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$HOME</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果设置 umask 为 001 , 那么用户默认创建的目录和文件的权限是什么样子的？<br>创建的目录为766，文件为666</p>
+</li>
+<li><p>出于安全考虑，如何实现让别人ping不通你的在线的服务器。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">1</span> &gt; /<span class="keyword">proc</span>/sys/net/ipv4/icmp_echo_ignore_all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>怎样防止他人在服务器前通过按下 ctrl+alt+del 强行重启系统（提示，仔细看/etc/inittab）</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/init/control-alt-<span class="keyword">delete</span>.conf</span><br><span class="line"><span class="keyword">exec</span> /sbin/<span class="keyword">shutdown</span> -r now <span class="string">"Control-Alt-Delete pressed"</span>    这一项<span class="comment">#号注释掉，保存退出；</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当在对服务器进行大负荷操作的时候，你不希望现在有普通用户登录上来，你该怎么做？不能剪网线。<br>touch /etc/nologin<br>创建一个nologin文件，此文件为特殊文件，创建之后所有普通用户不能登录；系统维护结束后删除此文件，用户可以恢复登录；只限于shell登录用户，本身shell为/sbin/nologin 的用户本身就无法登录shell，不受影响；</p>
+</li>
+<li>你新建了一批用户，出于安全考虑，要求这些用户在第一次登录的时候 就必须要更改密码，怎么实现？<br>修改/etc/shadow 第三列，新建用户的值更改为0.</li>
+<li><p>如何把一个目录下的所有文件(不含目录)权限改为644？</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./ -<span class="built_in">type</span> f | xargs chmod <span class="number">644</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>请实现下面这个需求：只允许使用普通账户登陆，而普通账户登录后，可以不输入密码就能sudo切换到root账户，root是不允许远程登录的。</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sudoers</span><br><span class="line">添加一行<span class="keyword">user</span>    <span class="constant">A</span>LL=(<span class="literal">root</span>)    <span class="constant">N</span>OPASSWD: /bin/su</span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"><span class="constant">Permit</span>RootLogin 设置为no，禁止<span class="literal">root</span>远程登录；</span><br><span class="line"><span class="keyword">service</span> sshd <span class="literal">restart</span>    重启sshd服务生效；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何使文件只能写不能删除？ 如何使文件不能被删除、重命名、设定链接接、写入、新增数据？<br>chattr +a    只能写不能删除<br>chattr +i    不能删除，重命名，写入新增数据；</p>
+</li>
+<li>用ls 查看目录或者文件时，第二列的数值表示什么意思？如果一个目录的这列的值为3，那么这个3是如何得到的？<br>第二列数值表示有几个文件使用相同的inode；<br>如果一个目录的这列为3，我们可以通过使用 ls -al dir/ |grep &#39;^d&#39;|wc -l 这条命令得到；<br><a href="http://www.linuxidc.com/Linux/2015-04/116337.htm" target="_blank" rel="external">来源</a><h1 id="面试题">面试题</h1></li>
+<li>如何查看当前的Linux服务器的运行级别？<br>答: ‘who -r’ 和 ‘runlevel’ 命令可以用来查看当前的Linux服务器的运行级别。</li>
+<li>如何查看Linux的默认网关？<br>答: 用 “route -n” 和 “netstat -nr” 命令，我们可以查看默认网关。除了默认的网关信息，这两个命令还可以显示当前的路由表。</li>
+<li>如何在Linux上重建初始化内存盘镜像文件？<br>答: 在CentOS 5.X / RHEL 5.X中，可以用mkinitrd命令来创建初始化内存盘文件，举例如下：<h1 id="mkinitrd_-f_-v_/boot/initrd-$(uname_-r)-img_$(uname_-r)">mkinitrd -f -v /boot/initrd-$(uname -r).img $(uname -r)</h1>如果你想要给特定的内核版本创建初始化内存盘，你就用所需的内核名替换掉 ‘uname -r’ 。<br>在CentOS 6.X / RHEL 6.X中，则用dracut命令来创建初始化内存盘文件，举例如下：<h1 id="dracut_-f">dracut -f</h1>以上命令能给当前的系统版本创建初始化内存盘，给特定的内核版本重建初始化内存盘文件则使用以下命令：<h1 id="dracut_-f_initramfs-2-x-xx-xx-el6-x86_64-img_2-x-xx-xx-el6-x86_64">dracut -f initramfs-2.x.xx-xx.el6.x86_64.img 2.x.xx-xx.el6.x86_64</h1></li>
+<li>cpio命令是什么？<br>答: cpio就是复制入和复制出的意思。cpio可以向一个归档文件（或单个文件）复制文件、列表，还可以从中提取文件。</li>
+<li>patch命令是什么？如何使用？<br>答: 顾名思义，patch命令就是用来将修改（或补丁）写进文本文件里。patch命令通常是接收diff的输出并把文件的旧版本转换为新版本。举个例子，Linux内核源代码由百万行代码文件构成，所以无论何时，任何代码贡献者贡献出代码，只需发送改动的部分而不是整个源代码，然后接收者用patch命令将改动写进原始的源代码里。<br>创建一个diff文件给patch使用，<h1 id="diff_-Naur_old_file_new_file_&gt;_diff_file">diff -Naur old_file new_file &gt; diff_file</h1>旧文件和新文件要么都是单个的文件要么都是包含文件的目录，-r参数支持目录树递归。<br>一旦diff文件创建好，我们就能在旧的文件上打上补丁，把它变成新文件：<h1 id="patch_&lt;_diff_file">patch &lt; diff_file</h1></li>
+<li>aspell有什么用 ?<br>答: 顾名思义，aspell就是Linux操作系统上的一款交互式拼写检查器。aspell命令继任了更早的一个名为ispell的程序，并且作为一款免费替代品 ，最重要的是它非常好用。当aspell程序主要被其它一些需要拼写检查能力的程序所使用的时候，在命令行中作为一个独立运行的工具的它也能十分有效。</li>
+<li>如何从命令行查看域SPF记录？<br>答: 我们可以用dig命令来查看域SPF记录。举例如下<br>linuxtechi@localhost:~$ dig -t TXT google.com</li>
+<li>如何识别Linux系统中指定文件(/etc/fstab)的关联包？<br>答:<h1 id="rpm_-qf_/etc/fstab">rpm -qf /etc/fstab</h1>以上命令能列出提供“/etc/fstab”这个文件的包。</li>
+<li>哪条命令用来查看bond0的状态？<br>答:<br>cat /proc/net/bonding/bond0</li>
+<li>Linux系统中的/proc文件系统有什么用？<br>答: /proc文件系统是一个基于内存的文件系统，其维护着关于当前正在运行的内核状态信息，其中包括CPU、内存、分区划分、I/O地址、直接内存访问通道和正在运行的进程。这个文件系统所代表的并不是各种实际存储信息的文件，它们指向的是内存里的信息。/proc文件系统是由系统自动维护的。</li>
+<li>如何在/usr目录下找出大小超过10MB的文件？<br>答:<h1 id="find_/usr_-size_+10M">find /usr -size +10M</h1></li>
+<li>如何在/home目录下找出120天之前被修改过的文件？<br>答:<h1 id="find_/home_-mtime_+120">find /home -mtime +120</h1></li>
+<li>如何在/var目录下找出90天之内未被访问过的文件？<br>答:<h1 id="find_/var_!_-atime_-90">find /var ! -atime -90</h1></li>
+<li>在整个目录树下查找文件“core”，如发现则无需提示直接删除它们。<br>答:<h1 id="find_/_-name_core_-exec_rm_{}_\;">find / -name core -exec rm {} \;</h1></li>
+<li>strings命令有什么作用？<br>答: strings命令用来提取和显示非文本文件中的文本字符串。（LCTT 译注：当用来分析你系统上莫名其妙出现的二进制程序时，可以从中找到可疑的文件访问，对于追查入侵有用处）</li>
+<li>tee 过滤器有什么作用 ?<br>答: tee 过滤器用来向多个目标发送输出内容。如果用于管道的话，它可以将输出复制一份到一个文件，并复制另外一份到屏幕上（或一些其它程序）。<br>linuxtechi@localhost:~$ ll /etc | nl | tee /tmp/ll.out<br>在以上例子中，从ll输出可以捕获到 /tmp/ll.out 文件中，并且同样在屏幕上显示了出来。</li>
+<li>export PS1 = ”$LOGNAME@hostname:\$PWD: 这条命令是在做什么？<br>答: 这条export命令会更改登录提示符来显示用户名、本机名和当前工作目录。</li>
+<li>ll | awk ‘{print $3,”owns”,$9}’ 这条命令是在做什么？<br>答: 这条ll命令会显示这些文件的文件名和它们的拥有者。</li>
+<li>:Linux中的at命令有什么用？<br>答: at命令用来安排一个程序在未来的做一次一次性执行。所有提交的任务都被放在 /var/spool/at 目录下并且到了执行时间的时候通过atd守护进程来执行。</li>
+<li>linux中lspci命令的作用是什么？<br>答: lspci命令用来显示你的系统上PCI总线和附加设备的信息。指定-v，-vv或-vvv来获取越来越详细的输出，加上-r参数的话，命令的输出则会更具有易读性。</li>
+</ol>
+<p><a href="http://www.linuxidc.com/Linux/2015-02/112637.htm" target="_blank" rel="external">来源</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tests/">tests</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiandechi.com/2015/04/29/some-Linux-tests/" data-title="some Linux tests | 天德池" data-tsina="1854771045" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/" title="how to enter single user mode and crack root password in Linux">
+  <strong>上一篇：</strong><br/>
+  <span>
+  how to enter single user mode and crack root password in Linux</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/"  title="The advantages of Linux compile source code for installing package">
+ <strong>下一篇：</strong><br/> 
+ <span>The advantages of Linux compile source code for installing package
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/04/29/some-Linux-tests/" data-title="some Linux tests" data-url="http://tiandechi.com/2015/04/29/some-Linux-tests/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#上部"><span class="toc-number">1.</span> <span class="toc-text">上部</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下部"><span class="toc-number">2.</span> <span class="toc-text">下部</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试题"><span class="toc-number">3.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkinitrd_-f_-v_/boot/initrd-$(uname_-r)-img_$(uname_-r)"><span class="toc-number">4.</span> <span class="toc-text">mkinitrd -f -v /boot/initrd-$(uname -r).img $(uname -r)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dracut_-f"><span class="toc-number">5.</span> <span class="toc-text">dracut -f</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dracut_-f_initramfs-2-x-xx-xx-el6-x86_64-img_2-x-xx-xx-el6-x86_64"><span class="toc-number">6.</span> <span class="toc-text">dracut -f initramfs-2.x.xx-xx.el6.x86_64.img 2.x.xx-xx.el6.x86_64</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#diff_-Naur_old_file_new_file_>_diff_file"><span class="toc-number">7.</span> <span class="toc-text">diff -Naur old_file new_file > diff_file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#patch_<_diff_file"><span class="toc-number">8.</span> <span class="toc-text">patch < diff_file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rpm_-qf_/etc/fstab"><span class="toc-number">9.</span> <span class="toc-text">rpm -qf /etc/fstab</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/usr_-size_+10M"><span class="toc-number">10.</span> <span class="toc-text">find /usr -size +10M</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/home_-mtime_+120"><span class="toc-number">11.</span> <span class="toc-text">find /home -mtime +120</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/var_!_-atime_-90"><span class="toc-number">12.</span> <span class="toc-text">find /var ! -atime -90</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#find_/_-name_core_-exec_rm_{}_\;"><span class="toc-number">13.</span> <span class="toc-text">find / -name core -exec rm {} \;</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Debian/" title="Debian">Debian<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSH/" title="SSH">SSH<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/usb-stick/" title="usb stick">usb stick<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/commands/" title="commands">commands<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/64位/" title="64位">64位<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/32位/" title="32位">32位<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tar/" title="tar">tar<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/auto-indent/" title="auto indent">auto indent<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tests/" title="tests">tests<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/scp/" title="scp">scp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Format/" title="Format">Format<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/配色/" title="配色">配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mount/" title="mount">mount<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/unix/" title="unix">unix<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/dos/" title="dos">dos<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/fileformat/" title="fileformat">fileformat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/cp/" title="cp">cp<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Browser/" title="Browser">Browser<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>33</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/OS/" title="OS">OS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Windows/" title="Windows">Windows<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/语言/" title="语言">语言<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1854771045&verifier=375b89d6&dpc=1"></iframe>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://v2ex.com" target="_blank" title="环境优雅的程序员社区">V2EX</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 志愿愈大，希望愈高，可以致力之处就愈少，可以自解之处也愈多。 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1854771045" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Tiande" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/TiandeTD" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/58150105" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="https://www.zhihu.com/people/dun-tian-de" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:dtdnqsb@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="钢仔">钢仔</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Tiande"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
