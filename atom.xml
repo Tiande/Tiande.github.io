@@ -91,7 +91,7 @@
     <link href="http://tiandechi.com/2015/04/29/some-Linux-tests/"/>
     <id>http://tiandechi.com/2015/04/29/some-Linux-tests/</id>
     <published>2015-04-29T11:35:33.000Z</published>
-    <updated>2015-04-29T11:38:49.520Z</updated>
+    <updated>2015-04-29T11:43:03.990Z</updated>
     <content type="html"><![CDATA[<h1 id="上部">上部</h1><ol>
 <li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
@@ -115,12 +115,13 @@
 </li>
 <li><p>cp一个目录中的文件需要什么权限，mv呢？touch呢？rm呢？<br>cp需要有目录的x权限，mv需要wx权限，touch需要wx权限，rm需要有wx权限；</p>
 </li>
-<li>用cat如何向文件里重定向字符串<br>第一种方法：<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[user1<span class="variable">@localhost</span> tmp]<span class="variable">$ </span>cat <span class="prompt">&gt;&gt;</span><span class="number">1</span>.txt</span><br><span class="line"><span class="number">000000000000</span></span><br><span class="line"><span class="number">111111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line">最后按ctrl + d</span><br></pre></td></tr></table></figure>
+<li><p>用cat如何向文件里重定向字符串<br>第一种方法：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[user1<span class="variable">@localhost</span> tmp]<span class="variable">$ </span>cat <span class="prompt">&gt;&gt;</span><span class="number">1</span>.txt</span><br><span class="line"><span class="number">000000000000</span></span><br><span class="line"><span class="number">111111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line">最后按ctrl + d</span><br></pre></td></tr></table></figure>
+<p>第二种方法：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt;<span class="number">1</span>.txt&lt;</span><br><span class="line">&gt; <span class="number">000000000000</span></span><br><span class="line">&gt; qqqqqqqqqqqqq</span><br><span class="line">&gt;<span class="function"><span class="title">EOF</span><span class="params">(这个结束)</span></span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<p>第二种方法：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt;<span class="number">1</span>.txt&lt;</span><br><span class="line">&gt; <span class="number">000000000000</span></span><br><span class="line">&gt; qqqqqqqqqqqqq</span><br><span class="line">&gt;<span class="function"><span class="title">EOF</span><span class="params">(这个结束)</span></span></span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>建立一个公共目录/opt/public,要求每个用户都可以创建文件和目录，但只能自己本人和root可以删除；<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="regexp">/opt/</span><span class="keyword">public</span></span><br><span class="line">chmod <span class="number">1777</span> <span class="regexp">/opt/</span><span class="keyword">public</span></span><br></pre></td></tr></table></figure>
+<li><p>建立一个公共目录/opt/public,要求每个用户都可以创建文件和目录，但只能自己本人和root可以删除；</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="regexp">/opt/</span><span class="keyword">public</span></span><br><span class="line">chmod <span class="number">1777</span> <span class="regexp">/opt/</span><span class="keyword">public</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="下部">下部</h1><ol>
