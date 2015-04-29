@@ -171,7 +171,9 @@
 </li>
 <li><p>如何使文件只能写不能删除？ 如何使文件不能被删除、重命名、设定链接接、写入、新增数据？<br>chattr +a    只能写不能删除<br>chattr +i    不能删除，重命名，写入新增数据；</p>
 </li>
-<li>用ls 查看目录或者文件时，第二列的数值表示什么意思？如果一个目录的这列的值为3，那么这个3是如何得到的？<br>第二列数值表示有几个文件使用相同的inode；<br>如果一个目录的这列为3，我们可以通过使用 ls -al dir/ |grep &#39;^d&#39;|wc -l 这条命令得到；<br><a href="http://www.linuxidc.com/Linux/2015-04/116337.htm" target="_blank" rel="external">来源</a><h1 id="面试题">面试题</h1></li>
+<li>用ls 查看目录或者文件时，第二列的数值表示什么意思？如果一个目录的这列的值为3，那么这个3是如何得到的？<br>第二列数值表示有几个文件使用相同的inode；<br>如果一个目录的这列为3，我们可以通过使用 ls -al dir/ |grep &#39;^d&#39;|wc -l 这条命令得到；<br><a href="http://www.linuxidc.com/Linux/2015-04/116337.htm" target="_blank" rel="external">来源</a></li>
+</ol>
+<h1 id="面试题">面试题</h1><ol>
 <li>如何查看当前的Linux服务器的运行级别？<br>答: ‘who -r’ 和 ‘runlevel’ 命令可以用来查看当前的Linux服务器的运行级别。</li>
 <li>如何查看Linux的默认网关？<br>答: 用 “route -n” 和 “netstat -nr” 命令，我们可以查看默认网关。除了默认的网关信息，这两个命令还可以显示当前的路由表。</li>
 <li>如何在Linux上重建初始化内存盘镜像文件？<br>答: 在CentOS 5.X / RHEL 5.X中，可以用mkinitrd命令来创建初始化内存盘文件，举例如下：<h1 id="mkinitrd_-f_-v_/boot/initrd-$(uname_-r)-img_$(uname_-r)">mkinitrd -f -v /boot/initrd-$(uname -r).img $(uname -r)</h1>如果你想要给特定的内核版本创建初始化内存盘，你就用所需的内核名替换掉 ‘uname -r’ 。<br>在CentOS 6.X / RHEL 6.X中，则用dracut命令来创建初始化内存盘文件，举例如下：<h1 id="dracut_-f">dracut -f</h1>以上命令能给当前的系统版本创建初始化内存盘，给特定的内核版本重建初始化内存盘文件则使用以下命令：<h1 id="dracut_-f_initramfs-2-x-xx-xx-el6-x86_64-img_2-x-xx-xx-el6-x86_64">dracut -f initramfs-2.x.xx-xx.el6.x86_64.img 2.x.xx-xx.el6.x86_64</h1></li>
