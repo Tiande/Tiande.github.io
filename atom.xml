@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-05-04T11:04:02.785Z</updated>
+  <updated>2015-05-04T11:07:54.120Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -19,15 +19,12 @@
     <link href="http://tiandechi.com/2015/05/04/regular-expression-tutorial-in-30-minutes/"/>
     <id>http://tiandechi.com/2015/05/04/regular-expression-tutorial-in-30-minutes/</id>
     <published>2015-05-04T11:03:17.000Z</published>
-    <updated>2015-05-04T11:04:02.785Z</updated>
-    <content type="html"><![CDATA[<p>Regular expression tutorial in 30 minutes</p>
-<h1 id="本文目标">本文目标</h1><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。</p>
-<h1 id="如何使用本教程">如何使用本教程</h1><p>别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。<br>除了作为入门教程之外，本文还试图成为可以在日常工作中使用的正则表达式语法参考手册。就作者本人的经历来说，这个目标还是完成得不错的——你看，我自己也没能把所有的东西记下来，不是吗？<br><a id="more"></a></p>
-<h1 id="正则表达式到底是什么东西？">正则表达式到底是什么东西？</h1><h1 id="入门">入门</h1><h1 id="测试正则表达式">测试正则表达式</h1><h1 id="元字符">元字符</h1><h1 id="字符转义">字符转义</h1><h1 id="重复">重复</h1><h1 id="字符类">字符类</h1><h1 id="分枝条件">分枝条件</h1><h1 id="反义">反义</h1><h1 id="分组">分组</h1><h1 id="后向引用">后向引用</h1><h1 id="零宽断言">零宽断言</h1><h1 id="负向零宽断言">负向零宽断言</h1><h1 id="注释">注释</h1><h1 id="贪婪与懒惰">贪婪与懒惰</h1><h1 id="处理选项">处理选项</h1><h1 id="平衡组/递归匹配">平衡组/递归匹配</h1><h1 id="还有些什么东西没提到">还有些什么东西没提到</h1><h1 id="联系作者">联系作者</h1><h1 id="网上的资源及本文参考文献">网上的资源及本文参考文献</h1><h1 id="更新纪录">更新纪录</h1><p>详情查看<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="external">来源</a></p>
-]]></content>
+    <updated>2015-05-04T11:07:54.120Z</updated>
+    <content type="html"><![CDATA[<h1 id="本文目标">本文目标</h1><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。</p>
+<h1 id="如何使用本教程">如何使用本教程</h1><p>别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。<br>除了作为入门教程之外，本文还试图成为可以在日常工作中使用的正则表达式语法参考手册。就作者本人的经历来说，这个目标还是完成得不错的——你看，我自己也没能把所有的东西记下来，不是吗？<br><a id="more"></a><br><strong>详情查看<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="external">来源</a></strong></p>
+<h1 id="正则表达式到底是什么东西？">正则表达式到底是什么东西？</h1><h1 id="入门">入门</h1><h1 id="测试正则表达式">测试正则表达式</h1><h1 id="元字符">元字符</h1><h1 id="字符转义">字符转义</h1><h1 id="重复">重复</h1><h1 id="字符类">字符类</h1><h1 id="分枝条件">分枝条件</h1><h1 id="反义">反义</h1><h1 id="分组">分组</h1><h1 id="后向引用">后向引用</h1><h1 id="零宽断言">零宽断言</h1><h1 id="负向零宽断言">负向零宽断言</h1><h1 id="注释">注释</h1><h1 id="贪婪与懒惰">贪婪与懒惰</h1><h1 id="处理选项">处理选项</h1><h1 id="平衡组/递归匹配">平衡组/递归匹配</h1><h1 id="还有些什么东西没提到">还有些什么东西没提到</h1><h1 id="联系作者">联系作者</h1><h1 id="网上的资源及本文参考文献">网上的资源及本文参考文献</h1><h1 id="更新纪录">更新纪录</h1>]]></content>
     <summary type="html">
-    <![CDATA[<p>Regular expression tutorial in 30 minutes</p>
-<h1 id="本文目标">本文目标</h1><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。</p>
+    <![CDATA[<h1 id="本文目标">本文目标</h1><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。</p>
 <h1 id="如何使用本教程">如何使用本教程</h1><p>别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。<br>除了作为入门教程之外，本文还试图成为可以在日常工作中使用的正则表达式语法参考手册。就作者本人的经历来说，这个目标还是完成得不错的——你看，我自己也没能把所有的东西记下来，不是吗？<br>]]>
     
     </summary>
@@ -43,35 +40,20 @@
     <link href="http://tiandechi.com/2015/05/04/log-in-SSH-with-no-password/"/>
     <id>http://tiandechi.com/2015/05/04/log-in-SSH-with-no-password/</id>
     <published>2015-05-04T11:02:11.000Z</published>
-    <updated>2015-05-04T11:03:28.560Z</updated>
+    <updated>2015-05-04T11:08:58.760Z</updated>
     <content type="html"><![CDATA[<p>SSH无密码登录要使用公钥与私钥。Linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。</p>
 <p>有机器A(192.168.1.155)，B(192.168.1.181)。现想A通过ssh免密码登录到B。<br><a id="more"></a></p>
-<ol>
-<li>在A机下生成公钥/私钥对。<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">P </span><span class="string">''</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="在A机下生成公钥/私钥对。">在A机下生成公钥/私钥对。</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">P </span><span class="string">''</span></span><br></pre></td></tr></table></figure>
 <p>-P表示密码，-P &#39;&#39; 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。<br>它在/home/linuxidc下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。</p>
-<ol>
-<li>把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>scp .ssh/id_rsa.pub linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="symbol">:/home/linuxidc/id_rsa</span>.pub </span><br><span class="line">linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="string">'s password:</span><br><span class="line">id_rsa.pub 100% 223 0.2KB/s 00:00</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="把A机下的id_rsa-pub复制到B机下，在B机的-ssh/authorized_keys文件里，我用scp复制。">把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>scp .ssh/id_rsa.pub linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="symbol">:/home/linuxidc/id_rsa</span>.pub </span><br><span class="line">linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="string">'s password:</span><br><span class="line">id_rsa.pub 100% 223 0.2KB/s 00:00</span></span><br></pre></td></tr></table></figure>
 <p>由于还没有免密码登录的，所以要输入密码。</p>
-<ol>
-<li>B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>cat id_rsa.pub <span class="prompt">&gt;&gt; </span>.ssh/authorized_keys</span><br><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>chmod <span class="number">600</span> .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="B机把从A机复制的id_rsa-pub添加到-ssh/authorzied_keys文件里。">B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>cat id_rsa.pub <span class="prompt">&gt;&gt; </span>.ssh/authorized_keys</span><br><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>chmod <span class="number">600</span> .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 <p>authorized_keys的权限要是<strong>600</strong>。</p>
-<ol>
-<li>A机登录B机。<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">linuxidc@A</span> ~]$ ssh <span class="number">192.168</span>.1.181</span><br><span class="line">The authenticity of host <span class="variable">'192.168.1.181</span> <span class="list">(<span class="keyword">192.168.1.181</span>)</span>' can<span class="variable">'t</span> be established.</span><br><span class="line">RSA key fingerprint is <span class="number">00</span>:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.</span><br><span class="line">Are you sure you want to continue connecting <span class="list">(<span class="keyword">yes/no</span>)</span>? yes</span><br><span class="line">Warning: Permanently added <span class="variable">'192.168.1.181</span>' <span class="list">(<span class="keyword">RSA</span>)</span> to the list of known hosts.</span><br><span class="line">Last login: Thu Jul <span class="number">3</span> <span class="number">09</span>:53:18 <span class="number">2008</span> from linuxidc</span><br><span class="line"><span class="list">[<span class="keyword">chenlb@B</span> ~]$</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="A机登录B机。">A机登录B机。</h1><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">linuxidc@A</span> ~]$ ssh <span class="number">192.168</span>.1.181</span><br><span class="line">The authenticity of host <span class="variable">'192.168.1.181</span> <span class="list">(<span class="keyword">192.168.1.181</span>)</span>' can<span class="variable">'t</span> be established.</span><br><span class="line">RSA key fingerprint is <span class="number">00</span>:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.</span><br><span class="line">Are you sure you want to continue connecting <span class="list">(<span class="keyword">yes/no</span>)</span>? yes</span><br><span class="line">Warning: Permanently added <span class="variable">'192.168.1.181</span>' <span class="list">(<span class="keyword">RSA</span>)</span> to the list of known hosts.</span><br><span class="line">Last login: Thu Jul <span class="number">3</span> <span class="number">09</span>:53:18 <span class="number">2008</span> from linuxidc</span><br><span class="line"><span class="list">[<span class="keyword">chenlb@B</span> ~]$</span></span></span><br></pre></td></tr></table></figure>
 <p>第一次登录是时要你输入yes。</p>
-<ol>
-<li>现在A机可以无密码登录B机了。</li>
-</ol>
-<p>小结：登录的机子可有私钥，被登录的机子要有登录机子的公钥。这个公钥/私钥对一般在私钥宿主机产生。上面是用rsa算法的公钥/私钥对，当然也可以用dsa(对应的文件是id_dsa，id_dsa.pub)</p>
+<h1 id="现在A机可以无密码登录B机了。">现在A机可以无密码登录B机了。</h1><p>小结：登录的机子可有私钥，被登录的机子要有登录机子的公钥。这个公钥/私钥对一般在私钥宿主机产生。上面是用rsa算法的公钥/私钥对，当然也可以用dsa(对应的文件是id_dsa，id_dsa.pub)</p>
 <p>想让A，B机无密码互登录，那B机以上面同样的方式配置即可。</p>
-<p>[来源](<a href="http://www.linuxidc.com/Linux/2015-05/116908.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-05/116908.htm</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-05/116908.htm" target="_blank" rel="external">来源</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>SSH无密码登录要使用公钥与私钥。Linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。</p>

@@ -103,38 +103,23 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在A机下生成公钥/私钥对。"><span class="toc-number">1.</span> <span class="toc-text">在A机下生成公钥/私钥对。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#把A机下的id_rsa-pub复制到B机下，在B机的-ssh/authorized_keys文件里，我用scp复制。"><span class="toc-number">2.</span> <span class="toc-text">把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B机把从A机复制的id_rsa-pub添加到-ssh/authorzied_keys文件里。"><span class="toc-number">3.</span> <span class="toc-text">B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A机登录B机。"><span class="toc-number">4.</span> <span class="toc-text">A机登录B机。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现在A机可以无密码登录B机了。"><span class="toc-number">5.</span> <span class="toc-text">现在A机可以无密码登录B机了。</span></a></li></ol>
 		
 		</div>
 		
 		<p>SSH无密码登录要使用公钥与私钥。Linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。</p>
 <p>有机器A(192.168.1.155)，B(192.168.1.181)。现想A通过ssh免密码登录到B。<br><a id="more"></a></p>
-<ol>
-<li>在A机下生成公钥/私钥对。<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">P </span><span class="string">''</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="在A机下生成公钥/私钥对。">在A机下生成公钥/私钥对。</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">P </span><span class="string">''</span></span><br></pre></td></tr></table></figure>
 <p>-P表示密码，-P &#39;&#39; 就表示空密码，也可以不用-P参数，这样就要三车回车，用-P就一次回车。<br>它在/home/linuxidc下生成.ssh目录，.ssh下有id_rsa和id_rsa.pub。</p>
-<ol>
-<li>把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>scp .ssh/id_rsa.pub linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="symbol">:/home/linuxidc/id_rsa</span>.pub </span><br><span class="line">linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="string">'s password:</span><br><span class="line">id_rsa.pub 100% 223 0.2KB/s 00:00</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="把A机下的id_rsa-pub复制到B机下，在B机的-ssh/authorized_keys文件里，我用scp复制。">把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>scp .ssh/id_rsa.pub linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="symbol">:/home/linuxidc/id_rsa</span>.pub </span><br><span class="line">linuxidc<span class="variable">@192</span>.<span class="number">168.1</span>.<span class="number">181</span><span class="string">'s password:</span><br><span class="line">id_rsa.pub 100% 223 0.2KB/s 00:00</span></span><br></pre></td></tr></table></figure>
 <p>由于还没有免密码登录的，所以要输入密码。</p>
-<ol>
-<li>B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>cat id_rsa.pub <span class="prompt">&gt;&gt; </span>.ssh/authorized_keys</span><br><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>chmod <span class="number">600</span> .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="B机把从A机复制的id_rsa-pub添加到-ssh/authorzied_keys文件里。">B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。</h1><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>cat id_rsa.pub <span class="prompt">&gt;&gt; </span>.ssh/authorized_keys</span><br><span class="line">[linuxidc<span class="variable">@B</span> ~]<span class="variable">$ </span>chmod <span class="number">600</span> .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 <p>authorized_keys的权限要是<strong>600</strong>。</p>
-<ol>
-<li>A机登录B机。<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">linuxidc@A</span> ~]$ ssh <span class="number">192.168</span>.1.181</span><br><span class="line">The authenticity of host <span class="variable">'192.168.1.181</span> <span class="list">(<span class="keyword">192.168.1.181</span>)</span>' can<span class="variable">'t</span> be established.</span><br><span class="line">RSA key fingerprint is <span class="number">00</span>:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.</span><br><span class="line">Are you sure you want to continue connecting <span class="list">(<span class="keyword">yes/no</span>)</span>? yes</span><br><span class="line">Warning: Permanently added <span class="variable">'192.168.1.181</span>' <span class="list">(<span class="keyword">RSA</span>)</span> to the list of known hosts.</span><br><span class="line">Last login: Thu Jul <span class="number">3</span> <span class="number">09</span>:53:18 <span class="number">2008</span> from linuxidc</span><br><span class="line"><span class="list">[<span class="keyword">chenlb@B</span> ~]$</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h1 id="A机登录B机。">A机登录B机。</h1><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">linuxidc@A</span> ~]$ ssh <span class="number">192.168</span>.1.181</span><br><span class="line">The authenticity of host <span class="variable">'192.168.1.181</span> <span class="list">(<span class="keyword">192.168.1.181</span>)</span>' can<span class="variable">'t</span> be established.</span><br><span class="line">RSA key fingerprint is <span class="number">00</span>:a6:a8:87:eb:c7:40:10:39:cc:a0:eb:50:d9:6a:5b.</span><br><span class="line">Are you sure you want to continue connecting <span class="list">(<span class="keyword">yes/no</span>)</span>? yes</span><br><span class="line">Warning: Permanently added <span class="variable">'192.168.1.181</span>' <span class="list">(<span class="keyword">RSA</span>)</span> to the list of known hosts.</span><br><span class="line">Last login: Thu Jul <span class="number">3</span> <span class="number">09</span>:53:18 <span class="number">2008</span> from linuxidc</span><br><span class="line"><span class="list">[<span class="keyword">chenlb@B</span> ~]$</span></span></span><br></pre></td></tr></table></figure>
 <p>第一次登录是时要你输入yes。</p>
-<ol>
-<li>现在A机可以无密码登录B机了。</li>
-</ol>
-<p>小结：登录的机子可有私钥，被登录的机子要有登录机子的公钥。这个公钥/私钥对一般在私钥宿主机产生。上面是用rsa算法的公钥/私钥对，当然也可以用dsa(对应的文件是id_dsa，id_dsa.pub)</p>
+<h1 id="现在A机可以无密码登录B机了。">现在A机可以无密码登录B机了。</h1><p>小结：登录的机子可有私钥，被登录的机子要有登录机子的公钥。这个公钥/私钥对一般在私钥宿主机产生。上面是用rsa算法的公钥/私钥对，当然也可以用dsa(对应的文件是id_dsa，id_dsa.pub)</p>
 <p>想让A，B机无密码互登录，那B机以上面同样的方式配置即可。</p>
-<p>[来源](<a href="http://www.linuxidc.com/Linux/2015-05/116908.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-05/116908.htm</a></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-05/116908.htm" target="_blank" rel="external">来源</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -201,7 +186,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在A机下生成公钥/私钥对。"><span class="toc-number">1.</span> <span class="toc-text">在A机下生成公钥/私钥对。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#把A机下的id_rsa-pub复制到B机下，在B机的-ssh/authorized_keys文件里，我用scp复制。"><span class="toc-number">2.</span> <span class="toc-text">把A机下的id_rsa.pub复制到B机下，在B机的.ssh/authorized_keys文件里，我用scp复制。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B机把从A机复制的id_rsa-pub添加到-ssh/authorzied_keys文件里。"><span class="toc-number">3.</span> <span class="toc-text">B机把从A机复制的id_rsa.pub添加到.ssh/authorzied_keys文件里。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A机登录B机。"><span class="toc-number">4.</span> <span class="toc-text">A机登录B机。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#现在A机可以无密码登录B机了。"><span class="toc-number">5.</span> <span class="toc-text">现在A机可以无密码登录B机了。</span></a></li></ol>
  
   </div>
 
