@@ -1,0 +1,591 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>regular expression tutorial in 30 minutes | 天德池</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="钢仔">
+    
+
+    
+    <meta name="description" content="Regular expression tutorial in 30 minutes
+本文目标30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。
+如何使用本教程别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="regular expression tutorial in 30 minutes">
+<meta property="og:url" content="http://tiandechi.com/2015/05/04/regular-expression-tutorial-in-30-minutes/index.html">
+<meta property="og:site_name" content="天德池">
+<meta property="og:description" content="Regular expression tutorial in 30 minutes
+本文目标30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。
+如何使用本教程别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="regular expression tutorial in 30 minutes">
+<meta name="twitter:description" content="Regular expression tutorial in 30 minutes
+本文目标30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。
+如何使用本教程别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为">
+<meta name="twitter:creator" content="@TiandeTD">
+
+    
+    <link rel="alternative" href="/atom.xml" title="天德池" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="天德池" title="天德池"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="天德池">天德池</a></h1>
+				<h2 class="blog-motto">这里不是洗澡的地方</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:tiandechi.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/04/regular-expression-tutorial-in-30-minutes/" title="regular expression tutorial in 30 minutes" itemprop="url">regular expression tutorial in 30 minutes</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-04T11:03:17.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本文目标"><span class="toc-number">1.</span> <span class="toc-text">本文目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用本教程"><span class="toc-number">2.</span> <span class="toc-text">如何使用本教程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式到底是什么东西？"><span class="toc-number">3.</span> <span class="toc-text">正则表达式到底是什么东西？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#入门"><span class="toc-number">4.</span> <span class="toc-text">入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试正则表达式"><span class="toc-number">5.</span> <span class="toc-text">测试正则表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#元字符"><span class="toc-number">6.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符转义"><span class="toc-number">7.</span> <span class="toc-text">字符转义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重复"><span class="toc-number">8.</span> <span class="toc-text">重复</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符类"><span class="toc-number">9.</span> <span class="toc-text">字符类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分枝条件"><span class="toc-number">10.</span> <span class="toc-text">分枝条件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#反义"><span class="toc-number">11.</span> <span class="toc-text">反义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分组"><span class="toc-number">12.</span> <span class="toc-text">分组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#后向引用"><span class="toc-number">13.</span> <span class="toc-text">后向引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#零宽断言"><span class="toc-number">14.</span> <span class="toc-text">零宽断言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#负向零宽断言"><span class="toc-number">15.</span> <span class="toc-text">负向零宽断言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注释"><span class="toc-number">16.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#贪婪与懒惰"><span class="toc-number">17.</span> <span class="toc-text">贪婪与懒惰</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理选项"><span class="toc-number">18.</span> <span class="toc-text">处理选项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平衡组/递归匹配"><span class="toc-number">19.</span> <span class="toc-text">平衡组/递归匹配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#还有些什么东西没提到"><span class="toc-number">20.</span> <span class="toc-text">还有些什么东西没提到</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#联系作者"><span class="toc-number">21.</span> <span class="toc-text">联系作者</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网上的资源及本文参考文献"><span class="toc-number">22.</span> <span class="toc-text">网上的资源及本文参考文献</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新纪录"><span class="toc-number">23.</span> <span class="toc-text">更新纪录</span></a></li></ol>
+		
+		</div>
+		
+		<p>Regular expression tutorial in 30 minutes</p>
+<h1 id="本文目标">本文目标</h1><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。</p>
+<h1 id="如何使用本教程">如何使用本教程</h1><p>别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。<br>除了作为入门教程之外，本文还试图成为可以在日常工作中使用的正则表达式语法参考手册。就作者本人的经历来说，这个目标还是完成得不错的——你看，我自己也没能把所有的东西记下来，不是吗？<br><a id="more"></a></p>
+<h1 id="正则表达式到底是什么东西？">正则表达式到底是什么东西？</h1><h1 id="入门">入门</h1><h1 id="测试正则表达式">测试正则表达式</h1><h1 id="元字符">元字符</h1><h1 id="字符转义">字符转义</h1><h1 id="重复">重复</h1><h1 id="字符类">字符类</h1><h1 id="分枝条件">分枝条件</h1><h1 id="反义">反义</h1><h1 id="分组">分组</h1><h1 id="后向引用">后向引用</h1><h1 id="零宽断言">零宽断言</h1><h1 id="负向零宽断言">负向零宽断言</h1><h1 id="注释">注释</h1><h1 id="贪婪与懒惰">贪婪与懒惰</h1><h1 id="处理选项">处理选项</h1><h1 id="平衡组/递归匹配">平衡组/递归匹配</h1><h1 id="还有些什么东西没提到">还有些什么东西没提到</h1><h1 id="联系作者">联系作者</h1><h1 id="网上的资源及本文参考文献">网上的资源及本文参考文献</h1><h1 id="更新纪录">更新纪录</h1><p>详情查看<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="external">来源</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/regular-expression/">regular expression</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiandechi.com/2015/05/04/regular-expression-tutorial-in-30-minutes/" data-title="regular expression tutorial in 30 minutes | 天德池" data-tsina="1854771045" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/05/04/log-in-SSH-with-no-password/"  title="log in SSH with no password">
+ <strong>下一篇：</strong><br/> 
+ <span>log in SSH with no password
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/05/04/regular-expression-tutorial-in-30-minutes/" data-title="regular expression tutorial in 30 minutes" data-url="http://tiandechi.com/2015/05/04/regular-expression-tutorial-in-30-minutes/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本文目标"><span class="toc-number">1.</span> <span class="toc-text">本文目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用本教程"><span class="toc-number">2.</span> <span class="toc-text">如何使用本教程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式到底是什么东西？"><span class="toc-number">3.</span> <span class="toc-text">正则表达式到底是什么东西？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#入门"><span class="toc-number">4.</span> <span class="toc-text">入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试正则表达式"><span class="toc-number">5.</span> <span class="toc-text">测试正则表达式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#元字符"><span class="toc-number">6.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符转义"><span class="toc-number">7.</span> <span class="toc-text">字符转义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重复"><span class="toc-number">8.</span> <span class="toc-text">重复</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符类"><span class="toc-number">9.</span> <span class="toc-text">字符类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分枝条件"><span class="toc-number">10.</span> <span class="toc-text">分枝条件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#反义"><span class="toc-number">11.</span> <span class="toc-text">反义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分组"><span class="toc-number">12.</span> <span class="toc-text">分组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#后向引用"><span class="toc-number">13.</span> <span class="toc-text">后向引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#零宽断言"><span class="toc-number">14.</span> <span class="toc-text">零宽断言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#负向零宽断言"><span class="toc-number">15.</span> <span class="toc-text">负向零宽断言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注释"><span class="toc-number">16.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#贪婪与懒惰"><span class="toc-number">17.</span> <span class="toc-text">贪婪与懒惰</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#处理选项"><span class="toc-number">18.</span> <span class="toc-text">处理选项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#平衡组/递归匹配"><span class="toc-number">19.</span> <span class="toc-text">平衡组/递归匹配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#还有些什么东西没提到"><span class="toc-number">20.</span> <span class="toc-text">还有些什么东西没提到</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#联系作者"><span class="toc-number">21.</span> <span class="toc-text">联系作者</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网上的资源及本文参考文献"><span class="toc-number">22.</span> <span class="toc-text">网上的资源及本文参考文献</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新纪录"><span class="toc-number">23.</span> <span class="toc-text">更新纪录</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Debian/" title="Debian">Debian<sup>10</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vim/" title="vim">vim<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SSH/" title="SSH">SSH<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/commands/" title="commands">commands<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/usb-stick/" title="usb stick">usb stick<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome/" title="Chrome">Chrome<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/64位/" title="64位">64位<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/32位/" title="32位">32位<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tar/" title="tar">tar<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/auto-indent/" title="auto indent">auto indent<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tests/" title="tests">tests<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/regular-expression/" title="regular expression">regular expression<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/scp/" title="scp">scp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Format/" title="Format">Format<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/配色/" title="配色">配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mount/" title="mount">mount<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/find/" title="find">find<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CNNIC/" title="CNNIC">CNNIC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/unix/" title="unix">unix<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Browser/" title="Browser">Browser<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>36</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/OS/" title="OS">OS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Windows/" title="Windows">Windows<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/语言/" title="语言">语言<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1854771045&verifier=375b89d6&dpc=1"></iframe>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://v2ex.com" target="_blank" title="环境优雅的程序员社区">V2EX</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 志愿愈大，希望愈高，可以致力之处就愈少，可以自解之处也愈多。 <br/>
+			</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1854771045" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Tiande" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/TiandeTD" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/58150105" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="https://www.zhihu.com/people/dun-tian-de" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:dtdnqsb@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="钢仔">钢仔</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Tiande"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
