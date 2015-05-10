@@ -4,25 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Git SSH key Generate | 天德池</title>
+    <title>Linux-dd命令制作U盘系统启动盘 | 天德池</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="钢仔">
     
 
     
-    <meta name="description" content="Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。
-设置Git的user name和email：12$ git config --global user.name &quot;my&quot;$ git config --global user.email &quot;my@email.address&quot;">
+    <meta name="description" content="作U盘系统启动盘，Ubuntu下有个图形界面工具Startup Disk Creator，简单易用，但是缺点就是只能制作Ubuntu的启动盘，别的系统不支持。那么我想在Ubuntu下作Fedora的系统启动盘要怎么办呢？不要紧，有dd命令呢！
+dd命令是用来拷贝文件的命令，它可以自动转换成对应的格式。在玩树莓派的时候，我们也是用dd命令烧写系统的，还记得吧？1$ sudo dd bs=4M if=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git SSH key Generate">
-<meta property="og:url" content="http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/index.html">
+<meta property="og:title" content="Linux-dd命令制作U盘系统启动盘">
+<meta property="og:url" content="http://tiandechi.com/2015/05/10/Linux-dd命令制作U盘系统启动盘/index.html">
 <meta property="og:site_name" content="天德池">
-<meta property="og:description" content="Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。
-设置Git的user name和email：12$ git config --global user.name &quot;my&quot;$ git config --global user.email &quot;my@email.address&quot;">
+<meta property="og:description" content="作U盘系统启动盘，Ubuntu下有个图形界面工具Startup Disk Creator，简单易用，但是缺点就是只能制作Ubuntu的启动盘，别的系统不支持。那么我想在Ubuntu下作Fedora的系统启动盘要怎么办呢？不要紧，有dd命令呢！
+dd命令是用来拷贝文件的命令，它可以自动转换成对应的格式。在玩树莓派的时候，我们也是用dd命令烧写系统的，还记得吧？1$ sudo dd bs=4M if=">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git SSH key Generate">
-<meta name="twitter:description" content="Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。
-设置Git的user name和email：12$ git config --global user.name &quot;my&quot;$ git config --global user.email &quot;my@email.address&quot;">
+<meta name="twitter:title" content="Linux-dd命令制作U盘系统启动盘">
+<meta name="twitter:description" content="作U盘系统启动盘，Ubuntu下有个图形界面工具Startup Disk Creator，简单易用，但是缺点就是只能制作Ubuntu的启动盘，别的系统不支持。那么我想在Ubuntu下作Fedora的系统启动盘要怎么办呢？不要紧，有dd命令呢！
+dd命令是用来拷贝文件的命令，它可以自动转换成对应的格式。在玩树莓派的时候，我们也是用dd命令烧写系统的，还记得吧？1$ sudo dd bs=4M if=">
 <meta name="twitter:creator" content="@TiandeTD">
 
     
@@ -87,14 +87,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/04/18/Git-SSH-key-Generate/" title="Git SSH key Generate" itemprop="url">Git SSH key Generate</a>
+      <a href="/2015/05/10/Linux-dd命令制作U盘系统启动盘/" title="Linux-dd命令制作U盘系统启动盘" itemprop="url">Linux-dd命令制作U盘系统启动盘</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
 		
   <p class="article-time">
-    <time datetime="2015-04-18T15:46:45.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    <time datetime="2015-05-10T05:26:41.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
     
   </p>
 </header>
@@ -103,40 +103,31 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置Git的user_name和email："><span class="toc-number">1.</span> <span class="toc-text">设置Git的user name和email：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成SSH密钥过程："><span class="toc-number">2.</span> <span class="toc-text">生成SSH密钥过程：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#愉快的使用_github_吧！"><span class="toc-number">3.</span> <span class="toc-text">愉快的使用 github 吧！</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#过程都是类似的，首先要umount自己的U盘："><span class="toc-number">1.</span> <span class="toc-text">过程都是类似的，首先要umount自己的U盘：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#然后就是dd命令烧写："><span class="toc-number">2.</span> <span class="toc-text">然后就是dd命令烧写：</span></a></li></ol>
 		
 		</div>
 		
-		<p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
-<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h1 id="生成SSH密钥过程：">生成SSH密钥过程：</h1><ol>
-<li><p>查看是否已经有了ssh密钥：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
-<p>如果没有密钥则不会有此文件夹，有则备份删除</p>
-</li>
-<li><p>生成密钥：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C “my<span class="annotation">@email</span>.address”</span><br><span class="line">#会有三个提示： 指定存放位置 密钥 确认密钥</span><br><span class="line">#均按回车键就可以跳过，并以默认保存啦</span><br><span class="line">#结果是：</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> <span class="regexp">/home/</span>tekkub<span class="regexp">/.ssh/</span>id_rsa.</span><br><span class="line">Your <span class="keyword">public</span> key has been saved <span class="keyword">in</span> <span class="regexp">/home/</span>tekkub<span class="regexp">/.ssh/</span>id_rsa.pub.</span><br><span class="line">The key fingerprint <span class="string">is:</span></span><br><span class="line">………………</span><br></pre></td></tr></table></figure>
-<p>最后得到了两个文件：id_rsa 和 id_rsa.pub</p>
-</li>
-<li><p>添加专用密钥到 ssh：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#[ssh-add命令详解](http://tiandechi.com/2015/04/14/ssh-add-command/)</span></span><br><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥。<br>打开github ，登陆账号，然后在 设置-SSH keys 中添加“id_rsa.pub” 的全部内容。</p>
-</li>
-<li>测试：<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ssh git<span class="annotation">@github</span>.com</span><br><span class="line">The authenticity of host ‘github.com (<span class="number">207.97</span>.227.239)’ can’t be established.</span><br><span class="line">RSA key fingerprint is <span class="number">16</span>:<span class="number">27</span>:<span class="string">ac:</span><span class="string">a5:</span><span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span><span class="string">d:</span><span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span><span class="string">b:</span><span class="number">56</span>:<span class="number">4</span><span class="string">d:</span><span class="string">eb:</span><span class="string">df:</span><span class="string">a6:</span><span class="number">48.</span></span><br><span class="line">Are you sure you want to <span class="keyword">continue</span> connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added ‘github.com,<span class="number">207.97</span>.227.239′ (RSA) to the list of known hosts.</span><br><span class="line"><span class="string">ERROR:</span> Hi tekkub! You’ve successfully authenticated, but GitHub does not provide shell access</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="愉快的使用_github_吧！">愉快的使用 github 吧！</h1><p><a href="http://blog.csdn.net/hustpzb/article/details/8230454/" target="_blank" rel="external">Git SSH Key 生成步骤</a></p>
+		<p>作U盘系统启动盘，Ubuntu下有个图形界面工具Startup Disk Creator，简单易用，但是缺点就是只能制作Ubuntu的启动盘，别的系统不支持。那么我想在Ubuntu下作Fedora的系统启动盘要怎么办呢？不要紧，有dd命令呢！</p>
+<p>dd命令是用来拷贝文件的命令，它可以自动转换成对应的格式。在玩树莓派的时候，我们也是用dd命令烧写系统的，还记得吧？<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="tag">dd</span> bs=<span class="number">4</span>M <span class="keyword">if</span>=~/raspberrypi/<span class="number">2014</span>-<span class="number">09</span>-<span class="number">09</span>-wheezy-raspbian<span class="class">.img</span> of=/dev/sdb &amp;&amp; sync</span><br></pre></td></tr></table></figure></p>
+<p>dd命令简单用法就是这样，那么我们还可以用它烧写光盘和作其他系统的启动U盘。<br><a id="more"></a><br>在玩树莓派时烧写的文件是img格式的系统镜像，而我们要制作Fedora等Linux发行版通常是iso格式的文件，不要紧，formatting的问题就交给dd命令吧。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="tag">dd</span> --help</span><br><span class="line">Usage: <span class="tag">dd</span> [OPERAND]...</span><br><span class="line">or: <span class="tag">dd</span> OPTION</span><br><span class="line">Copy <span class="tag">a</span> file, converting and formatting according to the operands.</span><br></pre></td></tr></table></figure></p>
+<h1 id="过程都是类似的，首先要umount自己的U盘：">过程都是类似的，首先要umount自己的U盘：</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ df -h</span><br><span class="line">Filesystem Size Used Avail Use% Mounted on</span><br><span class="line"><span class="regexp">/dev/</span>sdb1 <span class="number">3.8</span>G <span class="number">880</span>K <span class="number">3.8</span>G <span class="number">1</span>% <span class="regexp">/media/</span>linc/<span class="number">87</span>CD-<span class="number">7</span>F86</span><br><span class="line"></span><br><span class="line">$ umount <span class="regexp">/dev/</span>sdb1</span><br></pre></td></tr></table></figure>
+<h1 id="然后就是dd命令烧写：">然后就是dd命令烧写：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="tag">dd</span> bs=<span class="number">4</span>M <span class="keyword">if</span>=~/linux_images/Fedora-Live-Workstation-i686-<span class="number">21</span>-<span class="number">5</span><span class="class">.iso</span> of=/dev/sdb &amp;&amp; sync</span><br><span class="line">[sudo] password <span class="keyword">for</span> linc:</span><br><span class="line"><span class="number">318</span>+<span class="number">1</span> records <span class="keyword">in</span></span><br><span class="line"><span class="number">318</span>+<span class="number">1</span> records out</span><br><span class="line"><span class="number">1336934400</span> bytes (<span class="number">1.3</span> GB) copied, <span class="number">171.331</span> s, <span class="number">7.8</span> MB/s</span><br></pre></td></tr></table></figure>
+<p><strong>注意，dd命令中的目标是sdb，没有标号。</strong></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-02/113585.htm" target="_blank" rel="external">source</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/GIt/">GIt</a><a href="/tags/SSH/">SSH</a>
+  <span></span> <a href="/tags/dd/">dd</a><a href="/tags/启动盘/">启动盘</a>
   </div>
 
 </div>
@@ -145,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/" data-title="Git SSH key Generate | 天德池" data-tsina="1854771045" class="share clearfix">
+	  <div data-url="http://tiandechi.com/2015/05/10/Linux-dd命令制作U盘系统启动盘/" data-title="Linux-dd命令制作U盘系统启动盘 | 天德池" data-tsina="1854771045" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -158,19 +149,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/04/18/ssh-add-command/" title="ssh add command">
-  <strong>上一篇：</strong><br/>
-  <span>
-  ssh add command</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/04/18/when-git-pull-get-conflict/"  title="when git pull get conflict">
+<a href="/2015/05/10/查看Debian的版本信息/"  title="查看Debian的版本信息">
  <strong>下一篇：</strong><br/> 
- <span>when git pull get conflict
+ <span>查看Debian的版本信息
 </span>
 </a>
 </div>
@@ -179,7 +162,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/04/18/Git-SSH-key-Generate/" data-title="Git SSH key Generate" data-url="http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/"></div>
+	<div class="ds-thread" data-thread-key="2015/05/10/Linux-dd命令制作U盘系统启动盘/" data-title="Linux-dd命令制作U盘系统启动盘" data-url="http://tiandechi.com/2015/05/10/Linux-dd命令制作U盘系统启动盘/"></div>
 </section>
 
 
@@ -189,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置Git的user_name和email："><span class="toc-number">1.</span> <span class="toc-text">设置Git的user name和email：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成SSH密钥过程："><span class="toc-number">2.</span> <span class="toc-text">生成SSH密钥过程：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#愉快的使用_github_吧！"><span class="toc-number">3.</span> <span class="toc-text">愉快的使用 github 吧！</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#过程都是类似的，首先要umount自己的U盘："><span class="toc-number">1.</span> <span class="toc-text">过程都是类似的，首先要umount自己的U盘：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#然后就是dd命令烧写："><span class="toc-number">2.</span> <span class="toc-text">然后就是dd命令烧写：</span></a></li></ol>
  
   </div>
 
