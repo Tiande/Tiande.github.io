@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-05-04T11:07:54.120Z</updated>
+  <updated>2015-05-10T05:08:04.354Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -15,11 +15,161 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[查看Debian的版本信息]]></title>
+    <link href="http://tiandechi.com/2015/05/10/%E6%9F%A5%E7%9C%8BDebian%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/"/>
+    <id>http://tiandechi.com/2015/05/10/查看Debian的版本信息/</id>
+    <published>2015-05-10T05:06:47.000Z</published>
+    <updated>2015-05-10T05:08:04.354Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor <span class="string">ID:</span> Debian</span><br><span class="line"><span class="string">Description:</span> Debian GNU/Linux testing (squeeze)</span><br><span class="line"><span class="string">Release:</span> testing</span><br><span class="line"><span class="string">Codename:</span> squeeze</span><br><span class="line"></span><br><span class="line">$ cat <span class="regexp">/etc/</span>debian_version</span><br><span class="line">squeeze/sid</span><br></pre></td></tr></table></figure>
+<p>/usr/share/doc/base-files/FAQ:</p>
+<p>Q. Ok, but how do I know which distribution I&#39;m running?</p>
+<p>A. If you are running testing or unstable, then /etc/debian_version is<br>not a reliable way to know that anymore. Looking at the contents of<br>your /etc/apt/sources.list file is probably a much better way.</p>
+<p>其他相关的或有趣的包还有：<br><a id="more"></a><br>base-files</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$ </span>linuxinfo<span class="variable">$ </span>linuxlogo</span><br></pre></td></tr></table></figure>
+<p>查看内核版本：</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cat /<span class="keyword">proc</span>/version</span><br><span class="line"></span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/lbsx/archive/2010/12/29/1920989.html" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor <span class="string">ID:</span> Debian</span><br><span class="line"><span class="string">Description:</span> Debian GNU/Linux testing (squeeze)</span><br><span class="line"><span class="string">Release:</span> testing</span><br><span class="line"><span class="string">Codename:</span> squeeze</span><br><span class="line"></span><br><span class="line">$ cat <span class="regexp">/etc/</span>debian_version</span><br><span class="line">squeeze/sid</span><br></pre></td></tr></table></figure>
+<p>/usr/share/doc/base-files/FAQ:</p>
+<p>Q. Ok, but how do I know which distribution I&#39;m running?</p>
+<p>A. If you are running testing or unstable, then /etc/debian_version is<br>not a reliable way to know that anymore. Looking at the contents of<br>your /etc/apt/sources.list file is probably a much better way.</p>
+<p>其他相关的或有趣的包还有：<br>]]>
+    
+    </summary>
+    
+      <category term="Debian" scheme="http://tiandechi.com/tags/Debian/"/>
+    
+      <category term="version" scheme="http://tiandechi.com/tags/version/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[How-to-disable-Network-Manager-on-Linux]]></title>
+    <link href="http://tiandechi.com/2015/05/10/How-to-disable-Network-Manager-on-Linux/"/>
+    <id>http://tiandechi.com/2015/05/10/How-to-disable-Network-Manager-on-Linux/</id>
+    <published>2015-05-10T05:03:43.000Z</published>
+    <updated>2015-05-10T05:07:44.402Z</updated>
+    <content type="html"><![CDATA[<p>Network Manager is a feature-rich network configuration service which is used by default in most Linux desktop environments nowadays. It provides automatic configuration of (wired/wireless) network interfaces, as well as VPN, mobile broadband and even Bluetooth connections. Network Manager is smart enough to automatically switch to the best (or the most recent) connection network, and can inform other applications of up-to-date network events via D-Bus API.</p>
+<p>While Network Manager comes with various sophisticated features, you might just prefer the old plain network service. There could be several reasons to do so. For one, you may wish to have more control over network management, instead of relying on purely automatic configuration and switch-over, which may or may not suit your needs. Besides, Network Manager is not suitable for advanced networking setup, such as multi-homing to more than one wired connections, forwarding network traffic, configuring Linux bridge or aliases, etc.<br><a id="more"></a><br>In general, Network Manager is designed to keep a typical end-user Linux box connected at all times with the best possible connection with minimum intervention by users. If such automation is not needed in your Linux environment, you can turn off Network Manager.</p>
+<p>This tutorial describes how to disable Network Manager in various Linux desktop environments.<br>Check Which Network Interfaces are Managed by Network Manager</p>
+<p>To check if Network Manager is managing any network interface, you can use nmcli, which is a command line utility that comes with Network Manager.<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ nmcli dev <span class="keyword">status</span></span><br><span class="line"></span><br><span class="line">DEVICE     <span class="keyword">TYPE</span>              STATE</span><br><span class="line">eth1      <span class="number">802</span>-<span class="number">3</span>-ethernet   connected</span><br><span class="line">eth0      <span class="number">802</span>-<span class="number">3</span>-ethernet   connected</span><br></pre></td></tr></table></figure></p>
+<p>The above command will list all existing network interfaces along with their STATE. If STATE is shown as &quot;unmanaged&quot;, this means Network Manager is NOT controlling a corresponding interface. If STATE displays any other values (e.g., &quot;connected&quot;), it implies that a given interface is managed by Network Manager.<br>Disable Network Manager Completely</p>
+<p>Here is how to disable Network Manager completely, so that Network Manager stops running on your Linux system.</p>
+<h1 id="To_disable_Network_Manager_on_Debian:">To disable Network Manager on Debian:</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.<span class="keyword">d</span>/network-manager stop</span><br><span class="line">$ sudo <span class="keyword">update</span>-rc.<span class="keyword">d</span> network-manager remove</span><br></pre></td></tr></table></figure>
+<h1 id="To_disable_Network_Manager_on_Ubuntu_or_Linux_Mint:">To disable Network Manager on Ubuntu or Linux Mint:</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo stop network-manager</span><br><span class="line"><span class="variable">$ </span>echo <span class="string">"manual"</span> | sudo tee /etc/init/network-manager.override</span><br></pre></td></tr></table></figure>
+<p>After disabling Network Manager on Debian or Ubuntu, use /etc/network/interfaces to configure network interfaces.</p>
+<h1 id="To_disable_Network_Manager_on_Fedora:">To disable Network Manager on Fedora:</h1><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="literal">stop</span> <span class="constant">Network</span>Manager.<span class="keyword">service</span></span><br><span class="line">$ sudo systemctl disable <span class="constant">Network</span>Manager.<span class="keyword">service</span></span><br></pre></td></tr></table></figure>
+<h1 id="To_disable_Network_Manager_on_CentOS:">To disable Network Manager on CentOS:</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo service <span class="constant">NetworkManager </span>stop</span><br><span class="line"><span class="variable">$ </span>sudo chkconfig <span class="constant">NetworkManager </span>off</span><br></pre></td></tr></table></figure>
+<p>After disabling Network Manager on Fedora or CentOS, use /etc/sysconfig/network-scripts/ifcfg-ethX files to configure network interfaces.<br>Disable Network Manager for a Particular Network Interface on Debian, Ubuntu or Linux Mint</p>
+<p>To disable Network Manager only for eth1 on Debian, Ubuntu or Linux Mint, you can do the following.</p>
+<p>First, open the Network Manager configuration file in /etc/NetworkManager with a text editor, and set &quot;managed=false&quot;, typically shown under [ifupdown].<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo vi /etc/<span class="constant">NetworkManager/NetworkManager.</span>conf</span><br><span class="line"></span><br><span class="line">[ifupdown]</span><br><span class="line">managed=<span class="keyword">false</span></span><br></pre></td></tr></table></figure></p>
+<p>Then in /etc/network/interfaces, add information about the interface you want to disable Network Manager for. In this example, the interface is eth1, and we are using static IP configuration.<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/network/interfaces</span><br><span class="line"></span><br><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line"><span class="type">auto</span> lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line"><span class="comment"># network interface not managed by Network Manager</span></span><br><span class="line">allow-hotplug eth1</span><br><span class="line">iface eth1 inet <span class="keyword">static</span></span><br><span class="line">address <span class="number">10</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">10</span></span><br><span class="line">netmask <span class="number">255</span>.<span class="number">255</span>.<span class="number">255</span>.<span class="number">0</span></span><br><span class="line">gateway <span class="number">10</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span></span><br><span class="line">dns-nameservers <span class="number">8</span>.<span class="number">8</span>.<span class="number">8</span>.<span class="number">8</span></span><br></pre></td></tr></table></figure></p>
+<p>Then Network Manager automatically ignore any interfaces specified in /etc/network/interfaces, and stop managing them.</p>
+<p>After rebooting, verify that Network Manager is successfully disabled for eth1.<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>nmcli dev status</span><br></pre></td></tr></table></figure></p>
+<p>Disable Network Manager for a Particular Network Interface on Fedora or CentOS</p>
+<p>The following steps will disable Network Manager for eth1 on Fedora, CentOS or RHEL.</p>
+<p>Create an interface configuration file for eth1 (if not exist), and add &quot;NM_CONTROLLED=no&quot;.</p>
+<p>Enable network service so that eth1 is activated by network service automatically upon boot.<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chkconfig network <span class="function_start"><span class="keyword">on</span></span></span><br></pre></td></tr></table></figure></p>
+<p>Upon rebooting, verify that Network Manager is successfully disabled for eth1 with nmcli command.<br>$ nmcli dev status<br><a href="http://xmodulo.com/disable-network-manager-linux.html" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Network Manager is a feature-rich network configuration service which is used by default in most Linux desktop environments nowadays. It provides automatic configuration of (wired/wireless) network interfaces, as well as VPN, mobile broadband and even Bluetooth connections. Network Manager is smart enough to automatically switch to the best (or the most recent) connection network, and can inform other applications of up-to-date network events via D-Bus API.</p>
+<p>While Network Manager comes with various sophisticated features, you might just prefer the old plain network service. There could be several reasons to do so. For one, you may wish to have more control over network management, instead of relying on purely automatic configuration and switch-over, which may or may not suit your needs. Besides, Network Manager is not suitable for advanced networking setup, such as multi-homing to more than one wired connections, forwarding network traffic, configuring Linux bridge or aliases, etc.<br>]]>
+    
+    </summary>
+    
+      <category term="network-manager" scheme="http://tiandechi.com/tags/network-manager/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Linux环境获取系统性能数据]]></title>
+    <link href="http://tiandechi.com/2015/05/10/Linux%E7%8E%AF%E5%A2%83%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE/"/>
+    <id>http://tiandechi.com/2015/05/10/Linux环境获取系统性能数据/</id>
+    <published>2015-05-10T05:01:52.000Z</published>
+    <updated>2015-05-10T05:03:03.593Z</updated>
+    <content type="html"><![CDATA[<h1 id="CPU利用率">CPU利用率</h1><p>/proc/stat文件里包含系统cpu使用情况，2-8列对应的CPU消耗含义是用户态消耗(user)、用户态nice消耗(nice)、内 核态消耗(sys)、空闲时间(idle)、等待IO消耗(iowait)、硬件中断消耗(hardirq)、软中断消耗(softirq)。（man proc）</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ cat /<span class="keyword">proc</span>/stat</span><br><span class="line">cpu  <span class="number">2339504870</span> <span class="number">2641995</span> <span class="number">716723851</span> <span class="number">70316975284</span> <span class="number">7219566</span> <span class="number">328971</span> <span class="number">304057999</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu0 <span class="number">211214357</span> <span class="number">275710</span> <span class="number">57674236</span> <span class="number">2778331292</span> <span class="number">3688175</span> <span class="number">10421</span> <span class="number">12279511</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu1 <span class="number">140100049</span> <span class="number">278788</span> <span class="number">47142039</span> <span class="number">2857686940</span> <span class="number">180452</span> <span class="number">32028</span> <span class="number">14960093</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>要计算t1~t2时间内系统的cpu利用率，需要在t1、t2时刻分别采集cpu使用信息<br><a id="more"></a><br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t1_all = t1<span class="list">(<span class="keyword">user</span> + nice + sys + idle + iowait + hardirq + sortirq)</span></span><br><span class="line">t1_used = t1<span class="list">(<span class="keyword">user</span> + nice + sys + iowait + hardirq + sortirq)</span></span><br><span class="line">t2_all = t2<span class="list">(<span class="keyword">user</span> + nice + sys + idle + iowait + hardirq + sortirq</span><br><span class="line">t2_used = t2<span class="list">(<span class="keyword">user</span> + nice + sys + iowait + hardirq + sortirq)</span></span><br><span class="line"></span><br><span class="line">cpu_usage = <span class="list">(<span class="keyword">t2_used</span> - t1_used)</span> / <span class="list">(<span class="keyword">t2_all</span> - t1_all)</span></span></span><br></pre></td></tr></table></figure></p>
+<h1 id="进程CPU利用率">进程CPU利用率</h1><p>/proc/$pid/stat文件里包含某个进程的cpu使用信息，14、15、16、17列对应进程用户态消耗(user)、内核态消耗(sys)、用户态等待子进程的消耗(user_child)、内核态等待子进程的消耗(sys_child)。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$cat /<span class="keyword">proc</span>/<span class="number">24076</span>/stat</span><br><span class="line"><span class="number">24076</span> (redis-server) S <span class="number">1</span> <span class="number">24076</span> <span class="number">24076</span> <span class="number">0</span> -<span class="number">1</span> <span class="number">4202560</span> <span class="number">5755</span> <span class="number">147</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1864</span> <span class="number">3298</span> <span class="number">0</span> <span class="number">0</span> <span class="number">20</span> <span class="number">0</span> <span class="number">3</span> <span class="number">0</span> <span class="number">70238536</span> <span class="number">159555584</span> <span class="number">5145</span> <span class="number">18446744073709551615</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">4097</span> <span class="number">17610</span> <span class="number">18446744073709551615</span> <span class="number">0</span> <span class="number">0</span> <span class="number">17</span> <span class="number">4</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>t1、t2时刻分别采集/proc/stat、/proc/$pid/stat，获取总的cpu消耗，以及进程的cpu消耗<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t1_all = t1<span class="list">(<span class="keyword">user</span> + nice + sys + idle + iowait + hardirq + sortirq)</span></span><br><span class="line">t1_pid = t1<span class="list">(<span class="keyword">user</span> + sys + user_child + sys_child)</span></span><br><span class="line">t2_all = t2<span class="list">(<span class="keyword">user</span> + nice + sys + idle + iowait + hardirq + sortirq)</span></span><br><span class="line">t2_pid = t2<span class="list">(<span class="keyword">user</span> + sys + user_child + sys_child)</span></span><br><span class="line"></span><br><span class="line">pid_cpu_usage = <span class="list">(<span class="keyword">t2_pid</span> - t1_pid)</span> / <span class="list">(<span class="keyword">t2_all</span> - t1_all)</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="内存利用率">内存利用率</h1><p>/proc/meminfo文件里包含系统内存使用信息</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat /<span class="keyword">proc</span>/meminfo</span><br><span class="line"><span class="type">MemTotal</span>:       <span class="number">198450624</span> kB</span><br><span class="line"><span class="type">MemFree</span>:        <span class="number">184950332</span> kB</span><br><span class="line"></span><br><span class="line">mem_usage = <span class="number">1</span> - <span class="type">MemFree</span> / <span class="type">MemTotal</span></span><br></pre></td></tr></table></figure>
+<h1 id="系统load">系统load</h1><p>/proc/uptime的前3列包含了最近1min、5min、15min系统的平均load（正在运行或等待IO的进程数，进程state为R或D）</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$cat /<span class="keyword">proc</span>/loadavg</span><br><span class="line"><span class="number">0</span>.<span class="number">02</span> <span class="number">0</span>.<span class="number">09</span> <span class="number">0</span>.<span class="number">08</span> <span class="number">1</span>/<span class="number">2362</span> <span class="number">855</span></span><br></pre></td></tr></table></figure>
+<h1 id="网卡流量信息">网卡流量信息</h1><p>/proc/net/dev包含所有网卡的流量信息，第1、2、10、11列分别代表网卡当前接受字节数（recv_bytes）、接受包个数(recv_packets)、发送字节数(send_bytes)、发送个数(send_packets)。</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cat</span> /<span class="keyword">proc</span>/net/dev<span class="symbol"></span><br><span class="line">Inter-|</span> <span class="symbol">  Receive</span>                                                |<span class="symbol">  Transmit</span></span><br><span class="line"><span class="symbol"> face</span> |bytes<span class="symbol">    packets</span> errs<span class="symbol"> drop</span> fifo<span class="symbol"> frame</span> compressed<span class="symbol"> multicast|bytes</span> <span class="symbol">   packets</span> errs<span class="symbol"> drop</span> fifo<span class="symbol"> colls</span> <span class="symbol">    carrier</span> compressed<span class="symbol"></span><br><span class="line"> lo:25047448261</span> 37947893    0    0    0     0          0         0 25047448261 37947893    0    0    0     0       0          0<span class="symbol"></span><br><span class="line"> eth0:2566932970457</span> 7620547348    0    0    2     0          0     62732 728662220296 6145797287    0    0    0     0       0          0<span class="symbol"></span><br><span class="line"> eth1:2023304550582</span> 7268848253    0    0    0     0          0     77924 742443231982 6129090809    0    0    0     0       0          0</span><br></pre></td></tr></table></figure>
+<p>t1~t2时间内的平均流量为<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">avg_recv_bytes = <span class="list">(<span class="keyword">t2_recv_bytes</span> - t1_recv_bytes)</span> / <span class="list">(<span class="keyword">t2</span> - t1)</span></span><br><span class="line">avg_send_bytes = <span class="list">(<span class="keyword">t2_send_bytes</span> - t1_send_bytes)</span> / <span class="list">(<span class="keyword">t2</span> - t1)</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="磁盘（文件系统）空间信息">磁盘（文件系统）空间信息</h1><p>通过statfs系统调用可获取当前文件系统的空间占用情况</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> statfs &#123;</span><br><span class="line">    <span class="keyword">long</span>    f_type;     <span class="comment">/* type of file system (see below) */</span></span><br><span class="line">    <span class="keyword">long</span>    f_bsize;    <span class="comment">/* optimal transfer block size */</span></span><br><span class="line">    <span class="keyword">long</span>    f_blocks;   <span class="comment">/* total data blocks in file system */</span></span><br><span class="line">    <span class="keyword">long</span>    f_bfree;    <span class="comment">/* free blocks in fs */</span></span><br><span class="line">    <span class="keyword">long</span>    f_bavail;   <span class="comment">/* free blocks avail to non-superuser */</span></span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">disk_usage = <span class="number">1</span> - f_bfree / f_blocks</span><br></pre></td></tr></table></figure>
+<h1 id="磁盘读写信息">磁盘读写信息</h1><p>/proc/diskstats包含磁盘的IO信息，第4-9列分别为当前磁盘读次数(read)，磁盘读扇区数(read_sec)、磁盘读毫秒数(read_ms)、磁盘写次数(write)、磁盘写扇区数(write_sec)、磁盘写毫秒数(write_ms)。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$cat /<span class="keyword">proc</span>/diskstats</span><br><span class="line"><span class="number">8</span>       <span class="number">4</span> sda4 <span class="number">3</span> <span class="number">0</span> <span class="number">12</span> <span class="number">8</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">8</span> <span class="number">8</span></span><br><span class="line"><span class="number">8</span>       <span class="number">5</span> sda5 <span class="number">87928</span> <span class="number">55284</span> <span class="number">2842138</span> <span class="number">17349</span> <span class="number">1230958</span> <span class="number">7932106</span> <span class="number">73380432</span> <span class="number">4931382</span> <span class="number">0</span> <span class="number">503343</span> <span class="number">4947504</span></span><br><span class="line"><span class="number">8</span>      <span class="number">16</span> sdb <span class="number">393</span> <span class="number">35</span> <span class="number">3418</span> <span class="number">37</span> <span class="number">17</span> <span class="number">2</span> <span class="number">152</span> <span class="number">0</span> <span class="number">0</span> <span class="number">37</span> <span class="number">37</span></span><br><span class="line"><span class="number">8</span>      <span class="number">32</span> sdc <span class="number">788</span> <span class="number">114</span> <span class="number">10690</span> <span class="number">10132</span> <span class="number">14550036</span> <span class="number">226568635</span> <span class="number">1929026928</span> <span class="number">623148463</span> <span class="number">0</span> <span class="number">4917530</span> <span class="number">623154797</span></span><br></pre></td></tr></table></figure>
+<p>t1~t2时间内磁盘平均读写次数、扇区数、IO利用率计算如下<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">avg_read = <span class="list">(<span class="keyword">t2_read</span> - t1_read)</span> / <span class="list">(<span class="keyword">t2</span> - t1)</span></span><br><span class="line">avg_read_sec = <span class="list">(<span class="keyword">t2_read_sec</span> - t1_read_sec)</span> / <span class="list">(<span class="keyword">t2</span> - t1)</span></span><br><span class="line">avg_write = <span class="list">(<span class="keyword">t2_write</span> - t1_write)</span> / <span class="list">(<span class="keyword">t2</span> - t1)</span></span><br><span class="line">avg_write_sec = <span class="list">(<span class="keyword">t2_write_sec</span> - t1_write_sec)</span> / <span class="list">(<span class="keyword">t2</span> - t1)</span></span><br><span class="line">io_util = <span class="list">(<span class="keyword">t2_read_ms</span> + t2_write_ms - t1_read_ms - t1_write_ms)</span> / <span class="list">(<span class="keyword">t2</span> - t1)</span> <span class="list">(<span class="keyword">t1</span>~t2时间段内IO</span></span><br></pre></td></tr></table></figure></p>
+<p><a href="http://www.linuxidc.com/Linux/2015-05/117278.htm" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="CPU利用率">CPU利用率</h1><p>/proc/stat文件里包含系统cpu使用情况，2-8列对应的CPU消耗含义是用户态消耗(user)、用户态nice消耗(nice)、内 核态消耗(sys)、空闲时间(idle)、等待IO消耗(iowait)、硬件中断消耗(hardirq)、软中断消耗(softirq)。（man proc）</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ cat /<span class="keyword">proc</span>/stat</span><br><span class="line">cpu  <span class="number">2339504870</span> <span class="number">2641995</span> <span class="number">716723851</span> <span class="number">70316975284</span> <span class="number">7219566</span> <span class="number">328971</span> <span class="number">304057999</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu0 <span class="number">211214357</span> <span class="number">275710</span> <span class="number">57674236</span> <span class="number">2778331292</span> <span class="number">3688175</span> <span class="number">10421</span> <span class="number">12279511</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu1 <span class="number">140100049</span> <span class="number">278788</span> <span class="number">47142039</span> <span class="number">2857686940</span> <span class="number">180452</span> <span class="number">32028</span> <span class="number">14960093</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>要计算t1~t2时间内系统的cpu利用率，需要在t1、t2时刻分别采集cpu使用信息<br>]]>
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[win7-32位与64位下载地址存档]]></title>
+    <link href="http://tiandechi.com/2015/05/10/win7-32%E4%BD%8D%E4%B8%8E64%E4%BD%8D%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E5%AD%98%E6%A1%A3/"/>
+    <id>http://tiandechi.com/2015/05/10/win7-32位与64位下载地址存档/</id>
+    <published>2015-05-10T04:58:22.000Z</published>
+    <updated>2015-05-10T05:00:37.415Z</updated>
+    <content type="html"><![CDATA[<h1 id="Windows_7_简体中文旗舰版_x86_(32位_MSDN_RTM正式版)">Windows 7 简体中文旗舰版 x86 (32位 MSDN RTM正式版)</h1><p>ed2k://%7Cfile%7Ccn_windows_7_ultimate_with_sp1_x86_dvd_618763.iso%7C2651877376%7CD6A0D9FDB8C67A65B92B4C1AC197109C%7C/</p>
+<h1 id="Windows_7_Ultimate_(x64)-DVD(English)">Windows 7 Ultimate (x64)-DVD(English)</h1><p>ed2k://|file|en_windows_7_ultimate_x64_dvd_X15-65922.iso|3224686592|6719AFC5486F38BE75F2DF39C8527113|/</p>
+<h1 id="Windows_7_Ultimate_N_(x64)-DVD(English)">Windows 7 Ultimate N (x64)-DVD(English)</h1><p>ed2k://|file|en_windows_7_ultimate_n_x64_dvd_x16-13641.iso|2908555264|C014B86268602565B7880933B41F21AC|/<br><a id="more"></a></p>
+<h1 id="Windows_7_Ultimate_with_Service_Pack_1_(x64)-DVD(English)">Windows 7 Ultimate with Service Pack 1 (x64)-DVD(English)</h1><p>ed2k://|file|en_windows_7_ultimate_with_sp1_x64_dvd_618240.iso|3319478272|004498E6851D90B5E025049604942C86|/</p>
+<h1 id="Windows_7_Ultimate_with_Service_Pack_1_(x64)-DVD(English)-1">Windows 7 Ultimate with Service Pack 1 (x64)-DVD(English)</h1><p>ed2k://|file|en_windows_7_ultimate_with_sp1_x64_dvd_u_677332.iso|3320903680|743598C64E635C72964CF02A3E0AD547|/</p>
+<h1 id="Windows_7_旗舰版_(x64)-DVD(简体中文)">Windows 7 旗舰版 (x64)-DVD(简体中文)</h1><p>ed2k://|file|cn_windows_7_ultimate_x64_dvd_x15-66043.iso|3341268992|7DD7FA757CE6D2DB78B6901F81A6907A|/</p>
+<h1 id="Windows_7_旗舰版_含SP1(x64)-DVD(简体中文)">Windows 7 旗舰版 含SP1(x64)-DVD(简体中文)</h1><p>ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_618537.iso|3419052032|56E90251E665E643C81168F6DD870BCB|/</p>
+<h1 id="Windows_7_旗舰版_含SP1(x64)-DVD(简体中文)-1">Windows 7 旗舰版 含SP1(x64)-DVD(简体中文)</h1><p>ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/</p>
+<h1 id="Windows_7_旗舰版_(x64)-DVD(中文-香港特别行政区)">Windows 7 旗舰版 (x64)-DVD(中文-香港特别行政区)</h1><p>ed2k://|file|hk_windows_7_ultimate_x64_dvd_x15-65911.iso|3313936384|917F16D04FBBFDE763A35E2A32595AD9|/</p>
+<h1 id="Windows_7_旗舰版_(x64)-DVD(中文-香港特别行政区)-1">Windows 7 旗舰版 (x64)-DVD(中文-香港特别行政区)</h1><p>ed2k://|file|hk_windows_7_ultimate_with_sp1_x64_dvd_618544.iso|3390910464|BE5F84D28F5DA939EEFDB9498D4F986D|/</p>
+<h1 id="Windows_7_旗舰版_(x64)-DVD(中文-香港特别行政区)-2">Windows 7 旗舰版 (x64)-DVD(中文-香港特别行政区)</h1><p>ed2k://|file|hk_windows_7_ultimate_with_sp1_x64_dvd_u_677411.iso|3392374784|C8DFF761AD8DD1B9137887954942B803|/</p>
+<h1 id="win7_32位旗舰版">win7 32位旗舰版</h1><p>下载地址：ed2k://|file|cn_windows_7_ultimate_with_sp1_x86_dvd_u_677486.iso|2653276160|7503E4B9B8738DFCB95872445C72AEFB|/</p>
+<h1 id="win7_64位旗舰版">win7 64位旗舰版</h1><p>下载地址：ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Windows_7_简体中文旗舰版_x86_(32位_MSDN_RTM正式版)">Windows 7 简体中文旗舰版 x86 (32位 MSDN RTM正式版)</h1><p>ed2k://%7Cfile%7Ccn_windows_7_ultimate_with_sp1_x86_dvd_618763.iso%7C2651877376%7CD6A0D9FDB8C67A65B92B4C1AC197109C%7C/</p>
+<h1 id="Windows_7_Ultimate_(x64)-DVD(English)">Windows 7 Ultimate (x64)-DVD(English)</h1><p>ed2k://|file|en_windows_7_ultimate_x64_dvd_X15-65922.iso|3224686592|6719AFC5486F38BE75F2DF39C8527113|/</p>
+<h1 id="Windows_7_Ultimate_N_(x64)-DVD(English)">Windows 7 Ultimate N (x64)-DVD(English)</h1><p>ed2k://|file|en_windows_7_ultimate_n_x64_dvd_x16-13641.iso|2908555264|C014B86268602565B7880933B41F21AC|/<br>]]>
+    
+    </summary>
+    
+      <category term="32位， 64位" scheme="http://tiandechi.com/tags/32%E4%BD%8D%EF%BC%8C-64%E4%BD%8D/"/>
+    
+      <category term="Downloads" scheme="http://tiandechi.com/tags/Downloads/"/>
+    
+      <category term="Win7" scheme="http://tiandechi.com/tags/Win7/"/>
+    
+      <category term="ed2k" scheme="http://tiandechi.com/tags/ed2k/"/>
+    
+      <category term="Windows" scheme="http://tiandechi.com/categories/Windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[regular expression tutorial in 30 minutes]]></title>
     <link href="http://tiandechi.com/2015/05/04/regular-expression-tutorial-in-30-minutes/"/>
     <id>http://tiandechi.com/2015/05/04/regular-expression-tutorial-in-30-minutes/</id>
     <published>2015-05-04T11:03:17.000Z</published>
-    <updated>2015-05-04T11:07:54.120Z</updated>
+    <updated>2015-05-04T03:07:54.000Z</updated>
     <content type="html"><![CDATA[<h1 id="本文目标">本文目标</h1><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。</p>
 <h1 id="如何使用本教程">如何使用本教程</h1><p>别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。<br>除了作为入门教程之外，本文还试图成为可以在日常工作中使用的正则表达式语法参考手册。就作者本人的经历来说，这个目标还是完成得不错的——你看，我自己也没能把所有的东西记下来，不是吗？<br><a id="more"></a><br><strong>详情查看<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="external">来源</a></strong></p>
 <h1 id="正则表达式到底是什么东西？">正则表达式到底是什么东西？</h1><h1 id="入门">入门</h1><h1 id="测试正则表达式">测试正则表达式</h1><h1 id="元字符">元字符</h1><h1 id="字符转义">字符转义</h1><h1 id="重复">重复</h1><h1 id="字符类">字符类</h1><h1 id="分枝条件">分枝条件</h1><h1 id="反义">反义</h1><h1 id="分组">分组</h1><h1 id="后向引用">后向引用</h1><h1 id="零宽断言">零宽断言</h1><h1 id="负向零宽断言">负向零宽断言</h1><h1 id="注释">注释</h1><h1 id="贪婪与懒惰">贪婪与懒惰</h1><h1 id="处理选项">处理选项</h1><h1 id="平衡组/递归匹配">平衡组/递归匹配</h1><h1 id="还有些什么东西没提到">还有些什么东西没提到</h1><h1 id="联系作者">联系作者</h1><h1 id="网上的资源及本文参考文献">网上的资源及本文参考文献</h1><h1 id="更新纪录">更新纪录</h1>]]></content>
@@ -40,7 +190,7 @@
     <link href="http://tiandechi.com/2015/05/04/log-in-SSH-with-no-password/"/>
     <id>http://tiandechi.com/2015/05/04/log-in-SSH-with-no-password/</id>
     <published>2015-05-04T11:02:11.000Z</published>
-    <updated>2015-05-04T11:08:58.760Z</updated>
+    <updated>2015-05-04T03:08:58.000Z</updated>
     <content type="html"><![CDATA[<p>SSH无密码登录要使用公钥与私钥。Linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。</p>
 <p>有机器A(192.168.1.155)，B(192.168.1.181)。现想A通过ssh免密码登录到B。<br><a id="more"></a></p>
 <h1 id="在A机下生成公钥/私钥对。">在A机下生成公钥/私钥对。</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[linuxidc<span class="variable">@A</span> ~]<span class="variable">$ </span>ssh-keygen -t rsa -<span class="constant">P </span><span class="string">''</span></span><br></pre></td></tr></table></figure>
@@ -72,7 +222,7 @@
     <link href="http://tiandechi.com/2015/05/04/find-command/"/>
     <id>http://tiandechi.com/2015/05/04/find-command/</id>
     <published>2015-05-04T10:59:37.000Z</published>
-    <updated>2015-05-04T11:01:28.960Z</updated>
+    <updated>2015-05-04T03:01:28.000Z</updated>
     <content type="html"><![CDATA[<p>find 命令算是Linux下最常用的一个命令之一了，这里有一些常用用法的总结。</p>
 <ol>
 <li><p>按文件名搜索<br>搜索当前目录下所有的以txt结尾的文件。第二个命令用了 -exec 参数，可以在对查找的所有文件执行一种操作。注意格式，空格和;一个都不能少。-name 的参数可以用正则表达式，例如第二个例子</p>
@@ -124,7 +274,7 @@
     <link href="http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/"/>
     <id>http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/</id>
     <published>2015-04-29T11:37:52.000Z</published>
-    <updated>2015-04-29T11:38:43.300Z</updated>
+    <updated>2015-04-29T03:38:42.000Z</updated>
     <content type="html"><![CDATA[<h1 id="linux下如何进入单人维护模式">linux下如何进入单人维护模式</h1><p>先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span> ro root=LABEL=/ rhgb quiet</span><br><span class="line">initrd /initrd-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span><span class="class">.img</span></span><br></pre></td></tr></table></figure></p>
 <p>此时，请将游标移动到kernel那一行，再按一次『 e 』进入kernel该行的编辑画面中， 然后在出现的画面<br>当中，最后方输入 “single” ：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span>.el5 ro <span class="variable">root=</span><span class="variable">LABEL=</span>/ rhgb quiet single</span><br></pre></td></tr></table></figure></p>
 <p>再按下『 Enter 』確定之後，按下 b 就可以开机進入单人维护模式了！<br>在这个模式底下，你会在tty1的地方不需要输入密码即可取得终端机的控制权(而且是使用root的身份喔！)。</p>
@@ -196,7 +346,7 @@
     <link href="http://tiandechi.com/2015/04/29/some-Linux-tests/"/>
     <id>http://tiandechi.com/2015/04/29/some-Linux-tests/</id>
     <published>2015-04-29T11:35:33.000Z</published>
-    <updated>2015-04-29T11:47:46.165Z</updated>
+    <updated>2015-04-29T03:47:46.000Z</updated>
     <content type="html"><![CDATA[<h1 id="上部">上部</h1><ol>
 <li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
@@ -298,7 +448,7 @@
     <link href="http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/"/>
     <id>http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/</id>
     <published>2015-04-21T11:01:33.000Z</published>
-    <updated>2015-04-21T13:00:54.535Z</updated>
+    <updated>2015-04-21T05:00:54.000Z</updated>
     <content type="html"><![CDATA[<p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br><a id="more"></a><br>为什么程序还没有安装你就想到卸载？难道你不知道这个程序是用来做什么的？你应该改变到处找程序来试用的作法，而应该先了解一下到底那些程序有同样的功能，听听别人的意见，看看它们各有什么长处和短处，然后挑一个最适合你的程序来用。</p>
 <p>从源码编译安装程序，不但比你装rpm更适合自己的机器设置，而且它们一般会装到/usr/local目录，这样你以后如果换硬盘重装系统，也可以把以前/usr/local下的程序原封不动拷贝过去用。我的/usr/local下有2G之多的程序，你想要是我有一台新机器要重新安装，然后配置，得花费多少时间？实际上我曾经通过网络把它们传到一台新机器上，然后就出去吃晚饭，回来时我就得到了另一台一摸一样的Linux机器。</p>
 <p>确实要卸载makeinstall的程序怎么办呢？答案是直接删掉。别以为直接删掉程序会留下垃圾，引起“系统不稳定”。(btw:这是谁教你的啊？呵呵。)makeinstall无非就是把可执行程序放在/usr/local/bin,把某些函数库放在/usr/local/lib，把数据文件放在 /usr/local/share下一个它自己的目录，你把这些东西都删掉就行了，不会留下垃圾，即使真的留下一点文件没有删掉也占不了多少空间，更不可能引起系统不稳定。UNIX就是这么简单</p>
@@ -323,7 +473,7 @@
     <link href="http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/"/>
     <id>http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/</id>
     <published>2015-04-21T10:58:12.000Z</published>
-    <updated>2015-04-21T12:59:56.640Z</updated>
+    <updated>2015-04-21T04:59:56.000Z</updated>
     <content type="html"><![CDATA[<p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
 <pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
 磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
@@ -367,7 +517,7 @@
     <link href="http://tiandechi.com/2015/04/19/VSFTP-server-configure/"/>
     <id>http://tiandechi.com/2015/04/19/VSFTP-server-configure/</id>
     <published>2015-04-19T08:19:25.000Z</published>
-    <updated>2015-04-19T09:55:03.170Z</updated>
+    <updated>2015-04-19T01:55:02.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
 <li>wu-ftp</li>
 <li>proftp=profession ftp</li>
@@ -639,7 +789,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/"/>
     <id>http://tiandechi.com/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/</id>
     <published>2015-04-19T08:12:38.000Z</published>
-    <updated>2015-04-19T09:27:54.505Z</updated>
+    <updated>2015-04-19T01:27:54.000Z</updated>
     <content type="html"><![CDATA[<h1 id="介绍_ssh-agent">介绍 ssh-agent</h1><p>ssh-agent 是专为既令人愉快又安全的处理 RSA 和 DSA 密钥而设计的特殊程序，它包括在OpenSSH分发内(请参阅 本系列文章的第 1 部分以得到关于 RSA 和 DSA 认证的介绍)。不同于 ssh ， ssh-agent 是个长时间持续运行的守护进程(daemon)，设计它的唯一目的就是对解密的专用密钥进行高速缓存。</p>
 <p>ssh 包含的内建支持允许它同 ssh-agent 通信，允许 ssh 不必每次新连接时都提示您要密码才能获取解密的专用密钥。对于 ssh-agent ，您只要使用 ssh-add 把专用密钥添加到 ssh-agent 的高速缓存中。这是个一次性过程;用过 ssh-add 之后， ssh 将从 ssh-agent 获取您的专用密钥，而不会提示要密码短语来烦您了。</p>
 <h1 id="使用_ssh-agent">使用 ssh-agent</h1><a id="more"></a>
@@ -697,7 +847,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/about-Chrome/"/>
     <id>http://tiandechi.com/2015/04/18/about-Chrome/</id>
     <published>2015-04-18T15:57:31.000Z</published>
-    <updated>2015-04-18T16:00:11.550Z</updated>
+    <updated>2015-04-18T08:00:10.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li>离线版 Chrome下载方法<br> <a href="http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe" target="_blank" rel="external">http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe</a><br> 要想下载离线版 Chrome，必须知道你要下载的版本号，取版本号第二个小数点后的数字串。如 Version 27.0.1453.94 m 的下载地址就是：<br> <a href="http://dl.google.com/chrome/install/1453.94/chrome_installer.exe" target="_blank" rel="external">http://dl.google.com/chrome/install/1453.94/chrome_installer.exe</a><br> 注：离线版 Chrome 可能不会自动更新。</li>
 <li>Chrome 版本号规则<br> Google Chrome 版本号的命名规则，拿最新的 Chrome 27.0.1453.94 为例，这个版本号可以分成 3 部分：<br> 27.0 —— 这是主版本号。<br> .1453 —— 这是一个版本代码，通常它的变化意味着有新的功能的加入。<br> .94 —— 这是用于修补漏洞和稳定性调整更新时候用到的数字。通常没有新功能加入的时候这个数字会实时更新。</li>
@@ -720,7 +870,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/aptitude-concise-manual/"/>
     <id>http://tiandechi.com/2015/04/18/aptitude-concise-manual/</id>
     <published>2015-04-18T15:56:43.000Z</published>
-    <updated>2015-04-19T03:43:31.680Z</updated>
+    <updated>2015-04-18T19:43:30.000Z</updated>
     <content type="html"><![CDATA[<p><a href="http://man.ddvip.com/linux/debian/aptitude/index.html" target="_blank" rel="external">aptitude简明手册</a></p>
 ]]></content>
     <summary type="html">
@@ -739,7 +889,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/check-Linux-Kernel-and-Distrabution-version/"/>
     <id>http://tiandechi.com/2015/04/18/check-Linux-Kernel-and-Distrabution-version/</id>
     <published>2015-04-18T15:55:19.000Z</published>
-    <updated>2015-04-18T15:56:25.505Z</updated>
+    <updated>2015-04-18T07:56:24.000Z</updated>
     <content type="html"><![CDATA[<h1 id="查看发行版本：">查看发行版本：</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/i</span>ssue</span><br></pre></td></tr></table></figure>
 <h1 id="查看内核版本：">查看内核版本：</h1><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /<span class="keyword">proc</span>/version</span><br></pre></td></tr></table></figure>
 <p><a href="http://blog.sina.com.cn/s/blog_66ad86a301015yzr.html" target="_blank" rel="external">来源</a></p>
@@ -761,7 +911,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/The-role-and-content-of-the-Linux-Directory/"/>
     <id>http://tiandechi.com/2015/04/18/The-role-and-content-of-the-Linux-Directory/</id>
     <published>2015-04-18T15:52:12.000Z</published>
-    <updated>2015-04-21T10:37:19.985Z</updated>
+    <updated>2015-04-21T02:37:18.000Z</updated>
     <content type="html"><![CDATA[<h1 id="根目录“/”">根目录“/”</h1><p>根目录位于目录结构的最顶层，用斜线（/）表示，类似于Windows操作系统的“C:\“，包含Fedora操作系统中所有的目录和文件。</p>
 <h1 id="/bin">/bin</h1><p>/bin<br>目录又称为二进制目录，包含了那些供系统管理员和普通用户使用的重要linux命令的二进制映像。该目录存放的内容包括各种可执行文件，还有某些可执行文件的符号连接。常用的命令有：cp、dmesg、kill、login、rm、ping、chomd、bash、cat、echo、ls、 mail、vi等。</p>
 <h1 id="/boot">/boot</h1><p>/boot<br>目录存放系统核心文件以及启动时必须读取的文件，包括Linux内核的二进制映像。</p>
@@ -799,7 +949,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/ssh-add-command/"/>
     <id>http://tiandechi.com/2015/04/18/ssh-add-command/</id>
     <published>2015-04-18T15:49:56.000Z</published>
-    <updated>2015-04-18T15:52:23.290Z</updated>
+    <updated>2015-04-18T07:52:22.000Z</updated>
     <content type="html"><![CDATA[<h1 id="功能作用">功能作用</h1><p>把专用密钥添加到 ssh-agent 的高速缓存中</p>
 <h1 id="位置">位置</h1><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ssh-<span class="keyword">add</span></span><br></pre></td></tr></table></figure>
 <h1 id="格式用法">格式用法</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="built_in">add</span> [-cDdLlXx] [-t life] [<span class="built_in">file</span> ...]</span><br><span class="line">ssh-<span class="built_in">add</span> -s pkcs11</span><br><span class="line">ssh-<span class="built_in">add</span> -e pkcs11</span><br></pre></td></tr></table></figure>
@@ -836,7 +986,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/"/>
     <id>http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/</id>
     <published>2015-04-18T15:46:45.000Z</published>
-    <updated>2015-04-18T16:07:37.970Z</updated>
+    <updated>2015-04-18T08:07:36.000Z</updated>
     <content type="html"><![CDATA[<p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
 <h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -876,7 +1026,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/when-git-pull-get-conflict/"/>
     <id>http://tiandechi.com/2015/04/18/when-git-pull-get-conflict/</id>
     <published>2015-04-18T15:41:42.000Z</published>
-    <updated>2015-04-18T15:45:10.495Z</updated>
+    <updated>2015-04-18T07:45:10.000Z</updated>
     <content type="html"><![CDATA[<p>同事在使用git pull代码时，经常会碰到有冲突的情况，提示如下信息：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: Your <span class="built_in">local</span> changes <span class="built_in">to</span> <span class="string">'c/environ.c'</span> would be overwritten <span class="keyword">by</span> <span class="built_in">merge</span>. Aborting.</span><br><span class="line">Please, commit your changes <span class="operator">or</span> stash them <span class="keyword">before</span> you can <span class="built_in">merge</span>.</span><br></pre></td></tr></table></figure></p>
 <p>这个意思是说更新下来的内容和本地修改的内容有冲突，先提交你的改变或者先将本地修改暂时存储起来。<br>处理的方式非常简单，主要是使用git stash命令进行处理，分成以下几个步骤进行处理。<br><a id="more"></a></p>
 <ol>
@@ -907,99 +1057,6 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
       <category term="Git" scheme="http://tiandechi.com/tags/Git/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[VIM configure]]></title>
-    <link href="http://tiandechi.com/2015/04/18/VIM-configure/"/>
-    <id>http://tiandechi.com/2015/04/18/VIM-configure/</id>
-    <published>2015-04-18T15:38:11.000Z</published>
-    <updated>2015-05-09T12:31:43.337Z</updated>
-    <content type="html"><![CDATA[<p>vim 是公认很好用很完美，但是对新手来说，上手毕竟不是很容易。Windows下程序员很多都很喜欢 Source Insight 这个工具来看代码，各种语法高亮看着很舒服。vim 作为为程序员打造的编辑器，没有道理不可以通过配置让程序员舒服地编辑代码，但是新手通常很难将其配置成顺手顺眼的环境。<br>用户只需修改家目录下的 .vimrc 配置文件内容，即可自定义 vim 的功能。<br>可以把 ~/.vimrc 里面的内容替换为如下内容，或者，根据需要直接在上面根据需要自行修改（ &quot; 后面的内容为注释内容）：<br><a id="more"></a><br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot; 显示相关<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot;set shortmess=atI &quot; 启动的时候不显示那个援助乌干达儿童的提示<br>&quot;winpos 5 5 &quot; 设定窗口位置<br>&quot;set lines=40 columns=155 &quot; 设定窗口大小<br>&quot;set nu &quot; 显示行号<br>set go= &quot; 不要图形按钮<br>&quot;color asmanian2 &quot; 设置背景主题<br>set guifont=Courier<em>New:h10:cANSI &quot; 设置字体<br>&quot;syntax on &quot; 语法高亮<br>autocmd InsertLeave <em> se nocul &quot; 用浅色高亮当前行<br>autocmd InsertEnter </em> se cul &quot; 用浅色高亮当前行<br>&quot;set ruler &quot; 显示标尺<br>set showcmd &quot; 输入的命令显示出来，看的清楚些<br>&quot;set cmdheight=1 &quot; 命令行（在状态行下）的高度，设置为1<br>&quot;set whichwrap+=&lt;,&gt;,h,l &quot; 允许backspace和光标键跨越行边界(不建议)<br>&quot;set scrolloff=3 &quot; 光标移动到buffer的顶部和底部时保持3行距离<br>set novisualbell &quot; 不要闪烁(不明白)<br>set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)} &quot;状态行显示的内容<br>set laststatus=1 &quot; 启动显示状态行(1),总是显示状态行(2)<br>set foldenable &quot; 允许折叠<br>set foldmethod=manual &quot; 手动折叠<br>&quot;set background=dark &quot;背景使用黑色<br>set nocompatible &quot;去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限<br>&quot; 显示中文帮助<br>if version &gt;= 603<br>set helplang=cn<br>set encoding=utf-8<br>endif<br>&quot; 设置配色方案<br>&quot;colorscheme murphy<br>&quot;字体<br>&quot;if (has(&quot;gui_running&quot;))<br>&quot; set guifont=Bitstream\ Vera\ Sans\ Mono\ 10<br>&quot;endif<br>set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936<br>set termencoding=utf-8<br>set encoding=utf-8<br>set fileencodings=ucs-bom,utf-8,cp936<br>set fileencoding=utf-8<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot;新文件标题<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot;新建.c,.h,.sh,.java文件，自动插入文件头<br>autocmd BufNewFile .cpp,.[ch],.sh,.java exec &quot;:call SetTitle()&quot;<br>&quot;&quot;定义函数SetTitle，自动插入文件头<br>func SetTitle()<br>&quot;如果文件类型为.sh文件<br>if &amp;filetype == &#39;sh&#39;<br>call setline(1,&quot;#########################################################################&quot;)<br>call append(line(&quot;.&quot;), &quot;# File Name: &quot;.expand(&quot;%&quot;))<br>call append(line(&quot;.&quot;)+1, &quot;# Author: ma6174&quot;)<br>call append(line(&quot;.&quot;)+2, &quot;# mail: ma6174@163.com&quot;)<br>call append(line(&quot;.&quot;)+3, &quot;# Created Time: &quot;.strftime(&quot;%c&quot;))<br>call append(line(&quot;.&quot;)+4, &quot;#########################################################################&quot;)<br>call append(line(&quot;.&quot;)+5, &quot;#!/bin/bash&quot;)<br>call append(line(&quot;.&quot;)+6, &quot;&quot;)<br>else<br>call setline(1, &quot;/<em>&quot;)<br>call append(line(&quot;.&quot;), &quot; &gt; File Name: &quot;.expand(&quot;%&quot;))<br>call append(line(&quot;.&quot;)+1, &quot; &gt; Author: ma6174&quot;)<br>call append(line(&quot;.&quot;)+2, &quot; &gt; Mail: ma6174@163.com &quot;)<br>call append(line(&quot;.&quot;)+3, &quot; &gt; Created Time: &quot;.strftime(&quot;%c&quot;))<br>call append(line(&quot;.&quot;)+4, &quot; **/&quot;)<br>call append(line(&quot;.&quot;)+5, &quot;&quot;)<br>endif<br>if &amp;filetype == &#39;cpp&#39;<br>call append(line(&quot;.&quot;)+6, &quot;#include&quot;)<br>call append(line(&quot;.&quot;)+7, &quot;using namespace std;&quot;)<br>call append(line(&quot;.&quot;)+8, &quot;&quot;)<br>endif<br>if &amp;filetype == &#39;c&#39;<br>call append(line(&quot;.&quot;)+6, &quot;#include&quot;)<br>call append(line(&quot;.&quot;)+7, &quot;&quot;)<br>endif<br>&quot;新建文件后，自动定位到文件末尾<br>autocmd BufNewFile </em> normal G<br>endfunc<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot;键盘命令<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>nmap w :w!<br>nmap f :find<br>&quot; 映射全选+复制 ctrl+a<br>map ggVGY<br>map! ggVGY<br>map gg=G<br>&quot; 选中状态下 Ctrl+c 复制<br>vmap &quot;+y<br>&quot;去空行<br>nnoremap :g/^\s<em>$/d<br>&quot;比较文件<br>nnoremap :vert diffsplit<br>&quot;新建标签<br>map :tabnew<br>&quot;列出当前目录文件<br>map :tabnew .<br>&quot;打开树状文件目录<br>map \be<br>&quot;C，C++ 按F5编译运行<br>map :call CompileRunGcc()<br>func! CompileRunGcc()<br>exec &quot;w&quot;<br>if &amp;filetype == &#39;c&#39;<br>exec &quot;!g++ % -o %&lt;&quot;<br>exec &quot;! ./%&lt;&quot;<br>elseif &amp;filetype == &#39;cpp&#39;<br>exec &quot;!g++ % -o %&lt;&quot;<br>exec &quot;! ./%&lt;&quot;<br>elseif &amp;filetype == &#39;java&#39;<br>exec &quot;!javac %&quot;<br>exec &quot;!java %&lt;&quot;<br>elseif &amp;filetype == &#39;sh&#39;<br>:!./%<br>endif<br>endfunc<br>&quot;C,C++的调试<br>map :call Rungdb()<br>func! Rungdb()<br>exec &quot;w&quot;<br>exec &quot;!g++ % -g -o %&lt;&quot;<br>exec &quot;!gdb ./%&lt;&quot;<br>endfunc<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot;&quot;实用设置<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot; 设置当文件被改动时自动载入<br>set autoread<br>&quot; quickfix模式<br>autocmd FileType c,cpp map :w:make<br>&quot;代码补全<br>set completeopt=preview,menu<br>&quot;允许插件<br>filetype plugin on<br>&quot;共享剪贴板<br>set clipboard+=unnamed<br>&quot;从不备份<br>set nobackup<br>&quot;make 运行<br>:set makeprg=g++\ -Wall\ \ %<br>&quot;自动保存<br>set autowrite<br>set ruler &quot; 打开状态栏标尺<br>set cursorline &quot; 突出显示当前行<br>set magic &quot; 设置魔术<br>set guioptions-=T &quot; 隐藏工具栏<br>set guioptions-=m &quot; 隐藏菜单栏<br>&quot;set statusline=\ %&lt;%F[%1%M%%n%R%H]%=\ %y\ %0(%{&amp;fileformat}\ %{&amp;encoding}\ %c:%l/%L%)\<br>&quot; 设置在状态行显示的信息<br>set foldcolumn=0<br>set foldmethod=indent<br>set foldlevel=3<br>set foldenable &quot; 开始折叠<br>&quot; 不要使用vi的键盘模式，而是vim自己的<br>set nocompatible<br>&quot; 语法高亮<br>set syntax=on<br>&quot; 去掉输入错误的提示声音<br>set noeb<br>&quot; 在处理未保存或只读文件的时候，弹出确认<br>set confirm<br>&quot; 自动缩进<br>set autoindent<br>set cindent<br>&quot; Tab键的宽度<br>set tabstop=4<br>&quot; 统一缩进为4<br>set softtabstop=4<br>set shiftwidth=4<br>&quot; 不要用空格代替制表符<br>set noexpandtab<br>&quot; 在行和段开始处使用制表符<br>set smarttab<br>&quot; 显示行号<br>set number<br>&quot; 历史记录数<br>set history=1000<br>&quot;禁止生成临时文件<br>set nobackup<br>set noswapfile<br>&quot;搜索忽略大小写<br>set ignorecase<br>&quot;搜索逐字符高亮<br>set hlsearch<br>set incsearch<br>&quot;行内替换<br>set gdefault<br>&quot;编码设置<br>set enc=utf-8<br>set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936<br>&quot;语言设置<br>set langmenu=zh_CN.UTF-8<br>set helplang=cn<br>&quot; 我的状态行显示的内容（包括文件类型和解码）<br>&quot;set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)}<br>&quot;set statusline=[%F]%y%r%m%</em>%=[Line:%l/%L,Column:%c][%p%%]<br>&quot; 总是显示状态行<br>set laststatus=2<br>&quot; 命令行（在状态行下）的高度，默认为1，这里是2<br>set cmdheight=2<br>&quot; 侦测文件类型<br>filetype on<br>&quot; 载入文件类型插件<br>filetype plugin on<br>&quot; 为特定文件类型载入相关缩进文件<br>filetype indent on<br>&quot; 保存全局变量<br>set viminfo+=!<br>&quot; 带有如下符号的单词不要被换行分割<br>set iskeyword+=</em>,$,@,%,#,-<br>&quot; 字符间插入的像素行数目<br>set linespace=0<br>&quot; 增强模式中的命令行自动完成操作<br>set wildmenu<br>&quot; 使回格键（backspace）正常处理indent, eol, start等<br>set backspace=2<br>&quot; 允许backspace和光标键跨越行边界<br>set whichwrap+=&lt;,&gt;,h,l<br>&quot; 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）<br>set mouse=a<br>set selection=exclusive<br>set selectmode=mouse,key<br>&quot; 通过使用: commands命令，告诉我们文件的哪一行被改变过<br>set report=0<br>&quot; 在被分割的窗口间显示空白，便于阅读<br>set fillchars=vert:\ ,stl:\ ,stlnc:\<br>&quot; 高亮显示匹配的括号<br>set showmatch<br>&quot; 匹配括号高亮的时间（单位是十分之一秒）<br>set matchtime=1<br>&quot; 光标移动到buffer的顶部和底部时保持3行距离<br>set scrolloff=3<br>&quot; 为C程序提供自动缩进<br>set smartindent<br>&quot; 高亮显示普通txt文件（需要txt.vim脚本）<br>au BufRead,BufNewFile * setfiletype txt<br>&quot;自动补全<br>:inoremap ( ()i<br>:inoremap ) =ClosePair(&#39;)&#39;)<br>:inoremap { {}O<br>:inoremap } =ClosePair(&#39;}&#39;)<br>:inoremap [ []i<br>:inoremap ] =ClosePair(&#39;]&#39;)<br>:inoremap &quot; &quot;&quot;i<br>:inoremap &#39; &#39;&#39;i<br>function! ClosePair(char)<br>if getline(&#39;.&#39;)[col(&#39;.&#39;) - 1] == a:char<br>return &quot;\&quot;<br>else<br>return a:char<br>endif<br>endfunction<br>filetype plugin indent on<br>&quot;打开文件类型检测, 加了这句才可以用智能补全<br>set completeopt=longest,menu<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot; CTags的设定<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>let Tlist_Sort_Type = &quot;name&quot; &quot; 按照名称排序<br>let Tlist_Use_Right_Window = 1 &quot; 在右侧显示窗口<br>let Tlist_Compart_Format = 1 &quot; 压缩方式<br>let Tlist_Exist_OnlyWindow = 1 &quot; 如果只有一个buffer，kill窗口也kill掉buffer<br>let Tlist_File_Fold_Auto_Close = 0 &quot; 不要关闭其他文件的tags<br>let Tlist_Enable_Fold_Column = 0 &quot; 不要显示折叠树<br>autocmd FileType java set tags+=D:\tools\java\tags<br>&quot;autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags<br>&quot;let Tlist_Show_One_File=1 &quot;不同时显示多个文件的tag，只显示当前文件的<br>&quot;设置tags<br>set tags=tags<br>&quot;set autochdir<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot;其他东东<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot;默认打开Taglist<br>let Tlist_Auto_Open=1<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>&quot; Tag list (ctags)<br>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;<br>let Tlist_Ctags_Cmd = &#39;/usr/bin/ctags&#39;<br>let Tlist_Show_One_File = 1 &quot;不同时显示多个文件的tag，只显示当前文件的<br>let Tlist_Exit_OnlyWindow = 1 &quot;如果taglist窗口是最后一个窗口，则退出vim<br>let Tlist_Use_Right_Window = 1 &quot;在右侧窗口中显示taglist窗口<br>&quot; minibufexpl插件的一般设置<br>let g:miniBufExplMapWindowNavVim = 1<br>let g:miniBufExplMapWindowNavArrows = 1<br>let g:miniBufExplMapCTabSwitchBufs = 1<br>let g:miniBufExplModSelTarget = 1</p>
-<p>--------------------------------------分割线 --------------------------------------<br>vim 配置主要有以下特点：</p>
-<ol>
-<li>按 F5 可以直接编译并执行C、C++、java代码以及执行shell脚本，按“F8”可进行C、C++代码的调试</li>
-<li>自动插入文件头 ，新建C、C++源文件时自动插入表头：包括文件名、作者、联系方式、建立时间等，读者可根据需求自行更改</li>
-<li>映射“Ctrl + A”为全选并复制快捷键，方便复制代码</li>
-<li>按“F2”可以直接消除代码中的空行</li>
-<li>“F3”可列出当前目录文件，打开树状文件目录</li>
-<li>支持鼠标选择、方向键移动</li>
-<li>代码高亮，自动缩进，显示行号，显示状态行</li>
-<li>按“Ctrl + P”可自动补全</li>
-<li>[]、{}、()、&quot;&quot;、&#39; &#39;等都自动补全</li>
-<li>其他功能读者可以查阅<a href="http://www.linuxidc.com/Linux/2015-04/115913.htm" target="_blank" rel="external">原文</a></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>vim 是公认很好用很完美，但是对新手来说，上手毕竟不是很容易。Windows下程序员很多都很喜欢 Source Insight 这个工具来看代码，各种语法高亮看着很舒服。vim 作为为程序员打造的编辑器，没有道理不可以通过配置让程序员舒服地编辑代码，但是新手通常很难将其配置成顺手顺眼的环境。<br>用户只需修改家目录下的 .vimrc 配置文件内容，即可自定义 vim 的功能。<br>可以把 ~/.vimrc 里面的内容替换为如下内容，或者，根据需要直接在上面根据需要自行修改（ &quot; 后面的内容为注释内容）：<br>]]>
-    
-    </summary>
-    
-      <category term="vim" scheme="http://tiandechi.com/tags/vim/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[how to send file by SSH]]></title>
-    <link href="http://tiandechi.com/2015/04/18/how-to-send-file-by-SSH/"/>
-    <id>http://tiandechi.com/2015/04/18/how-to-send-file-by-SSH/</id>
-    <published>2015-04-18T15:36:33.000Z</published>
-    <updated>2015-04-18T15:37:51.765Z</updated>
-    <content type="html"><![CDATA[<p>scp 命令是 SSH 中最方便有用的命令了，试想，在两台服务器之间直接传送文件，仅仅用 scp 一个命令就完全解决了。 你可以在一台服务器上 以 root 身份运行 #scp servername:/home/ftp/pub/file1 . 这样就把另一台服务器上的文件 /home/ftp/pub/file1 直接传到本机器的当前目录下，当然你也可以用 #scp /tmp/file2 servername:/boot 把本机上的文件 /tmp/file2 送到另一台机器的 /boot 目录下。而且整个传送过程仍然是用 SSH 加密的。<br>scp 就是 secure copy, 是用来进行远程文件拷贝的 . 数据传输使用 ssh1, 并且和 ssh1 使用相同的认证方式 , 提供相同的安全保证 . 与 rcp 不同的是 ,scp 会要求你输入密码如果需要的话 .<br><a id="more"></a><br>最简单的应用如下 :<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">scp</span> 本地用户名 <span class="variable">@IP</span> 地址 : 文件名 <span class="number">1</span> 远程用户名 <span class="variable">@IP</span> 地址 : 文件名 <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-<p>[ 本地用户名 @IP 地址 :] 可以不输入 , 可能需要输入远程用户名所对应的密码 .<br>可能有用的几个参数 :<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">v 和大多数 linux 命令中的 -v 意思一样 , 用来显示进度 . 可以用来查看连接 , 认证 , 或是配置错误 .</span><br><span class="line"></span>-<span class="ruby"><span class="constant">C</span> 使能压缩选项 .</span><br><span class="line"></span>-<span class="ruby"><span class="constant">P</span> 选择端口 . 注意 -p 已经被 rcp 使用 .</span><br><span class="line"></span>-<span class="ruby"><span class="number">4</span> 强行使用 <span class="constant">IPV4</span> 地址 .</span><br><span class="line"></span>-<span class="ruby"><span class="number">6</span> 强行使用 <span class="constant">IPV6</span> 地址 .</span><br><span class="line"></span>-<span class="ruby">r <span class="constant">Recursively</span> copy entire directories.</span></span><br></pre></td></tr></table></figure></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>scp 命令是 SSH 中最方便有用的命令了，试想，在两台服务器之间直接传送文件，仅仅用 scp 一个命令就完全解决了。 你可以在一台服务器上 以 root 身份运行 #scp servername:/home/ftp/pub/file1 . 这样就把另一台服务器上的文件 /home/ftp/pub/file1 直接传到本机器的当前目录下，当然你也可以用 #scp /tmp/file2 servername:/boot 把本机上的文件 /tmp/file2 送到另一台机器的 /boot 目录下。而且整个传送过程仍然是用 SSH 加密的。<br>scp 就是 secure copy, 是用来进行远程文件拷贝的 . 数据传输使用 ssh1, 并且和 ssh1 使用相同的认证方式 , 提供相同的安全保证 . 与 rcp 不同的是 ,scp 会要求你输入密码如果需要的话 .<br>]]>
-    
-    </summary>
-    
-      <category term="SSH" scheme="http://tiandechi.com/tags/SSH/"/>
-    
-      <category term="scp" scheme="http://tiandechi.com/tags/scp/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[how to format usb stick in Linux]]></title>
-    <link href="http://tiandechi.com/2015/04/18/how-to-format-usb-stick-in-Linux/"/>
-    <id>http://tiandechi.com/2015/04/18/how-to-format-usb-stick-in-Linux/</id>
-    <published>2015-04-18T15:32:32.000Z</published>
-    <updated>2015-04-18T15:35:22.475Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://os.51cto.com/art/201307/402212.htm" target="_blank" rel="external">在 Linux 系统如何正确的对U盘进行格式化？</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="http://os.51cto.com/art/201307/402212.htm" target="_blank" rel="external">在 Linux 系统如何正确的对U盘进行格式化？</a></p>
-]]>
-    </summary>
-    
-      <category term="Format" scheme="http://tiandechi.com/tags/Format/"/>
-    
-      <category term="usb stick" scheme="http://tiandechi.com/tags/usb-stick/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Debian Package Management]]></title>
-    <link href="http://tiandechi.com/2015/04/18/Debian-Package-Management/"/>
-    <id>http://tiandechi.com/2015/04/18/Debian-Package-Management/</id>
-    <published>2015-04-18T15:30:53.000Z</published>
-    <updated>2015-04-18T15:35:33.890Z</updated>
-    <content type="html"><![CDATA[<p>因文章较详实，这里不再做拷贝，请移至源地址查阅：<br><a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-102-4/" target="_blank" rel="external">Debian 包管理</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>因文章较详实，这里不再做拷贝，请移至源地址查阅：<br><a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-102-4/" target="_blank" rel="external">Debian ]]>
-    </summary>
-    
-      <category term="Debian" scheme="http://tiandechi.com/tags/Debian/"/>
-    
-      <category term="Package" scheme="http://tiandechi.com/tags/Package/"/>
     
   </entry>
   
