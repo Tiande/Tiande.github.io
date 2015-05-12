@@ -1017,7 +1017,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     <link href="http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/"/>
     <id>http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/</id>
     <published>2015-04-18T15:46:45.000Z</published>
-    <updated>2015-04-18T08:07:36.000Z</updated>
+    <updated>2015-05-12T16:30:49.868Z</updated>
     <content type="html"><![CDATA[<p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
 <h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -1046,7 +1046,7 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     
     </summary>
     
-      <category term="GIt" scheme="http://tiandechi.com/tags/GIt/"/>
+      <category term="Git" scheme="http://tiandechi.com/tags/Git/"/>
     
       <category term="SSH" scheme="http://tiandechi.com/tags/SSH/"/>
     
