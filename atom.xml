@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-05-10T05:28:54.009Z</updated>
+  <updated>2015-05-18T10:23:17.145Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -15,11 +15,105 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Windows 7 & Debian 双系统]]></title>
+    <link href="http://tiandechi.com/2015/05/18/Windows-7-Debian-%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://tiandechi.com/2015/05/18/Windows-7-Debian-双系统/</id>
+    <published>2015-05-18T10:23:17.149Z</published>
+    <updated>2015-05-18T10:23:17.145Z</updated>
+    <content type="html"><![CDATA[<p><strong>建议在 Linux 下使用一段时间后，再参阅本教程，不然小白会摸不着头脑的。</strong></p>
+<h1 id="准备：">准备：</h1><ol>
+<li>电脑 #至少一台</li>
+<li>U盘 &amp; [移动硬盘,NAS]</li>
+<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘<br>4.<a id="more"></a>
+</li>
+</ol>
+<h1 id="首先安装_Windows_7">首先安装 Windows 7</h1><p><strong>注意：如果当前系统即为 win7 且不想要重装可以跳过这一节。</strong><br><strong>但是硬盘要留出用于装 Debian 的 空分区。（使用 磁盘管理 或是 Diskgenius）</strong></p>
+<ol>
+<li>将现在系统下自己需要的文件备份到移动硬盘</li>
+<li><p><a href="http://blog.chinaunix.net/uid-10328574-id-3526642.html" target="_blank" rel="external">将 ISO 写入 U盘</a><br>windows 下可用 UltraISO 工具；<br><strong>建议下载好主板的驱动到制作好的U盘中。装机后手动安装驱动，避免很多问题</strong><br><strong>万能驱动包 也可以...</strong><br>Linux 下：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#1.用 fdisk 在 U盘 上建立一个 ntfs 分区，编辑 flag ，勾上 boot 选项</span></span><br><span class="line"><span class="preprocessor">#2.然后 mkfs.ntfs 格式化</span></span><br><span class="line"><span class="preprocessor">#3.挂载 win7 的 iso 和新建的 ntfs 分区，并将 iso 的全部内容复制到 ntfs 分区</span></span><br><span class="line"><span class="preprocessor">#4.编译安装ms-sys</span></span><br><span class="line"><span class="preprocessor">#ms-sys是一个写mbr的工具，起到让系统知道能够引导 win7 安装的作用，至关重要. 到 ms-sys.sourceforge.net 下载</span></span><br><span class="line"><span class="preprocessor">#5.运行以下命令写入 mbr ：</span></span><br><span class="line">ms-sys -<span class="number">7</span> /dev/sdX #其中的 -<span class="number">7</span> 参数指 win7 , sdX 指的是U盘对应的盘符</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启， Bios 里改变 硬盘模式 由 AHCI 到 IDE，引导选择 U盘<br>因为必要驱动没装，所以需要 IDE兼容模式，装好系统后可以改回来。</p>
+</li>
+<li>安装 Windows</li>
+<li><a href="http://jingyan.baidu.com/article/e4511cf31556a02b855eaf4c.html" target="_blank" rel="external">Win7 开启 AHCI</a><br>1.在BIOS里SATA模式为IDE的状态下，进入系统后在运行里输入regedit,打开注册表编辑器，依次打开注册表，修改 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Msahci 下的 start ，把数值数据改为0<br>2.重新启动，在 BIOS 里改成 AHCI 模式，进入系统后会发现新硬件，不用理会，直接安装 AHCI 驱动（ win7 一般联网会自动安装，如没有自动安装，请到主板或笔记本官网下载主板或者单独的 AHCI 驱动）</li>
+</ol>
+<h1 id="安装Debian"><a href="http://m.blog.chinaunix.net/uid-10995039-id-3142803.html/" target="_blank" rel="external">安装Debian</a></h1><ol>
+<li>制作 U盘启动盘<br>使用 UltraISO 即可，此处不再赘述。</li>
+<li>U盘引导 开始安装<br><strong>grub 要装在 Linux 所在的分区</strong>（我安装在/dev/sda5）<br>此处不需要在 BIOS 改 硬盘模式， Linux 内核已集成 AHCI 驱动。</li>
+<li>重新启动，进入 Win7</li>
+</ol>
+<h1 id="制作启动引导选项">制作启动引导选项</h1><ol>
+<li>安装 EasyBCD</li>
+<li>打开 EasyBCD，点击 添加新条目</li>
+<li>操作系统 选择 Linux/BSD<br> 类型: GRUB(Legacy)<br> 名称: [自己填]<br> 驱动器： [装 Debian 的那个分区]<br> 【添加条目】</li>
+<li>重启，就有 [自己填] 这个启动选项了。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>建议在 Linux 下使用一段时间后，再参阅本教程，不然小白会摸不着头脑的。</strong></p>
+<h1 id="准备：">准备：</h1><ol>
+<li>电脑 #至少一台</li>
+<li>U盘 &amp; [移动硬盘,NAS]</li>
+<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘<br>4.]]>
+    
+    </summary>
+    
+      <category term="Debian" scheme="http://tiandechi.com/tags/Debian/"/>
+    
+      <category term="Windows" scheme="http://tiandechi.com/tags/Windows/"/>
+    
+      <category term="OS" scheme="http://tiandechi.com/categories/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Debian下iceweasel安装flash player]]></title>
+    <link href="http://tiandechi.com/2015/05/18/Debian%E4%B8%8Biceweasel%E5%AE%89%E8%A3%85flash-player/"/>
+    <id>http://tiandechi.com/2015/05/18/Debian下iceweasel安装flash-player/</id>
+    <published>2015-05-18T10:19:02.000Z</published>
+    <updated>2015-05-18T10:20:07.996Z</updated>
+    <content type="html"><![CDATA[<p>下载 Flash Player<br>解压会得到一个.so文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#mkdir</span> -<span class="tag">p</span> ~/.mozilla/plugins/</span><br><span class="line">cp libflashplayer<span class="class">.so</span> ~/.mozilla/plugins/</span><br><span class="line">cp libflashplayer<span class="class">.so</span> /usr/lib/iceweasel/</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>下载 Flash Player<br>解压会得到一个.so文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><sp]]>
+    </summary>
+    
+      <category term="Debian" scheme="http://tiandechi.com/tags/Debian/"/>
+    
+      <category term="flash player" scheme="http://tiandechi.com/tags/flash-player/"/>
+    
+      <category term="iceweasel" scheme="http://tiandechi.com/tags/iceweasel/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[常用正则表达式]]></title>
+    <link href="http://tiandechi.com/2015/05/18/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://tiandechi.com/2015/05/18/常用正则表达式/</id>
+    <published>2015-05-18T10:04:29.000Z</published>
+    <updated>2015-05-18T10:06:12.164Z</updated>
+    <content type="html"><![CDATA[<p>说明：正则表达式通常用于两种任务：1.验证，2.搜索/替换。用于验证时，通常需要在前后分别加上^和$，以匹配整个待验证字符串；搜索/替换时是否加 上此限定则根据搜索的要求而定，此外，也有可能要在前后加上\b而不是^和$。此表所列的常用正则表达式，除个别外均未在前后加上任何限定，请根据需要， 自行处理。<br>&lt;!--more&gt;</p>
+<table><br>        <thead><br>            <tr><br>                <th>说明</th><br>                <th>正则表达式</th><br>            </tr><br>        </thead><br>        <tbody><tr><br>            <td>网址（URL）</td><br>            <td><span class="regex">[a-zA-z]+://[^\s]<em></em></span></td><br>        </tr><br>        <tr><br>            <td>IP地址(IP Address)</td><br>            <td><span class="regex">((2[0-4]\d|25[0-5]|[01]?\d\d?).){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)</span></td><br>        </tr><br>        <tr><br>            <td>电子邮件(Email)</td><br>            <td><span class="regex">\w+([-+.]\w+)@\w+([-.]\w+)<em>.\w+([-.]\w+)</em></span></td><br>        </tr><br>        <tr><br>            <td>QQ号码</td><br>            <td><span class="regex">[1-9]\d{4,}</span></td><br>        </tr><br>        <tr><br>            <td>HTML标记(包含内容或自闭合)</td><br>            <td><span class="regex">&lt;(.<em>)(.</em>)&gt;.<em>&lt;\/\1&gt;|&lt;(.</em>) \/&gt;</span></td><br>        </tr><br>        <tr><br>            <td>密码(由数字/大写字母/小写字母/标点符号组成，四种都必有，8位以上)</td><br>            <td><span class="regex">(?=^.{8,}$)(?=.<em>\d)(?=.</em>\W+)(?=.<em>[A-Z])(?=.</em>[a-z])(?!.<em>\n).</em>$</span></td><br>        </tr><br>        <tr><br>            <td>日期(年-月-日)</td><br>            <td><span class="regex">(\d{4}|\d{2})-((1[0-2])|(0?[1-9]))-(([12][0-9])|(3[01])|(0?[1-9]))</span></td><br>        </tr><br>        <tr><br>            <td>日期(月/日/年)</td><br>            <td><span class="regex">((1[0-2])|(0?[1-9]))/(([12][0-9])|(3[01])|(0?[1-9]))/(\d{4}|\d{2})</span></td><br>        </tr><br>        <tr><br>            <td>时间(小时:分钟, 24小时制)</td><br>            <td><span class="regex">((1|0?)[0-9]|2[0-3]):([0-5][0-9])</span></td><br>        </tr><br>        <tr><br>            <td>汉字(字符)</td><br>            <td><span class="regex">[\u4e00-\u9fa5]</span></td><br>        </tr><br>        <tr><br>            <td>中文及全角标点符号(字符)</td><br>            <td><span class="regex">[\u3000-\u301e\ufe10-\ufe19\ufe30-\ufe44\ufe50-\ufe6b\uff01-\uffee]</span></td><br>        </tr><br>        <tr><br>            <td>中国大陆固定电话号码</td><br>            <td><span class="regex">(\d{4}-|\d{3}-)?(\d{8}|\d{7})</span></td><br>        </tr><br>        <tr><br>            <td>中国大陆手机号码</td><br>            <td><span class="regex">1\d{10}</span></td><br>        </tr><br>        <tr><br>            <td>中国大陆邮政编码</td><br>            <td><span class="regex">[1-9]\d{5}</span></td><br>        </tr><br>        <tr><br>            <td>中国大陆身份证号(15位或18位)</td><br>            <td><span class="regex">\d{15}(\d\d[0-9xX])?</span></td><br>        </tr><br>        <tr><br>            <td>非负整数(正整数或零)</td><br>            <td><span class="regex">\d+</span></td><br>        </tr><br>        <tr><br>            <td>正整数</td><br>            <td><span class="regex">[0-9]<em>[1-9][0-9]</em></span></td><br>        </tr><br>        <tr><br>            <td>负整数</td><br>            <td><span class="regex">-[0-9]<em>[1-9][0-9]</em></span></td><br>        </tr><br>        <tr><br>            <td>整数</td><br>            <td><span class="regex">-?\d+</span></td><br>        </tr><br>        <tr><br>            <td>小数</td><br>            <td><span class="regex">(-?\d+)(.\d+)?</span></td><br>        </tr><br>        <tr><br>            <td>不包含abc的单词</td><br>            <td><span class="regex">\b((?!abc)\w)+\b</span></td><br>        </tr><br>    </tbody></table>
+
+<p><a href="http://deerchao.net/tutorials/regex/common.htm" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>说明：正则表达式通常用于两种任务：1.验证，2.搜索/替换。用于验证时，通常需要在前后分别加上^和$，以匹配整个待验证字符串；搜索/替换时是否加 上此限定则根据搜索的要求而定，此外，也有可能要在前后加上\b而不是^和$。此表所列的常用正则表达式，除个别外均未在前后加上任何限]]>
+    </summary>
+    
+      <category term="regex" scheme="http://tiandechi.com/tags/regex/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Linux dd命令制作U盘系统启动盘]]></title>
     <link href="http://tiandechi.com/2015/05/10/Linux-dd%E5%91%BD%E4%BB%A4%E5%88%B6%E4%BD%9CU%E7%9B%98%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E7%9B%98/"/>
     <id>http://tiandechi.com/2015/05/10/Linux-dd命令制作U盘系统启动盘/</id>
     <published>2015-05-10T05:26:41.000Z</published>
-    <updated>2015-05-10T05:28:54.009Z</updated>
+    <updated>2015-05-10T05:28:54.000Z</updated>
     <content type="html"><![CDATA[<p>作U盘系统启动盘，Ubuntu下有个图形界面工具Startup Disk Creator，简单易用，但是缺点就是只能制作Ubuntu的启动盘，别的系统不支持。那么我想在Ubuntu下作Fedora的系统启动盘要怎么办呢？不要紧，有dd命令呢！</p>
 <p>dd命令是用来拷贝文件的命令，它可以自动转换成对应的格式。在玩树莓派的时候，我们也是用dd命令烧写系统的，还记得吧？<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="tag">dd</span> bs=<span class="number">4</span>M <span class="keyword">if</span>=~/raspberrypi/<span class="number">2014</span>-<span class="number">09</span>-<span class="number">09</span>-wheezy-raspbian<span class="class">.img</span> of=/dev/sdb &amp;&amp; sync</span><br></pre></td></tr></table></figure></p>
 <p>dd命令简单用法就是这样，那么我们还可以用它烧写光盘和作其他系统的启动U盘。<br><a id="more"></a><br>在玩树莓派时烧写的文件是img格式的系统镜像，而我们要制作Fedora等Linux发行版通常是iso格式的文件，不要紧，formatting的问题就交给dd命令吧。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="tag">dd</span> --help</span><br><span class="line">Usage: <span class="tag">dd</span> [OPERAND]...</span><br><span class="line">or: <span class="tag">dd</span> OPTION</span><br><span class="line">Copy <span class="tag">a</span> file, converting and formatting according to the operands.</span><br></pre></td></tr></table></figure></p>
@@ -48,7 +142,7 @@
     <link href="http://tiandechi.com/2015/05/10/%E6%9F%A5%E7%9C%8BDebian%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/"/>
     <id>http://tiandechi.com/2015/05/10/查看Debian的版本信息/</id>
     <published>2015-05-10T05:06:47.000Z</published>
-    <updated>2015-05-10T05:08:04.354Z</updated>
+    <updated>2015-05-10T05:08:04.000Z</updated>
     <content type="html"><![CDATA[<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor <span class="string">ID:</span> Debian</span><br><span class="line"><span class="string">Description:</span> Debian GNU/Linux testing (squeeze)</span><br><span class="line"><span class="string">Release:</span> testing</span><br><span class="line"><span class="string">Codename:</span> squeeze</span><br><span class="line"></span><br><span class="line">$ cat <span class="regexp">/etc/</span>debian_version</span><br><span class="line">squeeze/sid</span><br></pre></td></tr></table></figure>
 <p>/usr/share/doc/base-files/FAQ:</p>
 <p>Q. Ok, but how do I know which distribution I&#39;m running?</p>
@@ -81,7 +175,7 @@
     <link href="http://tiandechi.com/2015/05/10/How-to-disable-Network-Manager-on-Linux/"/>
     <id>http://tiandechi.com/2015/05/10/How-to-disable-Network-Manager-on-Linux/</id>
     <published>2015-05-10T05:03:43.000Z</published>
-    <updated>2015-05-10T05:12:30.956Z</updated>
+    <updated>2015-05-10T05:12:30.000Z</updated>
     <content type="html"><![CDATA[<p>Network Manager is a feature-rich network configuration service which is used by default in most Linux desktop environments nowadays. It provides automatic configuration of (wired/wireless) network interfaces, as well as VPN, mobile broadband and even Bluetooth connections. Network Manager is smart enough to automatically switch to the best (or the most recent) connection network, and can inform other applications of up-to-date network events via D-Bus API.</p>
 <p>While Network Manager comes with various sophisticated features, you might just prefer the old plain network service. There could be several reasons to do so. For one, you may wish to have more control over network management, instead of relying on purely automatic configuration and switch-over, which may or may not suit your needs. Besides, Network Manager is not suitable for advanced networking setup, such as multi-homing to more than one wired connections, forwarding network traffic, configuring Linux bridge or aliases, etc.<br><a id="more"></a><br>In general, Network Manager is designed to keep a typical end-user Linux box connected at all times with the best possible connection with minimum intervention by users. If such automation is not needed in your Linux environment, you can turn off Network Manager.</p>
 <p>This tutorial describes how to disable Network Manager in various Linux desktop environments.<br>Check Which Network Interfaces are Managed by Network Manager</p>
@@ -122,7 +216,7 @@
     <link href="http://tiandechi.com/2015/05/10/Linux%E7%8E%AF%E5%A2%83%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE/"/>
     <id>http://tiandechi.com/2015/05/10/Linux环境获取系统性能数据/</id>
     <published>2015-05-10T05:01:52.000Z</published>
-    <updated>2015-05-10T05:03:03.593Z</updated>
+    <updated>2015-05-10T05:03:03.000Z</updated>
     <content type="html"><![CDATA[<h1 id="CPU利用率">CPU利用率</h1><p>/proc/stat文件里包含系统cpu使用情况，2-8列对应的CPU消耗含义是用户态消耗(user)、用户态nice消耗(nice)、内 核态消耗(sys)、空闲时间(idle)、等待IO消耗(iowait)、硬件中断消耗(hardirq)、软中断消耗(softirq)。（man proc）</p>
 <figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ cat /<span class="keyword">proc</span>/stat</span><br><span class="line">cpu  <span class="number">2339504870</span> <span class="number">2641995</span> <span class="number">716723851</span> <span class="number">70316975284</span> <span class="number">7219566</span> <span class="number">328971</span> <span class="number">304057999</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu0 <span class="number">211214357</span> <span class="number">275710</span> <span class="number">57674236</span> <span class="number">2778331292</span> <span class="number">3688175</span> <span class="number">10421</span> <span class="number">12279511</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu1 <span class="number">140100049</span> <span class="number">278788</span> <span class="number">47142039</span> <span class="number">2857686940</span> <span class="number">180452</span> <span class="number">32028</span> <span class="number">14960093</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>要计算t1~t2时间内系统的cpu利用率，需要在t1、t2时刻分别采集cpu使用信息<br><a id="more"></a><br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t1_all = t1<span class="list">(<span class="keyword">user</span> + nice + sys + idle + iowait + hardirq + sortirq)</span></span><br><span class="line">t1_used = t1<span class="list">(<span class="keyword">user</span> + nice + sys + iowait + hardirq + sortirq)</span></span><br><span class="line">t2_all = t2<span class="list">(<span class="keyword">user</span> + nice + sys + idle + iowait + hardirq + sortirq</span><br><span class="line">t2_used = t2<span class="list">(<span class="keyword">user</span> + nice + sys + iowait + hardirq + sortirq)</span></span><br><span class="line"></span><br><span class="line">cpu_usage = <span class="list">(<span class="keyword">t2_used</span> - t1_used)</span> / <span class="list">(<span class="keyword">t2_all</span> - t1_all)</span></span></span><br></pre></td></tr></table></figure></p>
@@ -159,7 +253,7 @@
     <link href="http://tiandechi.com/2015/05/10/win7-32%E4%BD%8D%E4%B8%8E64%E4%BD%8D%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E5%AD%98%E6%A1%A3/"/>
     <id>http://tiandechi.com/2015/05/10/win7-32位与64位下载地址存档/</id>
     <published>2015-05-10T04:58:22.000Z</published>
-    <updated>2015-05-10T05:12:20.716Z</updated>
+    <updated>2015-05-10T05:12:20.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Windows_7_简体中文旗舰版_x86_(32位_MSDN_RTM正式版)">Windows 7 简体中文旗舰版 x86 (32位 MSDN RTM正式版)</h1><p><a href="ed2k://%7Cfile%7Ccn_windows_7_ultimate_with_sp1_x86_dvd_618763.iso%7C2651877376%7CD6A0D9FDB8C67A65B92B4C1AC197109C%7C/" target="_blank" rel="external">下载地址</a></p>
 <h1 id="Windows_7_Ultimate_(x64)-DVD(English)">Windows 7 Ultimate (x64)-DVD(English)</h1><p><a href="ed2k://|file|en_windows_7_ultimate_x64_dvd_X15-65922.iso|3224686592|6719AFC5486F38BE75F2DF39C8527113|/" target="_blank" rel="external">下载地址</a></p>
 <h1 id="Windows_7_Ultimate_N_(x64)-DVD(English)">Windows 7 Ultimate N (x64)-DVD(English)</h1><p><a href="ed2k://|file|en_windows_7_ultimate_n_x64_dvd_x16-13641.iso|2908555264|C014B86268602565B7880933B41F21AC|/" target="_blank" rel="external">下载地址</a><br><a id="more"></a></p>
@@ -934,121 +1028,6 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
       <category term="Kernel" scheme="http://tiandechi.com/tags/Kernel/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[The role and content of the Linux Directory]]></title>
-    <link href="http://tiandechi.com/2015/04/18/The-role-and-content-of-the-Linux-Directory/"/>
-    <id>http://tiandechi.com/2015/04/18/The-role-and-content-of-the-Linux-Directory/</id>
-    <published>2015-04-18T15:52:12.000Z</published>
-    <updated>2015-04-21T02:37:18.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="根目录“/”">根目录“/”</h1><p>根目录位于目录结构的最顶层，用斜线（/）表示，类似于Windows操作系统的“C:\“，包含Fedora操作系统中所有的目录和文件。</p>
-<h1 id="/bin">/bin</h1><p>/bin<br>目录又称为二进制目录，包含了那些供系统管理员和普通用户使用的重要linux命令的二进制映像。该目录存放的内容包括各种可执行文件，还有某些可执行文件的符号连接。常用的命令有：cp、dmesg、kill、login、rm、ping、chomd、bash、cat、echo、ls、 mail、vi等。</p>
-<h1 id="/boot">/boot</h1><p>/boot<br>目录存放系统核心文件以及启动时必须读取的文件，包括Linux内核的二进制映像。</p>
-<h1 id="/dev">/dev</h1><p>/dev<br>目录保存着外部设备代码的文件，这些文件比较特殊，实际上它们都指向所代表的外围设备，如终端、磁盘驱动器、光驱、打印机等。你可以访问这些外部设备，与访问一个文件或一个目录没有区别。如该目录下的子目录/dev/cdrom表示光驱目录；子目录/dev/console表示控制台；子目录 /dev/fd表示软驱；子目录/dev/hd表示硬盘上的一个分区；lp0表示打印机；ttyS0表示系统的串口设备；dsp表示系统的音箱设备。例如在系统中键入“cd /dev/cdrom”，就可以看到光驱中的文件；键入“cd /dev/mouse”即可看鼠标的相关文件。<br><a id="more"></a></p>
-<h1 id="/cdrom">/cdrom</h1><p>该目录在刚安装系统时是空的，你可以将光驱文件系统挂在这个目录下， 例如“mount /dev/cdrom /cdrom”。</p>
-<h1 id="/etc">/etc</h1><p>/etc<br>目录是整个Linux系统的中心，其中包含所有系统管理和维护方面的配置文件，如dhcpd.conf、host.conf、logrotate.conf、man.config、mke2fs.conf、modprobe.conf、resolv.conf、sysctl.conf、syslog.conf（或rsyslog.conf）、xinetd.conf和yum.conf等，其他的配置文件分别位于单独的子目录中。通常应注意备份这个目录中的重要配置文件，以便需要是能够快速的恢复系统。用于存放系统的配置文件和特定主机的相关文件。例如，记录用户帐号名称的 password 文件、投影密码的 shadow 文件等。该目录不包含任何二进制文件，并且该目录下的所有文件主要由管理员使用，普通用户只对其具有阅读权限。该目录还包含一些网络配置文件、文件系统、 x系统配置文件、设备配置信息、设置用户信息等。<br>/etc/cron.d<br>用于存储cron进程调度运行后台进程所用的配置和控制文件。其他目录包括/etc/crontab文件定义的cron.hourly、cron.daily、cron.weekly和cron.monthly等四个目录。<br>/etc/cups 用于存储通用UNIX打印系统（Commom UNIX Printing System，CUPS）使用的各种配置文件。<br>/etc/default 其中的文件用于提供部分工具软件（如useradd程序）使用的变量及其默认值。<br>/etc/httpd<br>Apache配置文件的根目录。Apache是一个通用的、高性能的HTTP服务器，也是世界上最流行的Web服务器。Apache采用模块化的设计方式，支持运行时的动态模块选择、虚拟主机，以及服务进程数量的动态调整等。<br>/etc/init.d 用于存储进入相应运行级时需要由init调度执行的脚本文件。在Fedora<br>Linux系统中，这只是一个符号链接文件，实际的目录应为/etc/rc.d/init.d。<br>/etc/ipsec.d 用于存储IPSee使用的配置文件等。<br>/etc/kde 其中含有部分KDE初始化文件和KDM配置文件。<br>/etc/pki 用于存储各种密匙，如用于安装软件包的密匙等。<br>/etc/ppp 用于存储PPP的脚本和配置文件。<br>/etc/profile.d 用于存储/etc/profile等使用的辅助初始化文件，如lang.sh脚本文件等。<br>/etc/rc.d 用于存储进入相应运行级是由init进程调度执行的脚本文件。其中含有init.d和rcN.d等子目录（其中的N为0、1、2、3、4、5和6，表示系统的运行级）。<br>/etc/samba Samba配置文件的根目录。Samba是一个网络共享软件的总称，Linux系统中实现的SMB协议，允许Linux系统为Windows系统提供文件和打印共享服务。<br>/etc/security 用户存储的基本安全控制文件，包括注册控制文件、控制访问控制文件，以及资源限制控制文件等。<br>/etc/selinux SElinux(Security Enhanced Linux，由美国国家安全部(National Security Agency)领导开发的GPL项目，它拥有一个灵活而强制性的访问控制结构，旨在提高Linux系统的安全性，提供强健的安全保证，可防御未知攻击，据称相当于B1级的军事安全性能。比MS<br>NT所谓的C2等高得多。应用SELinux后，可以减轻恶意攻击或恶意软件带来的灾难，并提供对机密性和完整性有很高要求的信息很高的安全保障。)配置文件的根目录。<br>/etc/skel 其中存有默认的初始化文件，如.bash_logout、.bash_profile、.bashrc、.emacs、.kde和.zshrc等。每当新增一个新用户时，系统将会把其中的部分初始化文件复制到用户的主目录中。注意：上述文件均为隐藏文件。(即以“.“开头的文件名)<br>/etc/ssh 这个目录含有系统配置过程，以及系统引导过程中需要用到的各种配置文件，也是chkconfig维护的各种后台服务进程配置文件的根目录。例如，其中的clock文件包含系统的时区设置，keyboard文件包含键盘的类型定义，init文件包含系统引导过程使用的参数定义等。<br>/etc/tomcat5 tomcat的根目录<br>/etc/vsftpd 包含FTP服务器的配置文件，其中包括vsftpd.conf、ftpusers和user_list等重要文件。<br>/etc/xinetd.d 其中包含xinetd服务进程控制的所有传统网络服务使用的配置文件，尤其包含telnet等网络应用的配置文件。在Linux系统中，原有的inetd已由功能更强的xinetd服务进程取代，原有的inetd.conf配置文件也由xinetd.d目录中的一系列单独的配置文件取代。<br>/etc/yum 其中包含yum软件更新工具使用的配置文件。<br>/etc/yum.repos.d其中包含每个软件仓库的配置文件。</p>
-<h1 id="/lib">/lib</h1><p>/lib<br>目录下存放必要的运行库，主要是编程语言的库。典型的 Linux 操作系统中包含了C、C++和 Fortran 的库文件。用这些语言开发的应用程序可以使用这些编程语言库文件。这使软件开发者能够利用那些预先写好并通过测试的函数。库文件包含了标准的C库/lib/libc.so.，数学库libm.so.，共享的动态链接库/lib/ld/so以及目录/bin和/sbin下用到的其他共享库。/lib/modules目录存放系统的核心模块，某些可被模块化的部分并不需要在编译系统核心时放入核心本体，避免本体过于庞大而导致效率降低。</p>
-<h1 id="/lost+found">/lost+found</h1><p>该目录存放所有和其它目录都没有关联的文件。系统出现错误或发生问题时，Fedora会自动扫描磁盘驱动器，修正错误，如果找到遗失或错误的片段，将这些片段转化成文件存放于此，等待管理员的进一步处理。</p>
-<h1 id="/mnt">/mnt</h1><p>该目录是默认的文件系统临时装载点，这是一个通用的安装点，可以临时安装任何文件系统或远程资源。系统管理员执行 mount<br>命令完成装载工作。在系统中，该目录包含了光驱、磁盘和软驱的挂载点。</p>
-<h1 id="/proc">/proc</h1><p>进程文件系统proc的根目录，其中的部分文件分别对应正在运行的进程，可用于访问当前进程的地址空间。它是一个非常特殊的虚拟文件系统，其中并不包含“实际的”文件，而是可用以引用当前运行系统的系统信息，如CPU、内存、运行时间、软件配置以及硬件配置的信息，这些信息是在内存中由系统自己产生的。<br>/proc/net 其中的文件分别表示各种网络协议（如TCP、UDP以及ARP等）的状态与统计信息。<br>/proc/sys 这个目录不仅存有各种系统信息，而且也包含系统内核与TCP/IP网络的可调参数。其中的kernel子目录含有共享内存和消息队列的可调参数，net子目录中含有TCP/IP的各种可调参数。例如，shmmax文件中含有系统的最大共享内存定义，如果使用“echo somevalue &gt;<br>/proc/sys/kernel/shmmax”命令，可以直接修改运行系统的内核参数，而无需重新引导系统。这一做法要谨慎，有的文件可能包含多个数值，或不同类型的数值，因此，在修改以前一定要弄清参数的意义和实际的数值。为了在每次启动系统时都能使用定制的系统可调参数，可以设置sysctl.conf配置文件，或编写自己的Shell启动脚本。</p>
-<h1 id="/opt">/opt</h1><p>/opt<br>目录用来安装附加软件包，用户调用软件包程序放在目录/opt/package_name/bin下，package_name是安装软件包的名称。</p>
-<h1 id="/root">/root</h1><p>超级用户root的主目录（在Linux系统中，斜杠字符“/”是整个系统的根目录，而非超级用户的主目录。）</p>
-<h1 id="/sbin">/sbin</h1><p>目录/sbin、/usr/sbin和/usr/local/sbin存放了该目录启动系统时需执行的程序，如管理工具、应用软件和通用的根用户权限命令等内容。如包含getty、init、update</p>
-<p><a href="http://www.linuxidc.com/Linux/2015-04/116032.htm" target="_blank" rel="external">来源</a></p>
-<table bgcolor="lightyellow" border="1" cellpadding="3" cellspacing="0" width="95%"><br><tbody><tr align="center" bgcolor="#182448"><td width="80"><font color="#FFFFFF">目录</font></td><td><font color="#FFFFFF">应放置文件内容</font></td></tr><br><tr><td>/bin</td><td><br>    系统有很多放置执行文件的目录，但/bin比较特殊。因为<span class="text_import2">/bin放置的是在单人维护模式下还能够被操作的指令。</span><br>    在/bin底下的指令可以被root与一般账号所使用，主要有：cat, chmod, chown, date, mv, mkdir, cp, bash等等常用的指令。</td></tr><br><tr><td>/boot</td><td><br>    这个目录主要在放置开机会使用到的文件，包括Linux核心文件以及开机选单与开机所需配置文件等等。<br>    <span class="text_import2">Linux kernel常用的档名为：vmlinuz</span>，如果使用的是grub这个开机管理程序，<br>    则还会存在/boot/grub/这个目录喔！</td></tr><br><tr><td>/dev</td><td><br>    在Linux系统上，任何装置与接口设备都是以文件的型态存在于这个目录当中的。<br>    你只要透过存取这个目录底下的某个文件，就等于存取某个装置啰～<br>    比要重要的文件有<span class="text_import2">/dev/null, /dev/zero, /dev/tty</span>, /dev/lp<em>, /dev/hd</em>, /dev/sd<em>等等</em></td></tr><br><tr><td>/etc</td><td><br>    系统主要的配置文件几乎都放置在这个目录内，例如人员的账号密码文件、<br>    各种服务的启始档等等。一般来说，这个目录下的各文件属性是可以让一般使用者查阅的，<br>    但是只有root有权力修改。<span class="text_import2">FHS建议不要放置可执行文件(binary)在这个目录中</span>喔。比较重要的文件有：<br>    <span class="text_import2">/etc/inittab, /etc/init.d/, /etc/modprobe.conf,<br>    /etc/X11/, /etc/fstab, /etc/sysconfig/</span> 等等。另外，其下重要的目录有：<br>    <ul><li><span class="text_import2">/etc/init.d/</span>：所有服务的预设启动 script<br>        都是放在这里的，例如要启动或者关闭 iptables 的话：『 /etc/init.d/iptables start』、『/etc/init.d/iptables<br>        stop』</li><br>    <li><span class="text_import2">/etc/xinetd.d/</span>：这就是所谓的super daemon管理的各项服务的配置文件目录。</li><br>    <li><span class="text_import2">/etc/X11/</span>：与 X Window 有关的各种配置文件都在这里，尤其是<br>        xorg.conf 这个 X Server 的配置文件。</li></ul></td></tr><br><tr><td>/home</td><td><br>    这是系统默认的用户家目录(home directory)。在你新增一个一般使用者账号时，<br>    默认的用户家目录都会规范到这里来。比较重要的是，家目录有两种代号喔：<br><br>    <span class="text_import2">~</span>：代表目前这个用户的家目录，而 <br><br>    <span class="text_import2">~dmtsai</span> ：则代表 dmtsai 的家目录！</td></tr><br><tr><td>/lib</td><td><br>    系统的函式库非常的多，而<span class="text_import2">/lib放置的则是在开机时会用到的函式库，<br>    以及在/bin或/sbin底下的指令会呼叫的函式库而已</span>。<br>    什么是函式库呢？妳可以将他想成是『外挂』，某些指令必须要有这些『外挂』才能够顺利完成程序的执行之意。<br>    尤其重要的是<span class="text_import2">/lib/modules/</span>这个目录，<br>    因为该目录会放置核心相关的模块(驱动程序)喔！</td></tr><br><tr><td>/media</td><td><br>    media是『媒体』的英文，顾名思义，这个<span class="text_import2">/media底下放置的就是可移除的装置啦！</span><br>    包括软盘、光盘、DVD等等装置都暂时挂载于此。常见的档名有：/media/floppy, /media/cdrom等等。</td></tr><br><tr><td>/mnt</td><td><br>    如果妳想要暂时挂载某些额外的装置，一般建议妳可以放置到这个目录中。<br>    在古早时候，这个目录的用途与/media相同啦！只是有了/media之后，这个目录就用来暂时挂载用了。</td></tr><br><tr><td>/opt</td><td><br>    这个是<span class="text_import2">给第三方协力软件放置的目录</span>。什么是第三方协力软件啊？<br>    举例来说，KDE这个桌面管理系统是一个独立的计划，不过他可以安装到Linux系统中，因此KDE的软件就建议放置到此目录下了。<br>    另外，如果妳想要自行安装额外的软件(非原本的distribution提供的)，那么也能够将你的软件安装到这里来。<br>    不过，以前的Linux系统中，我们还是习惯放置在/usr/local目录下呢！</td></tr><br><tr><td>/root</td><td><br>    系统管理员(root)的家目录。之所以放在这里，是因为如果进入单人维护模式而仅挂载根目录时，<br>    该目录就能够拥有root的家目录，所以我们会希望root的家目录与根目录放置在同一个分割槽中。</td></tr><br><tr><td>/sbin</td><td><br>    Linux有非常多指令是用来设定系统环境的，这些指令只有root才能够利用来『设定』系统，其他用户最多只能用来『查询』而已。<br>    <span class="text_import2">放在/sbin底下的为开机过程中所需要的，里面包括了开机、修复、还原系统所需要的指令。</span><br>    至于某些服务器软件程序，一般则放置到/usr/sbin/当中。至于本机自行安装的软件所产生的系统执行文件(system binary)，<br>    则放置到/usr/local/sbin/当中了。常见的指令包括：fdisk, fsck, ifconfig, init, mkfs等等。</td></tr><br><tr><td>/srv</td><td><br>    srv可以视为『service』的缩写，是一些网络服务启动之后，这些服务所需要取用的数据目录。<br>    常见的服务例如WWW, FTP等等。举例来说，WWW服务器需要的网页数据就可以放置在/srv/www/里面。</td></tr><br><tr><td>/tmp</td><td><br>    这是让一般使用者或者是正在执行的程序暂时放置文件的地方。<br>    这个目录是任何人都能够存取的，所以你需要定期的清理一下。当然，重要数据不可放置在此目录啊！<br>    因为FHS甚至建议在开机时，应该要将/tmp下的数据都删除唷！</td></tr><br><tr><td>/lost+found</td><td><br>    这个目录是使用标准的ext2/ext3文件系统格式才会产生的一个目录，目的在于当文件系统发生错误时，<br>    将一些遗失的片段放置到这个目录下。这个目录通常会在分割槽的最顶层存在，<br>    例如你加装一颗硬盘于/disk中，那在这个系统下就会自动产生一个这样的目录『/disk/lost+found』</td></tr><br><tr><td>/proc</td><td><br>    这个目录本身是一个『虚拟文件系统(virtual filesystem)』喔！他放置的数据都是在内存当中，<br>    例如系统核心、行程信息(process)、周边装置的状态及网络状态等等。因为这个目录下的数据都是在内存当中，<br>    所以本身不占任何硬盘空间啊！比较重要的文件例如：<span class="text_import2">/proc/cpuinfo,<br>    /proc/dma, /proc/interrupts, /proc/ioports, /proc/net/</span> 等等。</td></tr><br><tr><td>/sys</td><td><br>    这个目录其实跟/proc非常类似，也是一个虚拟的文件系统，主要也是记录与核心相关的信息。<br>    包括目前已加载的核心模块与核心侦测到的硬件装置信息等等。这个目录同样不占硬盘容量喔！</td></tr><br></tbody><br></table>
-
-<p><a href="http://vbird.dic.ksu.edu.tw/linux_basic/0210filepermission_3.php" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="根目录“/”">根目录“/”</h1><p>根目录位于目录结构的最顶层，用斜线（/）表示，类似于Windows操作系统的“C:\“，包含Fedora操作系统中所有的目录和文件。</p>
-<h1 id="/bin">/bin</h1><p>/bin<br>目录又称为二进制目录，包含了那些供系统管理员和普通用户使用的重要linux命令的二进制映像。该目录存放的内容包括各种可执行文件，还有某些可执行文件的符号连接。常用的命令有：cp、dmesg、kill、login、rm、ping、chomd、bash、cat、echo、ls、 mail、vi等。</p>
-<h1 id="/boot">/boot</h1><p>/boot<br>目录存放系统核心文件以及启动时必须读取的文件，包括Linux内核的二进制映像。</p>
-<h1 id="/dev">/dev</h1><p>/dev<br>目录保存着外部设备代码的文件，这些文件比较特殊，实际上它们都指向所代表的外围设备，如终端、磁盘驱动器、光驱、打印机等。你可以访问这些外部设备，与访问一个文件或一个目录没有区别。如该目录下的子目录/dev/cdrom表示光驱目录；子目录/dev/console表示控制台；子目录 /dev/fd表示软驱；子目录/dev/hd表示硬盘上的一个分区；lp0表示打印机；ttyS0表示系统的串口设备；dsp表示系统的音箱设备。例如在系统中键入“cd /dev/cdrom”，就可以看到光驱中的文件；键入“cd /dev/mouse”即可看鼠标的相关文件。<br>]]>
-    
-    </summary>
-    
-      <category term="Directory" scheme="http://tiandechi.com/tags/Directory/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[ssh add command]]></title>
-    <link href="http://tiandechi.com/2015/04/18/ssh-add-command/"/>
-    <id>http://tiandechi.com/2015/04/18/ssh-add-command/</id>
-    <published>2015-04-18T15:49:56.000Z</published>
-    <updated>2015-04-18T07:52:22.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="功能作用">功能作用</h1><p>把专用密钥添加到 ssh-agent 的高速缓存中</p>
-<h1 id="位置">位置</h1><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ssh-<span class="keyword">add</span></span><br></pre></td></tr></table></figure>
-<h1 id="格式用法">格式用法</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="built_in">add</span> [-cDdLlXx] [-t life] [<span class="built_in">file</span> ...]</span><br><span class="line">ssh-<span class="built_in">add</span> -s pkcs11</span><br><span class="line">ssh-<span class="built_in">add</span> -e pkcs11</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h1 id="主要参数">主要参数</h1><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">c     <span class="constant">Indicates</span> that added identities should be subject to confirmation</span><br><span class="line"></span>before being used for authentication.  Confirmation is performed</span><br><span class="line">by the SSH_ASKPASS program mentioned below.  Successful confirma‐</span><br><span class="line">tion is signaled by a zero exit status from the SSH_ASKPASS pro‐</span><br><span class="line">gram, rather than text entered into the requester.</span><br><span class="line">-<span class="ruby"><span class="constant">D</span>    删除ssh-agent中的所有密钥.</span><br><span class="line"></span>-<span class="ruby">d    从ssh-agent中的删除密钥</span><br><span class="line"></span>-<span class="ruby">e    pkcs11 <span class="comment">#删除PKCS#11共享库pkcs1提供的钥匙。</span></span><br><span class="line"></span>-<span class="ruby">s    pkcs11 <span class="comment">#添加PKCS#11共享库pkcs1提供的钥匙。</span></span><br><span class="line"></span>-<span class="ruby"><span class="constant">L</span>    显示ssh-agent中的公钥</span><br><span class="line"></span>-<span class="ruby">l    显示ssh-agent中的密钥</span><br><span class="line"></span>-<span class="ruby">t    life <span class="comment">#对加载的密钥设置超时时间，超时ssh-agent将自动卸载密钥</span></span><br><span class="line"></span>-<span class="ruby"><span class="constant">X</span>    对ssh-agent进行解锁</span><br><span class="line"></span>-<span class="ruby">x    对ssh-agent进行加锁</span></span><br></pre></td></tr></table></figure>
-<h1 id="应用实例">应用实例</h1><ol>
-<li><p>把专用密钥添加到 ssh-agent 的高速缓存中</p>
- <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span> ~/.ssh/id_dsa</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从ssh-agent中删除密钥</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span> -d ~/.ssh/id_xxx.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看ssh-agent中的密钥</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span> -l</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a href="http://www.lampblog.net/ubuntu/ssh-add%E5%91%BD%E4%BB%A4/" target="_blank" rel="external">ssh-add命令</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="功能作用">功能作用</h1><p>把专用密钥添加到 ssh-agent 的高速缓存中</p>
-<h1 id="位置">位置</h1><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ssh-<span class="keyword">add</span></span><br></pre></td></tr></table></figure>
-<h1 id="格式用法">格式用法</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="built_in">add</span> [-cDdLlXx] [-t life] [<span class="built_in">file</span> ...]</span><br><span class="line">ssh-<span class="built_in">add</span> -s pkcs11</span><br><span class="line">ssh-<span class="built_in">add</span> -e pkcs11</span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="SSH" scheme="http://tiandechi.com/tags/SSH/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Git SSH key Generate]]></title>
-    <link href="http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/"/>
-    <id>http://tiandechi.com/2015/04/18/Git-SSH-key-Generate/</id>
-    <published>2015-04-18T15:46:45.000Z</published>
-    <updated>2015-05-12T16:30:49.868Z</updated>
-    <content type="html"><![CDATA[<p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
-<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h1 id="生成SSH密钥过程：">生成SSH密钥过程：</h1><ol>
-<li><p>查看是否已经有了ssh密钥：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure>
-<p>如果没有密钥则不会有此文件夹，有则备份删除</p>
-</li>
-<li><p>生成密钥：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C “my<span class="annotation">@email</span>.address”</span><br><span class="line">#会有三个提示： 指定存放位置 密钥 确认密钥</span><br><span class="line">#均按回车键就可以跳过，并以默认保存啦</span><br><span class="line">#结果是：</span><br><span class="line">Your identification has been saved <span class="keyword">in</span> <span class="regexp">/home/</span>tekkub<span class="regexp">/.ssh/</span>id_rsa.</span><br><span class="line">Your <span class="keyword">public</span> key has been saved <span class="keyword">in</span> <span class="regexp">/home/</span>tekkub<span class="regexp">/.ssh/</span>id_rsa.pub.</span><br><span class="line">The key fingerprint <span class="string">is:</span></span><br><span class="line">………………</span><br></pre></td></tr></table></figure>
-<p>最后得到了两个文件：id_rsa 和 id_rsa.pub</p>
-</li>
-<li><p>添加专用密钥到 ssh：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#[ssh-add命令详解](http://tiandechi.com/2015/04/14/ssh-add-command/)</span></span><br><span class="line"><span class="variable">$ </span>ssh-add ~<span class="regexp">/.ssh/id</span>_rsa</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥。<br>打开github ，登陆账号，然后在 设置-SSH keys 中添加“id_rsa.pub” 的全部内容。</p>
-</li>
-<li>测试：<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ssh git<span class="annotation">@github</span>.com</span><br><span class="line">The authenticity of host ‘github.com (<span class="number">207.97</span>.227.239)’ can’t be established.</span><br><span class="line">RSA key fingerprint is <span class="number">16</span>:<span class="number">27</span>:<span class="string">ac:</span><span class="string">a5:</span><span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span><span class="string">d:</span><span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span><span class="string">b:</span><span class="number">56</span>:<span class="number">4</span><span class="string">d:</span><span class="string">eb:</span><span class="string">df:</span><span class="string">a6:</span><span class="number">48.</span></span><br><span class="line">Are you sure you want to <span class="keyword">continue</span> connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added ‘github.com,<span class="number">207.97</span>.227.239′ (RSA) to the list of known hosts.</span><br><span class="line"><span class="string">ERROR:</span> Hi tekkub! You’ve successfully authenticated, but GitHub does not provide shell access</span><br><span class="line">Connection to github.com closed.</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="愉快的使用_github_吧！">愉快的使用 github 吧！</h1><p><a href="http://blog.csdn.net/hustpzb/article/details/8230454/" target="_blank" rel="external">Git SSH Key 生成步骤</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
-<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="Git" scheme="http://tiandechi.com/tags/Git/"/>
-    
-      <category term="SSH" scheme="http://tiandechi.com/tags/SSH/"/>
     
   </entry>
   
