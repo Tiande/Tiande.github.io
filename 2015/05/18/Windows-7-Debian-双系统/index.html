@@ -15,7 +15,7 @@
 准备：
 电脑 #至少一台
 U盘 &amp;amp; [移动硬盘,NAS]
-下载 Win7 &amp;amp; Debian 的 ISO 安装镜像，备份到移动硬盘4.">
+下载 Win7 &amp;amp; Debian 的 ISO 安装镜像，备份到移动硬盘">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 7 & Debian 双系统">
 <meta property="og:url" content="http://tiandechi.com/2015/05/18/Windows-7-Debian-双系统/index.html">
@@ -24,14 +24,14 @@ U盘 &amp;amp; [移动硬盘,NAS]
 准备：
 电脑 #至少一台
 U盘 &amp;amp; [移动硬盘,NAS]
-下载 Win7 &amp;amp; Debian 的 ISO 安装镜像，备份到移动硬盘4.">
+下载 Win7 &amp;amp; Debian 的 ISO 安装镜像，备份到移动硬盘">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows 7 & Debian 双系统">
 <meta name="twitter:description" content="建议在 Linux 下使用一段时间后，再参阅本教程，不然小白会摸不着头脑的。
 准备：
 电脑 #至少一台
 U盘 &amp;amp; [移动硬盘,NAS]
-下载 Win7 &amp;amp; Debian 的 ISO 安装镜像，备份到移动硬盘4.">
+下载 Win7 &amp;amp; Debian 的 ISO 安装镜像，备份到移动硬盘">
 <meta name="twitter:creator" content="@TiandeTD">
 
     
@@ -103,7 +103,7 @@ U盘 &amp;amp; [移动硬盘,NAS]
 		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
 		
   <p class="article-time">
-    <time datetime="2015-05-18T10:23:17.149Z" itemprop="datePublished"> 发表于 2015-05-18</time>
+    <time datetime="2015-05-18T10:27:14.662Z" itemprop="datePublished"> 发表于 2015-05-18</time>
     
   </p>
 </header>
@@ -120,13 +120,14 @@ U盘 &amp;amp; [移动硬盘,NAS]
 <h1 id="准备：">准备：</h1><ol>
 <li>电脑 #至少一台</li>
 <li>U盘 &amp; [移动硬盘,NAS]</li>
-<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘<br>4.<a id="more"></a>
+<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘<a id="more"></a>
 </li>
 </ol>
 <h1 id="首先安装_Windows_7">首先安装 Windows 7</h1><p><strong>注意：如果当前系统即为 win7 且不想要重装可以跳过这一节。</strong><br><strong>但是硬盘要留出用于装 Debian 的 空分区。（使用 磁盘管理 或是 Diskgenius）</strong></p>
 <ol>
 <li>将现在系统下自己需要的文件备份到移动硬盘</li>
-<li><p><a href="http://blog.chinaunix.net/uid-10328574-id-3526642.html" target="_blank" rel="external">将 ISO 写入 U盘</a><br>windows 下可用 UltraISO 工具；<br><strong>建议下载好主板的驱动到制作好的U盘中。装机后手动安装驱动，避免很多问题</strong><br><strong>万能驱动包 也可以...</strong><br>Linux 下：</p>
+<li><p><a href="http://blog.chinaunix.net/uid-10328574-id-3526642.html" target="_blank" rel="external">将 ISO 写入 U盘</a><br>windows 下可用 UltraISO 工具；<br><strong>建议下载好主板的驱动到制作好的U盘中。装机后手动安装驱动，避免很多问题</strong><br><strong>万能驱动包 也可以...</strong></p>
+<p><strong>Linux 下：</strong></p>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#1.用 fdisk 在 U盘 上建立一个 ntfs 分区，编辑 flag ，勾上 boot 选项</span></span><br><span class="line"><span class="preprocessor">#2.然后 mkfs.ntfs 格式化</span></span><br><span class="line"><span class="preprocessor">#3.挂载 win7 的 iso 和新建的 ntfs 分区，并将 iso 的全部内容复制到 ntfs 分区</span></span><br><span class="line"><span class="preprocessor">#4.编译安装ms-sys</span></span><br><span class="line"><span class="preprocessor">#ms-sys是一个写mbr的工具，起到让系统知道能够引导 win7 安装的作用，至关重要. 到 ms-sys.sourceforge.net 下载</span></span><br><span class="line"><span class="preprocessor">#5.运行以下命令写入 mbr ：</span></span><br><span class="line">ms-sys -<span class="number">7</span> /dev/sdX #其中的 -<span class="number">7</span> 参数指 win7 , sdX 指的是U盘对应的盘符</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重启， Bios 里改变 硬盘模式 由 AHCI 到 IDE，引导选择 U盘<br>因为必要驱动没装，所以需要 IDE兼容模式，装好系统后可以改回来。</p>
@@ -142,8 +143,8 @@ U盘 &amp;amp; [移动硬盘,NAS]
 <h1 id="制作启动引导选项">制作启动引导选项</h1><ol>
 <li>安装 EasyBCD</li>
 <li>打开 EasyBCD，点击 添加新条目</li>
-<li>操作系统 选择 Linux/BSD<br> 类型: GRUB(Legacy)<br> 名称: [自己填]<br> 驱动器： [装 Debian 的那个分区]<br> 【添加条目】</li>
-<li>重启，就有 [自己填] 这个启动选项了。</li>
+<li>操作系统: Linux/BSD<br> 类型: GRUB(Legacy)<br> 名称: [自己填]<br> 驱动器： [装 Debian 的那个分区]<br> 【添加条目】</li>
+<li>重启，<strong>操作系统选择界面</strong>就有 [自己填] 这个启动选项了。</li>
 </ol>
   
 	</div>
