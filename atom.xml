@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-05-20T10:49:43.544Z</updated>
+  <updated>2015-05-20T11:11:49.952Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://tiandechi.com/2015/05/20/11%E4%B8%AA%E8%AE%A9%E4%BD%A0%E5%90%83%E6%83%8A%E7%9A%84Linux%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
     <id>http://tiandechi.com/2015/05/20/11个让你吃惊的Linux终端命令/</id>
     <published>2015-05-20T10:48:19.000Z</published>
-    <updated>2015-05-20T10:49:43.544Z</updated>
+    <updated>2015-05-20T11:11:49.952Z</updated>
     <content type="html"><![CDATA[<h1 id="命令行日常系快捷键">命令行日常系快捷键</h1><p>如下的快捷方式非常有用，能够极大的提升你的工作效率：</p>
 <ul>
 <li>CTRL + U - 剪切光标前的内容</li>
@@ -33,7 +33,8 @@
 <li>CTRL + W - 剪切光标后一个单词</li>
 <li>Shift + Insert - 向终端内粘贴文本</li>
 </ul>
-<h1 id="SUDO_!!">SUDO !!</h1><p>如果你还不知道这个命令，我觉得你应该好好感谢我，因为如果你不知道的话，那每次你在输入长串命令后看到“permission denied”后一定会痛苦不堪。<br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">sudo</span> <span class="exclamation_mark">!</span><span class="exclamation_mark">!</span>  #会用 <span class="function_or_atom">sudo</span> 的形式运行上一条命令</span><br></pre></td></tr></table></figure></p>
+<h1 id="SUDO_!!">SUDO !!</h1><a id="more"></a>
+<p>如果你还不知道这个命令，我觉得你应该好好感谢我，因为如果你不知道的话，那每次你在输入长串命令后看到“permission denied”后一定会痛苦不堪。<br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">sudo</span> <span class="exclamation_mark">!</span><span class="exclamation_mark">!</span>  #会用 <span class="function_or_atom">sudo</span> 的形式运行上一条命令</span><br></pre></td></tr></table></figure></p>
 <h1 id="暂停并在后台运行命令">暂停并在后台运行命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CTRL + Z <span class="comment"># 暂停应用程序</span></span><br><span class="line"><span class="built_in">fg</span> <span class="comment"># 重新将程序唤到前台</span></span><br></pre></td></tr></table></figure>
 <h1 id="使用nohup">使用nohup</h1><p>在登出SSH会话后仍运行命令<br>如果你用ssh登录别的机器时，nohup命令真的非常有用。<br>那么怎么使用nohup呢？<br>想象一下你使用ssh远程登录到另一台电脑上，你运行了一条非常耗时的命令然后退出了ssh会话，不过命令仍在执行。而nohup可以将这一场景变成现实。</p>
 <h1 id="‘在’特定的时间运行Linux命令">‘在’特定的时间运行Linux命令</h1><p>‘nohup’命令在你用SSH连接到服务器，并在上面保持执行SSH登出前任务的时候十分有用。<br>想一下如果你需要在特定的时间执行相同的命令，这种情况该怎么办呢？<br>命令‘at’就能妥善解决这一情况。以下是‘at’使用示例。<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">at</span> <span class="number">10</span>:<span class="number">38</span> PM Fri</span><br><span class="line"><span class="keyword">at</span>&gt; cowsay <span class="string">'hello'</span></span><br><span class="line"><span class="keyword">at</span>&gt; CTRL + D</span><br></pre></td></tr></table></figure></p>
@@ -61,7 +62,17 @@
 <ul>
 <li>CTRL + U - 剪切光标前的内容</li>
 <li>CTRL + K - 剪切光标至行末的内容</li>
-<li>CTRL]]>
+<li>CTRL + Y - 粘贴</li>
+<li>CTRL + E - 移动光标到行末</li>
+<li>CTRL + A - 移动光标到行首</li>
+<li>ALT + F - 跳向下一个空格</li>
+<li>ALT + B - 跳回上一个空格</li>
+<li>ALT + Backspace - 删除前一个单词</li>
+<li>CTRL + W - 剪切光标后一个单词</li>
+<li>Shift + Insert - 向终端内粘贴文本</li>
+</ul>
+<h1 id="SUDO_!!">SUDO !!</h1>]]>
+    
     </summary>
     
       <category term="commands" scheme="http://tiandechi.com/tags/commands/"/>
