@@ -86,6 +86,300 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/05/20/11个让你吃惊的Linux终端命令/" title="11个让你吃惊的Linux终端命令" itemprop="url">11个让你吃惊的Linux终端命令</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-20T10:48:19.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="命令行日常系快捷键">命令行日常系快捷键</h1><p>如下的快捷方式非常有用，能够极大的提升你的工作效率：</p>
+<ul>
+<li>CTRL + U - 剪切光标前的内容</li>
+<li>CTRL + K - 剪切光标至行末的内容</li>
+<li>CTRL + Y - 粘贴</li>
+<li>CTRL + E - 移动光标到行末</li>
+<li>CTRL + A - 移动光标到行首</li>
+<li>ALT + F - 跳向下一个空格</li>
+<li>ALT + B - 跳回上一个空格</li>
+<li>ALT + Backspace - 删除前一个单词</li>
+<li>CTRL + W - 剪切光标后一个单词</li>
+<li>Shift + Insert - 向终端内粘贴文本</li>
+</ul>
+<h1 id="SUDO_!!">SUDO !!</h1><p>如果你还不知道这个命令，我觉得你应该好好感谢我，因为如果你不知道的话，那每次你在输入长串命令后看到“permission denied”后一定会痛苦不堪。<br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">sudo</span> <span class="exclamation_mark">!</span><span class="exclamation_mark">!</span>  #会用 <span class="function_or_atom">sudo</span> 的形式运行上一条命令</span><br></pre></td></tr></table></figure></p>
+<h1 id="暂停并在后台运行命令">暂停并在后台运行命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CTRL + Z <span class="comment"># 暂停应用程序</span></span><br><span class="line"><span class="built_in">fg</span> <span class="comment"># 重新将程序唤到前台</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用nohup">使用nohup</h1><p>在登出SSH会话后仍运行命令<br>如果你用ssh登录别的机器时，nohup命令真的非常有用。<br>那么怎么使用nohup呢？<br>想象一下你使用ssh远程登录到另一台电脑上，你运行了一条非常耗时的命令然后退出了ssh会话，不过命令仍在执行。而nohup可以将这一场景变成现实。</p>
+<h1 id="‘在’特定的时间运行Linux命令">‘在’特定的时间运行Linux命令</h1><p>‘nohup’命令在你用SSH连接到服务器，并在上面保持执行SSH登出前任务的时候十分有用。<br>想一下如果你需要在特定的时间执行相同的命令，这种情况该怎么办呢？<br>命令‘at’就能妥善解决这一情况。以下是‘at’使用示例。<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">at</span> <span class="number">10</span>:<span class="number">38</span> PM Fri</span><br><span class="line"><span class="keyword">at</span>&gt; cowsay <span class="string">'hello'</span></span><br><span class="line"><span class="keyword">at</span>&gt; CTRL + D</span><br></pre></td></tr></table></figure></p>
+<p>上面的命令能在周五下午10时38分运行程序cowsay。<br>使用的语法就是‘at’后追加日期时间。当at&gt;提示符出现后就可以输入你想在那个时间运行的命令了。<br>CTRL + D 返回终端。<br>还有许多日期和时间的格式，都需要你好好翻一翻‘at’的man手册来找到更多的使用方式。</p>
+<h1 id="Man手册">Man手册</h1><p>Man手册会为你列出命令和参数的使用大纲，教你如何使用她们。Man手册看起来沉闷呆板。（我思忖她们也不是被设计来娱乐我们的）。<br>不过这不代表你不能做些什么来使她们变得漂亮些。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PAGER=most</span><br></pre></td></tr></table></figure></p>
+<p>你需要安装 ‘most’；她会使你的你的man手册的色彩更加绚丽。<br>你可以用以下命令给man手册设定指定的行长：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> MANWIDTH=<span class="number">80</span></span><br></pre></td></tr></table></figure></p>
+<p>最后，如果你有一个可用的浏览器，你可以使用-H在默认浏览器中打开任意的man页。<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man -H &lt;<span class="command"><span class="keyword">command</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>注意啦，以上的命令只有在你将默认的浏览器设置到环境变量$BROWSER中了之后才效果哟。</p>
+<h1 id="使用htop查看和管理进程">使用htop查看和管理进程</h1><p>你用哪个命令找出电脑上正在运行的进程的呢？我敢打赌是‘ps’并在其后加不同的参数来得到你所想要的不同输出。<br>安装‘htop’吧！绝对让你相见恨晚。<br>htop在终端中将进程以列表的方式呈现，有点类似于Windows中的任务管理器。你可以使用功能键的组合来切换排列的方式和展示出来的项。你也可以在htop中直接杀死进程。<br>在终端中简单的输入htop即可运行。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htop</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用ranger浏览文件系统">使用ranger浏览文件系统</h1><p>如果说htop是命令行进程控制的好帮手，那么ranger就是命令行浏览文件系统的好帮手。<br>你在用之前可能需要先安装，不过一旦安装了以后就可以在命令行输入以下命令启动她：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ranger</span><br></pre></td></tr></table></figure></p>
+<p>在命令行窗口中ranger和一些别的文件管理器很像，但是相比上下结构布局，她是左右结构的，这意味着你按左方向键你将前进到上一个文件夹，而右方向键则会切换到下一个。<br>在使用前ranger的man手册还是值得一读的，这样你就可以用快捷键操作ranger了。</p>
+<h1 id="取消关机">取消关机</h1><p>无论是在命令行还是图形用户界面关机后，才发现自己不是真的想要关机。<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">shutdown</span> -c</span><br></pre></td></tr></table></figure></p>
+<p>需要注意的是，如果关机已经开始则有可能来不及停止关机。<br>以下是另一个可以尝试命令：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pkill</span> shutdown</span><br></pre></td></tr></table></figure></p>
+<h1 id="杀死挂起进程">杀死挂起进程</h1><p>想象一下，你正在运行的应用程序不明原因的僵死了。<br>你可以使用<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ps</span> -ef</span><br></pre></td></tr></table></figure></p>
+<p>来找到该进程后杀掉或者使用‘htop’。<br>有一个更快、更容易的命令叫做 <strong>xkill</strong> 。<br>简单的在终端中输入以下命令并在窗口中点击你想杀死的应用程序。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xkill</span><br></pre></td></tr></table></figure></p>
+<p>那如果整个系统挂掉了怎么办呢？<br>按住键盘上的‘alt’和‘sysrq’不放，然后慢慢输入以下键：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REISUB</span><br></pre></td></tr></table></figure></p>
+<p>这样不按电源键你的计算机也能重启了。</p>
+<h1 id="下载Youtube视频">下载Youtube视频</h1><p>一般来说我们大多数人都喜欢看Youtube的视频，也会通过钟爱的播放器播放Youtube的流媒体。<br>如果你需要离线一段时间（比如：从苏格兰南部坐飞机到英格兰南部旅游的这段时间）那么你可能希望下载一些视频到存储设备中，到闲暇时观看。<br>你所要做的就是从包管理器中安装 <strong>youtube-dl</strong> 。<br>你可以用以下命令使用 <strong>youtube-dl</strong> ：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">youtube-<span class="tag">dl</span> url-to-video</span><br></pre></td></tr></table></figure></p>
+<p>你可以在Youtubu视频页面点击分享链接得到视频的url。只要简单的复制链接在粘帖到命令行就行了（要用shift + insert快捷键哟）。</p>
+<h1 id="总结">总结</h1><p>希望你在这篇文章中得到帮助，并且在这11条中找到至少一条让你惊叹“原来可以这样”的技巧。</p>
+<p><a href="http://www.linuxidc.com/Linux/2015-05/117414.htm" target="_blank" rel="external">来源</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/commands/">commands</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/20/11个让你吃惊的Linux终端命令/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/11个让你吃惊的Linux终端命令/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/20/SQLServer分割字符串/" title="SQLServer分割字符串" itemprop="url">SQLServer分割字符串</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-20T10:46:52.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">CREATE</span> function [dbo].[<span class="constant">SplitStr</span>]</span><br><span class="line">(</span><br><span class="line">     <span class="variable">@SourceStr</span> nvarchar(<span class="number">4000</span>),</span><br><span class="line">     <span class="variable">@Split</span> nvarchar(<span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line">     returns <span class="variable">@temp</span> table (<span class="constant">Result</span> nvarchar(<span class="number">4000</span>))</span><br><span class="line">as</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">     declare <span class="variable">@ch</span> as nvarchar(<span class="number">4000</span>)</span><br><span class="line">     set          <span class="variable">@SourceStr</span>=<span class="variable">@SourceStr</span>+<span class="variable">@Split</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">if</span>(<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)&lt;=<span class="number">0</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          insert <span class="variable">@temp</span> values(<span class="variable">@SourceStr</span>)</span><br><span class="line">          <span class="keyword">return</span></span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">while</span>(<span class="variable">@SourceStr</span>&lt;&gt;<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          set          <span class="variable">@ch</span>=<span class="constant">LEFT</span>(<span class="variable">@SourceStr</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)-<span class="number">1</span>)</span><br><span class="line">          insert     <span class="variable">@temp</span> values(<span class="variable">@ch</span>)</span><br><span class="line">          set          <span class="variable">@SourceStr</span>=<span class="constant">STUFF</span>(<span class="variable">@SourceStr</span>,<span class="number">1</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>),<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">--select * from splitstr(<span class="constant">N</span><span class="string">'表白怕被拒绝？,拒绝了连朋友都做不成？,那就别表白了,还可以做朋友,做个朋友还可以借钱,借了钱再表白,表白被拒绝了,朋友做不成了,那就不用还钱了,(///▽///)'</span>,<span class="string">','</span>)</span><br><span class="line"><span class="constant">GO</span></span><br></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Database/">Database</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/SQLServer/">SQLServer</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/20/SQLServer分割字符串/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/SQLServer分割字符串/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/20/如何在Linux下创建一个不可变更的文件/" title="如何在Linux下创建一个不可变更的文件" itemprop="url">如何在Linux下创建一个不可变更的文件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-20T10:44:08.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>假如你想对Linux中的一些重要文件做写保护，这样它们就不能被删除或者被篡改成之前的版本或者其他东西，或者在其他情况下，你可能想避免某些配置文件被软件自动修改。使用chown和chmod命令修改文件的归属关系或者权限位是处理这种情况的一个解决方法，但这并不完美，因为这样无法避免有root权限的操作。这时chattr就派上用场了。</p>
+<p>chattr是一个可以设置或取消文件的标志位的Linux命令，它和标准的文件权限（读、写、执行）是分离的。与此相关的另一个命令是lsattr，它可以显示文件的哪些标志位被设置上了。最初只有EXT文件系统（EXT2/3/4）支持chattr和lsattr所管理的标志位，但现在很多其他的原生的Linux文件系统都支持了，比如XFS、Btrfs、ReiserFS等等。</p>
+<p>在这个教程中，我会示范如果使用chattr来让Linux中的文件不可变更。</p>
+<p>chattr和lsattr命令是e2fsprogs包的一部分，它在所有现代Linux发行版都预装了。</p>
+<p>下面是chattr的基本语法。<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/20/如何在Linux下创建一个不可变更的文件/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/chattr/">chattr</a><a href="/tags/lsattr/">lsattr</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/20/如何在Linux下创建一个不可变更的文件/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/如何在Linux下创建一个不可变更的文件/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/05/20/Linux的五个查找命令/" title="Linux的五个查找命令" itemprop="url">Linux的五个查找命令</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-05-20T10:32:47.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>最近，我在学习Linux，下面是一些笔记。</p>
+<p>使用电脑的时候，经常需要查找文件。</p>
+<p>在Linux中，有很多方法可以做到这一点。国外网站LinuxHaxor总结了五条命令，你可以看看自己知道几条。大多数程序员，可能经常使用其中的2到3条，对这5条命令都很熟悉的人应该是不多的。</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/05/20/Linux的五个查找命令/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/find/">find</a><a href="/tags/locate/">locate</a><a href="/tags/type/">type</a><a href="/tags/whereis/">whereis</a><a href="/tags/which/">which</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/05/20/Linux的五个查找命令/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/Linux的五个查找命令/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/05/18/Windows-7-Debian-双系统/" title="Windows 7 &amp; Debian 双系统" itemprop="url">Windows 7 &amp; Debian 双系统</a>
   </h1>
   <p class="article-author">By
@@ -470,263 +764,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/10/Linux环境获取系统性能数据/" title="Linux环境获取系统性能数据" itemprop="url">Linux环境获取系统性能数据</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-10T05:01:52.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="CPU利用率">CPU利用率</h1><p>/proc/stat文件里包含系统cpu使用情况，2-8列对应的CPU消耗含义是用户态消耗(user)、用户态nice消耗(nice)、内 核态消耗(sys)、空闲时间(idle)、等待IO消耗(iowait)、硬件中断消耗(hardirq)、软中断消耗(softirq)。（man proc）</p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ cat /<span class="keyword">proc</span>/stat</span><br><span class="line">cpu  <span class="number">2339504870</span> <span class="number">2641995</span> <span class="number">716723851</span> <span class="number">70316975284</span> <span class="number">7219566</span> <span class="number">328971</span> <span class="number">304057999</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu0 <span class="number">211214357</span> <span class="number">275710</span> <span class="number">57674236</span> <span class="number">2778331292</span> <span class="number">3688175</span> <span class="number">10421</span> <span class="number">12279511</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">cpu1 <span class="number">140100049</span> <span class="number">278788</span> <span class="number">47142039</span> <span class="number">2857686940</span> <span class="number">180452</span> <span class="number">32028</span> <span class="number">14960093</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>要计算t1~t2时间内系统的cpu利用率，需要在t1、t2时刻分别采集cpu使用信息<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/10/Linux环境获取系统性能数据/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/10/Linux环境获取系统性能数据/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/10/Linux环境获取系统性能数据/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/10/win7-32位与64位下载地址存档/" title="win7 32位与64位下载地址存档" itemprop="url">win7 32位与64位下载地址存档</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-10T04:58:22.000Z" itemprop="datePublished"> 发表于 2015-05-10</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="Windows_7_简体中文旗舰版_x86_(32位_MSDN_RTM正式版)">Windows 7 简体中文旗舰版 x86 (32位 MSDN RTM正式版)</h1><p><a href="ed2k://%7Cfile%7Ccn_windows_7_ultimate_with_sp1_x86_dvd_618763.iso%7C2651877376%7CD6A0D9FDB8C67A65B92B4C1AC197109C%7C/">下载地址</a></p>
-<h1 id="Windows_7_Ultimate_(x64)-DVD(English)">Windows 7 Ultimate (x64)-DVD(English)</h1><p><a href="ed2k://|file|en_windows_7_ultimate_x64_dvd_X15-65922.iso|3224686592|6719AFC5486F38BE75F2DF39C8527113|/">下载地址</a></p>
-<h1 id="Windows_7_Ultimate_N_(x64)-DVD(English)">Windows 7 Ultimate N (x64)-DVD(English)</h1><p><a href="ed2k://|file|en_windows_7_ultimate_n_x64_dvd_x16-13641.iso|2908555264|C014B86268602565B7880933B41F21AC|/">下载地址</a><br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/10/win7-32位与64位下载地址存档/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Windows/">Windows</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/32位/">32位</a><a href="/tags/64位/">64位</a><a href="/tags/Downloads/">Downloads</a><a href="/tags/Win7/">Win7</a><a href="/tags/ed2k/">ed2k</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/10/win7-32位与64位下载地址存档/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/10/win7-32位与64位下载地址存档/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/04/regular-expression-tutorial-in-30-minutes/" title="regular expression tutorial in 30 minutes" itemprop="url">regular expression tutorial in 30 minutes</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-04T11:03:17.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="本文目标">本文目标</h1><p>30分钟内让你明白正则表达式是什么，并对它有一些基本的了解，让你可以在自己的程序或网页里使用它。</p>
-<h1 id="如何使用本教程">如何使用本教程</h1><p>别被下面那些复杂的表达式吓倒，只要跟着我一步一步来，你会发现正则表达式其实并没有想像中的那么困难。当然，如果你看完了这篇教程之后，发现自己明白了很多，却又几乎什么都记不得，那也是很正常的——我认为，没接触过正则表达式的人在看完这篇教程后，能把提到过的语法记住80%以上的可能性为零。这里只是让你明白基本的原理，以后你还需要多练习，多使用，才能熟练掌握正则表达式。<br>除了作为入门教程之外，本文还试图成为可以在日常工作中使用的正则表达式语法参考手册。就作者本人的经历来说，这个目标还是完成得不错的——你看，我自己也没能把所有的东西记下来，不是吗？<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/04/regular-expression-tutorial-in-30-minutes/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/regular-expression/">regular expression</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/04/regular-expression-tutorial-in-30-minutes/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/04/regular-expression-tutorial-in-30-minutes/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/04/log-in-SSH-with-no-password/" title="log in SSH with no password" itemprop="url">log in SSH with no password</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-04T11:02:11.000Z" itemprop="datePublished"> 发表于 2015-05-04</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>SSH无密码登录要使用公钥与私钥。Linux下可以用用ssh-keygen生成公钥/私钥对，下面我以CentOS为例。</p>
-<p>有机器A(192.168.1.155)，B(192.168.1.181)。现想A通过ssh免密码登录到B。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/04/log-in-SSH-with-no-password/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/SSH/">SSH</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/04/log-in-SSH-with-no-password/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/04/log-in-SSH-with-no-password/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -743,7 +780,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/32位/" style="font-size: 14px;">32位</a><a href="/tags/64位/" style="font-size: 14px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 12px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 14px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SSH/" style="font-size: 16px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/commands/" style="font-size: 14px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 10px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 12px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vim/" style="font-size: 18px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
+       <a href="/tags/32位/" style="font-size: 13.33px;">32位</a><a href="/tags/64位/" style="font-size: 13.33px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 11.67px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 13.33px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SQLServer/" style="font-size: 10px;">SQLServer</a><a href="/tags/SSH/" style="font-size: 16.67px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/chattr/" style="font-size: 10px;">chattr</a><a href="/tags/commands/" style="font-size: 15px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 11.67px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/locate/" style="font-size: 10px;">locate</a><a href="/tags/lsattr/" style="font-size: 10px;">lsattr</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/type/" style="font-size: 10px;">type</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 11.67px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vim/" style="font-size: 18.33px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/whereis/" style="font-size: 10px;">whereis</a><a href="/tags/which/" style="font-size: 10px;">which</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
     </div>
   </div>
 
@@ -758,7 +795,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
+			<li><a href="/categories/Database/" title="Database">Database<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>44</sup></a></li>
 		  
 		
 		  

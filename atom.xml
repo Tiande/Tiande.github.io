@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-05-18T10:27:14.662Z</updated>
+  <updated>2015-05-20T10:49:43.544Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -13,6 +13,176 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[11个让你吃惊的Linux终端命令]]></title>
+    <link href="http://tiandechi.com/2015/05/20/11%E4%B8%AA%E8%AE%A9%E4%BD%A0%E5%90%83%E6%83%8A%E7%9A%84Linux%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
+    <id>http://tiandechi.com/2015/05/20/11个让你吃惊的Linux终端命令/</id>
+    <published>2015-05-20T10:48:19.000Z</published>
+    <updated>2015-05-20T10:49:43.544Z</updated>
+    <content type="html"><![CDATA[<h1 id="命令行日常系快捷键">命令行日常系快捷键</h1><p>如下的快捷方式非常有用，能够极大的提升你的工作效率：</p>
+<ul>
+<li>CTRL + U - 剪切光标前的内容</li>
+<li>CTRL + K - 剪切光标至行末的内容</li>
+<li>CTRL + Y - 粘贴</li>
+<li>CTRL + E - 移动光标到行末</li>
+<li>CTRL + A - 移动光标到行首</li>
+<li>ALT + F - 跳向下一个空格</li>
+<li>ALT + B - 跳回上一个空格</li>
+<li>ALT + Backspace - 删除前一个单词</li>
+<li>CTRL + W - 剪切光标后一个单词</li>
+<li>Shift + Insert - 向终端内粘贴文本</li>
+</ul>
+<h1 id="SUDO_!!">SUDO !!</h1><p>如果你还不知道这个命令，我觉得你应该好好感谢我，因为如果你不知道的话，那每次你在输入长串命令后看到“permission denied”后一定会痛苦不堪。<br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function_or_atom">sudo</span> <span class="exclamation_mark">!</span><span class="exclamation_mark">!</span>  #会用 <span class="function_or_atom">sudo</span> 的形式运行上一条命令</span><br></pre></td></tr></table></figure></p>
+<h1 id="暂停并在后台运行命令">暂停并在后台运行命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CTRL + Z <span class="comment"># 暂停应用程序</span></span><br><span class="line"><span class="built_in">fg</span> <span class="comment"># 重新将程序唤到前台</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用nohup">使用nohup</h1><p>在登出SSH会话后仍运行命令<br>如果你用ssh登录别的机器时，nohup命令真的非常有用。<br>那么怎么使用nohup呢？<br>想象一下你使用ssh远程登录到另一台电脑上，你运行了一条非常耗时的命令然后退出了ssh会话，不过命令仍在执行。而nohup可以将这一场景变成现实。</p>
+<h1 id="‘在’特定的时间运行Linux命令">‘在’特定的时间运行Linux命令</h1><p>‘nohup’命令在你用SSH连接到服务器，并在上面保持执行SSH登出前任务的时候十分有用。<br>想一下如果你需要在特定的时间执行相同的命令，这种情况该怎么办呢？<br>命令‘at’就能妥善解决这一情况。以下是‘at’使用示例。<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">at</span> <span class="number">10</span>:<span class="number">38</span> PM Fri</span><br><span class="line"><span class="keyword">at</span>&gt; cowsay <span class="string">'hello'</span></span><br><span class="line"><span class="keyword">at</span>&gt; CTRL + D</span><br></pre></td></tr></table></figure></p>
+<p>上面的命令能在周五下午10时38分运行程序cowsay。<br>使用的语法就是‘at’后追加日期时间。当at&gt;提示符出现后就可以输入你想在那个时间运行的命令了。<br>CTRL + D 返回终端。<br>还有许多日期和时间的格式，都需要你好好翻一翻‘at’的man手册来找到更多的使用方式。</p>
+<h1 id="Man手册">Man手册</h1><p>Man手册会为你列出命令和参数的使用大纲，教你如何使用她们。Man手册看起来沉闷呆板。（我思忖她们也不是被设计来娱乐我们的）。<br>不过这不代表你不能做些什么来使她们变得漂亮些。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PAGER=most</span><br></pre></td></tr></table></figure></p>
+<p>你需要安装 ‘most’；她会使你的你的man手册的色彩更加绚丽。<br>你可以用以下命令给man手册设定指定的行长：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> MANWIDTH=<span class="number">80</span></span><br></pre></td></tr></table></figure></p>
+<p>最后，如果你有一个可用的浏览器，你可以使用-H在默认浏览器中打开任意的man页。<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man -H &lt;<span class="command"><span class="keyword">command</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>注意啦，以上的命令只有在你将默认的浏览器设置到环境变量$BROWSER中了之后才效果哟。</p>
+<h1 id="使用htop查看和管理进程">使用htop查看和管理进程</h1><p>你用哪个命令找出电脑上正在运行的进程的呢？我敢打赌是‘ps’并在其后加不同的参数来得到你所想要的不同输出。<br>安装‘htop’吧！绝对让你相见恨晚。<br>htop在终端中将进程以列表的方式呈现，有点类似于Windows中的任务管理器。你可以使用功能键的组合来切换排列的方式和展示出来的项。你也可以在htop中直接杀死进程。<br>在终端中简单的输入htop即可运行。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htop</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用ranger浏览文件系统">使用ranger浏览文件系统</h1><p>如果说htop是命令行进程控制的好帮手，那么ranger就是命令行浏览文件系统的好帮手。<br>你在用之前可能需要先安装，不过一旦安装了以后就可以在命令行输入以下命令启动她：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ranger</span><br></pre></td></tr></table></figure></p>
+<p>在命令行窗口中ranger和一些别的文件管理器很像，但是相比上下结构布局，她是左右结构的，这意味着你按左方向键你将前进到上一个文件夹，而右方向键则会切换到下一个。<br>在使用前ranger的man手册还是值得一读的，这样你就可以用快捷键操作ranger了。</p>
+<h1 id="取消关机">取消关机</h1><p>无论是在命令行还是图形用户界面关机后，才发现自己不是真的想要关机。<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">shutdown</span> -c</span><br></pre></td></tr></table></figure></p>
+<p>需要注意的是，如果关机已经开始则有可能来不及停止关机。<br>以下是另一个可以尝试命令：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pkill</span> shutdown</span><br></pre></td></tr></table></figure></p>
+<h1 id="杀死挂起进程">杀死挂起进程</h1><p>想象一下，你正在运行的应用程序不明原因的僵死了。<br>你可以使用<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ps</span> -ef</span><br></pre></td></tr></table></figure></p>
+<p>来找到该进程后杀掉或者使用‘htop’。<br>有一个更快、更容易的命令叫做 <strong>xkill</strong> 。<br>简单的在终端中输入以下命令并在窗口中点击你想杀死的应用程序。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xkill</span><br></pre></td></tr></table></figure></p>
+<p>那如果整个系统挂掉了怎么办呢？<br>按住键盘上的‘alt’和‘sysrq’不放，然后慢慢输入以下键：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REISUB</span><br></pre></td></tr></table></figure></p>
+<p>这样不按电源键你的计算机也能重启了。</p>
+<h1 id="下载Youtube视频">下载Youtube视频</h1><p>一般来说我们大多数人都喜欢看Youtube的视频，也会通过钟爱的播放器播放Youtube的流媒体。<br>如果你需要离线一段时间（比如：从苏格兰南部坐飞机到英格兰南部旅游的这段时间）那么你可能希望下载一些视频到存储设备中，到闲暇时观看。<br>你所要做的就是从包管理器中安装 <strong>youtube-dl</strong> 。<br>你可以用以下命令使用 <strong>youtube-dl</strong> ：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">youtube-<span class="tag">dl</span> url-to-video</span><br></pre></td></tr></table></figure></p>
+<p>你可以在Youtubu视频页面点击分享链接得到视频的url。只要简单的复制链接在粘帖到命令行就行了（要用shift + insert快捷键哟）。</p>
+<h1 id="总结">总结</h1><p>希望你在这篇文章中得到帮助，并且在这11条中找到至少一条让你惊叹“原来可以这样”的技巧。</p>
+<p><a href="http://www.linuxidc.com/Linux/2015-05/117414.htm" target="_blank" rel="external">来源</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="命令行日常系快捷键">命令行日常系快捷键</h1><p>如下的快捷方式非常有用，能够极大的提升你的工作效率：</p>
+<ul>
+<li>CTRL + U - 剪切光标前的内容</li>
+<li>CTRL + K - 剪切光标至行末的内容</li>
+<li>CTRL]]>
+    </summary>
+    
+      <category term="commands" scheme="http://tiandechi.com/tags/commands/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[SQLServer分割字符串]]></title>
+    <link href="http://tiandechi.com/2015/05/20/SQLServer%E5%88%86%E5%89%B2%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://tiandechi.com/2015/05/20/SQLServer分割字符串/</id>
+    <published>2015-05-20T10:46:52.000Z</published>
+    <updated>2015-05-20T10:48:00.095Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">CREATE</span> function [dbo].[<span class="constant">SplitStr</span>]</span><br><span class="line">(</span><br><span class="line">     <span class="variable">@SourceStr</span> nvarchar(<span class="number">4000</span>),</span><br><span class="line">     <span class="variable">@Split</span> nvarchar(<span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line">     returns <span class="variable">@temp</span> table (<span class="constant">Result</span> nvarchar(<span class="number">4000</span>))</span><br><span class="line">as</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">     declare <span class="variable">@ch</span> as nvarchar(<span class="number">4000</span>)</span><br><span class="line">     set          <span class="variable">@SourceStr</span>=<span class="variable">@SourceStr</span>+<span class="variable">@Split</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">if</span>(<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)&lt;=<span class="number">0</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          insert <span class="variable">@temp</span> values(<span class="variable">@SourceStr</span>)</span><br><span class="line">          <span class="keyword">return</span></span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">while</span>(<span class="variable">@SourceStr</span>&lt;&gt;<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          set          <span class="variable">@ch</span>=<span class="constant">LEFT</span>(<span class="variable">@SourceStr</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)-<span class="number">1</span>)</span><br><span class="line">          insert     <span class="variable">@temp</span> values(<span class="variable">@ch</span>)</span><br><span class="line">          set          <span class="variable">@SourceStr</span>=<span class="constant">STUFF</span>(<span class="variable">@SourceStr</span>,<span class="number">1</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>),<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">--select * from splitstr(<span class="constant">N</span><span class="string">'表白怕被拒绝？,拒绝了连朋友都做不成？,那就别表白了,还可以做朋友,做个朋友还可以借钱,借了钱再表白,表白被拒绝了,朋友做不成了,那就不用还钱了,(///▽///)'</span>,<span class="string">','</span>)</span><br><span class="line"><span class="constant">GO</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class=]]>
+    </summary>
+    
+      <category term="SQLServer" scheme="http://tiandechi.com/tags/SQLServer/"/>
+    
+      <category term="Database" scheme="http://tiandechi.com/categories/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[如何在Linux下创建一个不可变更的文件]]></title>
+    <link href="http://tiandechi.com/2015/05/20/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%9B%B4%E7%9A%84%E6%96%87%E4%BB%B6/"/>
+    <id>http://tiandechi.com/2015/05/20/如何在Linux下创建一个不可变更的文件/</id>
+    <published>2015-05-20T10:44:08.000Z</published>
+    <updated>2015-05-20T10:46:31.807Z</updated>
+    <content type="html"><![CDATA[<p>假如你想对Linux中的一些重要文件做写保护，这样它们就不能被删除或者被篡改成之前的版本或者其他东西，或者在其他情况下，你可能想避免某些配置文件被软件自动修改。使用chown和chmod命令修改文件的归属关系或者权限位是处理这种情况的一个解决方法，但这并不完美，因为这样无法避免有root权限的操作。这时chattr就派上用场了。</p>
+<p>chattr是一个可以设置或取消文件的标志位的Linux命令，它和标准的文件权限（读、写、执行）是分离的。与此相关的另一个命令是lsattr，它可以显示文件的哪些标志位被设置上了。最初只有EXT文件系统（EXT2/3/4）支持chattr和lsattr所管理的标志位，但现在很多其他的原生的Linux文件系统都支持了，比如XFS、Btrfs、ReiserFS等等。</p>
+<p>在这个教程中，我会示范如果使用chattr来让Linux中的文件不可变更。</p>
+<p>chattr和lsattr命令是e2fsprogs包的一部分，它在所有现代Linux发行版都预装了。</p>
+<p>下面是chattr的基本语法。<br><a id="more"></a><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chattr [<span class="link_label">-RVf</span>][<span class="link_reference">操作符</span>][<span class="link_label">标志位</span>]文件...</span><br></pre></td></tr></table></figure></p>
+<p>其中操作符可以是“+”（把选定的标志位添加到标志位列表）、“-”（从标志位列表中移除选定的标志位）、或者“=”（强制使用选定的标志位）。</p>
+<p>下面是一些可用的标志位。</p>
+<p>a: 只能以零来安全删除。（LCTT 译注：一般情况文件被删后内容不会被修改，追加模式打开。<br>A: 不能更新atime（文件访问时间）。<br>c: 当被写入磁盘时被自动压缩。<br>C: 关掉“写时复制”。<br>i: 不可变更。<br>s: 通过自动归改标志位会使得文件被删后原有内容被“0”取代）</p>
+<p>&quot;不可变更&quot;标志位</p>
+<p>为了让一个文件不可变更，你需要按照如下方法为这个文件添加“不可变更”标志位。例如，对/etc/passwd文件做写保护：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chattr +<span class="tag">i</span> /etc/passwd</span><br></pre></td></tr></table></figure></p>
+<p>注意设置或取消一个文件的“不可变更”标志位是需要root用户权限的。现在检查该文件“不可变更”标志位是否被添加上了。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>lsattr /etc/passwd</span><br></pre></td></tr></table></figure></p>
+<p>一旦文件被设置为不可变更，任何用户都将无法修改该文件。即使是root用户也不可以修改、删除、覆盖、移动或者重命名这个文件。如果你想再次修改这个文件，需要先把“不可变更”标志位取消了。</p>
+<p>用如下命令取消“不可变更”标志位：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chattr -<span class="tag">i</span> /etc/passwd</span><br></pre></td></tr></table></figure></p>
+<p>如果你想让一个目录（比如/etc）连同它下边的所有内容不可变更，使用“-R”选项：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chattr -R +<span class="tag">i</span> /etc</span><br></pre></td></tr></table></figure></p>
+<p>“只可追加”标志位</p>
+<p>另一个有用的的标志位是“只可追加”，它只允许文件内容被追加的方式修改。你不能覆盖或者删除一个设置了“只可追加”标志位的文件。这个标志位在你想避免日志文件被意外清理掉的情况很有用。</p>
+<p>和“不可变更”标志位类似，你可以使用如下命令让文件变成“只可追加”模式：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chattr <span class="subst">+</span>a /<span class="built_in">var</span>/<span class="keyword">log</span>/syslog</span><br></pre></td></tr></table></figure></p>
+<p>注意当你复制一个“不可变更”或者“只可追加”的文件到其他地方后，新文件不会保留这些标志位！</p>
+<p>结论</p>
+<p>在这个教程中，我展示了如何使用chattr和lsattr命令来管理额外的文件标志位，来避免文件被篡改（意外或者其他情况）的方法。注意你不能将chattr作为一个安全措施，因为“不可变更”标志位可以很容易被取消掉。解决这个问题的一个可能的方式是限制chattr命令自身的可用性，或者去掉CAPLINUXIMMUTABLE内核权能标志。关于chattr以及可用的标志位的更多细节，请参考它的man手册。</p>
+<p><a href="http://www.linuxidc.com/Linux/2015-05/117712.htm" target="_blank" rel="external">Source</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>假如你想对Linux中的一些重要文件做写保护，这样它们就不能被删除或者被篡改成之前的版本或者其他东西，或者在其他情况下，你可能想避免某些配置文件被软件自动修改。使用chown和chmod命令修改文件的归属关系或者权限位是处理这种情况的一个解决方法，但这并不完美，因为这样无法避免有root权限的操作。这时chattr就派上用场了。</p>
+<p>chattr是一个可以设置或取消文件的标志位的Linux命令，它和标准的文件权限（读、写、执行）是分离的。与此相关的另一个命令是lsattr，它可以显示文件的哪些标志位被设置上了。最初只有EXT文件系统（EXT2/3/4）支持chattr和lsattr所管理的标志位，但现在很多其他的原生的Linux文件系统都支持了，比如XFS、Btrfs、ReiserFS等等。</p>
+<p>在这个教程中，我会示范如果使用chattr来让Linux中的文件不可变更。</p>
+<p>chattr和lsattr命令是e2fsprogs包的一部分，它在所有现代Linux发行版都预装了。</p>
+<p>下面是chattr的基本语法。<br>]]>
+    
+    </summary>
+    
+      <category term="chattr" scheme="http://tiandechi.com/tags/chattr/"/>
+    
+      <category term="lsattr" scheme="http://tiandechi.com/tags/lsattr/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Linux的五个查找命令]]></title>
+    <link href="http://tiandechi.com/2015/05/20/Linux%E7%9A%84%E4%BA%94%E4%B8%AA%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4/"/>
+    <id>http://tiandechi.com/2015/05/20/Linux的五个查找命令/</id>
+    <published>2015-05-20T10:32:47.000Z</published>
+    <updated>2015-05-20T10:44:39.590Z</updated>
+    <content type="html"><![CDATA[<p>最近，我在学习Linux，下面是一些笔记。</p>
+<p>使用电脑的时候，经常需要查找文件。</p>
+<p>在Linux中，有很多方法可以做到这一点。国外网站LinuxHaxor总结了五条命令，你可以看看自己知道几条。大多数程序员，可能经常使用其中的2到3条，对这5条命令都很熟悉的人应该是不多的。</p>
+<a id="more"></a>
+<h1 id="find">find</h1><p>find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。<br>find的使用格式如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　$ find <span class="tag">&lt;<span class="title">指定目录</span>&gt;</span> <span class="tag">&lt;<span class="title">指定条件</span>&gt;</span> <span class="tag">&lt;<span class="title">指定动作</span>&gt;</span></span><br><span class="line"></span><br><span class="line">　　- <span class="tag">&lt;<span class="title">指定目录</span>&gt;</span>： 所要搜索的目录及其所有子目录。默认为当前目录。</span><br><span class="line"></span><br><span class="line">　　- <span class="tag">&lt;<span class="title">指定条件</span>&gt;</span>： 所要搜索的文件的特征。</span><br><span class="line"></span><br><span class="line">　　- <span class="tag">&lt;<span class="title">指定动作</span>&gt;</span>： 对搜索结果进行特定的处理。</span><br></pre></td></tr></table></figure></p>
+<p>如果什么参数也不加，find默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。<br>find的使用实例：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ find . -<span class="property">name</span> '<span class="keyword">my</span>*'</span><br></pre></td></tr></table></figure></p>
+<p>搜索当前目录（含子目录，以下同）中，所有文件名以my开头的文件。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ <span class="keyword">find</span> . -name <span class="string">'my*'</span> -<span class="keyword">ls</span></span><br></pre></td></tr></table></figure></p>
+<p>搜索当前目录中，所有文件名以my开头的文件，并显示它们的详细信息。<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ <span class="built_in">find</span> . -<span class="built_in">type</span> f -mmin -<span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<p>搜索当前目录中，所有过去10分钟中更新过的普通文件。如果不加-type f参数，则搜索普通文件+特殊文件+目录。</p>
+<h1 id="locate">locate</h1><p>locate命令其实是&quot;find -name&quot;的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天自动更新一次，所以使用locate命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库。</p>
+<p>locate命令的使用实例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="variable">$ </span>locate /etc/sh</span><br></pre></td></tr></table></figure></p>
+<p>搜索etc目录下所有以sh开头的文件。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="variable">$ </span>locate ~<span class="regexp">/m</span></span><br></pre></td></tr></table></figure></p>
+<p>搜索用户主目录下，所有以m开头的文件。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ locate -<span class="tag">i</span> ~/m</span><br></pre></td></tr></table></figure></p>
+<p>搜索用户主目录下，所有以m开头的文件，并且忽略大小写。</p>
+<h1 id="whereis">whereis</h1><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。<br>whereis命令的使用实例：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="variable">$ </span>whereis grep</span><br></pre></td></tr></table></figure></p>
+<h1 id="which">which</h1><p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
+<p>which命令的使用实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ <span class="built_in">which</span> grep</span><br></pre></td></tr></table></figure></p>
+<h1 id="type">type</h1><p>type命令其实不能算查找命令，它是用来区分某个命令到底是由shell自带的，还是由shell外部的独立二进制文件提供的。如果一个命令是外部命令，那么使用-p参数，会显示该命令的路径，相当于which命令。</p>
+<p>type命令的使用实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ <span class="built_in">type</span> <span class="built_in">cd</span></span><br></pre></td></tr></table></figure></p>
+<p>系统会提示，cd是shell的自带命令（build-in）。<br><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ <span class="class"><span class="keyword">type</span> <span class="title">grep</span></span></span><br></pre></td></tr></table></figure></p>
+<p>系统会提示，grep是一个外部命令，并显示该命令的路径。<br><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　$ <span class="class"><span class="keyword">type</span> -<span class="title">p</span> <span class="title">grep</span></span></span><br></pre></td></tr></table></figure></p>
+<p>加上-p参数后，就相当于which命令。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2009/10/5_ways_to_search_for_files_using_the_terminal.html" target="_blank" rel="external">Source</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近，我在学习Linux，下面是一些笔记。</p>
+<p>使用电脑的时候，经常需要查找文件。</p>
+<p>在Linux中，有很多方法可以做到这一点。国外网站LinuxHaxor总结了五条命令，你可以看看自己知道几条。大多数程序员，可能经常使用其中的2到3条，对这5条命令都很熟悉的人应该是不多的。</p>]]>
+    
+    </summary>
+    
+      <category term="find" scheme="http://tiandechi.com/tags/find/"/>
+    
+      <category term="locate" scheme="http://tiandechi.com/tags/locate/"/>
+    
+      <category term="type" scheme="http://tiandechi.com/tags/type/"/>
+    
+      <category term="whereis" scheme="http://tiandechi.com/tags/whereis/"/>
+    
+      <category term="which" scheme="http://tiandechi.com/tags/which/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Windows 7 & Debian 双系统]]></title>
@@ -908,128 +1078,6 @@ anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" 
     </summary>
     
       <category term="VSFTP" scheme="http://tiandechi.com/tags/VSFTP/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[OpenSSH management:ssh-agent & keychain]]></title>
-    <link href="http://tiandechi.com/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/"/>
-    <id>http://tiandechi.com/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/</id>
-    <published>2015-04-19T08:12:38.000Z</published>
-    <updated>2015-04-19T01:27:54.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="介绍_ssh-agent">介绍 ssh-agent</h1><p>ssh-agent 是专为既令人愉快又安全的处理 RSA 和 DSA 密钥而设计的特殊程序，它包括在OpenSSH分发内(请参阅 本系列文章的第 1 部分以得到关于 RSA 和 DSA 认证的介绍)。不同于 ssh ， ssh-agent 是个长时间持续运行的守护进程(daemon)，设计它的唯一目的就是对解密的专用密钥进行高速缓存。</p>
-<p>ssh 包含的内建支持允许它同 ssh-agent 通信，允许 ssh 不必每次新连接时都提示您要密码才能获取解密的专用密钥。对于 ssh-agent ，您只要使用 ssh-add 把专用密钥添加到 ssh-agent 的高速缓存中。这是个一次性过程;用过 ssh-add 之后， ssh 将从 ssh-agent 获取您的专用密钥，而不会提示要密码短语来烦您了。</p>
-<h1 id="使用_ssh-agent">使用 ssh-agent</h1><a id="more"></a>
-<p>让我们看一下整个 ssh-agent 密钥高速缓存系统的工作过程。 ssh-agent 启动时，在脱离 shell(外壳程序)并继续在后台运行之前它会输出一些重要的环境变量。以下是 ssh-agent 开始时生成的输出的一些示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">% ssh-agent</span><br><span class="line"></span><br><span class="line">SSH_AUTH_SOCK=/tmp/ssh-XX4LkMJS/agent.<span class="number">26916</span>; <span class="built_in">export</span> SSH_AUTH_SOCK;</span><br><span class="line"></span><br><span class="line">SSH_AGENT_PID=<span class="number">26917</span>; <span class="built_in">export</span> SSH_AGENT_PID;</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> Agent pid <span class="number">26917</span>;</span><br></pre></td></tr></table></figure></p>
-<p>正如您所看到的，事实上 ssh-agent 的输出是一系列 bash 命令;如果这些命令被执行，则将设置两个环境变量：SSH_AUTH_SOCK 和 SSH_AGENT_PID。内含的 export 命令使这些环境变量对之后运行的任何附加命令都可用。唔， 如果 shell 真对这些行进行计算，这一切才会发生，但是此时它们只是被打印到标准输出(stdout)而已。要使之确定，我们可以象下面这样调用 ssh-agent ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">`ssh-agent`</span></span><br></pre></td></tr></table></figure></p>
-<p>这个命令先让 bash 运行 ssh-agent 后对 ssh-agent 的输出进行计算。shell 以这种调用方式(使用反引号，而不是普通的单引号)设置并导出 SSH_AGENT_PID 及 SSH_AUTH_SOCK 变量，使这些变量对于您在登录会话期间启动的所有新进程都可用。</p>
-<p>启动 ssh-agent 的最佳方式就是把上面这行添加到您的 ~/.bash_profile 中;这样，在您的登录 shell 中启动的所有程序都将看到环境变量，而且能够定位 ssh-agent ，并在需要的时候向其查询密钥。尤其重要的环境变量是 SSH_AUTH_SOCK;SSH_AUTH_SOCK 包含有 ssh 和 scp 可以用来同 ssh-agent 建立对话的 UNIX 域套接字的路径。</p>
-<h1 id="使用_ssh-add">使用 ssh-add</h1><p>但是 ssh-agent 启动时高速缓存当然是空的，里面不会有解密的专用密钥。在我们真能使用 ssh-agent 之前，首先还需要使用 ssh-add 命令把我们的专用密钥添加到 ssh-agent 的高速缓存中。下面的示例中，我使用 ssh-add 把我的 ~/.ssh/identity 专用 RSA 密钥添加到 ssh-agent 的高速缓存中：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># ssh-add ~<span class="regexp">/.ssh/i</span>dentity</span><br><span class="line"></span><br><span class="line">Need passphrase <span class="keyword">for</span> <span class="regexp">/home/</span>drobbins<span class="regexp">/.ssh/i</span>dentity</span><br><span class="line"></span><br><span class="line">Enter passphrase <span class="keyword">for</span> <span class="regexp">/home/</span>drobbins<span class="regexp">/.ssh/i</span>dentity</span><br><span class="line"></span><br><span class="line">(enter passphrase)</span><br></pre></td></tr></table></figure></p>
-<p>正如您所看到的， ssh-add 要我的密码短语来对专用密钥进行解密并存储在 ssh-agent 的高速缓存中以备使用。一旦您已经用 ssh-add 把专用密钥(或多个密钥)添加到 ssh-agent 的高速缓存中， 并在当前的 shell 中(如果您在 ~/.bash_profile 中启动 ssh-agent ，情况应当是这样)定义 SSH_AUTH_SOCK，那么您可以使用 scp 和 ssh 同远程系统建立连接而不必提供密码短语。</p>
-<h1 id="ssh-agent_的不足之处">ssh-agent 的不足之处</h1><p>ssh-agent 确实棒，但是其缺省配置还是会留给我们一些小小的不便。让我们来看一下这些不足吧。</p>
-<p>首先，~/.bash_profile 中的 eval <code>ssh-agent</code> 使每次登录会话都会启动一个新的 ssh-agent 副本;这不仅仅是有一丁点儿浪费，而且还意味着您得使用 ssh-add 向每个新的 ssh-agent 副本添加专用密钥。如果您只想打开系统上的一个终端或控制台，这没什么大不了的，但是我们中大多数人打开相当多的终端，每次新打开控制台都需要键入密码短语。从技术角度讲，既然一个 ssh-agent 进程的确应当足够了，要是我们还需这样做，这毫无道理。</p>
-<p>有关 ssh-agent 的缺省设置的另外一个问题是它同 cron 作业不兼容。由于 cron 作业是 cron 进程启动的，这些作业无法从它们的环境中继承 SSH_AUTH_SOCK 变量，因而也无从知道 ssh-agent 进程正在运行以及如何同它联系。事实证明这个问题也是可以修补的。</p>
-<h1 id="开始用到_keychain">开始用到 keychain</h1><p>为了解决这些问题，我编写了一个有用的 ssh-agent 前端，它基于 bash，叫做 keychain 。 keychain 的特别之处在于它允许 每个系统使用一个 ssh-agent 进程，而非每次登录会话。这意味着您只需对每个专用密钥执行一次 ssh-add ，就一次。正如我们稍后将要看到的一样， keychain 甚至有助于优化 ssh-add ，而这只要它试图向那些正在运行的 ssh-agent 添加其高速缓存中没有的专用密钥。</p>
-<p>以下对 keychain 如何工作从头到尾浏览一遍。从 ~/.bash_profile 中启动时， keychain 将首先查看 ssh-agent 是否已经在运行了。如果没有，它就启动 ssh-agent 并把重要的 SSH_AUTH_SOCK 和 SSH_AGENT_PID 变量记录在 ~/.ssh-agent 文件中，一方面为了安全而保存，另一方面也是为了以后的使用。这是启动 keychain 的最佳途径;同使用平淡无奇的老式 ssh-agent 一样，我们在 ~/.bash_profile 内部执行必要的配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#example ~/.bash_profile file</span></span><br><span class="line"></span><br><span class="line">/usr/bin/keychain ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"><span class="comment">#redirect ~/.ssh-agent output to /dev/null to zap the annoying</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#"Agent PID" message</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.ssh-agent &gt; /dev/null</span><br></pre></td></tr></table></figure></p>
-<p>正如您所看到的，对于 keychain 我们用 source 命令读入并执行 ~/.ssh-agent 文件，而不是象我们直接使用 ssh-agent 时所做的对输出进行计算。但是，结果是一样的：定义了非常重要的 SSH_AUTH_SOCK，而且正运行 ssh-agent 以备使用。同时，因为 SSH_AUTH_SOCK 被记录在 ~/.ssh-agent 里，只要用 source 命令读入并执行 ~/.ssh-agent 文件，就可以轻易的把我们的 shell 脚本及 cron 作业同 ssh-agent 连接起来。 keychain 本身也利用了这个文件;您应该记住 keychain 启动时，它会查看现有的 ssh-agent 是否正在运行。如果是，则它使用 ~/.ssh-agent 文件来获得适当的 SSH_AUTH_SOCK 设置，这样就使 keychain 能使用现有的代理程序而不必新启动一个。只有在 ~/.ssh-agent 文件无效(指向一个不存在的 ssh-agent )或 ~/.ssh-agent 文件本身不存在时， keychain 才会启动新的 ssh-agent 进程。</p>
-<h1 id="安装_keychain">安装 keychain</h1><p>安装 keychain 很容易。首先，直接到 keychain 工程主页下载可用的 keychain 源压缩文档的最新版本。然后，安装如下：<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># tar xzvf keychain-1.0.tar.gz</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># cd keychain-1.0</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># install -m0755 keychain /usr/bin</span></span><br></pre></td></tr></table></figure></p>
-<p>既然 keychain 在 /usr/bin/ 目录下，就请把它添加到您的 ~/.bash_profile 中，并把您的专用密钥路径作为参数。下面是一个既标准又好的启用 keychain 的 ~/.bash_profile：</p>
-<p>启用 keychain 的 ~/.bash_profile 示例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#on this next line, we start keychain and point it to the private keys that</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#we'd like it to cache</span></span><br><span class="line"></span><br><span class="line">/usr/bin/keychain ~/.ssh/id_rsa ~/.ssh/id_dsa</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.ssh-agent &gt; /dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment">#sourcing ~/.bashrc is a good thing</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<h1 id="Keychain_生效">Keychain 生效</h1><p>您一为每次登录时调用 keychain 配置好了 ~/.bash_profile，就请先退出再登录回来。在您再次登录时， keychain 将启动 ssh-agent ，并记录下 ~/.ssh-agent 中的代理程序环境变量设置，然后提示您输入在 ~/.bash_profile 中的 keychain 命令行指定的所有专用密钥的密码短语：</p>
-<p>Keychain 首次启动</p>
-<p><em>图片丢失</em></p>
-<p>您一输入密码短语，您的专用密钥就会被高速缓存，同时 keychain 将退出。接着，用 source 命令读入并执行 ~/.ssh-agent，初始化您的登录会话以便同 ssh-agent 一起使用。现在，如果您退出，然后再登录回来，将发现 keychain 会找到现有的 ssh-agent 进程;在您退出时，它并没有终止。此外， keychain 将验证您指定的专用密钥是否已经在 ssh-agent 的高速缓存中了。如果没有，那么将会提示您输入正确的密码短语，但如果一切进展顺利，则现有 ssh-agent 仍包含有您以前添加的专用密钥;这意味着不会提示您输入密码：</p>
-<p>Keychain 找到现有的 ssh-agent</p>
-<p><em>图片丢失</em></p>
-<p>祝贺您!您刚才已经登录了，应该能够用 ssh 和 scp 连到远程系统;您不必一登录就使用 ssh-add ，而且 ssh 和 scp 也不会提示您输入密码短语。事实上，只要初始的 ssh-agent 进程一直在运行，您就能不提供密码登录并建立 ssh 连接。 ssh-agent 进程持续运行直到机器重新启动也是很有可能的;由于您最可能在 Linux 系统上这样设置，所以也许一连几个月您都不必输入密码短语!欢迎来到安全的、使用 RSA 和 DSA 认证无密码连接的世界。</p>
-<p>继续创建几个新的登录会话，您会发现每次 keychain 都会准确无误的“钩住”到同一 ssh-agent 进程。不要忘记您也可以使 cron 作业和脚本“钩住”正在运行的 ssh-agent 进程。要在 shell 脚本和 cron 作业中使用 ssh 或 scp 命令，只要确保先用 source 命令读入并执行 ~/.ssh-agent：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.ssh-agent</span><br></pre></td></tr></table></figure></p>
-<p>然后，随后所有的 ssh 或 scp 命令就能够找到当前正在运行的 ssh-agent ，并且象您在 shell 中一样能建立安全的无密码连接。</p>
-<p>＃ Keychain 选项</p>
-<p>您启动并运行 keychain 后，一定要键入 keychain --help 以熟悉 keychain 所有的命令行选项。我们要特别看一下这个选项： -clear 选项。</p>
-<p>还记得我在第 1 部分里阐释了使用不加密专用密钥是一种危险的做法，因为这种做法允许其它人盗用您的专用密钥不提供密码就可以从所有系统登录到您的远程帐户。唔，尽管 keychain 不易遭到这种滥用(只要您使用加密的专用密钥就行)，但仍存在有可能可以利用的弱点，同 keychain 使得“钩住”长时间持续运行的 ssh-agent 进程如此容易这一事实直接相关。我想，如果闯入者以某种方式能想出我的密码或密码短语，还能登录进入我的本地系统，会发生什么事情呢?如果出于某种原因他们能以我的用户名登录，那么 keychain 就会立刻授权他们访问我的解密的专用密钥，使他们可以轻而易举的访问我的其它帐户。</p>
-<p>现在，在继续下面的内容之前，让我们先客观的表述一下安全威胁。如果由于某种原因一些恶意的用户能以我的身份登录， keychain 确实会允许他们访问我的远程帐户。但，尽管如此，这位闯入者要偷到我的加密的专用密钥非常困难，因为它们仍旧在磁盘上保持着加密状态。而且，得到我的专用密钥访问权要求用户真的以我的身份 登录，不单单是阅读我的目录中的文件而已。因此，滥用 ssh-agent 是比只偷到一个不加密的专用密钥困难得多的一项任务，后者只需要闯入者通过某种手段获得我在 ~/.ssh 里的文件的访问权，而不管是否是以我的身份登录。不过，如果闯入者能够成功的以我的身份登录，通过使用我的加密专用密钥他们造成相当多的额外损害。所以，如果您刚好在您不频繁登录或没有对安全缺口进行密切监视的一台服务器上使用 keychain ，那么请您考虑使用 --clear 选项以提供附加的安全层。</p>
-<p>--clear 选项允许您让 keychain 假定把每次以您的帐户的新登录都当作是可能的安全缺口，直到能证明并非如此。当您启动 keychain 时使用了 --clear 选项时，您登录的时候 keychain 会立即刷新 ssh-agent 的高速缓存里的所有专用密钥，此后才执行它的常规职责。这样，如果您是一位闯入者，则 keychain 会提示您输入密码短语而不会让您访问现有的高速缓存中的密钥集合。但是，虽然这样增强了安全性，却使情况有点更不方便，尤其好象完全是 ssh-agent 在运行，而 keychain 并没有运行。此处，情况常常是这样，一个人可以选择或者安全性更高，或更方便，但不能两者兼得。</p>
-<p>尽管如此，使用带有 --clear 的 keychain 仍然比只用 ssh-agent 要好;请记住，当您使用 keychain --clear 时，您的 cron 作业和脚本仍然能建立无密码连接;这是因为专用密钥是在 登录时刷新，而不是在 退出时。由于从系统退出不会构成潜在的安全缺口，因而没有理由要 keychain 来刷新 ssh-agent 的密钥作为响应。因此，对于不频繁访问又需要偶而执行安全拷贝任务的服务器而言，比如，备份服务器、防火墙及路由器， --clear 选项是一个理想的选择。</p>
-<p><a href="http://sec.chinabyte.com/459/8607459.shtml" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="介绍_ssh-agent">介绍 ssh-agent</h1><p>ssh-agent 是专为既令人愉快又安全的处理 RSA 和 DSA 密钥而设计的特殊程序，它包括在OpenSSH分发内(请参阅 本系列文章的第 1 部分以得到关于 RSA 和 DSA 认证的介绍)。不同于 ssh ， ssh-agent 是个长时间持续运行的守护进程(daemon)，设计它的唯一目的就是对解密的专用密钥进行高速缓存。</p>
-<p>ssh 包含的内建支持允许它同 ssh-agent 通信，允许 ssh 不必每次新连接时都提示您要密码才能获取解密的专用密钥。对于 ssh-agent ，您只要使用 ssh-add 把专用密钥添加到 ssh-agent 的高速缓存中。这是个一次性过程;用过 ssh-add 之后， ssh 将从 ssh-agent 获取您的专用密钥，而不会提示要密码短语来烦您了。</p>
-<h1 id="使用_ssh-agent">使用 ssh-agent</h1>]]>
-    
-    </summary>
-    
-      <category term="SSH" scheme="http://tiandechi.com/tags/SSH/"/>
-    
-      <category term="keychain" scheme="http://tiandechi.com/tags/keychain/"/>
-    
-      <category term="ssh-agent" scheme="http://tiandechi.com/tags/ssh-agent/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[about Chrome]]></title>
-    <link href="http://tiandechi.com/2015/04/18/about-Chrome/"/>
-    <id>http://tiandechi.com/2015/04/18/about-Chrome/</id>
-    <published>2015-04-18T15:57:31.000Z</published>
-    <updated>2015-04-18T08:00:10.000Z</updated>
-    <content type="html"><![CDATA[<ol>
-<li>离线版 Chrome下载方法<br> <a href="http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe" target="_blank" rel="external">http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe</a><br> 要想下载离线版 Chrome，必须知道你要下载的版本号，取版本号第二个小数点后的数字串。如 Version 27.0.1453.94 m 的下载地址就是：<br> <a href="http://dl.google.com/chrome/install/1453.94/chrome_installer.exe" target="_blank" rel="external">http://dl.google.com/chrome/install/1453.94/chrome_installer.exe</a><br> 注：离线版 Chrome 可能不会自动更新。</li>
-<li>Chrome 版本号规则<br> Google Chrome 版本号的命名规则，拿最新的 Chrome 27.0.1453.94 为例，这个版本号可以分成 3 部分：<br> 27.0 —— 这是主版本号。<br> .1453 —— 这是一个版本代码，通常它的变化意味着有新的功能的加入。<br> .94 —— 这是用于修补漏洞和稳定性调整更新时候用到的数字。通常没有新功能加入的时候这个数字会实时更新。</li>
-</ol>
-<p><a href="http://m.baidu.com/from=844b/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%401320_2001%2Cta%40iphone_1_4.3_3_533/baiduid=23B649E6AA04C1D3B1BFCE13CE554FCE/w=0_10_chromium+he+chrome/t=iphone/l=3/tc?ref=www_iphone&amp;lid=6928532657601785428&amp;order=2&amp;vit=osres&amp;tj=www_normal_2_0_10_title&amp;m=8&amp;srd=1&amp;cltj=cloud_title&amp;dict=32&amp;fm=wnor&amp;sec=409&amp;di=19550545459566e7&amp;bdenc=1&amp;nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IJRi0LTYK0Dua7JuVePzkJxEsRDD8QnSLGlD9eW3EhQJSaDL9QjEz7qO" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<ol>
-<li>离线版 Chrome下载方法<br> <a href="http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe" target="_blank" rel="external">http:]]>
-    </summary>
-    
-      <category term="Chrome" scheme="http://tiandechi.com/tags/Chrome/"/>
-    
-      <category term="Browser" scheme="http://tiandechi.com/categories/Browser/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[aptitude concise manual]]></title>
-    <link href="http://tiandechi.com/2015/04/18/aptitude-concise-manual/"/>
-    <id>http://tiandechi.com/2015/04/18/aptitude-concise-manual/</id>
-    <published>2015-04-18T15:56:43.000Z</published>
-    <updated>2015-04-18T19:43:30.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="http://man.ddvip.com/linux/debian/aptitude/index.html" target="_blank" rel="external">aptitude简明手册</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="http://man.ddvip.com/linux/debian/aptitude/index.html" target="_blank" rel="external">aptitude简明手册</a></p>
-]]>
-    </summary>
-    
-      <category term="Aptitude" scheme="http://tiandechi.com/tags/Aptitude/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[check Linux Kernel and Distrabution version]]></title>
-    <link href="http://tiandechi.com/2015/04/18/check-Linux-Kernel-and-Distrabution-version/"/>
-    <id>http://tiandechi.com/2015/04/18/check-Linux-Kernel-and-Distrabution-version/</id>
-    <published>2015-04-18T15:55:19.000Z</published>
-    <updated>2015-04-18T07:56:24.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="查看发行版本：">查看发行版本：</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/i</span>ssue</span><br></pre></td></tr></table></figure>
-<h1 id="查看内核版本：">查看内核版本：</h1><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /<span class="keyword">proc</span>/version</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.sina.com.cn/s/blog_66ad86a301015yzr.html" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="查看发行版本：">查看发行版本：</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><]]>
-    </summary>
-    
-      <category term="Distrabution" scheme="http://tiandechi.com/tags/Distrabution/"/>
-    
-      <category term="Kernel" scheme="http://tiandechi.com/tags/Kernel/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     

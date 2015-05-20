@@ -86,6 +86,277 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/03/28/fileformat/" title="fileformat" itemprop="url">fileformat</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-27T17:11:06.000Z" itemprop="datePublished"> 发表于 2015-03-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>今天逛vimwiki，发现一篇好文章，讲vim的fileformat。如果程序员的开发环境是unix和dos并存，那么你绝对会碰到这个问题。比如，让你心烦的行尾的^M，而且这些^M会导致一些脚本不能正常执行。</p>
+<p>文章很长，我来个摘要。<a href="http://vim.wikia.com/wiki/VimTip1585">原文</a></p>
+<p>所谓fileformat就讲的是个行结束符的问题。行结束符在显示的时候是不显示的。由于历史原因，dos，unix，mac采用了不同的行结束符。（何时天下大统？）据说这些行结束符和古董打字机还有关系。这让我想起了一个关于火箭和马屁股的故事。</p>
+<pre><code>unix LF only (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="operator">an</span> LF <span class="keyword">character</span>). 
+dos <span class="constant">CRLF</span> (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="constant">two</span> <span class="keyword">characters</span>, <span class="constant">CR</span> <span class="keyword">then</span> LF). 
+mac <span class="constant">CR</span> only (<span class="keyword">each</span> <span class="built_in">line</span> <span class="operator">ends</span> <span class="operator">with</span> <span class="operator">a</span> <span class="constant">CR</span> <span class="keyword">character</span>).
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/03/28/fileformat/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/dos/">dos</a><a href="/tags/fileformat/">fileformat</a><a href="/tags/unix/">unix</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/03/28/fileformat/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/28/fileformat/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/28/Linux文件名乱码的转换/" title="Linux文件名乱码的转换" itemprop="url">Linux文件名乱码的转换</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-27T17:00:18.000Z" itemprop="datePublished"> 发表于 2015-03-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="乱码的转换">乱码的转换</h1><h2 id="方法1：">方法1：</h2><p>Linux往windows拷贝文件或者从windows往linux拷贝文件，或者linux系统（字符集若不同）间互相拷贝文件，有时候会出现中文文件名乱码的情况，主要原因就是，windows的文件名 中文编码默认是GBK，而Linux默认中文文件名编码为UTF-8，由于编码不一致，所以导致了文件名出现中文乱码问题。<br>在这次招聘中心应用对应的简历文件迁移时，就发生这个问题，因为原先的简历对应的文件名的字符集是GBK，而拷贝过去的linux系统，其字符集是UTF-8，为了解决这个乱码，需要对文件名进行转码，具体如下：</p>
+<ol>
+<li>前提保证已安装了convmv；</li>
+<li><p>具体convmv的用法：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Convmv –f 源编码 –t 新编码 [选项] 文件名</span><br><span class="line">一般常用参数：</span><br><span class="line">-<span class="ruby">r 递归处理子目录</span><br><span class="line"></span>-<span class="ruby">-notest 真正进行操作，默认情况下是不对文件进行真实操作的，只是一个预览</span><br><span class="line"></span>-<span class="ruby">-list 显示所有支持的编码</span><br><span class="line"></span>-<span class="ruby">-unescap 可以做一个转义</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比如我们有一个utf8的文件名，要求转换成gbk编码，命令如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Convmv</span> –f utf-<span class="number">8</span> –t gbk –notest 文件名</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/03/28/Linux文件名乱码的转换/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/convmv/">convmv</a><a href="/tags/iconv/">iconv</a><a href="/tags/乱码/">乱码</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/03/28/Linux文件名乱码的转换/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/28/Linux文件名乱码的转换/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/28/Python-Solving-ImportError-No-module-named-OpenSSL/" title="Python: Solving &#39;ImportError: No module named OpenSSL&#39;" itemprop="url">Python: Solving &#39;ImportError: No module named OpenSSL&#39;</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-27T16:39:29.000Z" itemprop="datePublished"> 发表于 2015-03-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>In order to easily solve the following Python import error on Debian/Ubuntu systems:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">ImportError</span><span class="symbol">:</span> <span class="constant">No</span> <span class="class"><span class="keyword">module</span> <span class="title">named</span> <span class="title">OpenSSL</span></span></span><br></pre></td></tr></table></figure></p>
+<p>You can install the relevant package using the following command:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-openssl</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/OpenSSL/">OpenSSL</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/03/28/Python-Solving-ImportError-No-module-named-OpenSSL/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/28/Python-Solving-ImportError-No-module-named-OpenSSL/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/28/Debian-安装与卸载包命令/" title="Debian 安装与卸载包命令" itemprop="url">Debian 安装与卸载包命令</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-27T16:26:00.000Z" itemprop="datePublished"> 发表于 2015-03-28</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="安装与卸载包命令">安装与卸载包命令</h1><h2 id="APT主要命令">APT主要命令</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="operator"><span class="keyword">cache</span> search  <span class="comment">------package 搜索包</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> <span class="comment">------package 安装包</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> remove <span class="comment">-----package 删除包</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> remove <span class="comment">--purge ------package 删除包，包括删除配置文件等</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">update</span> <span class="comment">------更新源</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">upgrade</span> <span class="comment">------更新已安装的包</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> dist-<span class="keyword">upgrade</span> <span class="comment">---------升级系统</span></span><br><span class="line">sudo apt-<span class="keyword">get</span> dselect-<span class="keyword">upgrade</span> <span class="comment">------使用 dselect 升级</span></span></span><br></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/03/28/Debian-安装与卸载包命令/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Debian/">Debian</a><a href="/tags/apt/">apt</a><a href="/tags/dpkg/">dpkg</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/03/28/Debian-安装与卸载包命令/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/28/Debian-安装与卸载包命令/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/03/27/Git-常用命令整理/" title="Git 常用命令整理" itemprop="url">Git 常用命令整理</a>
   </h1>
   <p class="article-author">By
@@ -488,280 +759,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/19/Debian-use-python-get-pycrypto-error/" title="Debian use python get pycrypto error" itemprop="url">Debian use python get pycrypto error</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-19T12:13:45.000Z" itemprop="datePublished"> 发表于 2015-03-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="apt-get_something:"><strong>apt-get something:</strong></h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> <span class="keyword">python</span>-openssl</span><br><span class="line">apt-<span class="built_in">get</span> libnss3-tools</span><br><span class="line">apt-<span class="built_in">get</span> <span class="keyword">python</span>-dev</span><br></pre></td></tr></table></figure>
-<h2 id="then_use_this_method:"><strong>then use this method:</strong></h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">get</span>-pip.<span class="keyword">py</span> http<span class="variable">s:</span>//bootstrap.pypa.io/<span class="built_in">get</span>-pip.<span class="keyword">py</span></span><br><span class="line">pip install pycrypto</span><br></pre></td></tr></table></figure>
-<h2 id="or_use_this_one:"><strong>or use this one:</strong></h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="comment">//pypi.python.org/packages/source/p/pycrypto/pycrypto-2.5.tar.gz	</span></span><br><span class="line">tar -zxvf pycrypto-<span class="number">2.5</span><span class="class">.tar</span><span class="class">.gz</span></span><br><span class="line">cd pycrypto-<span class="number">2.5</span></span><br><span class="line">python setup<span class="class">.py</span> </span><br><span class="line">sudo python setup<span class="class">.py</span> install</span><br></pre></td></tr></table></figure>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Debian/">Debian</a><a href="/tags/pycrypto/">pycrypto</a><a href="/tags/python/">python</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/03/19/Debian-use-python-get-pycrypto-error/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/19/Debian-use-python-get-pycrypto-error/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/19/Windows取得管理员所有权/" title="Windows取得管理员所有权" itemprop="url">Windows取得管理员所有权</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-19T05:37:25.000Z" itemprop="datePublished"> 发表于 2015-03-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>向右键列表中添加&#39;管理员取得所有权&#39;</p>
-<ol>
-<li><strong>建一个记事本输入以下代码</strong><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor <span class="keyword">Version</span> 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\<span class="keyword">shell</span>\runas]</span><br><span class="line">@=<span class="string">"管理员取得所有权"</span></span><br><span class="line"><span class="string">"NoWorkingDirectory"</span>=<span class="string">""</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\<span class="keyword">shell</span>\runas\command]</span><br><span class="line">@=<span class="string">"cmd.exe /c takeown /f \"</span>%1\<span class="string">" &amp;&amp; icacls \"</span>%1\<span class="string">" /grant administrators:F"</span></span><br><span class="line"><span class="string">"IsolatedCommand"</span>=<span class="string">"cmd.exe /c takeown /f \"</span>%1\<span class="string">" &amp;&amp; icacls \"</span>%1\<span class="string">" /grant administrators:F"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\exefile\<span class="keyword">shell</span>\runas2]</span><br><span class="line">@=<span class="string">"管理员取得所有权"</span></span><br><span class="line"><span class="string">"NoWorkingDirectory"</span>=<span class="string">""</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\exefile\<span class="keyword">shell</span>\runas2\command]</span><br><span class="line">@=<span class="string">"cmd.exe /c takeown /f \"</span>%1\<span class="string">" &amp;&amp; icacls \"</span>%1\<span class="string">" /grant administrators:F"</span></span><br><span class="line"><span class="string">"IsolatedCommand"</span>=<span class="string">"cmd.exe /c takeown /f \"</span>%1\<span class="string">" &amp;&amp; icacls \"</span>%1\<span class="string">" /grant administrators:F"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\<span class="keyword">shell</span>\runas]</span><br><span class="line">@=<span class="string">"管理员取得所有权"</span></span><br><span class="line"><span class="string">"NoWorkingDirectory"</span>=<span class="string">""</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\<span class="keyword">shell</span>\runas\command]</span><br><span class="line">@=<span class="string">"cmd.exe /c takeown /f \"</span>%1\<span class="string">" /r /d y &amp;&amp; icacls \"</span>%1\<span class="string">" /grant administrators:F /t"</span></span><br><span class="line"><span class="string">"IsolatedCommand"</span>=<span class="string">"cmd.exe /c takeown /f \"</span>%1\<span class="string">" /r /d y &amp;&amp; icacls \"</span>%1\<span class="string">" /grant administrators:F /t"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/03/19/Windows取得管理员所有权/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Windows/">Windows</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/权限/">权限</a><a href="/tags/管理员/">管理员</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/03/19/Windows取得管理员所有权/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/19/Windows取得管理员所有权/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/19/Markdown语法/" title="Markdown语法" itemprop="url">Markdown语法</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-19T02:50:15.000Z" itemprop="datePublished"> 发表于 2015-03-19</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>&lt;&lt; <a href="http://wowubuntu.com">访问 Wow!Ubuntu</a></p>
-<p><strong>NOTE:</strong> This is Simplelified  Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a>.</p>
-<p><strong>声明：</strong> 这份文档派生(fork)于<a href="http://markdown.tw/">繁体中文版</a>，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里<a href="http://gitcafe.com/riku/Markdown-Syntax-CN/blob/master/syntax.md">查看它的源文件</a>。「繁体中文版的原始文件可以<a href="https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md">查看这里</a> 。」--By @<a href="http://twitter.com/riku">riku</a></p>
-<p><strong>注：</strong> 本项目托管于 <a href="http://gitcafe.com/riku/Markdown-Syntax-CN/">GitCafe</a>上，请通过&quot;派生&quot;和&quot;合并请求&quot;来帮忙改进本项目。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/03/19/Markdown语法/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/语言/">语言</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Markdown/">Markdown</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/03/19/Markdown语法/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/19/Markdown语法/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/18/Debian-Failed-to-load-module-canberra-gtk-module/" title="Debian Failed to load module canberra gtk module" itemprop="url">Debian Failed to load module canberra gtk module</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-18T15:44:46.000Z" itemprop="datePublished"> 发表于 2015-03-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <ul>
-<li><p><strong>32位Debian下</strong></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk3-<span class="class"><span class="keyword">module</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>64位Debian下</strong><br>即使安装了这个lib，仍可能报错。解决如下：</p>
-</li>
-</ul>
-<ol>
-<li>首先<a href="/2015/03/18/Debian-64位系统中添加对32位的支持/">配置系统支持32位架构</a></li>
-<li>其次安装依赖<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libcanberra-gtk-<span class="class"><span class="keyword">module</span>:<span class="title">i386</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/32位/">32位</a><a href="/tags/64位/">64位</a><a href="/tags/Debian/">Debian</a><a href="/tags/canberra/">canberra</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/03/18/Debian-Failed-to-load-module-canberra-gtk-module/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/03/18/Debian-Failed-to-load-module-canberra-gtk-module/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next<span></span></a>
@@ -778,7 +775,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/32位/" style="font-size: 14px;">32位</a><a href="/tags/64位/" style="font-size: 14px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 12px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 14px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SSH/" style="font-size: 16px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/commands/" style="font-size: 14px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 10px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 12px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vim/" style="font-size: 18px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
+       <a href="/tags/32位/" style="font-size: 13.33px;">32位</a><a href="/tags/64位/" style="font-size: 13.33px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 11.67px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 13.33px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SQLServer/" style="font-size: 10px;">SQLServer</a><a href="/tags/SSH/" style="font-size: 16.67px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/chattr/" style="font-size: 10px;">chattr</a><a href="/tags/commands/" style="font-size: 15px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 11.67px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/locate/" style="font-size: 10px;">locate</a><a href="/tags/lsattr/" style="font-size: 10px;">lsattr</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/type/" style="font-size: 10px;">type</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 11.67px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vim/" style="font-size: 18.33px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/whereis/" style="font-size: 10px;">whereis</a><a href="/tags/which/" style="font-size: 10px;">which</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
     </div>
   </div>
 
@@ -793,7 +790,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
+			<li><a href="/categories/Database/" title="Database">Database<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>44</sup></a></li>
 		  
 		
 		  

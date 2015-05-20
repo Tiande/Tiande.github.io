@@ -86,6 +86,267 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/" title="OpenSSH management:ssh-agent &amp; keychain" itemprop="url">OpenSSH management:ssh-agent &amp; keychain</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-19T08:12:38.000Z" itemprop="datePublished"> 发表于 2015-04-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="介绍_ssh-agent">介绍 ssh-agent</h1><p>ssh-agent 是专为既令人愉快又安全的处理 RSA 和 DSA 密钥而设计的特殊程序，它包括在OpenSSH分发内(请参阅 本系列文章的第 1 部分以得到关于 RSA 和 DSA 认证的介绍)。不同于 ssh ， ssh-agent 是个长时间持续运行的守护进程(daemon)，设计它的唯一目的就是对解密的专用密钥进行高速缓存。</p>
+<p>ssh 包含的内建支持允许它同 ssh-agent 通信，允许 ssh 不必每次新连接时都提示您要密码才能获取解密的专用密钥。对于 ssh-agent ，您只要使用 ssh-add 把专用密钥添加到 ssh-agent 的高速缓存中。这是个一次性过程;用过 ssh-add 之后， ssh 将从 ssh-agent 获取您的专用密钥，而不会提示要密码短语来烦您了。</p>
+<h1 id="使用_ssh-agent">使用 ssh-agent</h1>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/SSH/">SSH</a><a href="/tags/keychain/">keychain</a><a href="/tags/ssh-agent/">ssh-agent</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/19/OpenSSH-management-ssh-agent-and-keychain/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/18/about-Chrome/" title="about Chrome" itemprop="url">about Chrome</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T15:57:31.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <ol>
+<li>离线版 Chrome下载方法<br> <a href="http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe" target="_blank" rel="external">http://dl.google.com/chrome/install/[版本号后两位]/chrome_installer.exe</a><br> 要想下载离线版 Chrome，必须知道你要下载的版本号，取版本号第二个小数点后的数字串。如 Version 27.0.1453.94 m 的下载地址就是：<br> <a href="http://dl.google.com/chrome/install/1453.94/chrome_installer.exe" target="_blank" rel="external">http://dl.google.com/chrome/install/1453.94/chrome_installer.exe</a><br> 注：离线版 Chrome 可能不会自动更新。</li>
+<li>Chrome 版本号规则<br> Google Chrome 版本号的命名规则，拿最新的 Chrome 27.0.1453.94 为例，这个版本号可以分成 3 部分：<br> 27.0 —— 这是主版本号。<br> .1453 —— 这是一个版本代码，通常它的变化意味着有新的功能的加入。<br> .94 —— 这是用于修补漏洞和稳定性调整更新时候用到的数字。通常没有新功能加入的时候这个数字会实时更新。</li>
+</ol>
+<p><a href="http://m.baidu.com/from=844b/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%401320_2001%2Cta%40iphone_1_4.3_3_533/baiduid=23B649E6AA04C1D3B1BFCE13CE554FCE/w=0_10_chromium+he+chrome/t=iphone/l=3/tc?ref=www_iphone&amp;lid=6928532657601785428&amp;order=2&amp;vit=osres&amp;tj=www_normal_2_0_10_title&amp;m=8&amp;srd=1&amp;cltj=cloud_title&amp;dict=32&amp;fm=wnor&amp;sec=409&amp;di=19550545459566e7&amp;bdenc=1&amp;nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IJRi0LTYK0Dua7JuVePzkJxEsRDD8QnSLGlD9eW3EhQJSaDL9QjEz7qO" target="_blank" rel="external">来源</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Browser/">Browser</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Chrome/">Chrome</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/18/about-Chrome/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/about-Chrome/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/18/aptitude-concise-manual/" title="aptitude concise manual" itemprop="url">aptitude concise manual</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T15:56:43.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p><a href="http://man.ddvip.com/linux/debian/aptitude/index.html" target="_blank" rel="external">aptitude简明手册</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Aptitude/">Aptitude</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/18/aptitude-concise-manual/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/aptitude-concise-manual/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/18/check-Linux-Kernel-and-Distrabution-version/" title="check Linux Kernel and Distrabution version" itemprop="url">check Linux Kernel and Distrabution version</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T15:55:19.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="查看发行版本：">查看发行版本：</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/etc/i</span>ssue</span><br></pre></td></tr></table></figure>
+<h1 id="查看内核版本：">查看内核版本：</h1><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /<span class="keyword">proc</span>/version</span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.sina.com.cn/s/blog_66ad86a301015yzr.html" target="_blank" rel="external">来源</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Distrabution/">Distrabution</a><a href="/tags/Kernel/">Kernel</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/18/check-Linux-Kernel-and-Distrabution-version/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/check-Linux-Kernel-and-Distrabution-version/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/18/The-role-and-content-of-the-Linux-Directory/" title="The role and content of the Linux Directory" itemprop="url">The role and content of the Linux Directory</a>
   </h1>
   <p class="article-author">By
@@ -466,269 +727,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/how-to-format-usb-stick-in-Linux/" title="how to format usb stick in Linux" itemprop="url">how to format usb stick in Linux</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:32:32.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><a href="http://os.51cto.com/art/201307/402212.htm" target="_blank" rel="external">在 Linux 系统如何正确的对U盘进行格式化？</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Format/">Format</a><a href="/tags/usb-stick/">usb stick</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/how-to-format-usb-stick-in-Linux/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/how-to-format-usb-stick-in-Linux/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/Debian-Package-Management/" title="Debian Package Management" itemprop="url">Debian Package Management</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:30:53.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>因文章较详实，这里不再做拷贝，请移至源地址查阅：<br><a href="http://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-102-4/" target="_blank" rel="external">Debian 包管理</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Debian/">Debian</a><a href="/tags/Package/">Package</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/Debian-Package-Management/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/Debian-Package-Management/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/force-unmount-usb-stick/" title="force unmount usb stick" itemprop="url">force unmount usb stick</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:27:21.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="U盘挂载到linux里如何查看">U盘挂载到linux里如何查看</h1><ol>
-<li><p>U盘插到主机上之前，用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
-<p>查看。<br>插上之后，再用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
-<p>查看一下。<br>比较两者结果，多出来的就是你的U盘。</p>
-</li>
-<li><p>U盘插到主机上之前，查看一下/proc/partitions<br>用命令：</p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /<span class="keyword">proc</span>/partitions</span><br></pre></td></tr></table></figure>
-<p>U盘插到主机后，再查看一下。多出来的设备和分区就是你U盘的分区。</p>
-</li>
-</ol>
-<h1 id="如何强制卸载使用中的u盘">如何强制卸载使用中的u盘</h1><p>将U盘挂载到一个文件夹下，卸载的时候，出现busy。<br>怎么卸载呢，怎么强制卸载呢？<br>用fuser命令：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">fuser</span> -m -v /mnt/usbflash <span class="comment">#这样就找出了是哪个进程在占用U盘。</span></span><br></pre></td></tr></table></figure></p>
-<p>然后<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">fuser</span> -m -v -i -k /mnt/usbflash <span class="comment">#强制卸载U盘。</span></span><br></pre></td></tr></table></figure></p>
-<p>via.<a href="http://blog.sina.com.cn/s/blog_672b419f010156yv.html" target="_blank" rel="external">冷雨玫瑰的博客</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/mount/">mount</a><a href="/tags/usb-stick/">usb stick</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/force-unmount-usb-stick/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/force-unmount-usb-stick/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/tar-manual/" title="tar manual" itemprop="url">tar manual</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T13:12:08.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="命令名">命令名</h1><p>tar - tar 档案文件管理程序的 GNU 版本。</p>
-<h1 id="总览">总览</h1><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">tar</span> <span class="title">[</span> <span class="literal">-</span> <span class="title">]</span> <span class="comment">A</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">catenate</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">concatenate</span> <span class="comment">|</span> <span class="comment">c</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">create</span> <span class="comment">|</span> <span class="comment">d</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">diff</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">compare</span> <span class="comment">|</span> <span class="comment">r</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">append</span> <span class="comment">|</span> <span class="comment">t</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span> <span class="comment">|</span> <span class="comment">u</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">update</span> <span class="comment">|</span> <span class="comment">x</span> <span class="literal">-</span><span class="comment">extract</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">get</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">atime</span><span class="literal">-</span><span class="comment">preserve</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">b</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">block</span><span class="literal">-</span><span class="comment">size</span> <span class="comment">N</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">B</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">read</span><span class="literal">-</span><span class="comment">full</span><span class="literal">-</span><span class="comment">blocks</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">C</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">directory</span> <span class="comment">DIR</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">checkpoint</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">f</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">file</span> <span class="title">[</span><span class="comment">HOSTNAME:</span><span class="title">]</span><span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">force</span><span class="literal">-</span><span class="comment">local</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">F</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">info</span><span class="literal">-</span><span class="comment">script</span> <span class="comment">F</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">new</span><span class="literal">-</span><span class="comment">volume</span><span class="literal">-</span><span class="comment">script</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">G</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">incremental</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">g</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">listed</span><span class="literal">-</span><span class="comment">incremental</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">h</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">dereference</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">i</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ignore</span><span class="literal">-</span><span class="comment">zeros</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">I</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">bzip</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ignore</span><span class="literal">-</span><span class="comment">failed</span><span class="literal">-</span><span class="comment">read</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">k</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keep</span><span class="literal">-</span><span class="comment">old</span><span class="literal">-</span><span class="comment">files</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">K</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">starting</span><span class="literal">-</span><span class="comment">file</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">l</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">one</span><span class="literal">-</span><span class="comment">file</span><span class="literal">-</span><span class="comment">system</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">L</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">tape</span><span class="literal">-</span><span class="comment">length</span> <span class="comment">N</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">m</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">modification</span><span class="literal">-</span><span class="comment">time</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">M</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">multi</span><span class="literal">-</span><span class="comment">volume</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">N</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">after</span><span class="literal">-</span><span class="comment">date</span> <span class="comment">DATE</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">newer</span> <span class="comment">DATE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">o</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">old</span><span class="literal">-</span><span class="comment">archive</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">portability</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">O</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">to</span><span class="literal">-</span><span class="comment">stdout</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">p</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">permissions</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span><span class="literal">-</span><span class="comment">permissions</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">P</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">absolute</span><span class="literal">-</span><span class="comment">paths</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">R</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">record</span><span class="literal">-</span><span class="comment">number</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">remove</span><span class="literal">-</span><span class="comment">files</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">s</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">order</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">preserve</span><span class="literal">-</span><span class="comment">order</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">same</span><span class="literal">-</span><span class="comment">owner</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">S</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">sparse</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">T</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">files</span><span class="literal">-</span><span class="comment">from</span> <span class="comment">F</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">null</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">totals</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">v</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">verbose</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">V</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">label</span> <span class="comment">NAME</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">version</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="comment">w</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">interactive</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">confirmation</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">W</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">verify</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">exclude</span> <span class="comment">FILE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">X</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">exclude</span><span class="literal">-</span><span class="comment">from</span> <span class="comment">FILE</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">Z</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">compress</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">uncompress</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="comment">z</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">gzip</span><span class="string">,</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">ungzip</span> <span class="title">]</span></span><br><span class="line"><span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">use</span><span class="literal">-</span><span class="comment">compress</span><span class="literal">-</span><span class="comment">program</span> <span class="comment">PROG</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">block</span><span class="literal">-</span><span class="comment">compress</span> <span class="title">]</span> <span class="title">[</span> <span class="literal">-</span><span class="title">[</span><span class="comment">0</span><span class="literal">-</span><span class="comment">7</span><span class="title">]</span><span class="title">[</span><span class="comment">lmh</span><span class="title">]</span> <span class="title">]</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">filename1</span> <span class="title">[</span> <span class="comment">filename2</span><span class="string">,</span> <span class="string">.</span><span class="string">.</span><span class="string">.</span> <span class="comment">filenameN</span> <span class="title">]</span></span><br><span class="line"><span class="comment">directory1</span> <span class="title">[</span> <span class="comment">directory2</span><span class="string">,</span> <span class="string">.</span><span class="string">.</span><span class="string">.</span><span class="comment">directoryN</span> <span class="title">]</span></span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/tar-manual/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/tar/">tar</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/tar-manual/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/tar-manual/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
@@ -745,7 +743,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/32位/" style="font-size: 14px;">32位</a><a href="/tags/64位/" style="font-size: 14px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 12px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 14px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SSH/" style="font-size: 16px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/commands/" style="font-size: 14px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 10px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 12px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vim/" style="font-size: 18px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
+       <a href="/tags/32位/" style="font-size: 13.33px;">32位</a><a href="/tags/64位/" style="font-size: 13.33px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 11.67px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 13.33px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SQLServer/" style="font-size: 10px;">SQLServer</a><a href="/tags/SSH/" style="font-size: 16.67px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/chattr/" style="font-size: 10px;">chattr</a><a href="/tags/commands/" style="font-size: 15px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 11.67px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/locate/" style="font-size: 10px;">locate</a><a href="/tags/lsattr/" style="font-size: 10px;">lsattr</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/type/" style="font-size: 10px;">type</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 11.67px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vim/" style="font-size: 18.33px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/whereis/" style="font-size: 10px;">whereis</a><a href="/tags/which/" style="font-size: 10px;">which</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
     </div>
   </div>
 
@@ -760,7 +758,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>41</sup></a></li>
+			<li><a href="/categories/Database/" title="Database">Database<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>44</sup></a></li>
 		  
 		
 		  
