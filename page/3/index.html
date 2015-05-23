@@ -86,6 +86,280 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/29/some-Linux-tests/" title="some Linux tests" itemprop="url">some Linux tests</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-29T11:35:33.000Z" itemprop="datePublished"> 发表于 2015-04-29</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="上部">上部</h1><ol>
+<li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。<br>使用密钥加密登录，客户端生成公钥和私钥，客户端保存私钥，公钥复制到远程linux主机，登录时使用密钥加密登录；</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/29/some-Linux-tests/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tests/">tests</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/29/some-Linux-tests/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/29/some-Linux-tests/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/" title="The advantages of Linux compile source code for installing package" itemprop="url">The advantages of Linux compile source code for installing package</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-21T11:01:33.000Z" itemprop="datePublished"> 发表于 2015-04-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/advantage/">advantage</a><a href="/tags/compile/">compile</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/" title="the physical structure and IO process of the disk" itemprop="url">the physical structure and IO process of the disk</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-21T10:58:12.000Z" itemprop="datePublished"> 发表于 2015-04-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
+<pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
+磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
+磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
+柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
+扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又把每个磁道划分出了多个扇区，见下图
+![<span class="link_label">HDD physical structure</span>](<span class="link_url">http://ww4.sinaimg.cn/mw690/6e8d8f65gw1erbso6izmoj20ib08cq4d.jpg</span>)
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Disk/">Disk</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/21/the-physical-structure-and-IO-process-of-the-disk/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/04/19/VSFTP-server-configure/" title="VSFTP server configure" itemprop="url">VSFTP server configure</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-19T08:19:25.000Z" itemprop="datePublished"> 发表于 2015-04-19</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
+<li>wu-ftp</li>
+<li>proftp=profession ftp</li>
+<li>vsftp=very security ftp</li>
+</ol>
+<p>配置文件：<br>    /etc/vsftpd/vsftpd.conf   //主配置文件</p>
+<pre><code>/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span>
+
+/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span>
+</code></pre><h1 id="访问方式">访问方式</h1><ol>
+<li>匿名登录</li>
+<li>帐号登录</li>
+</ol>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/19/VSFTP-server-configure/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/VSFTP/">VSFTP</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/19/VSFTP-server-configure/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/19/VSFTP-server-configure/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/19/OpenSSH-management-ssh-agent-and-keychain/" title="OpenSSH management:ssh-agent &amp; keychain" itemprop="url">OpenSSH management:ssh-agent &amp; keychain</a>
   </h1>
   <p class="article-author">By
@@ -474,262 +748,9 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/Git-SSH-key-Generate/" title="Git SSH key Generate" itemprop="url">Git SSH key Generate</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:46:45.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Git是分布式的代码管理工具，远程的代码管理是基于SSH的，所以要使用远程的Git则需要SSH的配置。</p>
-<h1 id="设置Git的user_name和email：">设置Git的user name和email：</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"my"</span></span><br><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"my@email.address"</span></span><br></pre></td></tr></table></figure>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/Git-SSH-key-Generate/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Git/">Git</a><a href="/tags/SSH/">SSH</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/Git-SSH-key-Generate/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/Git-SSH-key-Generate/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/when-git-pull-get-conflict/" title="when git pull get conflict" itemprop="url">when git pull get conflict</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:41:42.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>同事在使用git pull代码时，经常会碰到有冲突的情况，提示如下信息：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: Your <span class="built_in">local</span> changes <span class="built_in">to</span> <span class="string">'c/environ.c'</span> would be overwritten <span class="keyword">by</span> <span class="built_in">merge</span>. Aborting.</span><br><span class="line">Please, commit your changes <span class="operator">or</span> stash them <span class="keyword">before</span> you can <span class="built_in">merge</span>.</span><br></pre></td></tr></table></figure></p>
-<p>这个意思是说更新下来的内容和本地修改的内容有冲突，先提交你的改变或者先将本地修改暂时存储起来。<br>处理的方式非常简单，主要是使用git stash命令进行处理，分成以下几个步骤进行处理。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/when-git-pull-get-conflict/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Git/">Git</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/when-git-pull-get-conflict/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/when-git-pull-get-conflict/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/VIM-configure/" title="VIM configure" itemprop="url">VIM configure</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:38:11.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>vim 是公认很好用很完美，但是对新手来说，上手毕竟不是很容易。Windows下程序员很多都很喜欢 Source Insight 这个工具来看代码，各种语法高亮看着很舒服。vim 作为为程序员打造的编辑器，没有道理不可以通过配置让程序员舒服地编辑代码，但是新手通常很难将其配置成顺手顺眼的环境。<br>用户只需修改家目录下的 .vimrc 配置文件内容，即可自定义 vim 的功能。<br>可以把 ~/.vimrc 里面的内容替换为如下内容，或者，根据需要直接在上面根据需要自行修改（ &quot; 后面的内容为注释内容）：<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/VIM-configure/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/vim/">vim</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/VIM-configure/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/VIM-configure/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/how-to-send-file-by-SSH/" title="how to send file by SSH" itemprop="url">how to send file by SSH</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T15:36:33.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>scp 命令是 SSH 中最方便有用的命令了，试想，在两台服务器之间直接传送文件，仅仅用 scp 一个命令就完全解决了。 你可以在一台服务器上 以 root 身份运行 #scp servername:/home/ftp/pub/file1 . 这样就把另一台服务器上的文件 /home/ftp/pub/file1 直接传到本机器的当前目录下，当然你也可以用 #scp /tmp/file2 servername:/boot 把本机上的文件 /tmp/file2 送到另一台机器的 /boot 目录下。而且整个传送过程仍然是用 SSH 加密的。<br>scp 就是 secure copy, 是用来进行远程文件拷贝的 . 数据传输使用 ssh1, 并且和 ssh1 使用相同的认证方式 , 提供相同的安全保证 . 与 rcp 不同的是 ,scp 会要求你输入密码如果需要的话 .<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/how-to-send-file-by-SSH/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/SSH/">SSH</a><a href="/tags/scp/">scp</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/how-to-send-file-by-SSH/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/how-to-send-file-by-SSH/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next<span></span></a>
   </nav>
 
 </div>

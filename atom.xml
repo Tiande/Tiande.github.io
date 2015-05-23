@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-05-20T11:11:49.952Z</updated>
+  <updated>2015-05-23T04:32:57.129Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -13,6 +13,132 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[一沾酒就脸红的人能锻炼出酒量吗？]]></title>
+    <link href="http://tiandechi.com/2015/05/23/%E4%B8%80%E6%B2%BE%E9%85%92%E5%B0%B1%E8%84%B8%E7%BA%A2%E7%9A%84%E4%BA%BA%E8%83%BD%E9%94%BB%E7%82%BC%E5%87%BA%E9%85%92%E9%87%8F%E5%90%97%EF%BC%9F/"/>
+    <id>http://tiandechi.com/2015/05/23/一沾酒就脸红的人能锻炼出酒量吗？/</id>
+    <published>2015-05-23T04:32:46.000Z</published>
+    <updated>2015-05-23T04:32:57.129Z</updated>
+    <content type="html"><![CDATA[<p>先把结论放上来，就一句话：<br><strong>喝酒容易脸红是基因缺陷引起的，练酒量无法弥补基因缺陷。</strong><br>以下具体说说这个问题。<br><a id="more"></a></p>
+<ol>
+<li>虽然有很多人说过了，但还是先说一下酒精在体内的代谢过程。酒精，也就是乙醇，主要是在肝脏代谢，第一步是乙醇被代谢成乙醛，第二步是乙醛被代谢成乙酸，第三步是乙酸被代谢成二氧化碳和水。在整个过程中，起关键作用的主要是第一步里面的乙醇脱氢酶（ADH）和第二步里面的乙醛脱氢酶（ALDH）。<br>所以说酒量是酶决定的，而酶又是基因产生的，因此问题的核心在于基因。知乎上很多回答都提到了ALDH变异，却忽略了ADH变异，这个稍后会提到。</li>
+<li>说完了酒精代谢，那我们继续说说脸红是怎么回事。脸红并不是乙醛直接引起的，乙醛会刺激肾上腺素和去甲肾上腺素分泌，而这两个激素会引起面部潮红、心跳加快等症状。所以喝酒上脸和生气时脸红脖子粗，本质上其实是一致的。</li>
+<li>现在说说为什么有的人千杯不倒，而有的人一杯啤酒就脸红。原因很简单，乙醛代谢缓慢，或者产生迅速，都可以导致喝酒容易脸红。<br>乙醛的产生依赖于ADH的作用，这时候我们就要提一提杜康基因了。杜康基因是ADH1B的一个变种，大约存在于70%的汉族人体内，而在酒量很好的毛子和蒙古大汗身上，极少出现这个基因。携带杜康基因的人，乙醇代谢速度是其他人的13倍左右，因此乙醛在体内迅速产生。如果这些乙醛没有被迅速代谢成乙酸，那么就容易在体内堆积，出现喝酒脸红的情况。<br>不幸的是，不少中国人都无法将乙醛迅速代谢掉。<br>这也是基因变异引起的，这个基因叫乙醛脱氢酶2变异体——ALDH2<em>2。<br>众所周知，人有一对等位基因，携带一个ALDH2</em>2 基因的人（杂合子），酶活性只有正常的6%左右；而两个基因全是ALDH2<em>2的人，酶活性几乎为零。对于后者来说，喝酒几乎是一杯倒的事情，因此这部分人一般滴酒不沾。容易出问题的是杂合子，这部分人也是最危险的饮酒者，虽然乙醛对他们的伤害很大，但由于体内仍然有一点酶活性，因此常常会没有自知之明地勉强自己去“练酒量”。<br>携带ALDH2</em>2杂合子的人群，长期少量喝酒的话，食道癌发病率是正常人的8倍；而若是长期酗酒的话，这个发病率飙升至114倍。关于酒量能不能练这个问题，你们看看这个数据大概就知道了。<br>更不幸的是，中国人携带ALDH2<em>2的比率非常高，大约有18%的中国人携带这个基因，其中最高的是广东的汉族，高达31%，而在欧美白人里面，几乎没人携带这个基因。<br>补充一点，ALDH2基因可用做研究人类迁徙的生物学标记。ALDH2</em>504Lys基因在几乎只在东亚人群上出现，携带一个该等位基因的人对乙醛的代谢能力就会大幅降低。下面这张图片表示人群中携带该基因的频率，从这张图片(Li et al, 2009.)可以看出中国东南部汉族人群是最高频的。实际上，闽南汉族人中有高达29%的人携带该基因。<br>(The geographic distribution of ALDH2<em>504Lys allele frequency)<br>你不需要去医院做专门的基因检测，这里提供一个简单的自测方法：<br>第一个问题：你喝完一杯啤酒（大约180mL）后,会不会很快出现脸红？<br>第二个问题：在你开始喝酒后的头几年，你有没有问题一的情况？<br>如果这两个问题中的任意一个你的答案是“YES”，那么你就极有可能是ALDH2</em>2携带者。<br>中国和喝酒有关的两个关键基因都出现了变异，不上脸都难。所谓的天赋异禀，大概指的就是这么一回事。</li>
+<li>最后一个问题：喝酒脸红的人，酒量到底能不能练？<br>答案是不能，你的大脑也许可以逐渐耐受喝酒所带来的各种反应，比如以前一杯倒，喝了十年之后可以坚持喝三瓶才吐，但是你的胃、食道、肝脏等诸多器官都在日复一日的遭受乙醛和乙醇的破坏，因为你的基因是无法改变的。你能不能喝酒，在你还没出生之前就已经被决定了。<br>总之就一句话。<br><strong>不行别逞能</strong><br>参考文献：<br>Li, H., Mukherjee, N., Soundararajan, U., Tárnok, Z., Barta, C., Khaliq, S., ... &amp; Kidd, K. K. (2007). Geographically Separate Increases in the Frequency of the Derived&lt; i&gt; ADH1B<em> 47His Allele in Eastern and Western Asia. The American Journal of Human Genetics, 81(4), 842-846.<br>Li, H., Borinskaya, S., Yoshimura, K., Kal’ina, N., Marusin, A., Stepanov, V. A., ... &amp; Kidd, K. K. (2009). Refined geographic distribution of the oriental ALDH2</em> 504Lys (nee 487Lys) variant. Annals of human genetics, 73(3), 335-345.<br>Brooks, P. J., Enoch, M. A., Goldman, D., Li, T. K., &amp; Yokoyama, A. (2009). The alcohol flushing response: an unrecognized risk factor for esophageal cancer from alcohol consumption. PLoS medicine, 6(3), e1000050.</li>
+</ol>
+<p><a href="http://www.zhihu.com/question/20608227" target="_blank" rel="external">Source</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>先把结论放上来，就一句话：<br><strong>喝酒容易脸红是基因缺陷引起的，练酒量无法弥补基因缺陷。</strong><br>以下具体说说这个问题。<br>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[18个PPT演讲的技巧，让你的提案能力提高N倍]]></title>
+    <link href="http://tiandechi.com/2015/05/23/18%E4%B8%AAPPT%E6%BC%94%E8%AE%B2%E7%9A%84%E6%8A%80%E5%B7%A7%EF%BC%8C%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%8F%90%E6%A1%88%E8%83%BD%E5%8A%9B%E6%8F%90%E9%AB%98N%E5%80%8D/"/>
+    <id>http://tiandechi.com/2015/05/23/18个PPT演讲的技巧，让你的提案能力提高N倍/</id>
+    <published>2015-05-23T04:32:23.000Z</published>
+    <updated>2015-05-23T04:32:33.733Z</updated>
+    <content type="html"><![CDATA[<p>如何成为一个演讲高手呢?在现在这个年代，PPT是必不可少的，乔布斯的经典演讲就是使用大屏幕幻灯片。下面的18个技巧或许可以帮助你提高PPT演讲技巧，也希望将要进行毕业答辩的同学可以有一些收获，帮助你获得最佳的表现，祝福之。一起来看看吧。<br><a id="more"></a></p>
+<h1 id="10-20-30原则">10-20-30原则</h1><p>这是Guy Kawasaki(湾区著名的风险投资家，同时也是位充满激情、睿智和幽默的演讲家)提出的一个幻灯片制作和演讲原则，即一个Powerpoint不能超过10张幻灯片，演讲总长不能超过20分钟，而且幻灯片的字体要大于30号。他说，不管你的想法是否能够颠覆世界，你必须要在有限的时间里，用较少的幻灯片和精炼的语言将其精华传达给听众。</p>
+<h1 id="有趣的演讲">有趣的演讲</h1><p>演讲要讲求寓教于乐。我不是指做演讲时要像猴子一样又蹦又跳，但是同文章或杂志相比，人们期望在演讲中感受到你的激情，而不是枯燥无味的背诵。</p>
+<h1 id="放慢速度">放慢速度</h1><p>紧张或没经验的演讲者更容易在演讲时像打机关枪一样说个不停。试着放慢你的语速，并且通过增加一些停顿来达到强调的效果。</p>
+<h1 id="眼神交流">眼神交流</h1><p>与所有听众进行眼神交流。销售人员都知道，你不能把所有的注意力都盯在做决定的人身上，因为秘书和助理也在一定程度上影响老板做决定(注：总是将注意集中在一人，会让对方感到不舒服)。</p>
+<h1 id="用15个词做总结">用15个词做总结</h1><p>你能把你的想法用15个词总结出来吗?如果不能，那就再总结。演讲对信息的传递并非理想中的那么强有力，所以在演讲中不断重复这15个词的总结可以达到强调和加深记忆的效果。</p>
+<h1 id="20-20原则">20-20原则</h1><p>另外一条幻灯片制作原则。这条原则指的是，演讲中你要有20张幻灯片，并且每张幻灯片只演讲20秒。其目的就是逼使你做到简练，避免听众听得不耐烦。</p>
+<h1 id="不要读幻灯片">不要读幻灯片</h1><p>很多人都认为自己可以脱稿演讲，可事实上却常常回头看屏幕。读幻灯片，只会不断打断你的演讲思路，这也间接地告诉听众你根本就不理解自己要讲的内容，从而对你的演讲失去信心和兴趣。</p>
+<h1 id="演讲就像讲故事">演讲就像讲故事</h1><p>如果你的演讲比较长，那最好加入一些小故事、双关语和奇闻轶事等来串联整个演讲，同时也帮助阐述观点。优秀的演讲者都知道怎样将小故事和要阐述观点联系起来，从而达到吸引观众的目的。</p>
+<h1 id="提高音量">提高音量</h1><p>演讲最忌讳听众无法听到演讲者在讲什么。虽然现在都有麦克风和扩音器了，但是你仍然要确保使所有听众都能听到你。提高音量不是说要你喊，正确的做法就是挺直身体，从肺部而不是从喉咙里发出更为清晰的声音。</p>
+<h1 id="不要事先计划手势">不要事先计划手势</h1><p>演讲中的任何手势都应该是你要传达的信息的延伸，它是帮助你传递信息中的情感来。事先计划手势会看起来很不自然，刻意为之时还会和其他自然的肢体语言不搭配。如果你不知道该做什么手势，那把手随意地放到身体两侧就好了(不要用手指着听众!)。</p>
+<h1 id="“这是个不错的问题”">“这是个不错的问题”</h1><p>通过使用“这真是个不错的问题”、“我很高兴你提出这个问题”等语句来为自己争取时间以组织回答的时间。听众一般不会察觉这样客套的话，而且你要避免“恩”、“啊”等等口头语。</p>
+<h1 id="吸气而不是呼气">吸气而不是呼气</h1><p>当你感觉要说“呃”、“啊”等语气词时(过多语气词只会让演讲变得糟糕)，可以停顿一下或者深吸一口气。虽然停顿会显得有些尴尬，但是听众会很少注意到的。</p>
+<h1 id="提早到会场（尽可能的早）">提早到会场（尽可能的早）</h1><p>不要等到听众都坐好了，你才慢吞吞地调试好投影仪和幻灯片。提早到达演讲地点，熟悉一下场景，检查电脑和投影设备，确保不会出现异常的境况。而且这有助于消除紧张感。</p>
+<h1 id="熟能生巧">熟能生巧</h1><p>参加一些提高和锻炼演讲和交谈技巧的组织。这些锻炼会使你上台演讲时显得更有能力和自信。</p>
+<h1 id="避免道歉">避免道歉</h1><p>只有做错事情时才需要道歉。不要为自己的能力不足、紧张和准备不充分道歉，这只会使听众觉得你没自信。再者，多数情况下，听众并不会注意到你的紧张和小错误。</p>
+<h1 id="当你错误时一定要道歉">当你错误时一定要道歉</h1><p>虽然要避免道歉，当你在传达信息时包涵了错误的观点时，或者有其他明显错误的地方，一定要道歉。保持自信是当然的，但是过度自信就会出问题了。</p>
+<h1 id="以听众的角度出发">以听众的角度出发</h1><p>要从听众的立场来撰写演讲稿和思考问题。哪些内容对于听众比较难理解;哪些内容会使听众感到繁琐?总是要记得，对听众来说，这里面表达的内容有什么意义。</p>
+<h1 id="乐在其中">乐在其中</h1><p>将你的激情注入到演讲中去，乐在其中!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>如何成为一个演讲高手呢?在现在这个年代，PPT是必不可少的，乔布斯的经典演讲就是使用大屏幕幻灯片。下面的18个技巧或许可以帮助你提高PPT演讲技巧，也希望将要进行毕业答辩的同学可以有一些收获，帮助你获得最佳的表现，祝福之。一起来看看吧。<br>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[装逼技能：演讲中让你高大上的7个手势]]></title>
+    <link href="http://tiandechi.com/2015/05/23/%E8%A3%85%E9%80%BC%E6%8A%80%E8%83%BD%EF%BC%9A%E6%BC%94%E8%AE%B2%E4%B8%AD%E8%AE%A9%E4%BD%A0%E9%AB%98%E5%A4%A7%E4%B8%8A%E7%9A%847%E4%B8%AA%E6%89%8B%E5%8A%BF/"/>
+    <id>http://tiandechi.com/2015/05/23/装逼技能：演讲中让你高大上的7个手势/</id>
+    <published>2015-05-23T04:31:49.000Z</published>
+    <updated>2015-05-23T04:32:09.129Z</updated>
+    <content type="html"><![CDATA[<p><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/top.jpg?raw=true" alt="top.jpg"><br>你肯定在某个大学或者某个TED的演讲中见过这样一些手势：台上的那个人试图解释一些重要的历史联系，抽象艺术，科学或人文进步的宏大理论时将手像一个倒放的爪一样举在他们面前，手指缓缓转动就像有一个隐形的拨号盘。这就是所谓“辩证法”手势，如果你想要成为一个真正的思想领袖你就一定要掌握它们。<br>爱丽丝·M·威廉姆斯和约翰逊·茉莉创建了这样一个Tumblr Blog：手势词汇的批判与研究(link)——通过观察演讲中出现的这些手势然后将它们汇编起来让这些高大上的手势能真正走入老百姓的生活。<br>下面就让我们来看看这七种在演讲中极其常用的高大上的手势：<br><a id="more"></a></p>
+<ol>
+<li>辩证法手势<br><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/1.gif?raw=true" alt="1.gif"><br>“这是一个辩证关系，现在我会开始解释它。”<br>用在从一件事转移到另一个时。极具感染力。</li>
+<li>临界涡动c<br><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/2.gif?raw=true" alt="2.gif"><br>“我读过太多马克思的文章以至于我都不能说出话来了。” - 加速和重复，直到思路重新打开。</li>
+<li>反手拍击<br><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/3.gif?raw=true" alt="3.gif"><br>“我知道我刚刚就说过，但我还是会再说一遍。” – 当你的关键点似乎没有引起对象反应的时候用以增强它。</li>
+<li>微小辩证法手势<br><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/4.gif?raw=true" alt="4.gif"><br>“我正在做一个非常精细的区分。” – 当使用特地挑选的小细节的时候，或者当意识到“辩证法”手势使用过多的时候。</li>
+<li>指向<br><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/2.gif?raw=true" alt="5.gif"><br>需要引导大家的注意力到某一个事物或者人上的时候。</li>
+<li>扫货架<br><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/6.gif?raw=true" alt="6.gif"><br>在说明层次结构的时候使用。</li>
+<li>捡起小点子<br><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/7.gif?raw=true" alt="7.gif"><br>只有坐在听众前的时候会使用，效果就是字面上的意思。<br>他们的Tumblr站里提到，对于这些手势的运用需要足够的练习，例如第七种需要你想象推开一个虚拟的书架上的书以查找盖在后面的内容。而熟练使用这些手势能使你的演讲变得更加高大上。</li>
+</ol>
+<p><a href="http://jandan.net/2014/01/22/hand-gestures.html" target="_blank" rel="external">Source</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="https://github.com/Tiande/img/blob/master/7%20Hand%20Gestures%20That%20Make%20You%20Look%20Like%20a%20Real%20Intellectual/top.jpg?raw=true" alt="top.jpg"><br>你肯定在某个大学或者某个TED的演讲中见过这样一些手势：台上的那个人试图解释一些重要的历史联系，抽象艺术，科学或人文进步的宏大理论时将手像一个倒放的爪一样举在他们面前，手指缓缓转动就像有一个隐形的拨号盘。这就是所谓“辩证法”手势，如果你想要成为一个真正的思想领袖你就一定要掌握它们。<br>爱丽丝·M·威廉姆斯和约翰逊·茉莉创建了这样一个Tumblr Blog：手势词汇的批判与研究(link)——通过观察演讲中出现的这些手势然后将它们汇编起来让这些高大上的手势能真正走入老百姓的生活。<br>下面就让我们来看看这七种在演讲中极其常用的高大上的手势：<br>]]>
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[18个高大上的浏览器小技巧]]></title>
+    <link href="http://tiandechi.com/2015/05/23/18%E4%B8%AA%E9%AB%98%E5%A4%A7%E4%B8%8A%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>http://tiandechi.com/2015/05/23/18个高大上的浏览器小技巧/</id>
+    <published>2015-05-23T04:30:38.000Z</published>
+    <updated>2015-05-23T04:31:32.041Z</updated>
+    <content type="html"><![CDATA[<p><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/head.jpg?raw=true" alt="head.jpg"><br>注：以下仅适用于 Chrome/Firefox 等网络浏览器<br><a id="more"></a></p>
+<ol>
+<li>Ctrl+Shift+T 打开最近关闭的标签页</li>
+<li>在图片上按住S时点击鼠标右键，启动Google Image搜索相关图片</li>
+<li>把图片拖放到搜索框时，可以搜索相关图片(实测在打开Google Image时有效)<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/3.gif?raw=true" alt="3.gif"></li>
+<li>输入网址时，按Ctrl+回车键补全 .com</li>
+<li>按住Ctrl键(Mac用户按Command键)点击超链接，将在新标签打开页面</li>
+<li><p>在地址栏输入以下代码，可以把空标签页变成写字板(Chrome/Firefox有效)：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data:text/<span class="tag">html</span>,&lt;<span class="tag">html</span> contenteditable&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>而且这个写字板还可以继续折腾，比如变成暗色调(夜晚模式)。输入以下代码(Chrome有效，Firefox无效)：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data:text/<span class="tag">html</span>,&lt;<span class="tag">body</span> contenteditable style=<span class="string">"background:#111;color:#FFF;line-height:1.4;max-width:80rem;margin:0 auto;padding:2rem;"</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/7.gif?raw=true" alt="7.gif"> </p>
+<ol>
+<li><p>不跳转 Google.com.hk 强制打开 Google.com，只需输入：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google.<span class="keyword">com</span>/ncr</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ctrl+Shift+N 打开一个新浏览器窗口</p>
+</li>
+<li>关闭Facebook的视频自动播放：打开设置页 facebook.com/settings，点击左边栏的 video，选择 off。<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/10.gif?raw=true" alt="10.gif"> </li>
+<li>Gmail里某联系人纠缠不休，可以点击 more(更多操作)下拉的mute(忽略)将该邮件对话屏蔽<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/11.gif?raw=true" alt="11.gif"> </li>
+<li>在地址栏直接搜索某演员的贝肯数(演艺界的六度分隔指数)，输入“人名+Bacon number”即可</li>
+<li>在Google搜索框里输入“google in 1998”可以打开复古版的Google主页<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/13.gif?raw=true" alt="13.gif"> </li>
+<li>在Google搜索框里输入“do a barrel roll”并搜索可以Google页面表演一个桶滚动作。同样的彩蛋有“tilt”, “recursion”和“anagram”(后面两个测试无效)<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/14.gif?raw=true" alt="14.gif"> </li>
+<li>在 Google Image里搜索“Atari Breakout”会打开一个复古打砖块游戏<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/15.gif?raw=true" alt="15.gif"> </li>
+<li>在Google搜索框里输入“zerg rush”会激活星际争霸的一个相关小游戏，用鼠标点击消灭屏幕上的“O”<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/16.gif?raw=true" alt="16.gif"> </li>
+<li>键盘商 daskeyboard.com 为了推广它的网站做了一个小彩蛋，点击它页脚里Connet的Destroy this Site后会出现一个三角形箭头，可以用方向键或WASD操控，按空格射击来“摧毁”页面元素。<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/17.gif?raw=true" alt="17.gif"> </li>
+<li>煎蛋小编最爱的 Digg.com 也有个彩蛋，在它的首页输入Konami code(上上下下左右左右BA)有奇怪的事情发生，还有会熟悉的魂斗罗音乐响起。<br>Wired.co.uk 和 Condé Nast UK 也支持 Konami code。<br><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/tail.gif?raw=true" alt="tail.gif"> </li>
+</ol>
+<p><a href="http://jandan.net/2014/05/12/internet-tricks.html" target="_blank" rel="external">Source</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="https://github.com/Tiande/img/blob/master/18%20Cool%20Internet%20Tricks%20You%20Didn%E2%80%99t%20Know%20About/head.jpg?raw=true" alt="head.jpg"><br>注：以下仅适用于 Chrome/Firefox 等网络浏览器<br>]]>
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[11个让你吃惊的Linux终端命令]]></title>
@@ -648,449 +774,6 @@
 <h1 id="各个Linux版本的本地root密码破解方法">各个Linux版本的本地root密码破解方法</h1>]]>
     
     </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[some Linux tests]]></title>
-    <link href="http://tiandechi.com/2015/04/29/some-Linux-tests/"/>
-    <id>http://tiandechi.com/2015/04/29/some-Linux-tests/</id>
-    <published>2015-04-29T11:35:33.000Z</published>
-    <updated>2015-04-29T03:47:46.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="上部">上部</h1><ol>
-<li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。<br>使用密钥加密登录，客户端生成公钥和私钥，客户端保存私钥，公钥复制到远程linux主机，登录时使用密钥加密登录；</p>
-<a id="more"></a>
-<p>在linux主机执行下面的操作：</p>
-<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir /<span class="literal">root</span>/.ssh</span><br><span class="line">chmod  <span class="number">700</span> /<span class="literal">root</span>/.ssh</span><br><span class="line">vi /<span class="literal">root</span>/.ssh/authorized_keys    粘贴复制的公钥，保存退出；</span><br><span class="line">chmod <span class="number">600</span> /<span class="literal">root</span>/.ssh/authorized_keys</span><br><span class="line">vi /etc/<span class="built_in">selinux</span>/config    编辑<span class="built_in">selinux</span>防火墙配置</span><br><span class="line">更改 <span class="constant">S</span>ELINUX=disabled    永久关闭<span class="built_in">selinux</span>；</span><br><span class="line">iptables -<span class="constant">F</span>    清空防火墙规则；</span><br><span class="line">/etc/init.d/iptables save    保存防火墙设置；</span><br><span class="line">客户端使用密钥登录；</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如何给grub加密码（明文、密文)，密文加密又分成哪几种？<br>明文加密 vi /etc/grub.conf<br>hiddenmenu下增加一行<br>password=123456<br>保存退出，重启系统进入菜单选择，按p输入密码才可以编辑；<br>密文加密分md5加密和sha加密<br>md5加密命令为：grub-md5-crypt<br>输入密码，生成一串加密后的密码，复制密码<br>vi  /etc/grub.conf<br>password --md5 粘贴密码<br>保存退出，重启系统进入菜单，按p输入密码；<br>sha加密命令：grub-crypt --sha-256<br>输入密码，生成一串密码，复制密码<br>编辑/etc/grub.conf<br>password --encrypted 粘贴密码，<br>保存退出，重启进入系统，按p输入密码；</p>
-</li>
-<li>如何用yum安装/删除一个软件包？如何查看某个软件包是否已经安装<br>安装：yum install -y tree<br>删除：yum remove -y tree<br>查看：rpm -qa | grep “包名” 或    rpm -q 包名</li>
-<li><p>如何查看系统版本？（3个方法）</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> /etc/CentOS-release</span><br><span class="line"><span class="keyword">cat</span> /etc/issue</span><br><span class="line">rpm -<span class="keyword">qa</span> | <span class="keyword">grep</span> release</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>find 找出 当前目录下的 目录和普通文件？ 找出当前目录下10天没有改变，大小大于4K的普通文件或目录</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find ./ -<span class="keyword">type</span> <span class="keyword">d</span>  -o -<span class="keyword">type</span> <span class="literal">f</span></span><br><span class="line">find ./ -<span class="keyword">type</span> <span class="keyword">d</span> -o -<span class="keyword">type</span> f -size +4k ! -mtime -10</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在当前目录下创建一个名字为1的目录 的命令？  创建级联目录 ./2/3/的命令？ 一条命令创建级联目录 ./1/2/3和./1/2/4?</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ./<span class="number">1</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./<span class="number">2</span>/<span class="number">3</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./<span class="number">1</span>/<span class="number">2</span>/&#123;<span class="number">3</span>,<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cp一个目录中的文件需要什么权限，mv呢？touch呢？rm呢？<br>cp需要有目录的x权限，mv需要wx权限，touch需要wx权限，rm需要有wx权限；</p>
-</li>
-<li><p>用cat如何向文件里重定向字符串<br>第一种方法：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[user1<span class="variable">@localhost</span> tmp]<span class="variable">$ </span>cat <span class="prompt">&gt;&gt;</span><span class="number">1</span>.txt</span><br><span class="line"><span class="number">000000000000</span></span><br><span class="line"><span class="number">111111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line">最后按ctrl + d</span><br></pre></td></tr></table></figure>
-<p>第二种方法：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt;<span class="number">1</span>.txt&lt;</span><br><span class="line">&gt; <span class="number">000000000000</span></span><br><span class="line">&gt; qqqqqqqqqqqqq</span><br><span class="line">&gt;<span class="function"><span class="title">EOF</span><span class="params">(这个结束)</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>建立一个公共目录/opt/public,要求每个用户都可以创建文件和目录，但只能自己本人和root可以删除；</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="regexp">/opt/</span><span class="keyword">public</span></span><br><span class="line">chmod <span class="number">1777</span> <span class="regexp">/opt/</span><span class="keyword">public</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="下部">下部</h1><ol>
-<li><p>如何查看当前用户的家目录是什么?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$HOME</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果设置 umask 为 001 , 那么用户默认创建的目录和文件的权限是什么样子的？<br>创建的目录为766，文件为666</p>
-</li>
-<li><p>出于安全考虑，如何实现让别人ping不通你的在线的服务器。</p>
-<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">1</span> &gt; /<span class="keyword">proc</span>/sys/net/ipv4/icmp_echo_ignore_all</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>怎样防止他人在服务器前通过按下 ctrl+alt+del 强行重启系统（提示，仔细看/etc/inittab）</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/init/control-alt-<span class="keyword">delete</span>.conf</span><br><span class="line"><span class="keyword">exec</span> /sbin/<span class="keyword">shutdown</span> -r now <span class="string">"Control-Alt-Delete pressed"</span>    这一项<span class="comment">#号注释掉，保存退出；</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当在对服务器进行大负荷操作的时候，你不希望现在有普通用户登录上来，你该怎么做？不能剪网线。<br>touch /etc/nologin<br>创建一个nologin文件，此文件为特殊文件，创建之后所有普通用户不能登录；系统维护结束后删除此文件，用户可以恢复登录；只限于shell登录用户，本身shell为/sbin/nologin 的用户本身就无法登录shell，不受影响；</p>
-</li>
-<li>你新建了一批用户，出于安全考虑，要求这些用户在第一次登录的时候 就必须要更改密码，怎么实现？<br>修改/etc/shadow 第三列，新建用户的值更改为0.</li>
-<li><p>如何把一个目录下的所有文件(不含目录)权限改为644？</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./ -<span class="built_in">type</span> f | xargs chmod <span class="number">644</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>请实现下面这个需求：只允许使用普通账户登陆，而普通账户登录后，可以不输入密码就能sudo切换到root账户，root是不允许远程登录的。</p>
-<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sudoers</span><br><span class="line">添加一行<span class="keyword">user</span>    <span class="constant">A</span>LL=(<span class="literal">root</span>)    <span class="constant">N</span>OPASSWD: /bin/su</span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"><span class="constant">Permit</span>RootLogin 设置为no，禁止<span class="literal">root</span>远程登录；</span><br><span class="line"><span class="keyword">service</span> sshd <span class="literal">restart</span>    重启sshd服务生效；</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如何使文件只能写不能删除？ 如何使文件不能被删除、重命名、设定链接接、写入、新增数据？<br>chattr +a    只能写不能删除<br>chattr +i    不能删除，重命名，写入新增数据；</p>
-</li>
-<li>用ls 查看目录或者文件时，第二列的数值表示什么意思？如果一个目录的这列的值为3，那么这个3是如何得到的？<br>第二列数值表示有几个文件使用相同的inode；<br>如果一个目录的这列为3，我们可以通过使用 ls -al dir/ |grep &#39;^d&#39;|wc -l 这条命令得到；<br><a href="http://www.linuxidc.com/Linux/2015-04/116337.htm" target="_blank" rel="external">来源</a></li>
-</ol>
-<h1 id="面试题">面试题</h1><ol>
-<li>如何查看当前的Linux服务器的运行级别？<br>答: ‘who -r’ 和 ‘runlevel’ 命令可以用来查看当前的Linux服务器的运行级别。</li>
-<li>如何查看Linux的默认网关？<br>答: 用 “route -n” 和 “netstat -nr” 命令，我们可以查看默认网关。除了默认的网关信息，这两个命令还可以显示当前的路由表。</li>
-<li>如何在Linux上重建初始化内存盘镜像文件？<br>答: 在CentOS 5.X / RHEL 5.X中，可以用mkinitrd命令来创建初始化内存盘文件，举例如下：<h1 id="mkinitrd_-f_-v_/boot/initrd-$(uname_-r)-img_$(uname_-r)">mkinitrd -f -v /boot/initrd-$(uname -r).img $(uname -r)</h1>如果你想要给特定的内核版本创建初始化内存盘，你就用所需的内核名替换掉 ‘uname -r’ 。<br>在CentOS 6.X / RHEL 6.X中，则用dracut命令来创建初始化内存盘文件，举例如下：<h1 id="dracut_-f">dracut -f</h1>以上命令能给当前的系统版本创建初始化内存盘，给特定的内核版本重建初始化内存盘文件则使用以下命令：<h1 id="dracut_-f_initramfs-2-x-xx-xx-el6-x86_64-img_2-x-xx-xx-el6-x86_64">dracut -f initramfs-2.x.xx-xx.el6.x86_64.img 2.x.xx-xx.el6.x86_64</h1></li>
-<li>cpio命令是什么？<br>答: cpio就是复制入和复制出的意思。cpio可以向一个归档文件（或单个文件）复制文件、列表，还可以从中提取文件。</li>
-<li>patch命令是什么？如何使用？<br>答: 顾名思义，patch命令就是用来将修改（或补丁）写进文本文件里。patch命令通常是接收diff的输出并把文件的旧版本转换为新版本。举个例子，Linux内核源代码由百万行代码文件构成，所以无论何时，任何代码贡献者贡献出代码，只需发送改动的部分而不是整个源代码，然后接收者用patch命令将改动写进原始的源代码里。<br>创建一个diff文件给patch使用，<h1 id="diff_-Naur_old_file_new_file_&gt;_diff_file">diff -Naur old_file new_file &gt; diff_file</h1>旧文件和新文件要么都是单个的文件要么都是包含文件的目录，-r参数支持目录树递归。<br>一旦diff文件创建好，我们就能在旧的文件上打上补丁，把它变成新文件：<h1 id="patch_&lt;_diff_file">patch &lt; diff_file</h1></li>
-<li>aspell有什么用 ?<br>答: 顾名思义，aspell就是Linux操作系统上的一款交互式拼写检查器。aspell命令继任了更早的一个名为ispell的程序，并且作为一款免费替代品 ，最重要的是它非常好用。当aspell程序主要被其它一些需要拼写检查能力的程序所使用的时候，在命令行中作为一个独立运行的工具的它也能十分有效。</li>
-<li>如何从命令行查看域SPF记录？<br>答: 我们可以用dig命令来查看域SPF记录。举例如下<br>linuxtechi@localhost:~$ dig -t TXT google.com</li>
-<li>如何识别Linux系统中指定文件(/etc/fstab)的关联包？<br>答:<h1 id="rpm_-qf_/etc/fstab">rpm -qf /etc/fstab</h1>以上命令能列出提供“/etc/fstab”这个文件的包。</li>
-<li>哪条命令用来查看bond0的状态？<br>答:<br>cat /proc/net/bonding/bond0</li>
-<li>Linux系统中的/proc文件系统有什么用？<br>答: /proc文件系统是一个基于内存的文件系统，其维护着关于当前正在运行的内核状态信息，其中包括CPU、内存、分区划分、I/O地址、直接内存访问通道和正在运行的进程。这个文件系统所代表的并不是各种实际存储信息的文件，它们指向的是内存里的信息。/proc文件系统是由系统自动维护的。</li>
-<li>如何在/usr目录下找出大小超过10MB的文件？<br>答:<h1 id="find_/usr_-size_+10M">find /usr -size +10M</h1></li>
-<li>如何在/home目录下找出120天之前被修改过的文件？<br>答:<h1 id="find_/home_-mtime_+120">find /home -mtime +120</h1></li>
-<li>如何在/var目录下找出90天之内未被访问过的文件？<br>答:<h1 id="find_/var_!_-atime_-90">find /var ! -atime -90</h1></li>
-<li>在整个目录树下查找文件“core”，如发现则无需提示直接删除它们。<br>答:<h1 id="find_/_-name_core_-exec_rm_{}_\;">find / -name core -exec rm {} \;</h1></li>
-<li>strings命令有什么作用？<br>答: strings命令用来提取和显示非文本文件中的文本字符串。（LCTT 译注：当用来分析你系统上莫名其妙出现的二进制程序时，可以从中找到可疑的文件访问，对于追查入侵有用处）</li>
-<li>tee 过滤器有什么作用 ?<br>答: tee 过滤器用来向多个目标发送输出内容。如果用于管道的话，它可以将输出复制一份到一个文件，并复制另外一份到屏幕上（或一些其它程序）。<br>linuxtechi@localhost:~$ ll /etc | nl | tee /tmp/ll.out<br>在以上例子中，从ll输出可以捕获到 /tmp/ll.out 文件中，并且同样在屏幕上显示了出来。</li>
-<li>export PS1 = ”$LOGNAME@hostname:\$PWD: 这条命令是在做什么？<br>答: 这条export命令会更改登录提示符来显示用户名、本机名和当前工作目录。</li>
-<li>ll | awk ‘{print $3,”owns”,$9}’ 这条命令是在做什么？<br>答: 这条ll命令会显示这些文件的文件名和它们的拥有者。</li>
-<li>:Linux中的at命令有什么用？<br>答: at命令用来安排一个程序在未来的做一次一次性执行。所有提交的任务都被放在 /var/spool/at 目录下并且到了执行时间的时候通过atd守护进程来执行。</li>
-<li>linux中lspci命令的作用是什么？<br>答: lspci命令用来显示你的系统上PCI总线和附加设备的信息。指定-v，-vv或-vvv来获取越来越详细的输出，加上-r参数的话，命令的输出则会更具有易读性。</li>
-</ol>
-<p><a href="http://www.linuxidc.com/Linux/2015-02/112637.htm" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="上部">上部</h1><ol>
-<li><p>如何更改linux主机名？<br>编辑配置文件 /etc/sysconfig/network<br>更改HOSTSNAME，保存退出后重启生效；</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="property">@yonglinux</span> ~]<span class="comment"># cat /etc/sysconfig/network</span></span><br><span class="line">NETWORKING=<span class="literal">yes</span></span><br><span class="line">HOSTNAME=yonglinux.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>登录linux，我们除了使用密码验证，还可以使用哪种方式？简述配置过程。<br>使用密钥加密登录，客户端生成公钥和私钥，客户端保存私钥，公钥复制到远程linux主机，登录时使用密钥加密登录；</p>]]>
-    
-    </summary>
-    
-      <category term="tests" scheme="http://tiandechi.com/tags/tests/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[The advantages of Linux compile source code for installing package]]></title>
-    <link href="http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/"/>
-    <id>http://tiandechi.com/2015/04/21/The-advantages-of-Linux-compile-source-code-for-installing-package/</id>
-    <published>2015-04-21T11:01:33.000Z</published>
-    <updated>2015-04-21T05:00:54.000Z</updated>
-    <content type="html"><![CDATA[<p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br><a id="more"></a><br>为什么程序还没有安装你就想到卸载？难道你不知道这个程序是用来做什么的？你应该改变到处找程序来试用的作法，而应该先了解一下到底那些程序有同样的功能，听听别人的意见，看看它们各有什么长处和短处，然后挑一个最适合你的程序来用。</p>
-<p>从源码编译安装程序，不但比你装rpm更适合自己的机器设置，而且它们一般会装到/usr/local目录，这样你以后如果换硬盘重装系统，也可以把以前/usr/local下的程序原封不动拷贝过去用。我的/usr/local下有2G之多的程序，你想要是我有一台新机器要重新安装，然后配置，得花费多少时间？实际上我曾经通过网络把它们传到一台新机器上，然后就出去吃晚饭，回来时我就得到了另一台一摸一样的Linux机器。</p>
-<p>确实要卸载makeinstall的程序怎么办呢？答案是直接删掉。别以为直接删掉程序会留下垃圾，引起“系统不稳定”。(btw:这是谁教你的啊？呵呵。)makeinstall无非就是把可执行程序放在/usr/local/bin,把某些函数库放在/usr/local/lib，把数据文件放在 /usr/local/share下一个它自己的目录，你把这些东西都删掉就行了，不会留下垃圾，即使真的留下一点文件没有删掉也占不了多少空间，更不可能引起系统不稳定。UNIX就是这么简单</p>
-<p>但是有几个程序不建议从源码安装，它们是Mozilla,OpenOffice,...它们编译时会占用你几个G的空间和好几个小时的时间，这种花费我觉得是不值得的，因为你不能从编译得到更多好处，不如直接安装编译好的版本。</p>
-<p><a href="http://blog.163.com/qiantu1986@126/blog/static/3592266920114172382031/" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>很多人放着最新的源码不用，等着有人帮他做出rpm,deb,才能安装。我说你为什么不用源码编译，这样版本比rpm高的多，有很多新功能，而没有烦人的依赖关系。可是他说：“要是我用源码编译安装，卸载的时候就不方便了，会留下很多垃圾。”<br>]]>
-    
-    </summary>
-    
-      <category term="advantage" scheme="http://tiandechi.com/tags/advantage/"/>
-    
-      <category term="compile" scheme="http://tiandechi.com/tags/compile/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[the physical structure and IO process of the disk]]></title>
-    <link href="http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/"/>
-    <id>http://tiandechi.com/2015/04/21/the-physical-structure-and-IO-process-of-the-disk/</id>
-    <published>2015-04-21T10:58:12.000Z</published>
-    <updated>2015-04-21T04:59:56.000Z</updated>
-    <content type="html"><![CDATA[<p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
-<pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
-磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
-磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
-柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
-扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又把每个磁道划分出了多个扇区，见下图
-![<span class="link_label">HDD physical structure</span>](<span class="link_url">http://ww4.sinaimg.cn/mw690/6e8d8f65gw1erbso6izmoj20ib08cq4d.jpg</span>)
-</code></pre><a id="more"></a>
-<p>Linux上可以通过fdisk命令，来查看当前系统使用的磁盘的这些物理信息。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="annotation">@dbserver</span> ~]# fdisk -l</span><br><span class="line">Disk <span class="regexp">/dev/</span><span class="string">sda:</span> <span class="number">1199.6</span> GB, <span class="number">1199638052864</span> bytes</span><br><span class="line"><span class="number">255</span> heads, <span class="number">63</span> sectors/track, <span class="number">145847</span> cylinders</span><br><span class="line">Units = cylinders of <span class="number">16065</span> * <span class="number">512</span> = <span class="number">8225280</span> bytes</span><br><span class="line">Sector size (logical<span class="regexp">/physical): 512 bytes /</span> <span class="number">512</span> bytes</span><br><span class="line">I<span class="regexp">/O size (minimum/</span>optimal): <span class="number">512</span> bytes / <span class="number">512</span> bytes</span><br><span class="line">Disk <span class="string">identifier:</span> <span class="number">0x54ab02ca</span></span><br><span class="line">Device Boot      Start        End      Blocks  Id  System</span><br><span class="line"><span class="regexp">/dev/</span>sda1              <span class="number">1</span>          <span class="number">5</span>      <span class="number">40131</span>  de  Dell Utility</span><br><span class="line">Partition <span class="number">1</span> does not end on cylinder boundary.</span><br><span class="line"><span class="regexp">/dev/</span>sda2  *          <span class="number">6</span>        <span class="number">267</span>    <span class="number">2097152</span>    c  W95 FAT32 (LBA)</span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
-<p>可以看出我的磁盘有255个heads，也就是说共有255个盘面。145847 个cylinders，也就是说每个盘面上都有145847 个磁道， 63sectors/track说的是每个磁道上共有63个扇区。命令结果也给出了Sector size的值是512bytes。那我们动笔算一下该磁盘的大小。<br>255盘面  <em> 145847 柱面 </em> 63扇区 * 每个扇区512bytes =1199632412160 byte=1117.25GB<br>结果是1117.25GB,和磁盘的总大小相符。<br>在如上图可以发现一个错误（标红），是即/dev/sda1的start位置从第 1 扇区个删除开始，如果将第0至62个扇区,即第一磁道（cylinders）单独留给磁盘MBR并从第64个扇区，即第二个磁道（cylinders）开始分区，将会对文件系统的性能会带来很大的提升。</p>
-<p>接下来让我们在了解一下磁盘IO时的过程。</p>
-<ol>
-<li>首先是磁头径向移动来寻找数据所在的磁道。这部分时间叫寻道时间。</li>
-<li>找到目标磁道后通过盘面旋转，将目标扇区移动到磁头的正下方。</li>
-<li>向目标扇区读取或者写入数据。到此为止，一次磁盘IO完成。</li>
-</ol>
-<p>故：单次磁盘IO时间 = 寻道时间 + 旋转延迟 + 存取时间。<br>对于旋转延时，现在主流服务器上经常使用的是1W转/分钟的磁盘，每旋转一周所需的时间为60*1000/10000=6ms，故其旋转延迟为（0-6ms）。对于存取时间，一般耗时较短，为零点几ms。对于寻道时间，现代磁盘大概在3-15ms，其中寻道时间大小主要受磁头当前所在位置和目标磁道所在位置相对距离的影响。</p>
-<pre><code>操作系统通过按磁道对应的柱面划分分区，来降低磁盘IO所花费的的寻道时间 ，进而提高磁盘的读写性能。
-</code></pre><hr>
-<p>实际上，上面这段话还是存在问题的，分区对性能的提高几乎为0，我在 V2EX 有讨论： <a href="http://www.v2ex.com/t/184874" target="_blank" rel="external">分区能提高硬盘的读写性能？</a></p>
-<p><a href="http://www.linuxidc.com/Linux/2015-04/116419.htm" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>对于管理磁盘，分磁盘面、磁头、磁道、柱面和扇区。</p>
-<pre><code>磁盘面：磁盘是由一叠磁盘面组成，见下左图。
-磁头(Heads)：每个磁头对应一个磁盘面，负责该磁盘面上的数据的读写。
-磁道(Track)：每个盘面会围绕圆心划分出多个同心圆圈，每个圆圈叫做一个磁道。
-柱面(Cylinders)：所有盘片上的同一位置的磁道组成的立体叫做一个柱面。
-扇区(Sector)：以磁道为单位管理磁盘仍然太大，所以计算机前辈们又把每个磁道划分出了多个扇区，见下图
-![<span class="link_label">HDD physical structure</span>](<span class="link_url">http://ww4.sinaimg.cn/mw690/6e8d8f65gw1erbso6izmoj20ib08cq4d.jpg</span>)
-</code></pre>]]>
-    
-    </summary>
-    
-      <category term="Disk" scheme="http://tiandechi.com/tags/Disk/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[VSFTP server configure]]></title>
-    <link href="http://tiandechi.com/2015/04/19/VSFTP-server-configure/"/>
-    <id>http://tiandechi.com/2015/04/19/VSFTP-server-configure/</id>
-    <published>2015-04-19T08:19:25.000Z</published>
-    <updated>2015-04-19T01:55:02.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
-<li>wu-ftp</li>
-<li>proftp=profession ftp</li>
-<li>vsftp=very security ftp</li>
-</ol>
-<p>配置文件：<br>    /etc/vsftpd/vsftpd.conf   //主配置文件</p>
-<pre><code>/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span>
-
-/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span>
-</code></pre><h1 id="访问方式">访问方式</h1><ol>
-<li>匿名登录</li>
-<li>帐号登录</li>
-</ol>
-<a id="more"></a>
-<h1 id="启动FTP服务器：">启动FTP服务器：</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#service vsftpd restart</span><br></pre></td></tr></table></figure>
-<h1 id="配置vsftp服务器">配置vsftp服务器</h1><ol>
-<li><p>vsftpd.conf各项参数说明：</p>
-<pre><code><span class="comment">#vi /etc/vsftpd/vsftpd.conf</span>
-
-<span class="variable">&lt;1&gt;</span>第7行： 控制匿名登录
-
-            anonymous_enable=YES 改成NO
-
-<span class="variable">&lt;2&gt;</span>第10行：允许本地帐号登录
-
-<span class="variable">&lt;3&gt;</span>第13行：控制可写权限
-
-<span class="variable">&lt;4&gt;</span>第17行：控制本地文件的权限掩码
-
-<span class="variable">&lt;5&gt;</span>第22行：控制是否允许匿名上传(与26行同时开启或关闭)
-
-<span class="variable">&lt;6&gt;</span>第26行：控制是否允许匿名写及创建目录的权限
-
-<span class="variable">&lt;7&gt;</span>第33行：控制上传或下载的日志记录
-
-<span class="variable">&lt;8&gt;</span>第46行：控制日志的保存路径
-
-<span class="variable">&lt;9&gt;</span>第52行：设置指令超时的时间，默认为600秒
-
-<span class="variable">&lt;10&gt;</span>第55行：设置数据连接的超时时间，默认为120秒
-
-<span class="variable">&lt;11&gt;</span>第91行：控制登录FTP的用户是否被限制在家目录下;(必须与93行同时开启或关闭)
-
-            chroot_list_enable=YES
-
-<span class="variable">&lt;12&gt;</span>第93行：登录FTP后被限制在家目录下的用户列表文件
-
-            chroot_list_file=/etc/vsftpd.chroot_list
-
-            在/etc目录下新建一个vsftpd.chroot_list文件，内容加入要限制用户的用户名
-
-            没加入限制用户可以访问其目录
-
-<span class="variable">&lt;13&gt;</span>第99行：控制登录FTP后是否允许ls命令
-
-<span class="variable">&lt;14&gt;</span>第102行:启用/etc/vsftpd.user_list文件
-</code></pre></li>
-<li><p>配置匿名登录</p>
-<pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
-
-第<span class="number">7</span>行，设置为： (默认值)
-
-anonymous_enable=YES
-
-启动vsftpd服务器：
-
-<span class="id">#service</span> vsftpd restart
-
-<span class="id">#service</span> iptables stop
-
-匿名登录的默认目录：
-
-/var/ftp/pub
-
-打开匿名上传和写权限：
-
-<span class="id">#vi</span> /etc/vsftpd/vsftp<span class="class">.conf</span>
-
-激活第<span class="number">22</span>行
-
-激活第<span class="number">26</span>行
-
-打开默认共享目录的权限
-
-<span class="id">#chmod</span> <span class="number">777</span> /var/ftp/pub
-
-备注：匿名可以上传下载，但不能删除；
-</code></pre></li>
-<li><p>本地帐号登录</p>
-<pre><code>&lt;<span class="number">1</span>&gt;禁用匿名登入
-
-修改配置文件
-
-<span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
-
-禁用所有匿名控制行,如：
-
-   禁用第<span class="number">7</span>行，第<span class="number">22</span>行，第<span class="number">26</span>行；
-
-&lt;<span class="number">2</span>&gt;开放那些用户可以登入和那些用户拒绝登入
-
-<span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
-
-    在<span class="number">102</span>行后，插入如下：
-
-    userlist_deny=NO
-
-       (备注：设置/etc/vsftpd.user_list文件中的用户可登录FTP)
-
-    保存退出
-
-   如果是#userlist_deny=NO 注释掉，则默认全部用户可以登入FTP,当要限某用户不能登入：
-
-    把用户名加入这个文件当中/etc/vsftpd.ftpusers，则这个用户名拒绝登入FTP
-
-     创建用户并加入到相应的控制文件中
-
-      <span class="id">#useradd</span> us1
-
-<span class="id">#useradd</span> us2
-
-      <span class="id">#passwd</span> us1
-
-      <span class="id">#passwd</span> us2
-
-     允许登录到FTP的用户：
-
-      <span class="id">#echo</span> us1&gt;&gt;/etc/vsftpd<span class="class">.user_list</span>
-
-      <span class="id">#echo</span> us2&gt;&gt;/etc/vsftpd<span class="class">.user_list</span>   
-</code></pre></li>
-</ol>
-<h1 id="启动FTP服务器：-1">启动FTP服务器：</h1><pre><code><span class="id">#service</span> vsftpd restart
-
-备注：帐号登录FTP，默认是登录在家目录下；
-
-禁止登录到FTP的用户：
-
-<span class="id">#echo</span> us3&gt;&gt;/etc/vsftpd.ftpusers
-</code></pre><h1 id="将登录后的用户限制在本地家目录下：">将登录后的用户限制在本地家目录下：</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
-
-激活第<span class="number">91</span>行及第<span class="number">93</span>行
-
-   chroot_list_enable=YES
-
-   chroot_list_file=/etc/vsftpd<span class="class">.chroot_list</span>
-
-
-新建受限用户的列表文件并加入受限用户名
-
-<span class="id">#vi</span> /etc/vsftpd<span class="class">.chroot_list</span>
-
-  us2
-
-保存退出
-
-<span class="id">#service</span> vsftpd restart
-</code></pre><h1 id="限制匿名上传的速度：">限制匿名上传的速度：</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
-
-:$
-
-anon_max_rate=<span class="number">5000</span> <span class="comment">//默认以字节为单位 5000表示5K速度</span>
-</code></pre><h1 id="限制本地帐号的上传速度：">限制本地帐号的上传速度：</h1><pre><code>local_max_rate=<span class="number">5000</span> <span class="comment">//以(字节/秒)为单位</span>
-</code></pre><h1 id="针对不同的使用者限制不同的速度(这个速度优先限制所有用户的速度）:">针对不同的使用者限制不同的速度(这个速度优先限制所有用户的速度）:</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>   增加下面一行
-
-user_config_dir=/etc/vsftpd/userconf
-
-<span class="id">#mkdir</span> /etc/vsftpd/userconf   创建一个目录
-
-<span class="id">#vi</span> /etc/vsftpd/userconf/user1   （user1是要限制速度的用户名)
-
-local_max_rate=<span class="number">25000</span>
-</code></pre><h1 id="定制欢迎信息：">定制欢迎信息：</h1><pre><code><span class="id">#vi</span> /etc/vsftpd/vsftpd<span class="class">.conf</span>
-
-激活<span class="number">80</span>行
-
-ftpd_banner=Welcome to Huayu FTP service.
-</code></pre><h1 id="限制服务器连接数和同IP连接数">限制服务器连接数和同IP连接数</h1><ol>
-<li>max_clients<br>可使用这个参数定义最大的总联机数。超过这个数目将会拒绝联机，0 表示不限。默认值为0。</li>
-<li>max_per_ip<br>使用这个参数定义每个ip address 所可以联机的数目。超过这个数目将会拒绝联机，0 表示不限。默认值为0</li>
-</ol>
-<h1 id="虚拟FTP用户设置">虚拟FTP用户设置</h1><ol>
-<li><p>建立虚拟用户口令库文件</p>
-<pre><code><span class="id">#vi</span> /etc/vsftpd/logins<span class="class">.txt</span>
-
-vuser1
-
-<span class="number">123</span>
-
-vuser2
-
-<span class="number">321</span>
-
-:wq
-
-口令库文件中奇数行设置用户名，偶数行设置口令
-</code></pre></li>
-<li>生成vsftpd的认证文件<pre><code><span class="id">#db_load</span> -T -t hash -f /etc/vsftpd/logins<span class="class">.txt</span> /etc/vsftpd/vsftpd_login<span class="class">.db</span> ##生成认证文件
-</code></pre></li>
-<li>设置认证文件只对root用户可读可写<pre><code><span class="preprocessor"># chmod 600 /etc/vsftpd/vsftpd_login.db</span>
-</code></pre></li>
-<li>建立虚拟用户所需的PAM配置文件，手工建立vsftpd.vu文件<pre><code># cat <span class="regexp">/etc/</span>pam.d/vsftpd.vu
-auth required <span class="regexp">/lib/</span>security<span class="regexp">/pam_userdb.so db=/</span>etc<span class="regexp">/vsftpd/</span>vsftpd_login
-account required <span class="regexp">/lib/</span>security<span class="regexp">/pam_userdb.so db=/</span>etc<span class="regexp">/vsftpd/</span>vsftpd_login
-</code></pre></li>
-<li>建立所有FTP虚拟用户帐号使用的系统用户帐号，并设置该帐号宿主目录的权限<pre><code><span class="preprocessor"># useradd -d /home -s /sbin/nologin /ftpsite virtual</span>
-<span class="preprocessor"># chmod 700 /home/ftpsite</span>
-</code></pre></li>
-<li><p>设置vsftpd.conf配置文件</p>
-<pre><code><span class="comment">#vi /etc/vsftpd/vsftpd.conf</span>
-
-在配置文件中添加虚拟用户的配置内容
-
-<span class="constant">guest_enable</span>=YES
-
-<span class="constant">guest_username</span>=virtual
-
-<span class="constant">pam_service_name</span>=vsftpd.vu（要和刚才建的PAM文件对应）
-
-<span class="constant">user_config_dir</span>=/etc/vsftpd/user_config_dir （指定每个虚拟用户账号配置目录，）
-<span class="constant">local_root</span>=/www （这行没有，虚拟用户登入到/ftpsite）
-</code></pre></li>
-<li><p>配置虚拟用户名的设置</p>
-<pre><code><span class="comment">#mkdir -p /etc/vsftpd/user_config_dir （主配置文件对应）</span>
-<span class="comment">#mkdir -p /www/vuser1    （创建虚拟用主目录）</span>
-<span class="comment">#chmod -R 777 /www/vuser1 （设定权限）</span>
-
-<span class="comment">#touch /etc/vsftpd/user_config_dir/vuser1 (为vuser1权限配置文件)</span>
-<span class="comment">#echo "anon_world_readable_only=NO</span>
-write_<span class="built_in">enable</span>=YES
-anon_upload_<span class="built_in">enable</span>=YES
-anon_other_write_<span class="built_in">enable</span>=YES
-<span class="built_in">local</span>_root=/www/feixiang
-anon_mkdir_write_<span class="built_in">enable</span>=YES<span class="string">" &gt;/etc/vsftpd/user_config_dir/vuser1</span>
-</code></pre></li>
-<li><p>重新启动vsftpd服务程序</p>
-<pre><code><span class="preprocessor"># service vsftpd restart</span>
-
-现在就应该可以用虚拟帐号登陆了.
-</code></pre></li>
-</ol>
-<p><a href="http://www.cnblogs.com/JemBai/archive/2009/02/05/1384413.html" target="_blank" rel="external">Linux VSFTP服务器详细配置</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="Linux_FTP服务器分类：">Linux FTP服务器分类：</h1><ol>
-<li>wu-ftp</li>
-<li>proftp=profession ftp</li>
-<li>vsftp=very security ftp</li>
-</ol>
-<p>配置文件：<br>    /etc/vsftpd/vsftpd.conf   //主配置文件</p>
-<pre><code>/etc/vsftpd<span class="class">.ftpusers</span>      <span class="comment">//被禁止登录FTP的用户文件</span>
-
-/etc/vsftpd<span class="class">.user_list</span>     <span class="comment">//允许登录FTP的用户文件</span>
-</code></pre><h1 id="访问方式">访问方式</h1><ol>
-<li>匿名登录</li>
-<li>帐号登录</li>
-</ol>]]>
-    
-    </summary>
-    
-      <category term="VSFTP" scheme="http://tiandechi.com/tags/VSFTP/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     
   </entry>
   
