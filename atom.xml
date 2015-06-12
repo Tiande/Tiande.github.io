@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-05-23T04:32:57.129Z</updated>
+  <updated>2015-06-12T14:20:09.978Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -13,6 +13,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[shell-of-vi-mode]]></title>
+    <link href="http://tiandechi.com/2015/06/12/shell-of-vi-mode/"/>
+    <id>http://tiandechi.com/2015/06/12/shell-of-vi-mode/</id>
+    <published>2015-06-12T14:11:10.000Z</published>
+    <updated>2015-06-12T14:20:09.978Z</updated>
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'set editing-mode vi'</span>&gt;.inputrc</span><br><span class="line"><span class="built_in">source</span> .inputrc</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class=]]>
+    </summary>
+    
+      <category term="pvi mode, shell]" scheme="http://tiandechi.com/tags/pvi-mode-shell/"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[一沾酒就脸红的人能锻炼出酒量吗？]]></title>
@@ -702,78 +720,6 @@
       <category term="find" scheme="http://tiandechi.com/tags/find/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[how to enter single user mode and crack root password in Linux]]></title>
-    <link href="http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/"/>
-    <id>http://tiandechi.com/2015/04/29/how-to-enter-single-user-mode-and-crack-root-password-in-Linux/</id>
-    <published>2015-04-29T11:37:52.000Z</published>
-    <updated>2015-04-29T03:38:42.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="linux下如何进入单人维护模式">linux下如何进入单人维护模式</h1><p>先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span> ro root=LABEL=/ rhgb quiet</span><br><span class="line">initrd /initrd-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span><span class="class">.img</span></span><br></pre></td></tr></table></figure></p>
-<p>此时，请将游标移动到kernel那一行，再按一次『 e 』进入kernel该行的编辑画面中， 然后在出现的画面<br>当中，最后方输入 “single” ：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span>.el5 ro <span class="variable">root=</span><span class="variable">LABEL=</span>/ rhgb quiet single</span><br></pre></td></tr></table></figure></p>
-<p>再按下『 Enter 』確定之後，按下 b 就可以开机進入单人维护模式了！<br>在这个模式底下，你会在tty1的地方不需要输入密码即可取得终端机的控制权(而且是使用root的身份喔！)。</p>
-<h1 id="各个Linux版本的本地root密码破解方法">各个Linux版本的本地root密码破解方法</h1><a id="more"></a>
-<p>这段时间老碰到有人问及各个linux版本的本地root密码破解方法，我这里自己以及在网络上搜集了些资料，希望对看到了这文章而又恰好用得到的技术人员有点帮助：</p>
-<h2 id="RedHat/CentOS/Fedora_系统密码破解">RedHat/CentOS/Fedora 系统密码破解</h2><ol>
-<li>在grub选项菜单按E进入编辑模式</li>
-<li>编辑kernel 那行最后加上S (或者Single）</li>
-<li>按B，启动到single-user mode</li>
-<li>进入后执行下列命令<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># mount -t proc proc /proc</span></span><br><span class="line"><span class="preprocessor"># mount -o remount,rw /</span></span><br><span class="line"><span class="preprocessor">#passwd</span></span><br><span class="line"><span class="preprocessor">#sync</span></span><br><span class="line"><span class="preprocessor">#reboot</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>【1】开机画面按e进入<br>【2】进入以下的画面后，选择如下所示的选项，再次按下e按钮； 1 S Single都可以<br>【3】返回到当前页后，按下b按钮起动linux；<br>【4】用passwd命令修改root用户密码；<br>【5】利用shutdown -r now命令重启linux，密码修改完毕。</p>
-<h2 id="Debian_linux_系统密码破解">Debian linux 系统密码破解</h2><ol>
-<li>在grub选项菜单&#39;Debian GNU/Linux,...(recovery mode)&#39;，按e进入编辑模式</li>
-<li>编辑kernel那行最后面的 ro single 改成 rw single init=/bin/bash，按b执行重启</li>
-<li>进入后执行下列命令<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@(<span class="attribute">none</span>)<span class="id">#mount</span> -<span class="tag">a</span></span><br><span class="line">root@(<span class="attribute">none</span>)<span class="id">#passwd</span> root</span><br><span class="line">root@(<span class="attribute">none</span>)#reboot</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="Freebsd_系统密码破解">Freebsd 系统密码破解</h2><ol>
-<li>开机进入引导菜单</li>
-<li>选择每项(按4)进入单用户模式</li>
-<li>进入之后输入一列命令<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@<span class="id">#mount</span> -<span class="tag">a</span></span><br><span class="line">root@<span class="id">#fsck</span> -y</span><br><span class="line">root@#<span class="function"><span class="title">passwd</span><span class="params">(修改密码命令)</span></span></span><br><span class="line">root@#<span class="function"><span class="title">root</span><span class="params">(要破解密码的用户名)</span></span></span><br><span class="line">Enter new unix password:</span><br><span class="line">root@<span class="id">#init</span> <span class="number">6</span> (重启)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="Solaris_系统密码破解">Solaris 系统密码破解</h2><ol>
-<li>在grub选项菜中选择solaris failasfe 项</li>
-<li>系统提示Do you wish to have it mounted read-write on /a ?[y,n,?] 选择y</li>
-<li>就进入单用户模式</li>
-<li>输入下列命令:<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line">root@<span class="title">#init 6</span> <span class="comment">(重启)</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="NetBsd_系统密码破解">NetBsd 系统密码破解</h2><ol>
-<li><p>开机：当出现提示符号并开始倒数五秒时， 键入以下指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; boot <span class="operator">-s</span> (进入单用户模式命令)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在以下的提示符号中</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter pathname <span class="operator">of</span> <span class="built_in">shell</span> <span class="operator">or</span> <span class="constant">RETURN</span> <span class="keyword">for</span> sh:</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>按下 Enter。</p>
-<ol>
-<li><p>键入以下指令：</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># mount -a</span></span><br><span class="line"><span class="preprocessor"># fsck -y</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 passwd 更改 root 的密码。</p>
-</li>
-<li>使用 exit 指令进入多人模式。<h2 id="SUSE_系统密码破解">SUSE 系统密码破解</h2></li>
-<li>重新启动机器，在出现grub引导界面后，在启动linux的选项里加上init=/bin/bash，通过给内核传递init=/bin/bash参数使得OS在运行login程序之前运行bash，出现命令行。</li>
-<li>稍等片刻出现(none)#:命令行。</li>
-<li>这时输入mount -n / -o remount,rw 表示将根文件系统重新mount为可读写，有了读写权限后就可以通过passwd命令修改密码了。</li>
-<li>这时输入passwd命令就可以重置密码了</li>
-<li>修改完成后记得用mount -n / -o remount,ro将根文件系统置为原来的状态。</li>
-</ol>
-<p><a href="http://blog.csdn.net/vagrant2005/article/details/6561637" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="linux下如何进入单人维护模式">linux下如何进入单人维护模式</h1><p>先将系统重新开机，在读秒的时候按下任意键就会出现操作系统的选择画面，仔细看选单底下的说明， 按下『e』就能进入grub的编辑模式了。此時你看到的画面有点像底下这样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root (hd0,<span class="number">0</span>)</span><br><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span> ro root=LABEL=/ rhgb quiet</span><br><span class="line">initrd /initrd-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span><span class="class">.el5</span><span class="class">.img</span></span><br></pre></td></tr></table></figure></p>
-<p>此时，请将游标移动到kernel那一行，再按一次『 e 』进入kernel该行的编辑画面中， 然后在出现的画面<br>当中，最后方输入 “single” ：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kernel /vmlinuz-<span class="number">2.6</span>.<span class="number">18</span>-<span class="number">128</span>.el5 ro <span class="variable">root=</span><span class="variable">LABEL=</span>/ rhgb quiet single</span><br></pre></td></tr></table></figure></p>
-<p>再按下『 Enter 』確定之後，按下 b 就可以开机進入单人维护模式了！<br>在这个模式底下，你会在tty1的地方不需要输入密码即可取得终端机的控制权(而且是使用root的身份喔！)。</p>
-<h1 id="各个Linux版本的本地root密码破解方法">各个Linux版本的本地root密码破解方法</h1>]]>
-    
-    </summary>
     
   </entry>
   

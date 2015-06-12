@@ -4,22 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>vim多窗口使用技巧 | 天德池</title>
+    <title>shell-of-vi-mode | 天德池</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="钢仔">
     
 
     
-    <meta name="description" content="vim多窗口">
+    <meta name="description" content="123cd ~echo &apos;set editing-mode vi&apos;&amp;gt;.inputrcsource .inputrc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim多窗口使用技巧">
-<meta property="og:url" content="http://tiandechi.com/2015/03/27/vim多窗口使用技巧/index.html">
+<meta property="og:title" content="shell-of-vi-mode">
+<meta property="og:url" content="http://tiandechi.com/2015/06/12/shell-of-vi-mode/index.html">
 <meta property="og:site_name" content="天德池">
-<meta property="og:description" content="vim多窗口">
+<meta property="og:description" content="123cd ~echo &apos;set editing-mode vi&apos;&amp;gt;.inputrcsource .inputrc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim多窗口使用技巧">
-<meta name="twitter:description" content="vim多窗口">
+<meta name="twitter:title" content="shell-of-vi-mode">
+<meta name="twitter:description" content="123cd ~echo &apos;set editing-mode vi&apos;&amp;gt;.inputrcsource .inputrc">
 <meta name="twitter:creator" content="@TiandeTD">
 
     
@@ -84,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/03/27/vim多窗口使用技巧/" title="vim多窗口使用技巧" itemprop="url">vim多窗口使用技巧</a>
+      <a href="/2015/06/12/shell-of-vi-mode/" title="shell-of-vi-mode" itemprop="url">shell-of-vi-mode</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
 		
   <p class="article-time">
-    <time datetime="2015-03-27T14:31:39.000Z" itemprop="datePublished"> 发表于 2015-03-27</time>
+    <time datetime="2015-06-12T14:11:10.000Z" itemprop="datePublished"> 发表于 2015-06-12</time>
     
   </p>
 </header>
@@ -100,24 +100,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#打开多个窗口"><span class="toc-number">1.</span> <span class="toc-text">打开多个窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#横向切割窗口"><span class="toc-number">1.1.</span> <span class="toc-text">横向切割窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纵向切割窗口名"><span class="toc-number">1.2.</span> <span class="toc-text">纵向切割窗口名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关闭多窗口"><span class="toc-number">2.</span> <span class="toc-text">关闭多窗口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#窗口切换"><span class="toc-number">3.</span> <span class="toc-text">窗口切换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#窗口大小调整"><span class="toc-number">4.</span> <span class="toc-text">窗口大小调整</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#纵向调整"><span class="toc-number">4.1.</span> <span class="toc-text">纵向调整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#横向调整"><span class="toc-number">4.2.</span> <span class="toc-text">横向调整</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#给窗口重命名"><span class="toc-number">5.</span> <span class="toc-text">给窗口重命名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vi打开多文件"><span class="toc-number">6.</span> <span class="toc-text">vi打开多文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件浏览"><span class="toc-number">7.</span> <span class="toc-text">文件浏览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vi与shell切换"><span class="toc-number">8.</span> <span class="toc-text">vi与shell切换</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>vim多窗口</p>
-<h1 id="打开多个窗口">打开多个窗口</h1><p>打开多个窗口的命令以下几个：</p>
-<h2 id="横向切割窗口">横向切割窗口</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:new+</span>窗口名(保存后就是文件名) </span><br><span class="line"><span class="symbol">:split+</span>窗口名，也可以简写为<span class="symbol">:sp+</span>窗口名</span><br></pre></td></tr></table></figure>
-<h2 id="纵向切割窗口名">纵向切割窗口名</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:vsplit+</span>窗口名，也可以简写为：vsp+窗口名</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h1 id="关闭多窗口">关闭多窗口</h1><p>可以用：q!，也可以使用：close，最后一个窗口不能使用close关闭。使用close只是暂时关闭窗口，其内容还在缓存中，只有使用q!、w!或x才能真能退出。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="pseudo">:tabc</span> 关闭当前窗口</span><br><span class="line"><span class="pseudo">:tabo</span> 关闭所有窗口</span><br></pre></td></tr></table></figure></p>
-<h1 id="窗口切换">窗口切换</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:ctrl+w+j/k</span>，通过j/k可以上下切换，或者<span class="symbol">:ctrl+w</span>加上下左右键，还可以通过快速双击ctrl+w依次切换窗口。</span><br></pre></td></tr></table></figure>
-<h1 id="窗口大小调整">窗口大小调整</h1><h2 id="纵向调整">纵向调整</h2><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:ctrl<span class="code">+w +</span> 纵向扩大（行数增加）</span><br><span class="line">:ctrl+w - 纵向缩小 （行数减少）</span><br><span class="line"><span class="attribute">:res(ize) num  例如：:res</span> 5，显示行数调整为5行</span><br><span class="line">:res(ize)+num 把当前窗口高度增加num行</span><br><span class="line">:res(ize)-num 把当前窗口高度减少num行</span><br></pre></td></tr></table></figure>
-<h2 id="横向调整">横向调整</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:vertical <span class="function"><span class="title">res</span><span class="params">(ize)</span></span> num 指定当前窗口为num列</span><br><span class="line">:vertical <span class="function"><span class="title">res</span><span class="params">(ize)</span></span>+num 把当前窗口增加num列</span><br><span class="line">:vertical <span class="function"><span class="title">res</span><span class="params">(ize)</span></span>-num 把当前窗口减少num列</span><br></pre></td></tr></table></figure>
-<h1 id="给窗口重命名">给窗口重命名</h1><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:f <span class="type">file</span></span><br></pre></td></tr></table></figure>
-<h1 id="vi打开多文件">vi打开多文件</h1><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi a b c</span><br><span class="line"><span class="attribute">:n 跳至下一个文件，也可以直接指定要跳的文件，如:n</span> c，可以直接跳到c文件</span><br><span class="line">:e# 回到刚才编辑的文件</span><br></pre></td></tr></table></figure>
-<h1 id="文件浏览">文件浏览</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="pseudo">:Ex</span> 开启目录浏览器，可以浏览当前目录下的所有文件，并可以选择</span><br><span class="line"><span class="pseudo">:Sex</span> 水平分割当前窗口，并在一个窗口中开启目录浏览器</span><br><span class="line"><span class="pseudo">:ls</span> 显示当前<span class="tag">buffer</span>情况</span><br></pre></td></tr></table></figure>
-<h1 id="vi与shell切换">vi与shell切换</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">shell</span> 可以在不关闭vi的情况下切换到<span class="keyword">shell</span>命令行</span><br><span class="line">:<span class="keyword">exit</span> 从<span class="keyword">shell</span>回到vi</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/devil_2009/article/details/7006113" target="_blank" rel="external">via.vim多窗口使用技巧</a></p>
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'set editing-mode vi'</span>&gt;.inputrc</span><br><span class="line"><span class="built_in">source</span> .inputrc</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -131,7 +118,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/vim/">vim</a><a href="/tags/多窗口/">多窗口</a>
+  <span></span> <a href="/tags/pvi-mode-shell/">pvi mode, shell]</a>
   </div>
 
 </div>
@@ -140,7 +127,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://tiandechi.com/2015/03/27/vim多窗口使用技巧/" data-title="vim多窗口使用技巧 | 天德池" data-tsina="1854771045" class="share clearfix">
+	  <div data-url="http://tiandechi.com/2015/06/12/shell-of-vi-mode/" data-title="shell-of-vi-mode | 天德池" data-tsina="1854771045" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -153,19 +140,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/03/27/Git-常用命令整理/" title="Git 常用命令整理">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Git 常用命令整理</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/03/27/设置vim语法高亮显示和自动缩进/"  title="设置vim语法高亮显示和自动缩进">
+<a href="/2015/05/23/一沾酒就脸红的人能锻炼出酒量吗？/"  title="一沾酒就脸红的人能锻炼出酒量吗？">
  <strong>下一篇：</strong><br/> 
- <span>设置vim语法高亮显示和自动缩进
+ <span>一沾酒就脸红的人能锻炼出酒量吗？
 </span>
 </a>
 </div>
@@ -174,7 +153,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/03/27/vim多窗口使用技巧/" data-title="vim多窗口使用技巧" data-url="http://tiandechi.com/2015/03/27/vim多窗口使用技巧/"></div>
+	<div class="ds-thread" data-thread-key="2015/06/12/shell-of-vi-mode/" data-title="shell-of-vi-mode" data-url="http://tiandechi.com/2015/06/12/shell-of-vi-mode/"></div>
 </section>
 
 
@@ -184,7 +163,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#打开多个窗口"><span class="toc-number">1.</span> <span class="toc-text">打开多个窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#横向切割窗口"><span class="toc-number">1.1.</span> <span class="toc-text">横向切割窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纵向切割窗口名"><span class="toc-number">1.2.</span> <span class="toc-text">纵向切割窗口名</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关闭多窗口"><span class="toc-number">2.</span> <span class="toc-text">关闭多窗口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#窗口切换"><span class="toc-number">3.</span> <span class="toc-text">窗口切换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#窗口大小调整"><span class="toc-number">4.</span> <span class="toc-text">窗口大小调整</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#纵向调整"><span class="toc-number">4.1.</span> <span class="toc-text">纵向调整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#横向调整"><span class="toc-number">4.2.</span> <span class="toc-text">横向调整</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#给窗口重命名"><span class="toc-number">5.</span> <span class="toc-text">给窗口重命名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vi打开多文件"><span class="toc-number">6.</span> <span class="toc-text">vi打开多文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件浏览"><span class="toc-number">7.</span> <span class="toc-text">文件浏览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vi与shell切换"><span class="toc-number">8.</span> <span class="toc-text">vi与shell切换</span></a></li></ol>
+ 
  
   </div>
 
