@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-06-12T14:20:09.978Z</updated>
+  <updated>2015-06-12T14:28:57.708Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -15,18 +15,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[shell-of-vi-mode]]></title>
+    <title><![CDATA[shell of vi mode]]></title>
     <link href="http://tiandechi.com/2015/06/12/shell-of-vi-mode/"/>
     <id>http://tiandechi.com/2015/06/12/shell-of-vi-mode/</id>
     <published>2015-06-12T14:11:10.000Z</published>
-    <updated>2015-06-12T14:20:09.978Z</updated>
-    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'set editing-mode vi'</span>&gt;.inputrc</span><br><span class="line"><span class="built_in">source</span> .inputrc</span><br></pre></td></tr></table></figure>
+    <updated>2015-06-12T14:28:57.708Z</updated>
+    <content type="html"><![CDATA[<p>在shell里加入vi模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'set editing-mode vi'</span>&gt;.inputrc</span><br><span class="line"><span class="built_in">source</span> .inputrc</span><br></pre></td></tr></table></figure></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class=]]>
+    <![CDATA[<p>在shell里加入vi模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</s]]>
     </summary>
     
-      <category term="pvi mode, shell]" scheme="http://tiandechi.com/tags/pvi-mode-shell/"/>
+      <category term="shell" scheme="http://tiandechi.com/tags/shell/"/>
+    
+      <category term="vi mode" scheme="http://tiandechi.com/tags/vi-mode/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     
