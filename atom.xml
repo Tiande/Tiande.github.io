@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-06-22T03:13:38.166Z</updated>
+  <updated>2015-06-22T03:15:12.477Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -19,8 +19,9 @@
     <link href="http://tiandechi.com/2015/06/22/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E2%80%9D-%E2%80%9D%E7%9A%84%E5%8D%81%E4%B8%AA%E7%A5%9E%E5%A5%87%E7%94%A8%E6%B3%95/"/>
     <id>http://tiandechi.com/2015/06/22/Linux命令行下”-”的十个神奇用法/</id>
     <published>2015-06-22T02:15:47.000Z</published>
-    <updated>2015-06-22T03:13:38.166Z</updated>
+    <updated>2015-06-22T03:15:12.477Z</updated>
     <content type="html"><![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！</p>
+<a id="more"></a>
 <h1 id="从历史记录中使用命令号来运行命令">从历史记录中使用命令号来运行命令</h1><p>你也许从没意识到过可以从命令行历史记录(之前执行过的命令)里执行一条命令，首先输入 “history” 命令得到命令的序号。 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">history</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1etcnryoruag20mn0e7aaj.gif" alt="1"></p>
@@ -81,10 +82,11 @@
 <p><a href="http://www.linuxidc.com/Linux/2015-05/117774.htm" target="_blank" rel="external">source</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他]]>
+    <![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！</p>]]>
+    
     </summary>
     
-      <category term="command" scheme="http://tiandechi.com/tags/command/"/>
+      <category term="commands" scheme="http://tiandechi.com/tags/commands/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     
