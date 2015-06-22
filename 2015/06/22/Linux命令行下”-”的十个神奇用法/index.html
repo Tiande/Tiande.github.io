@@ -4,22 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>天德池</title>
+    <title>Linux命令行下”!”的十个神奇用法 | 天德池</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="钢仔">
     
 
     
-    <meta name="description" content="学习总结 思考感悟 知识管理 记录分享 程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="天德池">
-<meta property="og:url" content="http://tiandechi.com/index.html">
+    <meta name="description" content="Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！
+
+从历史记录中使用命令号来运行命令
+
+你也许从没意识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令行下”!”的十个神奇用法">
+<meta property="og:url" content="http://tiandechi.com/2015/06/22/Linux命令行下”-”的十个神奇用法/index.html">
 <meta property="og:site_name" content="天德池">
-<meta property="og:description" content="学习总结 思考感悟 知识管理 记录分享 程序员">
+<meta property="og:description" content="Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！
+
+从历史记录中使用命令号来运行命令
+
+你也许从没意识">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6e8d8f65gw1etcnryoruag20mn0e7aaj.gif">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6e8d8f65gw1etcnt6gynjg20mn0e7di0.gif">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6e8d8f65gw1etcnwm2xaog20mn0e7myv.gif">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6e8d8f65gw1etcnyqxe63g20mn0e7nbh.gif">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/6e8d8f65jw1etco4ln4jug20mn0e7mz3.gif">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/6e8d8f65jw1etcofh7u9wg20mn0e7myt.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/6e8d8f65gw1etcomn1mpfg20mn0e73z6.gif">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天德池">
-<meta name="twitter:description" content="学习总结 思考感悟 知识管理 记录分享 程序员">
+<meta name="twitter:title" content="Linux命令行下”!”的十个神奇用法">
+<meta name="twitter:description" content="Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！
+
+从历史记录中使用命令号来运行命令
+
+你也许从没意识">
 <meta name="twitter:creator" content="@TiandeTD">
 
     
@@ -78,12 +97,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2015/06/22/Linux命令行下”-”的十个神奇用法/" title="Linux命令行下”!”的十个神奇用法" itemprop="url">Linux命令行下”!”的十个神奇用法</a>
@@ -97,9 +114,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！</p>
 <ol>
 <li>从历史记录中使用命令号来运行命令</li>
 </ol>
@@ -188,14 +212,9 @@
 </ol>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! -d <span class="regexp">/home/</span>avi<span class="regexp">/Tecmint ] &amp;&amp; mkdir /</span>home<span class="regexp">/avi/</span>Tecmint</span><br></pre></td></tr></table></figure>
 <p><a href="http://www.linuxidc.com/Linux/2015-05/117774.htm" target="_blank" rel="external">source</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -213,584 +232,47 @@
 
 
 
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiandechi.com/2015/06/22/Linux命令行下”-”的十个神奇用法/" data-title="Linux命令行下”!”的十个神奇用法 | 天德池" data-tsina="1854771045" class="share clearfix">
+	  </div>
+	
+	</div>
 
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/06/22/Linux命令行下”-”的十个神奇用法/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/22/Linux命令行下”-”的十个神奇用法/" data-count-type="comments">&nbsp;</a>
-	
-</div>
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/12/shell-of-vi-mode/" title="shell of vi mode" itemprop="url">shell of vi mode</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-06-12T14:11:10.000Z" itemprop="datePublished"> 发表于 2015-06-12</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>在shell里加入vi模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'set editing-mode vi'</span>&gt;.inputrc</span><br><span class="line"><span class="built_in">source</span> .inputrc</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/shell/">shell</a><a href="/tags/vi-mode/">vi mode</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
-	  	<span></span>
-		<a href="/2015/06/12/shell-of-vi-mode/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/06/12/shell-of-vi-mode/" data-count-type="comments">&nbsp;</a>
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/06/12/shell-of-vi-mode/"  title="shell of vi mode">
+ <strong>下一篇：</strong><br/> 
+ <span>shell of vi mode
+</span>
+</a>
+</div>
+
+</nav>
+
 	
-</div>
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/06/22/Linux命令行下”-”的十个神奇用法/" data-title="Linux命令行下”!”的十个神奇用法" data-url="http://tiandechi.com/2015/06/22/Linux命令行下”-”的十个神奇用法/"></div>
+</section>
 
-</footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/23/一沾酒就脸红的人能锻炼出酒量吗？/" title="一沾酒就脸红的人能锻炼出酒量吗？" itemprop="url">一沾酒就脸红的人能锻炼出酒量吗？</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-23T04:32:46.000Z" itemprop="datePublished"> 发表于 2015-05-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>先把结论放上来，就一句话：<br><strong>喝酒容易脸红是基因缺陷引起的，练酒量无法弥补基因缺陷。</strong><br>以下具体说说这个问题。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/23/一沾酒就脸红的人能锻炼出酒量吗？/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/23/一沾酒就脸红的人能锻炼出酒量吗？/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/23/一沾酒就脸红的人能锻炼出酒量吗？/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/23/18个PPT演讲的技巧，让你的提案能力提高N倍/" title="18个PPT演讲的技巧，让你的提案能力提高N倍" itemprop="url">18个PPT演讲的技巧，让你的提案能力提高N倍</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-23T04:32:23.000Z" itemprop="datePublished"> 发表于 2015-05-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>如何成为一个演讲高手呢?在现在这个年代，PPT是必不可少的，乔布斯的经典演讲就是使用大屏幕幻灯片。下面的18个技巧或许可以帮助你提高PPT演讲技巧，也希望将要进行毕业答辩的同学可以有一些收获，帮助你获得最佳的表现，祝福之。一起来看看吧。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/23/18个PPT演讲的技巧，让你的提案能力提高N倍/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/23/18个PPT演讲的技巧，让你的提案能力提高N倍/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/23/18个PPT演讲的技巧，让你的提案能力提高N倍/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/23/装逼技能：演讲中让你高大上的7个手势/" title="装逼技能：演讲中让你高大上的7个手势" itemprop="url">装逼技能：演讲中让你高大上的7个手势</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-23T04:31:49.000Z" itemprop="datePublished"> 发表于 2015-05-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><img src="http://ww1.sinaimg.cn/large/6e8d8f65jw1eshwpswe5zj20go0aygm2.jpg" alt="top.jpg"><br>你肯定在某个大学或者某个TED的演讲中见过这样一些手势：台上的那个人试图解释一些重要的历史联系，抽象艺术，科学或人文进步的宏大理论时将手像一个倒放的爪一样举在他们面前，手指缓缓转动就像有一个隐形的拨号盘。这就是所谓“辩证法”手势，如果你想要成为一个真正的思想领袖你就一定要掌握它们。<br>爱丽丝·M·威廉姆斯和约翰逊·茉莉创建了这样一个Tumblr Blog：手势词汇的批判与研究(link)——通过观察演讲中出现的这些手势然后将它们汇编起来让这些高大上的手势能真正走入老百姓的生活。<br>下面就让我们来看看这七种在演讲中极其常用的高大上的手势：<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/23/装逼技能：演讲中让你高大上的7个手势/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/23/装逼技能：演讲中让你高大上的7个手势/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/23/装逼技能：演讲中让你高大上的7个手势/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/23/18个高大上的浏览器小技巧/" title="18个高大上的浏览器小技巧" itemprop="url">18个高大上的浏览器小技巧</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-23T04:30:38.000Z" itemprop="datePublished"> 发表于 2015-05-23</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1eshhy28ejzj20go0a0t9c.jpg" alt="head.jpg"><br>注：以下仅适用于 Chrome/Firefox 等网络浏览器<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/23/18个高大上的浏览器小技巧/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/23/18个高大上的浏览器小技巧/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/23/18个高大上的浏览器小技巧/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/20/11个让你吃惊的Linux终端命令/" title="11个让你吃惊的Linux终端命令" itemprop="url">11个让你吃惊的Linux终端命令</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-20T10:48:19.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="命令行日常系快捷键">命令行日常系快捷键</h1><p>如下的快捷方式非常有用，能够极大的提升你的工作效率：</p>
-<ul>
-<li>CTRL + U - 剪切光标前的内容</li>
-<li>CTRL + K - 剪切光标至行末的内容</li>
-<li>CTRL + Y - 粘贴</li>
-<li>CTRL + E - 移动光标到行末</li>
-<li>CTRL + A - 移动光标到行首</li>
-<li>ALT + F - 跳向下一个空格</li>
-<li>ALT + B - 跳回上一个空格</li>
-<li>ALT + Backspace - 删除前一个单词</li>
-<li>CTRL + W - 剪切光标后一个单词</li>
-<li>Shift + Insert - 向终端内粘贴文本</li>
-</ul>
-<h1 id="SUDO_!!">SUDO !!</h1>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/20/11个让你吃惊的Linux终端命令/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/commands/">commands</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/20/11个让你吃惊的Linux终端命令/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/11个让你吃惊的Linux终端命令/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/20/SQLServer分割字符串/" title="SQLServer分割字符串" itemprop="url">SQLServer分割字符串</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-20T10:46:52.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">CREATE</span> function [dbo].[<span class="constant">SplitStr</span>]</span><br><span class="line">(</span><br><span class="line">     <span class="variable">@SourceStr</span> nvarchar(<span class="number">4000</span>),</span><br><span class="line">     <span class="variable">@Split</span> nvarchar(<span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line">     returns <span class="variable">@temp</span> table (<span class="constant">Result</span> nvarchar(<span class="number">4000</span>))</span><br><span class="line">as</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">     declare <span class="variable">@ch</span> as nvarchar(<span class="number">4000</span>)</span><br><span class="line">     set          <span class="variable">@SourceStr</span>=<span class="variable">@SourceStr</span>+<span class="variable">@Split</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">if</span>(<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)&lt;=<span class="number">0</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          insert <span class="variable">@temp</span> values(<span class="variable">@SourceStr</span>)</span><br><span class="line">          <span class="keyword">return</span></span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">while</span>(<span class="variable">@SourceStr</span>&lt;&gt;<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          set          <span class="variable">@ch</span>=<span class="constant">LEFT</span>(<span class="variable">@SourceStr</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)-<span class="number">1</span>)</span><br><span class="line">          insert     <span class="variable">@temp</span> values(<span class="variable">@ch</span>)</span><br><span class="line">          set          <span class="variable">@SourceStr</span>=<span class="constant">STUFF</span>(<span class="variable">@SourceStr</span>,<span class="number">1</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>),<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">--select * from splitstr(<span class="constant">N</span><span class="string">'表白怕被拒绝？,拒绝了连朋友都做不成？,那就别表白了,还可以做朋友,做个朋友还可以借钱,借了钱再表白,表白被拒绝了,朋友做不成了,那就不用还钱了,(///▽///)'</span>,<span class="string">','</span>)</span><br><span class="line"><span class="constant">GO</span></span><br></pre></td></tr></table></figure>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Database/">Database</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/SQLServer/">SQLServer</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/20/SQLServer分割字符串/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/SQLServer分割字符串/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/20/如何在Linux下创建一个不可变更的文件/" title="如何在Linux下创建一个不可变更的文件" itemprop="url">如何在Linux下创建一个不可变更的文件</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-20T10:44:08.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>假如你想对Linux中的一些重要文件做写保护，这样它们就不能被删除或者被篡改成之前的版本或者其他东西，或者在其他情况下，你可能想避免某些配置文件被软件自动修改。使用chown和chmod命令修改文件的归属关系或者权限位是处理这种情况的一个解决方法，但这并不完美，因为这样无法避免有root权限的操作。这时chattr就派上用场了。</p>
-<p>chattr是一个可以设置或取消文件的标志位的Linux命令，它和标准的文件权限（读、写、执行）是分离的。与此相关的另一个命令是lsattr，它可以显示文件的哪些标志位被设置上了。最初只有EXT文件系统（EXT2/3/4）支持chattr和lsattr所管理的标志位，但现在很多其他的原生的Linux文件系统都支持了，比如XFS、Btrfs、ReiserFS等等。</p>
-<p>在这个教程中，我会示范如果使用chattr来让Linux中的文件不可变更。</p>
-<p>chattr和lsattr命令是e2fsprogs包的一部分，它在所有现代Linux发行版都预装了。</p>
-<p>下面是chattr的基本语法。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/20/如何在Linux下创建一个不可变更的文件/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/chattr/">chattr</a><a href="/tags/lsattr/">lsattr</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/20/如何在Linux下创建一个不可变更的文件/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/如何在Linux下创建一个不可变更的文件/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/05/20/Linux的五个查找命令/" title="Linux的五个查找命令" itemprop="url">Linux的五个查找命令</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-05-20T10:32:47.000Z" itemprop="datePublished"> 发表于 2015-05-20</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>最近，我在学习Linux，下面是一些笔记。</p>
-<p>使用电脑的时候，经常需要查找文件。</p>
-<p>在Linux中，有很多方法可以做到这一点。国外网站LinuxHaxor总结了五条命令，你可以看看自己知道几条。大多数程序员，可能经常使用其中的2到3条，对这5条命令都很熟悉的人应该是不多的。</p>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/05/20/Linux的五个查找命令/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/find/">find</a><a href="/tags/locate/">locate</a><a href="/tags/type/">type</a><a href="/tags/whereis/">whereis</a><a href="/tags/which/">which</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/05/20/Linux的五个查找命令/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/05/20/Linux的五个查找命令/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -964,12 +446,69 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#nothing"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
 
@@ -1071,4 +610,4 @@ $(document).ready(function(){
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>

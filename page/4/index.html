@@ -86,6 +86,73 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/04/18/The-role-and-content-of-the-Linux-Directory/" title="The role and content of the Linux Directory" itemprop="url">The role and content of the Linux Directory</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
+		
+  <p class="article-time">
+    <time datetime="2015-04-18T15:52:12.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="根目录“/”">根目录“/”</h1><p>根目录位于目录结构的最顶层，用斜线（/）表示，类似于Windows操作系统的“C:\“，包含Fedora操作系统中所有的目录和文件。</p>
+<h1 id="/bin">/bin</h1><p>/bin<br>目录又称为二进制目录，包含了那些供系统管理员和普通用户使用的重要linux命令的二进制映像。该目录存放的内容包括各种可执行文件，还有某些可执行文件的符号连接。常用的命令有：cp、dmesg、kill、login、rm、ping、chomd、bash、cat、echo、ls、 mail、vi等。</p>
+<h1 id="/boot">/boot</h1><p>/boot<br>目录存放系统核心文件以及启动时必须读取的文件，包括Linux内核的二进制映像。</p>
+<h1 id="/dev">/dev</h1><p>/dev<br>目录保存着外部设备代码的文件，这些文件比较特殊，实际上它们都指向所代表的外围设备，如终端、磁盘驱动器、光驱、打印机等。你可以访问这些外部设备，与访问一个文件或一个目录没有区别。如该目录下的子目录/dev/cdrom表示光驱目录；子目录/dev/console表示控制台；子目录 /dev/fd表示软驱；子目录/dev/hd表示硬盘上的一个分区；lp0表示打印机；ttyS0表示系统的串口设备；dsp表示系统的音箱设备。例如在系统中键入“cd /dev/cdrom”，就可以看到光驱中的文件；键入“cd /dev/mouse”即可看鼠标的相关文件。<br>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2015/04/18/The-role-and-content-of-the-Linux-Directory/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Directory/">Directory</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/04/18/The-role-and-content-of-the-Linux-Directory/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/The-role-and-content-of-the-Linux-Directory/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/04/18/ssh-add-command/" title="ssh add command" itemprop="url">ssh add command</a>
   </h1>
   <p class="article-author">By
@@ -662,82 +729,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/04/18/vim-set-configure/" title="vim set configure" itemprop="url">vim set configure</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="钢仔" target="_blank" itemprop="author">钢仔</a>
-		
-  <p class="article-time">
-    <time datetime="2015-04-18T12:53:00.000Z" itemprop="datePublished"> 发表于 2015-04-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>本单元可说是 Vim 的微调功能，可依您个人的喜好做有限度的调整。由于 Vim 做了相当多的扩充，文内主要是述叙 Vim 的设定，但 elvis 没有的也会标明。但并不打算一网打尽，只说明重要、常用的部份，其它的可以用<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:h <span class="built_in">option</span>-<span class="built_in">list</span></span><br></pre></td></tr></table></figure></p>
-<p>查阅。<br>在系统上，会有个<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vimrc_example.<span class="keyword">vim</span></span><br></pre></td></tr></table></figure></p>
-<p>檔，可以依据这个档案来设定一些常要用到的内容。</p>
-<h1 id="该在何处设定呢？">该在何处设定呢？</h1><h2 id="Vim_的设定檔">Vim 的设定檔</h2><p>可在在线做设定，例如<br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> ai </span><br><span class="line"><span class="preprocessor">#或 </span></span><br><span class="line">:<span class="keyword">set</span> noai</span><br></pre></td></tr></table></figure></p>
-<p>ai 是 autoindent 的缩写，这样就可以马上改变缩格的设定，但离开 vim 后就又恢复原状。要永久设定就得设在设定檔中。 vim 的设定檔在：</p>
-<pre><code>~/<span class="class">.exrc</span>
-~/<span class="class">.vimrc</span>
-~/<span class="class">.gvimrc</span>    <span class="id">#GUI</span> 版本
-<span class="variable">$VIM</span>/vimrc   #系统默认值，最好不去修改
-<span class="variable">$VIM</span>/gvimrc  <span class="id">#GUI</span> 版本
-<span class="variable">$VIM</span>\_vimrc  <span class="id">#Windows</span> 版本
-<span class="variable">$VIM</span>\_gvimrc
-</code></pre><p>您要把 GUI 的设定设在 home/.vimrc也是可以的，但分开来可能对以后要修改时会比较找得到地方改。<br>那 vim 在哪里呢？/usr/share/vim 或 /usr/local/share/vim 这是编译时就决定的，但可在 home/.bashprofie 或 home/.bashrc 中另设。Windows 版本的 $VIM 则在 C:\Vim 这个目录中，亦可设在 autoexec.bat 中。<br>
-        
-        
-        <p class="article-more-link">
-          
-            <a href="/2015/04/18/vim-set-configure/#more">Read More</a>
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/set/">set</a><a href="/tags/vim/">vim</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/04/18/vim-set-configure/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/04/18/vim-set-configure/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next<span></span></a>
@@ -754,7 +745,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/32位/" style="font-size: 13.33px;">32位</a><a href="/tags/64位/" style="font-size: 13.33px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 11.67px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 13.33px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SQLServer/" style="font-size: 10px;">SQLServer</a><a href="/tags/SSH/" style="font-size: 16.67px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/chattr/" style="font-size: 10px;">chattr</a><a href="/tags/commands/" style="font-size: 15px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 11.67px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/locate/" style="font-size: 10px;">locate</a><a href="/tags/lsattr/" style="font-size: 10px;">lsattr</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/type/" style="font-size: 10px;">type</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 11.67px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vi-mode/" style="font-size: 10px;">vi mode</a><a href="/tags/vim/" style="font-size: 18.33px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/whereis/" style="font-size: 10px;">whereis</a><a href="/tags/which/" style="font-size: 10px;">which</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
+       <a href="/tags/32位/" style="font-size: 13.33px;">32位</a><a href="/tags/64位/" style="font-size: 13.33px;">64位</a><a href="/tags/Aptitude/" style="font-size: 10px;">Aptitude</a><a href="/tags/CNNIC/" style="font-size: 10px;">CNNIC</a><a href="/tags/Chrome/" style="font-size: 11.67px;">Chrome</a><a href="/tags/Debian/" style="font-size: 20px;">Debian</a><a href="/tags/Directory/" style="font-size: 10px;">Directory</a><a href="/tags/Disk/" style="font-size: 10px;">Disk</a><a href="/tags/Distrabution/" style="font-size: 10px;">Distrabution</a><a href="/tags/Downloads/" style="font-size: 10px;">Downloads</a><a href="/tags/Format/" style="font-size: 10px;">Format</a><a href="/tags/Git/" style="font-size: 13.33px;">Git</a><a href="/tags/Kernel/" style="font-size: 10px;">Kernel</a><a href="/tags/Kernel-headers/" style="font-size: 10px;">Kernel headers</a><a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a><a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a><a href="/tags/PPTP/" style="font-size: 10px;">PPTP</a><a href="/tags/Package/" style="font-size: 10px;">Package</a><a href="/tags/SQLServer/" style="font-size: 10px;">SQLServer</a><a href="/tags/SSH/" style="font-size: 16.67px;">SSH</a><a href="/tags/VMware/" style="font-size: 10px;">VMware</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/VSFTP/" style="font-size: 10px;">VSFTP</a><a href="/tags/Win7/" style="font-size: 10px;">Win7</a><a href="/tags/Windows/" style="font-size: 10px;">Windows</a><a href="/tags//" style="font-size: 10px;">\!</a><a href="/tags/advantage/" style="font-size: 10px;">advantage</a><a href="/tags/apt/" style="font-size: 10px;">apt</a><a href="/tags/auto-indent/" style="font-size: 10px;">auto indent</a><a href="/tags/canberra/" style="font-size: 10px;">canberra</a><a href="/tags/chattr/" style="font-size: 10px;">chattr</a><a href="/tags/commands/" style="font-size: 15px;">commands</a><a href="/tags/compile/" style="font-size: 10px;">compile</a><a href="/tags/convmv/" style="font-size: 10px;">convmv</a><a href="/tags/cp/" style="font-size: 10px;">cp</a><a href="/tags/dd/" style="font-size: 10px;">dd</a><a href="/tags/dos/" style="font-size: 10px;">dos</a><a href="/tags/dpkg/" style="font-size: 10px;">dpkg</a><a href="/tags/ed2k/" style="font-size: 10px;">ed2k</a><a href="/tags/fcitx/" style="font-size: 10px;">fcitx</a><a href="/tags/fileformat/" style="font-size: 10px;">fileformat</a><a href="/tags/find/" style="font-size: 11.67px;">find</a><a href="/tags/flash-player/" style="font-size: 10px;">flash player</a><a href="/tags/highlight/" style="font-size: 10px;">highlight</a><a href="/tags/iceweasel/" style="font-size: 10px;">iceweasel</a><a href="/tags/iconv/" style="font-size: 10px;">iconv</a><a href="/tags/keychain/" style="font-size: 10px;">keychain</a><a href="/tags/locate/" style="font-size: 10px;">locate</a><a href="/tags/lsattr/" style="font-size: 10px;">lsattr</a><a href="/tags/mount/" style="font-size: 10px;">mount</a><a href="/tags/network-manager/" style="font-size: 10px;">network-manager</a><a href="/tags/pycrypto/" style="font-size: 10px;">pycrypto</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/regex/" style="font-size: 10px;">regex</a><a href="/tags/regular-expression/" style="font-size: 10px;">regular expression</a><a href="/tags/root/" style="font-size: 10px;">root</a><a href="/tags/scp/" style="font-size: 10px;">scp</a><a href="/tags/set/" style="font-size: 10px;">set</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/ssh-agent/" style="font-size: 10px;">ssh-agent</a><a href="/tags/tar/" style="font-size: 10px;">tar</a><a href="/tags/tests/" style="font-size: 10px;">tests</a><a href="/tags/type/" style="font-size: 10px;">type</a><a href="/tags/unix/" style="font-size: 10px;">unix</a><a href="/tags/usb-stick/" style="font-size: 11.67px;">usb stick</a><a href="/tags/version/" style="font-size: 10px;">version</a><a href="/tags/vi-mode/" style="font-size: 10px;">vi mode</a><a href="/tags/vim/" style="font-size: 18.33px;">vim</a><a href="/tags/wget/" style="font-size: 10px;">wget</a><a href="/tags/whereis/" style="font-size: 10px;">whereis</a><a href="/tags/which/" style="font-size: 10px;">which</a><a href="/tags/中文输入法/" style="font-size: 10px;">中文输入法</a><a href="/tags/乱码/" style="font-size: 10px;">乱码</a><a href="/tags/启动盘/" style="font-size: 10px;">启动盘</a><a href="/tags/多窗口/" style="font-size: 10px;">多窗口</a><a href="/tags/大小写/" style="font-size: 10px;">大小写</a><a href="/tags/权限/" style="font-size: 10px;">权限</a><a href="/tags/登录/" style="font-size: 10px;">登录</a><a href="/tags/管理员/" style="font-size: 10px;">管理员</a><a href="/tags/练习/" style="font-size: 10px;">练习</a><a href="/tags/证书/" style="font-size: 10px;">证书</a><a href="/tags/配色/" style="font-size: 10px;">配色</a>
     </div>
   </div>
 
@@ -773,7 +764,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>45</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>46</sup></a></li>
 		  
 		
 		  

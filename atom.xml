@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-06-12T14:28:57.708Z</updated>
+  <updated>2015-06-22T03:09:09.648Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -13,6 +13,112 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Linux命令行下”!”的十个神奇用法]]></title>
+    <link href="http://tiandechi.com/2015/06/22/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E2%80%9D-%E2%80%9D%E7%9A%84%E5%8D%81%E4%B8%AA%E7%A5%9E%E5%A5%87%E7%94%A8%E6%B3%95/"/>
+    <id>http://tiandechi.com/2015/06/22/Linux命令行下”-”的十个神奇用法/</id>
+    <published>2015-06-22T02:15:47.000Z</published>
+    <updated>2015-06-22T03:09:09.648Z</updated>
+    <content type="html"><![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！</p>
+<ol>
+<li>从历史记录中使用命令号来运行命令</li>
+</ol>
+<p>你也许从没意识到过可以从命令行历史记录(之前执行过的命令)里执行一条命令，首先输入 “history” 命令得到命令的序号。 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">history</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1etcnryoruag20mn0e7aaj.gif" alt="1"></p>
+<p>这时你可以通过命令 history 的输出中的命令序号来执行一条命令。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>!<span class="number">1551</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1etcnt6gynjg20mn0e7di0.gif" alt="2"></p>
+<p>上面可以看到它执行了号码为1551的 top 命令，这种执行方式对执行某些特别长的命令非常有用，你只要使用”!”符号加上命令的序号就能执行该命令啦。</p>
+<ol>
+<li>执行指定的之前执行过的命令</li>
+</ol>
+<p>你可以运行 !-1、!-2 或者 !-7 等命令来执行你记录序列中的倒数第一条命令、倒数第二条命令已经倒数第七条等等。。。和上面的方式一样，你需要先用 history 命令来列出命令列表。其实这个命令非常有用，你可以通过它来确定没有执行过某些错误命令比如 “rm command &gt;file” 或者别的危险指令。这里给出了执行倒数第六个、第八个和第十个命令的效果。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>history</span><br><span class="line"><span class="variable">$ </span>!-<span class="number">6</span></span><br><span class="line"><span class="variable">$ </span>!-<span class="number">8</span></span><br><span class="line"><span class="variable">$ </span>!-<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ww3.sinaimg.cn/large/6e8d8f65gw1etcnwm2xaog20mn0e7myv.gif" alt="3"></p>
+<ol>
+<li>向一条新命令传递旧命令的参数避免重复输入</li>
+</ol>
+<p>比如说我需要列出 ‘/home/$USER/Binary/firefox’ 这个目录。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ls /home/<span class="variable">$USER</span>/<span class="constant">Binary/</span>firefox</span><br></pre></td></tr></table></figure>
+<p>但是这个时候我又想用 “ls-l“查看这个目录下的具体信息，那么我需要重新输入上面的命令吗？当然不需要，你只要用下面这个命令：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ls</span> -<span class="keyword">l</span> !$</span><br></pre></td></tr></table></figure>
+<p>“!$” 符号可以将上一条命令的参数传递给下一条命令参数：</p>
+<p><img src="http://ww3.sinaimg.cn/large/6e8d8f65gw1etcnyqxe63g20mn0e7nbh.gif" alt="4"></p>
+<ol>
+<li>如何用(!)处理两个以上的参数?例如我在桌面上创建了一个 1.txt 文件</li>
+</ol>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch <span class="regexp">/home/</span>avi<span class="regexp">/Desktop/</span><span class="number">1</span>.txt</span><br></pre></td></tr></table></figure>
+<p>然后使用CP命令把它复制到 ‘home/avi/Downloads’ 目录</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp <span class="regexp">/home/</span>avi<span class="regexp">/Desktop/</span><span class="number">1</span>.txt <span class="regexp">/home/</span>avi<span class="regexp">/downloads</span></span><br></pre></td></tr></table></figure>
+<p>这样我们就向CP命令传递了两个参数。第一个是 ‘/home/avi/Desktop/1.txt’ ，第二个是’/home/avi/Downloads’，为了区分它们，我们 使用 echo 来打印每个参数。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"1st Argument is : !^"</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"2nd Argument is : !cp:2"</span></span><br></pre></td></tr></table></figure>
+<p>可以注意到第一个参数可以使用 “!^” 来表示，剩下的参数就可以使用 “命令名：参数序号”这种方式来表示，比如 “!cp:2″。再举个例子，如果你执行的某个命令为 “xyz”，命令 后面有5个参数而你想调用第四个参数，就可以使用 “!xyz:4″ 来调用它。当然，你可以使用 “!* “ 来表示所有参数。</p>
+<p><img src="http://ww3.sinaimg.cn/large/6e8d8f65jw1etco4ln4jug20mn0e7mz3.gif" alt="5"></p>
+<ol>
+<li>通过关键词来执行之前的命令</li>
+</ol>
+<p>我们可以通过执行关键词来执行之前的命令。可以按照下面的命令来理解：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls <span class="regexp">/home &gt; /</span>dev/<span class="literal">null</span>                         [Command <span class="number">1</span>]</span><br><span class="line">$ ls -l <span class="regexp">/home/</span>avi<span class="regexp">/Desktop &gt; /</span>dev/<span class="literal">null</span>          [Command <span class="number">2</span>] </span><br><span class="line">$ ls -la <span class="regexp">/home/</span>avi<span class="regexp">/Downloads &gt; /</span>dev/<span class="literal">null</span>       [Command <span class="number">3</span>]</span><br><span class="line">$ ls -lA <span class="regexp">/usr/</span>bin &gt; <span class="regexp">/dev/</span><span class="literal">null</span>                  [Command <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<p>上面是相同的ls命令对应了不同参数和文件夹。此外我们将每一个标准输出都传递到了 ‘/dev/null’ 因为我们并不希望处理程序的标准输出。现在我们可以调用命令的关键词来实现它们。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ! <span class="keyword">ls</span>                                         [Command 1]</span><br><span class="line">$ ! <span class="keyword">ls</span> -<span class="keyword">l</span>                                      [Command 2] </span><br><span class="line">$ ! <span class="keyword">ls</span> -<span class="keyword">la</span>                                     [Command 3]</span><br><span class="line">$ ! <span class="keyword">ls</span> -<span class="keyword">lA</span>                                     [Command 4]</span><br></pre></td></tr></table></figure>
+<p>当你使用 “ls” 关键词来执行之前命令的时候，你一定会被标准输出给惊讶到。</p>
+<p><img src="http://ww4.sinaimg.cn/large/6e8d8f65jw1etcofh7u9wg20mn0e7myt.gif" alt="6"></p>
+<ol>
+<li>非常实用的 !! 操作符</li>
+</ol>
+<p>你可以使用(!!)来运行或者改变之前的命令。它会调用最近使用的命令来调整当前命令，给大家展示一下使用场景。</p>
+<p>昨天我运行了一个获取IP的Shell命令：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip addr show | <span class="keyword">grep</span> inet | <span class="keyword">grep</span> -v <span class="string">'inet6'</span> | <span class="keyword">grep</span> -v <span class="string">'127.0.0.1'</span> | awk <span class="string">'&#123;print $2&#125;'</span> | cut -f <span class="number">1</span> -d<span class="regexp">/</span></span><br></pre></td></tr></table></figure>
+<p>突然我意识到需要将结果重定向到 ip.txt 中，这时你应该想到用 “UP” 键恢复上一个命令再加上 ‘&gt;ip.txt‘ 命令来重定向进去：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip addr show | <span class="keyword">grep</span> inet | <span class="keyword">grep</span> -v <span class="string">'inet6'</span> | <span class="keyword">grep</span> -v <span class="string">'127.0.0.1'</span> | awk <span class="string">'&#123;print $2&#125;'</span> | cut -f1 -d<span class="regexp">/ &gt; ip.txt</span></span><br></pre></td></tr></table></figure>
+<p>感谢这次救命的”UP” 键。那么再考虑下这个场景，如果我需要运行下面的这个脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig | grep <span class="string">"inet addr:"</span> | awk <span class="string">'&#123;print $2&#125;'</span> | grep -v <span class="string">'127.0.0.1'</span> | cut <span class="operator">-f</span>2 <span class="operator">-d</span>:</span><br></pre></td></tr></table></figure>
+<p>当我运行它的时候突然报出了”bash:ifconfig:command not found”错误，我意识到可能是我设定了这个命令需要root权限来运行它。那么现在怎么办？需要重新登录root账号来执行它么？这种情况下使用”up”键也并不管用。所以这里我们使用 “!!” 命令来选择调用这条命令。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>su -c <span class="string">"!!"</span> root</span><br></pre></td></tr></table></figure>
+<p>显而易见的是 su 是用来选择执行用户的， -c 是用来表示执行具体命令的，最重要的部分 “!!” 代替了你最后一次运行的命令。然后输入你的root密码即可运行它了。</p>
+<p><img src="http://ww1.sinaimg.cn/large/6e8d8f65gw1etcomn1mpfg20mn0e73z6.gif" alt="7"></p>
+<p>我相信下面的场景非常适合 “!!”  的使用。</p>
+<p>当你使用普通的账户来执行 apt-get 的时候，常常会报错提示你没有权限执行。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-<span class="built_in">get</span> upgrade &amp;&amp; apt-<span class="built_in">get</span> <span class="built_in">dist</span>-upgrade</span><br></pre></td></tr></table></figure>
+<p>哈哈不用担心，这时候就可以使用下面的命令来成功执行了：</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="function_or_atom">su</span> -<span class="function_or_atom">c</span> <span class="exclamation_mark">!</span><span class="exclamation_mark">!</span></span><br></pre></td></tr></table></figure>
+<p>同样有类似的场景：如果普通用户没有权限，即可这样运行：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>su -c <span class="string">'service apache2 start'</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="variable">$ </span>su -c <span class="string">'/etc/init.d/apache2 start'</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="variable">$ </span>su -c <span class="string">'systemctl start apache2'</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用 !(文件名) 的方式来避免命令对某个文件的影响</li>
+</ol>
+<p>这里的 “!” 符号相当于逻辑否定来使用，用来避免对加了 “!” 前缀的文件产生影响。</p>
+<p>A.从目录中删除除 2.txt 外的所有文件:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>rm !(<span class="number">2</span>.txt)</span><br></pre></td></tr></table></figure>
+<p>B.从目录中删除以 pdf 为后缀的文件:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>rm !(*.pdf)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>检查某个目录是否存在，如果存在就将其打印</li>
+</ol>
+<p>这里使用 ‘! -d’  命令来判断目录是否为空，同时使用 “&amp;&amp;” 和 “||” 命令来打印判断目录是否存在：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! <span class="operator">-d</span> /home/avi/Tecmint ] &amp;&amp; <span class="built_in">printf</span> <span class="string">'\nno such /home/avi/Tecmint directory exist\n'</span> || <span class="built_in">printf</span> <span class="string">'\n/home/avi/Tecmint directory exist\n'</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>检测目录是否是否为空，如果为空则退出</li>
+</ol>
+<p>和上面的命令类似。这里是检测目录是否为空，如果为空则退出命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! <span class="operator">-d</span> /home/avi/Tecmint ] &amp;&amp; <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>检测目录是否为空，如果为空则在 home 目录中重新创建目录</li>
+</ol>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! -d <span class="regexp">/home/</span>avi<span class="regexp">/Tecmint ] &amp;&amp; mkdir /</span>home<span class="regexp">/avi/</span>Tecmint</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.linuxidc.com/Linux/2015-05/117774.htm" target="_blank" rel="external">source</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他]]>
+    </summary>
+    
+      <category term="\!" scheme="http://tiandechi.com/tags//"/>
+    
+      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[shell of vi mode]]></title>
@@ -668,58 +774,6 @@
     </summary>
     
       <category term="SSH" scheme="http://tiandechi.com/tags/SSH/"/>
-    
-      <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[find command]]></title>
-    <link href="http://tiandechi.com/2015/05/04/find-command/"/>
-    <id>http://tiandechi.com/2015/05/04/find-command/</id>
-    <published>2015-05-04T10:59:37.000Z</published>
-    <updated>2015-05-04T03:01:28.000Z</updated>
-    <content type="html"><![CDATA[<p>find 命令算是Linux下最常用的一个命令之一了，这里有一些常用用法的总结。</p>
-<ol>
-<li><p>按文件名搜索<br>搜索当前目录下所有的以txt结尾的文件。第二个命令用了 -exec 参数，可以在对查找的所有文件执行一种操作。注意格式，空格和;一个都不能少。-name 的参数可以用正则表达式，例如第二个例子</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find ./* -<span class="property">name</span> <span class="string">"*.txt"</span></span><br><span class="line">find ./* -<span class="property">name</span> <span class="string">"[ab]*.py"</span></span><br><span class="line">find ./* -<span class="property">name</span> <span class="string">"*.pyc"</span> -exec rm &#123;&#125; \;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>按修改时间查找<br>查找当前目录下当天修改过的文件。-1 表示一天前修改过的文件。-2表示前两天。find ./<em> -mtime n n表示，对文件数据的最近一次修改是在 n</em>24 小时之前。+n 指n天以前，-n指n天以内(对 -mmin 是指n分钟), n 表示第n天，他们的含义都是不同的，注意区分。</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./* -mtime <span class="number">60</span> -<span class="built_in">type</span> f -<span class="built_in">print</span> </span><br><span class="line"><span class="built_in">find</span> ./* -mmin -<span class="number">60</span> -<span class="built_in">type</span> f -<span class="built_in">print</span></span><br><span class="line"><span class="built_in">find</span> ./* -mmin +<span class="number">60</span> -<span class="built_in">type</span> f -<span class="built_in">print</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>文件状态改变<br>和上个参数相比，基本道理都是一样的，只不过这个参数的含义是文件的权限被修改。改内容和改文件的权限是不一样的，这里指的是更改的是文件inode的数据，比如文件的权限，所属人等等信息。cmin 表示近60分钟内被改过权限，ctime 表示近几天内被修改过。</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./* -cmin +<span class="number">60</span> -<span class="built_in">type</span> f -<span class="built_in">print</span></span><br><span class="line"><span class="built_in">find</span> ./* -ctime -<span class="number">60</span> -<span class="built_in">type</span> f -<span class="built_in">print</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>按照文件的所属group和 所属user 来查找<br>-user 和 -nouser 最后一个命令找出当前已经被删除的系统用户的所有文件， - group 和 - nogroup 的功能类似。</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./* -user fox</span><br><span class="line"><span class="built_in">find</span> ./* -nouser</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>find 避开某个目录,避开多个目录。<br>其中 -a 表示 and 的意思，-o 表示or 的意思。</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> test -<span class="built_in">path</span> "test/test4" -prune -o -<span class="built_in">print</span></span><br><span class="line"><span class="built_in">find</span> test \( -<span class="built_in">path</span> test/test4 -o -<span class="built_in">path</span> test/test3 \) -prune -o -<span class="built_in">print</span> </span><br><span class="line"><span class="built_in">find</span> . \( -<span class="built_in">path</span> ./modules -o -<span class="built_in">path</span> ./framework -o -<span class="built_in">path</span> ./utils -o -<span class="built_in">path</span> ./config \) -prune -o -name "Bigger.*" -<span class="built_in">print</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>-perm 选项 指文件的访问权限</p>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> -perm <span class="number">755</span> -<span class="built_in">print</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>实用inode 来查找文件编号。可以如下面所示在find命令中指定inode编号。在此，find命令用inode编号重命名了一个文件。你也可以通过rm来删除那个特殊的文件。</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls -i1 test*</span><br><span class="line">16187429 test-file-name</span><br><span class="line">16187430 test-file-name</span><br><span class="line">find -inum 16187430 -exec mv &#123;&#125;<span class="instruction"> new-test-file-name </span>\;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找出当前目录下最大的5个文件</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="keyword">type</span> f -exec <span class="keyword">ls</span> -s &#123;&#125; \; | <span class="keyword">sort</span> -<span class="keyword">n</span> -r | head -5</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下面的命令删除大于100M的*.zip文件。</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -<span class="keyword">type</span> f -<span class="keyword">name</span> *.zip -<span class="built_in">size</span> +00M -exec rm -i &#123;&#125; \;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a href="http://www.linuxidc.com/Linux/2015-04/116854.htm" target="_blank" rel="external">来源</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>find 命令算是Linux下最常用的一个命令之一了，这里有一些常用用法的总结。</p>
-<ol>
-<li><p>按文件名搜索<br>搜索当前目录下所有的以txt结尾的文件。第二个命令用了 -exec 参数，可以在对查找的所有文件执行一种操作。注意格式，空格和;一个都不能少]]>
-    </summary>
-    
-      <category term="commands" scheme="http://tiandechi.com/tags/commands/"/>
-    
-      <category term="find" scheme="http://tiandechi.com/tags/find/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     
