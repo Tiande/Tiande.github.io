@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-06-22T03:09:09.648Z</updated>
+  <updated>2015-06-22T03:13:38.166Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -19,56 +19,38 @@
     <link href="http://tiandechi.com/2015/06/22/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E2%80%9D-%E2%80%9D%E7%9A%84%E5%8D%81%E4%B8%AA%E7%A5%9E%E5%A5%87%E7%94%A8%E6%B3%95/"/>
     <id>http://tiandechi.com/2015/06/22/Linux命令行下”-”的十个神奇用法/</id>
     <published>2015-06-22T02:15:47.000Z</published>
-    <updated>2015-06-22T03:09:09.648Z</updated>
+    <updated>2015-06-22T03:13:38.166Z</updated>
     <content type="html"><![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！</p>
-<ol>
-<li>从历史记录中使用命令号来运行命令</li>
-</ol>
-<p>你也许从没意识到过可以从命令行历史记录(之前执行过的命令)里执行一条命令，首先输入 “history” 命令得到命令的序号。 </p>
+<h1 id="从历史记录中使用命令号来运行命令">从历史记录中使用命令号来运行命令</h1><p>你也许从没意识到过可以从命令行历史记录(之前执行过的命令)里执行一条命令，首先输入 “history” 命令得到命令的序号。 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">history</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1etcnryoruag20mn0e7aaj.gif" alt="1"></p>
 <p>这时你可以通过命令 history 的输出中的命令序号来执行一条命令。</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>!<span class="number">1551</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1etcnt6gynjg20mn0e7di0.gif" alt="2"></p>
 <p>上面可以看到它执行了号码为1551的 top 命令，这种执行方式对执行某些特别长的命令非常有用，你只要使用”!”符号加上命令的序号就能执行该命令啦。</p>
-<ol>
-<li>执行指定的之前执行过的命令</li>
-</ol>
-<p>你可以运行 !-1、!-2 或者 !-7 等命令来执行你记录序列中的倒数第一条命令、倒数第二条命令已经倒数第七条等等。。。和上面的方式一样，你需要先用 history 命令来列出命令列表。其实这个命令非常有用，你可以通过它来确定没有执行过某些错误命令比如 “rm command &gt;file” 或者别的危险指令。这里给出了执行倒数第六个、第八个和第十个命令的效果。</p>
+<h1 id="执行指定的之前执行过的命令">执行指定的之前执行过的命令</h1><p>你可以运行 !-1、!-2 或者 !-7 等命令来执行你记录序列中的倒数第一条命令、倒数第二条命令已经倒数第七条等等。。。和上面的方式一样，你需要先用 history 命令来列出命令列表。其实这个命令非常有用，你可以通过它来确定没有执行过某些错误命令比如 “rm command &gt;file” 或者别的危险指令。这里给出了执行倒数第六个、第八个和第十个命令的效果。</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>history</span><br><span class="line"><span class="variable">$ </span>!-<span class="number">6</span></span><br><span class="line"><span class="variable">$ </span>!-<span class="number">8</span></span><br><span class="line"><span class="variable">$ </span>!-<span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p><img src="http://ww3.sinaimg.cn/large/6e8d8f65gw1etcnwm2xaog20mn0e7myv.gif" alt="3"></p>
-<ol>
-<li>向一条新命令传递旧命令的参数避免重复输入</li>
-</ol>
-<p>比如说我需要列出 ‘/home/$USER/Binary/firefox’ 这个目录。</p>
+<h1 id="向一条新命令传递旧命令的参数避免重复输入">向一条新命令传递旧命令的参数避免重复输入</h1><p>比如说我需要列出 ‘/home/$USER/Binary/firefox’ 这个目录。</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>ls /home/<span class="variable">$USER</span>/<span class="constant">Binary/</span>firefox</span><br></pre></td></tr></table></figure>
 <p>但是这个时候我又想用 “ls-l“查看这个目录下的具体信息，那么我需要重新输入上面的命令吗？当然不需要，你只要用下面这个命令：</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">ls</span> -<span class="keyword">l</span> !$</span><br></pre></td></tr></table></figure>
 <p>“!$” 符号可以将上一条命令的参数传递给下一条命令参数：</p>
 <p><img src="http://ww3.sinaimg.cn/large/6e8d8f65gw1etcnyqxe63g20mn0e7nbh.gif" alt="4"></p>
-<ol>
-<li>如何用(!)处理两个以上的参数?例如我在桌面上创建了一个 1.txt 文件</li>
-</ol>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch <span class="regexp">/home/</span>avi<span class="regexp">/Desktop/</span><span class="number">1</span>.txt</span><br></pre></td></tr></table></figure>
+<h1 id="如何用(!)处理两个以上的参数?例如我在桌面上创建了一个_1-txt_文件">如何用(!)处理两个以上的参数?例如我在桌面上创建了一个 1.txt 文件</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch <span class="regexp">/home/</span>avi<span class="regexp">/Desktop/</span><span class="number">1</span>.txt</span><br></pre></td></tr></table></figure>
 <p>然后使用CP命令把它复制到 ‘home/avi/Downloads’ 目录</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp <span class="regexp">/home/</span>avi<span class="regexp">/Desktop/</span><span class="number">1</span>.txt <span class="regexp">/home/</span>avi<span class="regexp">/downloads</span></span><br></pre></td></tr></table></figure>
 <p>这样我们就向CP命令传递了两个参数。第一个是 ‘/home/avi/Desktop/1.txt’ ，第二个是’/home/avi/Downloads’，为了区分它们，我们 使用 echo 来打印每个参数。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"1st Argument is : !^"</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"2nd Argument is : !cp:2"</span></span><br></pre></td></tr></table></figure>
 <p>可以注意到第一个参数可以使用 “!^” 来表示，剩下的参数就可以使用 “命令名：参数序号”这种方式来表示，比如 “!cp:2″。再举个例子，如果你执行的某个命令为 “xyz”，命令 后面有5个参数而你想调用第四个参数，就可以使用 “!xyz:4″ 来调用它。当然，你可以使用 “!* “ 来表示所有参数。</p>
 <p><img src="http://ww3.sinaimg.cn/large/6e8d8f65jw1etco4ln4jug20mn0e7mz3.gif" alt="5"></p>
-<ol>
-<li>通过关键词来执行之前的命令</li>
-</ol>
-<p>我们可以通过执行关键词来执行之前的命令。可以按照下面的命令来理解：</p>
+<h1 id="通过关键词来执行之前的命令">通过关键词来执行之前的命令</h1><p>我们可以通过执行关键词来执行之前的命令。可以按照下面的命令来理解：</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls <span class="regexp">/home &gt; /</span>dev/<span class="literal">null</span>                         [Command <span class="number">1</span>]</span><br><span class="line">$ ls -l <span class="regexp">/home/</span>avi<span class="regexp">/Desktop &gt; /</span>dev/<span class="literal">null</span>          [Command <span class="number">2</span>] </span><br><span class="line">$ ls -la <span class="regexp">/home/</span>avi<span class="regexp">/Downloads &gt; /</span>dev/<span class="literal">null</span>       [Command <span class="number">3</span>]</span><br><span class="line">$ ls -lA <span class="regexp">/usr/</span>bin &gt; <span class="regexp">/dev/</span><span class="literal">null</span>                  [Command <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
 <p>上面是相同的ls命令对应了不同参数和文件夹。此外我们将每一个标准输出都传递到了 ‘/dev/null’ 因为我们并不希望处理程序的标准输出。现在我们可以调用命令的关键词来实现它们。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ! <span class="keyword">ls</span>                                         [Command 1]</span><br><span class="line">$ ! <span class="keyword">ls</span> -<span class="keyword">l</span>                                      [Command 2] </span><br><span class="line">$ ! <span class="keyword">ls</span> -<span class="keyword">la</span>                                     [Command 3]</span><br><span class="line">$ ! <span class="keyword">ls</span> -<span class="keyword">lA</span>                                     [Command 4]</span><br></pre></td></tr></table></figure>
 <p>当你使用 “ls” 关键词来执行之前命令的时候，你一定会被标准输出给惊讶到。</p>
 <p><img src="http://ww4.sinaimg.cn/large/6e8d8f65jw1etcofh7u9wg20mn0e7myt.gif" alt="6"></p>
-<ol>
-<li>非常实用的 !! 操作符</li>
-</ol>
-<p>你可以使用(!!)来运行或者改变之前的命令。它会调用最近使用的命令来调整当前命令，给大家展示一下使用场景。</p>
+<h1 id="非常实用的_!!_操作符">非常实用的 !! 操作符</h1><p>你可以使用(!!)来运行或者改变之前的命令。它会调用最近使用的命令来调整当前命令，给大家展示一下使用场景。</p>
 <p>昨天我运行了一个获取IP的Shell命令：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip addr show | <span class="keyword">grep</span> inet | <span class="keyword">grep</span> -v <span class="string">'inet6'</span> | <span class="keyword">grep</span> -v <span class="string">'127.0.0.1'</span> | awk <span class="string">'&#123;print $2&#125;'</span> | cut -f <span class="number">1</span> -d<span class="regexp">/</span></span><br></pre></td></tr></table></figure>
 <p>突然我意识到需要将结果重定向到 ip.txt 中，这时你应该想到用 “UP” 键恢复上一个命令再加上 ‘&gt;ip.txt‘ 命令来重定向进去：</p>
@@ -86,35 +68,23 @@
 <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="function_or_atom">su</span> -<span class="function_or_atom">c</span> <span class="exclamation_mark">!</span><span class="exclamation_mark">!</span></span><br></pre></td></tr></table></figure>
 <p>同样有类似的场景：如果普通用户没有权限，即可这样运行：</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>su -c <span class="string">'service apache2 start'</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="variable">$ </span>su -c <span class="string">'/etc/init.d/apache2 start'</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="variable">$ </span>su -c <span class="string">'systemctl start apache2'</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>使用 !(文件名) 的方式来避免命令对某个文件的影响</li>
-</ol>
-<p>这里的 “!” 符号相当于逻辑否定来使用，用来避免对加了 “!” 前缀的文件产生影响。</p>
+<h1 id="使用_!(文件名)_的方式来避免命令对某个文件的影响">使用 !(文件名) 的方式来避免命令对某个文件的影响</h1><p>这里的 “!” 符号相当于逻辑否定来使用，用来避免对加了 “!” 前缀的文件产生影响。</p>
 <p>A.从目录中删除除 2.txt 外的所有文件:</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>rm !(<span class="number">2</span>.txt)</span><br></pre></td></tr></table></figure>
 <p>B.从目录中删除以 pdf 为后缀的文件:</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>rm !(*.pdf)</span><br></pre></td></tr></table></figure>
-<ol>
-<li>检查某个目录是否存在，如果存在就将其打印</li>
-</ol>
-<p>这里使用 ‘! -d’  命令来判断目录是否为空，同时使用 “&amp;&amp;” 和 “||” 命令来打印判断目录是否存在：</p>
+<h1 id="检查某个目录是否存在，如果存在就将其打印">检查某个目录是否存在，如果存在就将其打印</h1><p>这里使用 ‘! -d’  命令来判断目录是否为空，同时使用 “&amp;&amp;” 和 “||” 命令来打印判断目录是否存在：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! <span class="operator">-d</span> /home/avi/Tecmint ] &amp;&amp; <span class="built_in">printf</span> <span class="string">'\nno such /home/avi/Tecmint directory exist\n'</span> || <span class="built_in">printf</span> <span class="string">'\n/home/avi/Tecmint directory exist\n'</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>检测目录是否是否为空，如果为空则退出</li>
-</ol>
-<p>和上面的命令类似。这里是检测目录是否为空，如果为空则退出命令</p>
+<h1 id="检测目录是否是否为空，如果为空则退出">检测目录是否是否为空，如果为空则退出</h1><p>和上面的命令类似。这里是检测目录是否为空，如果为空则退出命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! <span class="operator">-d</span> /home/avi/Tecmint ] &amp;&amp; <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>检测目录是否为空，如果为空则在 home 目录中重新创建目录</li>
-</ol>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! -d <span class="regexp">/home/</span>avi<span class="regexp">/Tecmint ] &amp;&amp; mkdir /</span>home<span class="regexp">/avi/</span>Tecmint</span><br></pre></td></tr></table></figure>
+<h1 id="检测目录是否为空，如果为空则在_home_目录中重新创建目录">检测目录是否为空，如果为空则在 home 目录中重新创建目录</h1><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ [ ! -d <span class="regexp">/home/</span>avi<span class="regexp">/Tecmint ] &amp;&amp; mkdir /</span>home<span class="regexp">/avi/</span>Tecmint</span><br></pre></td></tr></table></figure>
 <p><a href="http://www.linuxidc.com/Linux/2015-05/117774.htm" target="_blank" rel="external">source</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他]]>
     </summary>
     
-      <category term="\!" scheme="http://tiandechi.com/tags//"/>
+      <category term="command" scheme="http://tiandechi.com/tags/command/"/>
     
       <category term="Linux" scheme="http://tiandechi.com/categories/Linux/"/>
     
