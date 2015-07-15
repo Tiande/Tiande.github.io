@@ -4,7 +4,7 @@
   <subtitle><![CDATA[这里不是洗澡的地方]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tiandechi.com/"/>
-  <updated>2015-06-22T03:15:12.477Z</updated>
+  <updated>2015-05-18T10:27:14.000Z</updated>
   <id>http://tiandechi.com/</id>
   
   <author>
@@ -15,11 +15,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Windows 7 & Debian 双系统]]></title>
+    <link href="http://tiandechi.com/2015/07/15/Windows-7-Debian-%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://tiandechi.com/2015/07/15/Windows-7-Debian-双系统/</id>
+    <published>2015-07-15T13:39:46.000Z</published>
+    <updated>2015-05-18T10:27:14.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>建议在 Linux 下使用一段时间后，再参阅本教程，不然小白会摸不着头脑的。</strong></p>
+<h1 id="准备：">准备：</h1><ol>
+<li>电脑 #至少一台</li>
+<li>U盘 &amp; [移动硬盘,NAS]</li>
+<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘<a id="more"></a>
+</li>
+</ol>
+<h1 id="首先安装_Windows_7">首先安装 Windows 7</h1><p><strong>注意：如果当前系统即为 win7 且不想要重装可以跳过这一节。</strong><br><strong>但是硬盘要留出用于装 Debian 的 空分区。（使用 磁盘管理 或是 Diskgenius）</strong></p>
+<ol>
+<li>将现在系统下自己需要的文件备份到移动硬盘</li>
+<li><p><a href="http://blog.chinaunix.net/uid-10328574-id-3526642.html" target="_blank" rel="external">将 ISO 写入 U盘</a><br>windows 下可用 UltraISO 工具；<br><strong>建议下载好主板的驱动到制作好的U盘中。装机后手动安装驱动，避免很多问题</strong><br><strong>万能驱动包 也可以...</strong></p>
+<p><strong>Linux 下：</strong></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#1.用 fdisk 在 U盘 上建立一个 ntfs 分区，编辑 flag ，勾上 boot 选项</span></span><br><span class="line"><span class="preprocessor">#2.然后 mkfs.ntfs 格式化</span></span><br><span class="line"><span class="preprocessor">#3.挂载 win7 的 iso 和新建的 ntfs 分区，并将 iso 的全部内容复制到 ntfs 分区</span></span><br><span class="line"><span class="preprocessor">#4.编译安装ms-sys</span></span><br><span class="line"><span class="preprocessor">#ms-sys是一个写mbr的工具，起到让系统知道能够引导 win7 安装的作用，至关重要. 到 ms-sys.sourceforge.net 下载</span></span><br><span class="line"><span class="preprocessor">#5.运行以下命令写入 mbr ：</span></span><br><span class="line">ms-sys -<span class="number">7</span> /dev/sdX #其中的 -<span class="number">7</span> 参数指 win7 , sdX 指的是U盘对应的盘符</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启， Bios 里改变 硬盘模式 由 AHCI 到 IDE，引导选择 U盘<br>因为必要驱动没装，所以需要 IDE兼容模式，装好系统后可以改回来。</p>
+</li>
+<li>安装 Windows</li>
+<li><a href="http://jingyan.baidu.com/article/e4511cf31556a02b855eaf4c.html" target="_blank" rel="external">Win7 开启 AHCI</a><br>1.在BIOS里SATA模式为IDE的状态下，进入系统后在运行里输入regedit,打开注册表编辑器，依次打开注册表，修改 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Msahci 下的 start ，把数值数据改为0<br>2.重新启动，在 BIOS 里改成 AHCI 模式，进入系统后会发现新硬件，不用理会，直接安装 AHCI 驱动（ win7 一般联网会自动安装，如没有自动安装，请到主板或笔记本官网下载主板或者单独的 AHCI 驱动）</li>
+</ol>
+<h1 id="安装Debian"><a href="http://m.blog.chinaunix.net/uid-10995039-id-3142803.html/" target="_blank" rel="external">安装Debian</a></h1><ol>
+<li>制作 U盘启动盘<br>使用 UltraISO 即可，此处不再赘述。</li>
+<li>U盘引导 开始安装<br><strong>grub 要装在 Linux 所在的分区</strong>（我安装在/dev/sda5）<br>此处不需要在 BIOS 改 硬盘模式， Linux 内核已集成 AHCI 驱动。</li>
+<li>重新启动，进入 Win7</li>
+</ol>
+<h1 id="制作启动引导选项">制作启动引导选项</h1><ol>
+<li>安装 EasyBCD</li>
+<li>打开 EasyBCD，点击 添加新条目</li>
+<li>操作系统: Linux/BSD<br> 类型: GRUB(Legacy)<br> 名称: [自己填]<br> 驱动器： [装 Debian 的那个分区]<br> 【添加条目】</li>
+<li>重启，<strong>操作系统选择界面</strong>就有 [自己填] 这个启动选项了。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>建议在 Linux 下使用一段时间后，再参阅本教程，不然小白会摸不着头脑的。</strong></p>
+<h1 id="准备：">准备：</h1><ol>
+<li>电脑 #至少一台</li>
+<li>U盘 &amp; [移动硬盘,NAS]</li>
+<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘]]>
+    
+    </summary>
+    
+      <category term="Debian" scheme="http://tiandechi.com/tags/Debian/"/>
+    
+      <category term="Windows" scheme="http://tiandechi.com/tags/Windows/"/>
+    
+      <category term="OS" scheme="http://tiandechi.com/categories/OS/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Linux命令行下”!”的十个神奇用法]]></title>
     <link href="http://tiandechi.com/2015/06/22/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E2%80%9D-%E2%80%9D%E7%9A%84%E5%8D%81%E4%B8%AA%E7%A5%9E%E5%A5%87%E7%94%A8%E6%B3%95/"/>
     <id>http://tiandechi.com/2015/06/22/Linux命令行下”-”的十个神奇用法/</id>
     <published>2015-06-22T02:15:47.000Z</published>
-    <updated>2015-06-22T03:15:12.477Z</updated>
+    <updated>2015-06-22T03:15:12.000Z</updated>
     <content type="html"><![CDATA[<p>Linux 系统中，“!” 符号或者操作符通常被用做逻辑否定的操作符，同时也通过一些调整和改动命令来从历史记录中找出你需要的命令行。下面演示的命令行在bash Shell中都已经明确检查过可用了。不过我没有在其他的 Shell 解释器下测试过，不过我相信这些命令也不会在其他的解释器下运行。那么现在就让我们学习一下 “!” 这神奇而独特的用法吧！</p>
 <a id="more"></a>
 <h1 id="从历史记录中使用命令号来运行命令">从历史记录中使用命令号来运行命令</h1><p>你也许从没意识到过可以从命令行历史记录(之前执行过的命令)里执行一条命令，首先输入 “history” 命令得到命令的序号。 </p>
@@ -97,7 +151,7 @@
     <link href="http://tiandechi.com/2015/06/12/shell-of-vi-mode/"/>
     <id>http://tiandechi.com/2015/06/12/shell-of-vi-mode/</id>
     <published>2015-06-12T14:11:10.000Z</published>
-    <updated>2015-06-12T14:28:57.708Z</updated>
+    <updated>2015-06-12T14:28:57.000Z</updated>
     <content type="html"><![CDATA[<p>在shell里加入vi模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'set editing-mode vi'</span>&gt;.inputrc</span><br><span class="line"><span class="built_in">source</span> .inputrc</span><br></pre></td></tr></table></figure></p>
 ]]></content>
     <summary type="html">
@@ -117,7 +171,7 @@
     <link href="http://tiandechi.com/2015/05/23/%E4%B8%80%E6%B2%BE%E9%85%92%E5%B0%B1%E8%84%B8%E7%BA%A2%E7%9A%84%E4%BA%BA%E8%83%BD%E9%94%BB%E7%82%BC%E5%87%BA%E9%85%92%E9%87%8F%E5%90%97%EF%BC%9F/"/>
     <id>http://tiandechi.com/2015/05/23/一沾酒就脸红的人能锻炼出酒量吗？/</id>
     <published>2015-05-23T04:32:46.000Z</published>
-    <updated>2015-05-23T04:32:57.129Z</updated>
+    <updated>2015-05-23T04:32:57.000Z</updated>
     <content type="html"><![CDATA[<p>先把结论放上来，就一句话：<br><strong>喝酒容易脸红是基因缺陷引起的，练酒量无法弥补基因缺陷。</strong><br>以下具体说说这个问题。<br><a id="more"></a></p>
 <ol>
 <li>虽然有很多人说过了，但还是先说一下酒精在体内的代谢过程。酒精，也就是乙醇，主要是在肝脏代谢，第一步是乙醇被代谢成乙醛，第二步是乙醛被代谢成乙酸，第三步是乙酸被代谢成二氧化碳和水。在整个过程中，起关键作用的主要是第一步里面的乙醇脱氢酶（ADH）和第二步里面的乙醛脱氢酶（ALDH）。<br>所以说酒量是酶决定的，而酶又是基因产生的，因此问题的核心在于基因。知乎上很多回答都提到了ALDH变异，却忽略了ADH变异，这个稍后会提到。</li>
@@ -139,7 +193,7 @@
     <link href="http://tiandechi.com/2015/05/23/18%E4%B8%AAPPT%E6%BC%94%E8%AE%B2%E7%9A%84%E6%8A%80%E5%B7%A7%EF%BC%8C%E8%AE%A9%E4%BD%A0%E7%9A%84%E6%8F%90%E6%A1%88%E8%83%BD%E5%8A%9B%E6%8F%90%E9%AB%98N%E5%80%8D/"/>
     <id>http://tiandechi.com/2015/05/23/18个PPT演讲的技巧，让你的提案能力提高N倍/</id>
     <published>2015-05-23T04:32:23.000Z</published>
-    <updated>2015-05-23T04:32:33.733Z</updated>
+    <updated>2015-05-23T04:32:33.000Z</updated>
     <content type="html"><![CDATA[<p>如何成为一个演讲高手呢?在现在这个年代，PPT是必不可少的，乔布斯的经典演讲就是使用大屏幕幻灯片。下面的18个技巧或许可以帮助你提高PPT演讲技巧，也希望将要进行毕业答辩的同学可以有一些收获，帮助你获得最佳的表现，祝福之。一起来看看吧。<br><a id="more"></a></p>
 <h1 id="10-20-30原则">10-20-30原则</h1><p>这是Guy Kawasaki(湾区著名的风险投资家，同时也是位充满激情、睿智和幽默的演讲家)提出的一个幻灯片制作和演讲原则，即一个Powerpoint不能超过10张幻灯片，演讲总长不能超过20分钟，而且幻灯片的字体要大于30号。他说，不管你的想法是否能够颠覆世界，你必须要在有限的时间里，用较少的幻灯片和精炼的语言将其精华传达给听众。</p>
 <h1 id="有趣的演讲">有趣的演讲</h1><p>演讲要讲求寓教于乐。我不是指做演讲时要像猴子一样又蹦又跳，但是同文章或杂志相比，人们期望在演讲中感受到你的激情，而不是枯燥无味的背诵。</p>
@@ -172,7 +226,7 @@
     <link href="http://tiandechi.com/2015/05/23/%E8%A3%85%E9%80%BC%E6%8A%80%E8%83%BD%EF%BC%9A%E6%BC%94%E8%AE%B2%E4%B8%AD%E8%AE%A9%E4%BD%A0%E9%AB%98%E5%A4%A7%E4%B8%8A%E7%9A%847%E4%B8%AA%E6%89%8B%E5%8A%BF/"/>
     <id>http://tiandechi.com/2015/05/23/装逼技能：演讲中让你高大上的7个手势/</id>
     <published>2015-05-23T04:31:49.000Z</published>
-    <updated>2015-05-26T12:05:21.568Z</updated>
+    <updated>2015-05-26T12:05:21.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/large/6e8d8f65jw1eshwpswe5zj20go0aygm2.jpg" alt="top.jpg"><br>你肯定在某个大学或者某个TED的演讲中见过这样一些手势：台上的那个人试图解释一些重要的历史联系，抽象艺术，科学或人文进步的宏大理论时将手像一个倒放的爪一样举在他们面前，手指缓缓转动就像有一个隐形的拨号盘。这就是所谓“辩证法”手势，如果你想要成为一个真正的思想领袖你就一定要掌握它们。<br>爱丽丝·M·威廉姆斯和约翰逊·茉莉创建了这样一个Tumblr Blog：手势词汇的批判与研究(link)——通过观察演讲中出现的这些手势然后将它们汇编起来让这些高大上的手势能真正走入老百姓的生活。<br>下面就让我们来看看这七种在演讲中极其常用的高大上的手势：<br><a id="more"></a></p>
 <ol>
 <li>辩证法手势<br><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1eshht6i5vqg20ic0c8ncc.gif" alt="1.gif"><br>“这是一个辩证关系，现在我会开始解释它。”<br>用在从一件事转移到另一个时。极具感染力。</li>
@@ -197,7 +251,7 @@
     <link href="http://tiandechi.com/2015/05/23/18%E4%B8%AA%E9%AB%98%E5%A4%A7%E4%B8%8A%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
     <id>http://tiandechi.com/2015/05/23/18个高大上的浏览器小技巧/</id>
     <published>2015-05-23T04:30:38.000Z</published>
-    <updated>2015-05-26T12:00:39.026Z</updated>
+    <updated>2015-05-26T12:00:39.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/6e8d8f65gw1eshhy28ejzj20go0a0t9c.jpg" alt="head.jpg"><br>注：以下仅适用于 Chrome/Firefox 等网络浏览器<br><a id="more"></a></p>
 <ol>
 <li>Ctrl+Shift+T 打开最近关闭的标签页</li>
@@ -243,7 +297,7 @@
     <link href="http://tiandechi.com/2015/05/20/11%E4%B8%AA%E8%AE%A9%E4%BD%A0%E5%90%83%E6%83%8A%E7%9A%84Linux%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4/"/>
     <id>http://tiandechi.com/2015/05/20/11个让你吃惊的Linux终端命令/</id>
     <published>2015-05-20T10:48:19.000Z</published>
-    <updated>2015-05-20T11:11:49.952Z</updated>
+    <updated>2015-05-20T11:11:49.000Z</updated>
     <content type="html"><![CDATA[<h1 id="命令行日常系快捷键">命令行日常系快捷键</h1><p>如下的快捷方式非常有用，能够极大的提升你的工作效率：</p>
 <ul>
 <li>CTRL + U - 剪切光标前的内容</li>
@@ -310,7 +364,7 @@
     <link href="http://tiandechi.com/2015/05/20/SQLServer%E5%88%86%E5%89%B2%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>http://tiandechi.com/2015/05/20/SQLServer分割字符串/</id>
     <published>2015-05-20T10:46:52.000Z</published>
-    <updated>2015-05-20T10:48:00.095Z</updated>
+    <updated>2015-05-20T10:48:00.000Z</updated>
     <content type="html"><![CDATA[<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">CREATE</span> function [dbo].[<span class="constant">SplitStr</span>]</span><br><span class="line">(</span><br><span class="line">     <span class="variable">@SourceStr</span> nvarchar(<span class="number">4000</span>),</span><br><span class="line">     <span class="variable">@Split</span> nvarchar(<span class="number">1</span>)</span><br><span class="line">)</span><br><span class="line">     returns <span class="variable">@temp</span> table (<span class="constant">Result</span> nvarchar(<span class="number">4000</span>))</span><br><span class="line">as</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">     declare <span class="variable">@ch</span> as nvarchar(<span class="number">4000</span>)</span><br><span class="line">     set          <span class="variable">@SourceStr</span>=<span class="variable">@SourceStr</span>+<span class="variable">@Split</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">if</span>(<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)&lt;=<span class="number">0</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          insert <span class="variable">@temp</span> values(<span class="variable">@SourceStr</span>)</span><br><span class="line">          <span class="keyword">return</span></span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">     <span class="keyword">while</span>(<span class="variable">@SourceStr</span>&lt;&gt;<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">begin</span></span><br><span class="line">          set          <span class="variable">@ch</span>=<span class="constant">LEFT</span>(<span class="variable">@SourceStr</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>)-<span class="number">1</span>)</span><br><span class="line">          insert     <span class="variable">@temp</span> values(<span class="variable">@ch</span>)</span><br><span class="line">          set          <span class="variable">@SourceStr</span>=<span class="constant">STUFF</span>(<span class="variable">@SourceStr</span>,<span class="number">1</span>,<span class="constant">CHARINDEX</span>(<span class="variable">@Split</span>,<span class="variable">@SourceStr</span>,<span class="number">1</span>),<span class="constant">N</span><span class="string">''</span>)</span><br><span class="line">     <span class="keyword">end</span></span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">--select * from splitstr(<span class="constant">N</span><span class="string">'表白怕被拒绝？,拒绝了连朋友都做不成？,那就别表白了,还可以做朋友,做个朋友还可以借钱,借了钱再表白,表白被拒绝了,朋友做不成了,那就不用还钱了,(///▽///)'</span>,<span class="string">','</span>)</span><br><span class="line"><span class="constant">GO</span></span><br></pre></td></tr></table></figure>
 ]]></content>
     <summary type="html">
@@ -328,7 +382,7 @@
     <link href="http://tiandechi.com/2015/05/20/%E5%A6%82%E4%BD%95%E5%9C%A8Linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%9B%B4%E7%9A%84%E6%96%87%E4%BB%B6/"/>
     <id>http://tiandechi.com/2015/05/20/如何在Linux下创建一个不可变更的文件/</id>
     <published>2015-05-20T10:44:08.000Z</published>
-    <updated>2015-05-20T10:46:31.807Z</updated>
+    <updated>2015-05-20T10:46:31.000Z</updated>
     <content type="html"><![CDATA[<p>假如你想对Linux中的一些重要文件做写保护，这样它们就不能被删除或者被篡改成之前的版本或者其他东西，或者在其他情况下，你可能想避免某些配置文件被软件自动修改。使用chown和chmod命令修改文件的归属关系或者权限位是处理这种情况的一个解决方法，但这并不完美，因为这样无法避免有root权限的操作。这时chattr就派上用场了。</p>
 <p>chattr是一个可以设置或取消文件的标志位的Linux命令，它和标准的文件权限（读、写、执行）是分离的。与此相关的另一个命令是lsattr，它可以显示文件的哪些标志位被设置上了。最初只有EXT文件系统（EXT2/3/4）支持chattr和lsattr所管理的标志位，但现在很多其他的原生的Linux文件系统都支持了，比如XFS、Btrfs、ReiserFS等等。</p>
 <p>在这个教程中，我会示范如果使用chattr来让Linux中的文件不可变更。</p>
@@ -373,7 +427,7 @@
     <link href="http://tiandechi.com/2015/05/20/Linux%E7%9A%84%E4%BA%94%E4%B8%AA%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4/"/>
     <id>http://tiandechi.com/2015/05/20/Linux的五个查找命令/</id>
     <published>2015-05-20T10:32:47.000Z</published>
-    <updated>2015-05-20T10:44:39.590Z</updated>
+    <updated>2015-05-20T10:44:39.000Z</updated>
     <content type="html"><![CDATA[<p>最近，我在学习Linux，下面是一些笔记。</p>
 <p>使用电脑的时候，经常需要查找文件。</p>
 <p>在Linux中，有很多方法可以做到这一点。国外网站LinuxHaxor总结了五条命令，你可以看看自己知道几条。大多数程序员，可能经常使用其中的2到3条，对这5条命令都很熟悉的人应该是不多的。</p>
@@ -420,65 +474,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Windows 7 & Debian 双系统]]></title>
-    <link href="http://tiandechi.com/2015/05/18/Windows-7-Debian-%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
-    <id>http://tiandechi.com/2015/05/18/Windows-7-Debian-双系统/</id>
-    <published>2015-05-18T10:27:14.662Z</published>
-    <updated>2015-05-18T10:27:14.662Z</updated>
-    <content type="html"><![CDATA[<p><strong>建议在 Linux 下使用一段时间后，再参阅本教程，不然小白会摸不着头脑的。</strong></p>
-<h1 id="准备：">准备：</h1><ol>
-<li>电脑 #至少一台</li>
-<li>U盘 &amp; [移动硬盘,NAS]</li>
-<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘<a id="more"></a>
-</li>
-</ol>
-<h1 id="首先安装_Windows_7">首先安装 Windows 7</h1><p><strong>注意：如果当前系统即为 win7 且不想要重装可以跳过这一节。</strong><br><strong>但是硬盘要留出用于装 Debian 的 空分区。（使用 磁盘管理 或是 Diskgenius）</strong></p>
-<ol>
-<li>将现在系统下自己需要的文件备份到移动硬盘</li>
-<li><p><a href="http://blog.chinaunix.net/uid-10328574-id-3526642.html" target="_blank" rel="external">将 ISO 写入 U盘</a><br>windows 下可用 UltraISO 工具；<br><strong>建议下载好主板的驱动到制作好的U盘中。装机后手动安装驱动，避免很多问题</strong><br><strong>万能驱动包 也可以...</strong></p>
-<p><strong>Linux 下：</strong></p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#1.用 fdisk 在 U盘 上建立一个 ntfs 分区，编辑 flag ，勾上 boot 选项</span></span><br><span class="line"><span class="preprocessor">#2.然后 mkfs.ntfs 格式化</span></span><br><span class="line"><span class="preprocessor">#3.挂载 win7 的 iso 和新建的 ntfs 分区，并将 iso 的全部内容复制到 ntfs 分区</span></span><br><span class="line"><span class="preprocessor">#4.编译安装ms-sys</span></span><br><span class="line"><span class="preprocessor">#ms-sys是一个写mbr的工具，起到让系统知道能够引导 win7 安装的作用，至关重要. 到 ms-sys.sourceforge.net 下载</span></span><br><span class="line"><span class="preprocessor">#5.运行以下命令写入 mbr ：</span></span><br><span class="line">ms-sys -<span class="number">7</span> /dev/sdX #其中的 -<span class="number">7</span> 参数指 win7 , sdX 指的是U盘对应的盘符</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启， Bios 里改变 硬盘模式 由 AHCI 到 IDE，引导选择 U盘<br>因为必要驱动没装，所以需要 IDE兼容模式，装好系统后可以改回来。</p>
-</li>
-<li>安装 Windows</li>
-<li><a href="http://jingyan.baidu.com/article/e4511cf31556a02b855eaf4c.html" target="_blank" rel="external">Win7 开启 AHCI</a><br>1.在BIOS里SATA模式为IDE的状态下，进入系统后在运行里输入regedit,打开注册表编辑器，依次打开注册表，修改 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Msahci 下的 start ，把数值数据改为0<br>2.重新启动，在 BIOS 里改成 AHCI 模式，进入系统后会发现新硬件，不用理会，直接安装 AHCI 驱动（ win7 一般联网会自动安装，如没有自动安装，请到主板或笔记本官网下载主板或者单独的 AHCI 驱动）</li>
-</ol>
-<h1 id="安装Debian"><a href="http://m.blog.chinaunix.net/uid-10995039-id-3142803.html/" target="_blank" rel="external">安装Debian</a></h1><ol>
-<li>制作 U盘启动盘<br>使用 UltraISO 即可，此处不再赘述。</li>
-<li>U盘引导 开始安装<br><strong>grub 要装在 Linux 所在的分区</strong>（我安装在/dev/sda5）<br>此处不需要在 BIOS 改 硬盘模式， Linux 内核已集成 AHCI 驱动。</li>
-<li>重新启动，进入 Win7</li>
-</ol>
-<h1 id="制作启动引导选项">制作启动引导选项</h1><ol>
-<li>安装 EasyBCD</li>
-<li>打开 EasyBCD，点击 添加新条目</li>
-<li>操作系统: Linux/BSD<br> 类型: GRUB(Legacy)<br> 名称: [自己填]<br> 驱动器： [装 Debian 的那个分区]<br> 【添加条目】</li>
-<li>重启，<strong>操作系统选择界面</strong>就有 [自己填] 这个启动选项了。</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><strong>建议在 Linux 下使用一段时间后，再参阅本教程，不然小白会摸不着头脑的。</strong></p>
-<h1 id="准备：">准备：</h1><ol>
-<li>电脑 #至少一台</li>
-<li>U盘 &amp; [移动硬盘,NAS]</li>
-<li>下载 Win7 &amp; Debian 的 ISO 安装镜像，备份到移动硬盘]]>
-    
-    </summary>
-    
-      <category term="Debian" scheme="http://tiandechi.com/tags/Debian/"/>
-    
-      <category term="Windows" scheme="http://tiandechi.com/tags/Windows/"/>
-    
-      <category term="OS" scheme="http://tiandechi.com/categories/OS/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Debian下iceweasel安装flash player]]></title>
     <link href="http://tiandechi.com/2015/05/18/Debian%E4%B8%8Biceweasel%E5%AE%89%E8%A3%85flash-player/"/>
     <id>http://tiandechi.com/2015/05/18/Debian下iceweasel安装flash-player/</id>
     <published>2015-05-18T10:19:02.000Z</published>
-    <updated>2015-05-18T10:20:07.996Z</updated>
+    <updated>2015-05-18T10:20:07.000Z</updated>
     <content type="html"><![CDATA[<p>下载 Flash Player<br>解压会得到一个.so文件<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#mkdir</span> -<span class="tag">p</span> ~/.mozilla/plugins/</span><br><span class="line">cp libflashplayer<span class="class">.so</span> ~/.mozilla/plugins/</span><br><span class="line">cp libflashplayer<span class="class">.so</span> /usr/lib/iceweasel/</span><br></pre></td></tr></table></figure></p>
 ]]></content>
     <summary type="html">
@@ -500,7 +500,7 @@
     <link href="http://tiandechi.com/2015/05/18/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     <id>http://tiandechi.com/2015/05/18/常用正则表达式/</id>
     <published>2015-05-18T10:04:29.000Z</published>
-    <updated>2015-05-18T10:53:09.043Z</updated>
+    <updated>2015-05-18T10:53:09.000Z</updated>
     <content type="html"><![CDATA[<pre><code>说明：正则表达式通常用于两种任务：<span class="number">1</span>.验证，<span class="number">2</span>.搜索/替换。用于验证时，通常需要在前后分别加上^和<span class="variable">$，</span>以匹配整个待验证字符串；搜索/替换时是否加上此限定则根据搜索的要求而定，此外，也有可能要在前后加上\b而不是^和<span class="variable">$。</span>此表所列的常用正则表达式，除个别外均未在前后加上任何限定，请根据需要，自行处理。
 </code></pre><a id="more"></a>
 <table><br><tr><br><th>说明</th><br><th>正则表达式</th><br></tr><br><tr><br><td>网址（URL）</td><br><td><spanclass="regex">[a-zA-z]+://[^\s]<em></em></spanclass="regex"></td><br></tr><br><tr><br><td>IP地址(IPAddress)</td><br><td><spanclass="regex">((2[0-4]\d|25[0-5]|[01]?\d\d?).){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)</spanclass="regex"></td><br></tr><br><tr><br><td>电子邮件(Email)</td><br><td><spanclass="regex">\w+([-+.]\w+)@\w+([-.]\w+)<em>.\w+([-.]\w+)</em></spanclass="regex"></td><br></tr><br><tr><br><td>QQ号码</td><br><td><spanclass="regex">[1-9]\d{4,}</spanclass="regex"></td><br></tr><br><tr><br><td>HTML标记(包含内容或自闭合)</td><br><td><spanclass="regex">&lt;(.<em>)(.</em>)&gt;.<em>&lt;\/\1&gt;|&lt;(.</em>)\/&gt;</spanclass="regex"></td><br></tr><br><tr><br><td>密码(由数字/大写字母/小写字母/标点符号组成，四种都必有，8位以上)</td><br><td><spanclass="regex">(?=^.{8,}$)(?=.<em>\d)(?=.</em>\W+)(?=.<em>[A-Z])(?=.</em>[a-z])(?!.<em>\n).</em>$</spanclass="regex"></td><br></tr><br><tr><br><td>日期(年-月-日)</td><br><td><spanclass="regex">(\d{4}|\d{2})-((1[0-2])|(0?[1-9]))-(([12][0-9])|(3[01])|(0?[1-9]))</spanclass="regex"></td><br></tr><br><tr><br><td>日期(月/日/年)</td><br><td><spanclass="regex">((1[0-2])|(0?[1-9]))/(([12][0-9])|(3[01])|(0?[1-9]))/(\d{4}|\d{2})</spanclass="regex"></td><br></tr><br><tr><br><td>时间(小时:分钟,24小时制)</td><br><td><spanclass="regex">((1|0?)[0-9]|2[0-3]):([0-5][0-9])</spanclass="regex"></td><br></tr><br><tr><br><td>汉字(字符)</td><br><td><spanclass="regex">[\u4e00-\u9fa5]</spanclass="regex"></td><br></tr><br><tr><br><td>中文及全角标点符号(字符)</td><br><td><spanclass="regex">[\u3000-\u301e\ufe10-\ufe19\ufe30-\ufe44\ufe50-\ufe6b\uff01-\uffee]</spanclass="regex"></td><br></tr><br><tr><br><td>中国大陆固定电话号码</td><br><td><spanclass="regex">(\d{4}-|\d{3}-)?(\d{8}|\d{7})</spanclass="regex"></td><br></tr><br><tr><br><td>中国大陆手机号码</td><br><td><spanclass="regex">1\d{10}</spanclass="regex"></td><br></tr><br><tr><br><td>中国大陆邮政编码</td><br><td><spanclass="regex">[1-9]\d{5}</spanclass="regex"></td><br></tr><br><tr><br><td>中国大陆身份证号(15位或18位)</td><br><td><spanclass="regex">\d{15}(\d\d[0-9xX])?</spanclass="regex"></td><br></tr><br><tr><br><td>非负整数(正整数或零)</td><br><td><spanclass="regex">\d+</spanclass="regex"></td><br></tr><br><tr><br><td>正整数</td><br><td><spanclass="regex">[0-9]<em>[1-9][0-9]</em></spanclass="regex"></td><br></tr><br><tr><br><td>负整数</td><br><td><spanclass="regex">-[0-9]<em>[1-9][0-9]</em></spanclass="regex"></td><br></tr><br><tr><br><td>整数</td><br><td><spanclass="regex">-?\d+</spanclass="regex"></td><br></tr><br><tr><br><td>小数</td><br><td><spanclass="regex">(-?\d+)(.\d+)?</spanclass="regex"></td><br></tr><br><tr><br><td>不包含abc的单词</td><br><td><spanclass="regex">\b((?!abc)\w)+\b</spanclass="regex"></td><br></tr><br></table>
